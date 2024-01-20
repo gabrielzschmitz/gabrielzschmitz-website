@@ -1,0 +1,158 @@
+:root {
+  --background: #0d0d0d;
+  --background-lighter: #0f0f0f;
+  --background-alt: #b3b3b3;
+  --foreground: #e6e6e6;
+  --border: #b3b3b3;
+  --black: rgba(255, 255, 255, 0);
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  --x: 0px;
+  --y: 0px;
+  --dot-bg: var(--background);
+  --dot-color: var(--foreground);
+  --dot-size: 1px;
+  --dot-space: 42px;
+  background:
+    linear-gradient(
+        90deg,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 99.5%
+      )
+      center / var(--dot-space) var(--dot-space),
+    linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 99.5%
+      )
+      center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+  background-position: var(--x) var(--y);
+  transition:
+    var(--x) 1s ease,
+    var(--y) 1s ease;
+  color: var(--foreground);
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: var(--foreground);
+}
+
+a:hover {
+  color: var(--background-alt);
+}
+
+a:active {
+  color: var(--background-alt);
+}
+
+.middle-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+nav {
+  background: var(--background-lighter);
+  font-size: 15px;
+  display: flex;
+  min-height: 6vh;
+  max-height: 6vh;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  padding: 15px 15px 0px 15px;
+  width: 100%;
+}
+
+.logo {
+  margin-top: -15px;
+  text-align: left;
+}
+
+.navitem {
+  display: flex;
+  text-align: right;
+  font-size: 20px;
+  margin: 10px;
+}
+
+#resume {
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+#contacts {
+  height: 35px;
+  width: 100px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+#contacts:hover {
+  border: 1px solid var(--border);
+  background: var(--border);
+}
+
+.contacts {
+  padding: 0.5vw;
+}
+
+.contacts:hover {
+  color: var(--background);
+}
+
+footer {
+  background: var(--background-lighter);
+  font-size: 15px;
+  display: flex;
+  min-height: 5.5vh;
+  max-height: 5.5vh;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  padding: 0px 30px 15px 30px;
+  width: 100%;
+}
+
+.copyright {
+  color: var(--background-alt);
+  text-align: left;
+}
+
+.copyright a {
+  color: var(--background-alt);
+}
+
+.copyright a:hover {
+  color: var(--foreground);
+}
+
+.copyright a:active {
+  color: var(--background-alt);
+}
+
+.socials a {
+  margin-left: 10px;
+  font-size: 20px;
+  text-align: right;
+}
