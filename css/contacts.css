@@ -1,22 +1,51 @@
 .middle-container {
-  min-height: 90vh;
-  max-height: 90vh;
+  height: 90vh;
+}
+
+header {
+  position: relative;
+  margin: 2rem 0 2.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.5rem;
+}
+
+#contacts {
+  border: 1px solid var(--border);
+  background: var(--border);
+}
+
+#contacts:hover {
+  border: 1px solid var(--foreground);
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.contacts {
+  color: var(--background);
+}
+
+.contacts:hover {
+  color: var(--foreground);
+}
+
+#form {
+  position: relative;
+  width: 16rem;
+  margin: 0 auto 0 auto;
 }
 
 input {
   font-family: "Lato", sans-serif;
-  font-size: 0.875em;
-  width: 470px;
-  height: 50px;
-  padding: 0px 15px 0px 15px;
-
+  font-size: 0.875rem;
+  width: 12.5rem;
+  height: 1rem;
+  padding: 1rem 1.5rem 1rem 1.5rem;
   background: transparent;
   outline: none;
   color: var(--foreground);
-
   border: solid 1px var(--background-alt);
-  border-bottom: none;
-
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -29,25 +58,19 @@ input:hover {
 }
 
 textarea {
-  width: 470px;
-  max-width: 470px;
-  height: 110px;
-  max-height: 110px;
-  padding: 15px;
-
+  width: 12.5rem;
+  height: 8rem;
+  padding: 1.5rem;
   background: transparent;
   outline: none;
-
   color: var(--foreground);
   font-family: "Lato", sans-serif;
-  font-size: 0.875em;
-
   border: solid 1px var(--background-alt);
-
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
+  resize: none;
 }
 
 textarea:hover {
@@ -56,10 +79,11 @@ textarea:hover {
 }
 
 #submit {
-  width: 470px;
+  width: 15.6rem;
+  height: 1rem;
 
-  padding: 0;
-  margin: -8px 0px 0px 0px;
+  margin-top: -0.38rem;
+  padding-bottom: 2rem;
 
   font-family: "Lato", sans-serif;
   font-size: 0.875em;
@@ -67,6 +91,8 @@ textarea:hover {
 
   outline: none;
   cursor: pointer;
+  text-align: center;
+  align-items: center;
 
   border: solid 1px var(--background-alt);
   border-top: none;
@@ -75,42 +101,11 @@ textarea:hover {
 #submit:hover {
   color: var(--background);
 }
-header {
-  position: relative;
-  margin: 100px 0 25px 0;
-  font-size: 35px;
-  font-weight: 500;
-  text-align: center;
-  letter-spacing: 5px;
-}
-
-#form {
-  position: relative;
-  width: 500px;
-  margin: 50px auto 100px auto;
-}
-
-#contacts-pressed {
-  height: 35px;
-  width: 100px;
-  text-align: center;
-  border: 1px solid var(--border);
-  background: var(--border);
-}
-
-.contacts-pressed {
-  color: var(--background);
-  padding: 0.5vw;
-}
-
-.contacts-pressed:hover {
-  color: var(--background);
-}
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
   color: var(--background-alt);
-  font-size: 0.875em;
+  font-size: 0.875rem;
 }
 
 input:focus::-webkit-input-placeholder,
@@ -121,7 +116,7 @@ textarea:focus::-webkit-input-placeholder {
 input::-moz-placeholder,
 textarea::-moz-placeholder {
   color: var(--background-alt);
-  font-size: 0.875em;
+  font-size: 0.875rem;
 }
 
 input:focus::-moz-placeholder,
@@ -132,7 +127,7 @@ textarea:focus::-moz-placeholder {
 input::placeholder,
 textarea::placeholder {
   color: var(--background-alt);
-  font-size: 0.875em;
+  font-size: 0.875rem;
 }
 
 input:focus::placeholder,
@@ -143,7 +138,7 @@ textarea::focus:placeholder {
 input::-ms-placeholder,
 textarea::-ms-placeholder {
   color: var(--background-alt);
-  font-size: 0.875em;
+  font-size: 0.875rem;
 }
 
 input:focus::-ms-placeholder,
@@ -154,7 +149,7 @@ textarea:focus::-ms-placeholder {
 input:hover::-webkit-input-placeholder,
 textarea:hover::-webkit-input-placeholder {
   color: var(--background);
-  font-size: 0.875em;
+  font-size: 0.875rem;
 }
 
 input:hover:focus::-webkit-input-placeholder,
@@ -165,7 +160,7 @@ textarea:hover:focus::-webkit-input-placeholder {
 input:hover::-moz-placeholder,
 textarea:hover::-moz-placeholder {
   color: var(--background);
-  font-size: 0.875em;
+  font-size: 0.875rem;
 }
 
 input:hover:focus::-moz-placeholder,
@@ -176,7 +171,7 @@ textarea:hover:focus::-moz-placeholder {
 input:hover::placeholder,
 textarea:hover::placeholder {
   color: var(--background);
-  font-size: 0.875em;
+  font-size: 0.875rem;
 }
 
 input:hover:focus::placeholder,
@@ -187,7 +182,7 @@ textarea:hover:focus::placeholder {
 input:hover::placeholder,
 textarea:hover::placeholder {
   color: var(--background);
-  font-size: 0.875em;
+  font-size: 0.875rem;
 }
 
 input:hover:focus::-ms-placeholder,

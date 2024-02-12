@@ -1,84 +1,87 @@
-body {
-  overflow: scroll;
-}
-
-nav {
-  z-index: 1;
-}
-
-footer {
-  z-index: 1;
-}
-
-#resume-pressed {
+#resume {
   color: var(--background-alt);
-  margin-right: 15px;
-  margin-bottom: 15px;
-}
-
-.resume {
-  letter-spacing: 5px;
-  font-size: 35px;
-  margin-bottom: 1em;
 }
 
 .middle-container {
   width: 60%;
-  padding-top: 5.5em;
+  padding-top: 6vh;
   margin: auto;
 }
 
+.resume {
+  margin: 2rem 0 0rem 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.5rem;
+}
+
 .aboutme {
-  border-color: rgba(230, 230, 230, 0.8);
-  border-top-style: solid;
-  border-width: 1px;
-  margin-bottom: 2em;
+  width: 100%;
+  margin-bottom: 0rem;
+  padding: 1rem;
 }
 
 .me {
-  padding: 25px;
-  height: 50%;
+  min-height: 300px;
+  padding: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-color: rgba(230, 230, 230, 0.8);
+  margin-top: 1rem;
+  border-top-style: solid;
+  border-width: 1px;
 }
 
 .me h2 {
-  text-align: left;
-  margin: 25px;
-  letter-spacing: 2.5px;
-  font-size: 30px;
+  font-size: 1.5rem;
+  margin: 2rem 0 2rem 0;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.5rem;
 }
 
 .me p {
+  float: left;
   text-align: left;
   justify-content: left;
-  align-items: left;
-  margin-top: 50px;
+  margin: 0;
+  margin-top: 2.5rem;
+  word-wrap: break-word;
 }
 
 .infos {
-  margin-top: 4em;
-  padding: 10px;
-  padding-left: 10%;
-  height: 50%;
+  float: left;
+  margin: 0;
+  margin-top: 0;
+  padding: 0.5rem;
+  padding-top: 0rem;
+  padding-bottom: 0;
+  padding-left: 3rem;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .info-column {
-  padding-right: 25px;
+  padding-right: 1rem;
   text-align: left;
-  flex: 33%;
+  height: 5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .info-column p {
-  height: 35%;
+  height: 2rem;
 }
 
 .photo-wrapper {
   position: relative;
+  float: left;
   width: 200px;
   height: 200px;
-  float: left;
-  margin: 10px;
-  margin-right: 20px;
+  margin: 0;
+  margin-bottom: 2rem;
+  margin-right: 2rem;
 }
 
 .circle {
@@ -116,30 +119,34 @@ footer {
 
 .education-experience {
   border-color: rgba(230, 230, 230, 0.8);
+  width: 100%;
+  margin-top: 1rem;
   border-top-style: solid;
   border-width: 1px;
-  width: 100%;
   text-align: left;
 }
 
 .education {
-  width: 100%;
-  margin: 25px;
+  padding: 3rem;
+  padding-top: 1rem;
 }
 
 .education h2 {
-  margin: 35px;
-  letter-spacing: 2.5px;
-  font-size: 30px;
+  font-size: 1.5rem;
+  margin: 2rem 0 2rem 0;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.5rem;
 }
 
 #education-1 {
-  margin-bottom: 25px;
+  margin-bottom: 2rem;
 }
 
-.footer-spacer {
-  display: inline-block;
-  height: 5.5em;
+@media only screen and (min-width: 427px) {
+  .me p {
+    float: none;
+  }
 }
 
 @media only screen and (max-width: 1200px) {
