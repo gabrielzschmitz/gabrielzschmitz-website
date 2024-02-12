@@ -180,12 +180,12 @@ footer {
 }
 
 .fa-heart {
-  margin: 0.2rem;
+  margin: 0.25rem;
   color: var(--background-alt);
 }
 
 .copyright a {
-  padding-left: 0.2rem;
+  padding-left: 0.25rem;
   color: var(--background-alt);
 }
 
