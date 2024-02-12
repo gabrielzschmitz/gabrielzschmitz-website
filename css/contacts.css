@@ -1,5 +1,8 @@
 .middle-container {
   height: 90vh;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
 }
 
 header {
@@ -31,15 +34,23 @@ header {
 }
 
 #form {
-  position: relative;
-  width: 16rem;
-  margin: 0 auto 0 auto;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+input,
+textarea,
+#submit {
+  display: block; /* Display the elements as block-level elements */
+  margin: 0 auto auto; /* Center the elements horizontally within the parent */
 }
 
 input {
+  width: 12.5rem;
   font-family: "Lato", sans-serif;
   font-size: 0.875rem;
-  width: 12.5rem;
   height: 1rem;
   padding: 1rem 1.5rem 1rem 1.5rem;
   background: transparent;
@@ -188,4 +199,14 @@ textarea:hover::placeholder {
 input:hover:focus::-ms-placeholder,
 textarea:hover::focus:-ms-placeholder {
   color: var(--background);
+}
+
+@media only screen and (min-width: 850px) {
+  input,
+  textarea {
+    width: 20rem;
+  }
+  #submit {
+    width: 23.1rem;
+  }
 }
