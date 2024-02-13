@@ -43,25 +43,25 @@ body {
   --y: 0px;
   --dot-bg: var(--background);
   --dot-color: var(--foreground);
-  --dot-size: 1px;
-  --dot-space: 42px;
+  --dot-size: 0.08rem;
+  --dot-space: 2rem;
   background:
     linear-gradient(
         90deg,
         var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-        transparent 99.5%
+        transparent 100%
       )
       center / var(--dot-space) var(--dot-space),
     linear-gradient(
         var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-        transparent 99.5%
+        transparent 100%
       )
       center / var(--dot-space) var(--dot-space),
     var(--dot-color);
   background-position: var(--x) var(--y);
   transition:
-    var(--x) 1s ease,
-    var(--y) 1s ease;
+    var(--x) 1s ease-in-out,
+    var(--y) 1s ease-in-out;
   color: var(--foreground);
   display: flex;
   flex-direction: column;
