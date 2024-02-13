@@ -14,6 +14,13 @@ element.addEventListener("touchmove", (touch) => {
   updateCoordinates(touchX, touchY);
 });
 
+// Scroll event listener
+window.addEventListener("scroll", () => {
+  const scrollX = window.scrollX;
+  const scrollY = window.scrollY;
+  updateCoordinates(currentX, currentY - scrollY);
+});
+
 function updateCoordinates(x, y) {
   currentX = lerp(currentX, x, 0.001);
   currentY = lerp(currentY, y, 0.001);
