@@ -211,6 +211,7 @@ footer {
   width: 1vh;
   padding: 0.5rem;
   margin-right: 0.5rem;
+  aria-hidden: false;
 }
 
 @media only screen and (max-width: 600px) {
