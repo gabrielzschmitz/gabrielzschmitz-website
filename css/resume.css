@@ -125,14 +125,19 @@
   border-top-style: solid;
   border-width: 1px;
   text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
-.education {
-  padding: 3rem;
-  padding-top: 1rem;
+.education,
+.experience {
+  width: calc(50% - 1rem);
+  margin-bottom: 2rem;
 }
 
-.education h2 {
+.education h2,
+.experience h2 {
   font-size: 1.5rem;
   margin: 2rem 0 2rem 0;
   font-weight: 500;
@@ -140,24 +145,39 @@
   letter-spacing: 0.5rem;
 }
 
-#education-1 {
-  margin-bottom: 2rem;
-}
-
 @media only screen and (min-width: 427px) {
   .me p {
     float: none;
   }
+  .education,
+  .experience {
+    width: 100%;
+  }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (min-width: 851px) {
+  .education,
+  .experience {
+    width: calc(50% - 1rem);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
   .middle-container {
     width: 80%;
+  }
+  .education,
+  .experience {
+    width: calc(50% - 1rem);
   }
 }
 
 @media only screen and (max-width: 850px) {
   .middle-container {
+    width: 100%;
+  }
+  .education,
+  .experience {
     width: 100%;
   }
 }
