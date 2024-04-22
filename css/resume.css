@@ -149,6 +149,9 @@
   .me p {
     float: none;
   }
+  .middle-container {
+    width: 100%;
+  }
   .education,
   .experience {
     width: 100%;
@@ -183,6 +186,9 @@
 }
 
 @media only screen and (max-width: 850px) {
+  .me p {
+    float: none;
+  }
   .middle-container {
     width: 100%;
   }
