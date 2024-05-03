@@ -3,25 +3,25 @@
 <html lang="en">
   <head>
     <script
-        src="https://kit.fontawesome.com/238a5231e5.js"
-        crossorigin="anonymous"
-        ></script>
+      src="https://kit.fontawesome.com/238a5231e5.js"
+      crossorigin="anonymous"
+    ></script>
 
     <link href="./css/styles.css" rel="stylesheet" />
-    <link href="./css/index.css" rel="stylesheet" />
+    <link href="./css/contact.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Me</title>
+    <title>Contact</title>
     <link
-        rel="icon"
-        type="image/x-icon"
-        href="./images/GZS-LIGHT-NOBACKGROUND.ico"
-        />
+      rel="icon"
+      type="image/x-icon"
+      href="./images/GZS-LIGHT-NOBACKGROUND.ico"
+    />
 
     <meta
-        name="description"
-        content="About gabrielzschmitz, a computer engineer based in Toledo, Paraná, Brazil."
-        />
+      name="description"
+      content="Fill out the form to send a message directly to gabrielzschmitz."
+    />
   </head>
 
   <body>
@@ -44,7 +44,7 @@
           <div class="underline-buttom">
             <a class="resume" href="./resume.html">Resume</a>
           </div>
-          <div class="underline-buttom">
+          <div class="selected-underline-buttom">
             <a class="contact" href="./contact.html">Contact</a>
           </div>
         </div>
@@ -52,10 +52,30 @@
     </nav>
 
     <div class="middle-container">
-      <h1 class="me">COMPUTER ENGINEER</h1>
-      <h2 class="typing-erase">
-        I love to learn new technologies to create new experiences to people.
-      </h2>
+      <header>CONTACT ME</header>
+      <form
+        id="form"
+        class="topBefore"
+        action="https://formsubmit.co/ae070d7cdb398cc01603a15ff262fb05"
+        method="POST"
+      >
+        <input id="name" type="text" name="name" placeholder="NAME" required />
+        <input
+          id="email"
+          type="email"
+          name="email"
+          placeholder="E-MAIL"
+          required
+        />
+        <textarea
+          id="message"
+          name="message"
+          type="text"
+          placeholder="MESSAGE"
+          required
+        ></textarea>
+        <input id="submit" type="submit" value="GO!" />
+      </form>
     </div>
 
     <footer>
