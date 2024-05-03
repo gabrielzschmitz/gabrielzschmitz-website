@@ -22,8 +22,8 @@ window.addEventListener("scroll", () => {
 });
 
 function updateCoordinates(x, y) {
-  currentX = lerp(currentX, x, 0.0025);
-  currentY = lerp(currentY, y, 0.0025);
+  currentX = lerp(currentX, x, 0.0015);
+  currentY = lerp(currentY, y, 0.0015);
 
   element.style.setProperty("--x", currentX + "px");
   element.style.setProperty("--y", currentY + "px");
