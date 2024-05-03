@@ -1,15 +1,22 @@
+nav {
+  height: 15vh;
+}
+
+body {
+  height: auto;
+}
+
 #resume {
   color: var(--background-alt);
 }
 
 .middle-container {
   width: 60%;
-  padding-top: 6vh;
-  padding-bottom: 6vh;
   margin: auto;
+  height: auto;
 }
 
-.resume {
+.resume-tittle {
   margin: 2rem 0 0rem 0;
   font-size: 1.5rem;
   font-weight: 500;
@@ -24,12 +31,11 @@
 }
 
 .me {
-  min-height: 300px;
+  margin-top: 1rem;
   padding: 3rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   border-color: rgba(230, 230, 230, 0.8);
-  margin-top: 1rem;
   border-top-style: solid;
   border-width: 1px;
 }
@@ -43,46 +49,33 @@
 }
 
 .me p {
-  float: left;
-  text-align: left;
-  justify-content: left;
-  margin: 0;
-  margin-top: 2.5rem;
+  text-align: center;
+  margin: 2.5rem 0 0 0;
   word-wrap: break-word;
 }
 
 .infos {
-  float: left;
   margin: 0;
-  margin-top: 0;
-  padding: 0.5rem;
-  padding-top: 0rem;
-  padding-bottom: 0;
-  padding-left: 4rem;
-  display: flex;
-  flex-wrap: wrap;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33%;
 }
 
 .info-column {
   padding-right: 1rem;
   text-align: left;
-  height: 5rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
-.info-column p {
-  height: 2rem;
-}
-
 .photo-wrapper {
   position: relative;
-  float: left;
-  width: 200px;
-  height: 200px;
-  margin: 0;
-  margin-bottom: 2rem;
-  margin-right: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(15rem + 8px);
+  height: calc(15rem + 8px);
+  margin: 0 auto 2rem;
 }
 
 .circle {
@@ -99,12 +92,11 @@
 .photo {
   position: absolute;
   color: var(--foreground);
-  width: 192px;
-  height: 192px;
+  width: 15rem;
+  height: 15rem;
   border-radius: 50%;
-  border-style: none;
-  top: 100px;
-  left: 100px;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 
@@ -146,11 +138,8 @@
 }
 
 @media only screen and (min-width: 427px) {
-  .me p {
-    float: none;
-  }
   .middle-container {
-    width: 100%;
+    width: 96%;
   }
   .education,
   .experience {
@@ -186,11 +175,8 @@
 }
 
 @media only screen and (max-width: 850px) {
-  .me p {
-    float: none;
-  }
   .middle-container {
-    width: 100%;
+    width: 96%;
   }
   .education,
   .experience {

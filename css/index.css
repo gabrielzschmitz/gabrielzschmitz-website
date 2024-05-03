@@ -1,18 +1,23 @@
-.middle-container {
-  width: 100vw;
-  min-height: 90vh;
-  max-height: 90vh;
-}
-
 .me {
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  font-weight: 800;
   letter-spacing: 0.2rem;
-  font-size: 1.5rem;
+  font-size: 3.5rem;
+  margin: 0;
+  margin-bottom: 0.1rem;
 }
 
 .middle-container h2 {
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
   color: var(--background-alt);
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 600;
   width: 0;
   max-width: max-content;
   overflow: hidden;
@@ -23,7 +28,7 @@
 
 .typing-erase {
   animation:
-    typing-erase 4s steps(200, end) infinite,
+    typing-erase 5s steps(200, end) infinite,
     blink-caret 0.5s step-end infinite;
   animation-delay: 0s;
 }
