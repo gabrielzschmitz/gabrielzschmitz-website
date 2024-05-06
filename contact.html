@@ -40,7 +40,10 @@
             GABRIELZSCHMITZ
           </a>
         </div>
-        <div class="nav-items">
+        <div class="nav-container-right">
+          <div class="underline-buttom">
+            <a class="portfolio" href="./portfolio.html">Portfolio</a>
+          </div>
           <div class="underline-buttom">
             <a class="resume" href="./resume.html">Resume</a>
           </div>
@@ -59,22 +62,23 @@
         action="https://formsubmit.co/ae070d7cdb398cc01603a15ff262fb05"
         method="POST"
       >
-        <input id="name" type="text" name="name" placeholder="NAME" required />
-        <input
+      <input id="name" type="text" name="name" placeholder="NAME" autocomplete="name" required />
+      <input
           id="email"
           type="email"
           name="email"
           placeholder="E-MAIL"
+          autocomplete="email"
           required
-        />
-        <textarea
+          />
+      <textarea
           id="message"
           name="message"
           type="text"
           placeholder="MESSAGE"
           required
-        ></textarea>
-        <input id="submit" type="submit" value="GO!" />
+          ></textarea>
+      <input id="submit" type="submit" value="GO!" />
       </form>
     </div>
 
