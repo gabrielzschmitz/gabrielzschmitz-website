@@ -1,9 +1,10 @@
 nav {
   height: 15vh;
+  margin-top: -0.6vh;
 }
 
 body {
-  height: auto;
+  height: min-content;
 }
 
 #resume {
@@ -16,7 +17,7 @@ body {
   height: auto;
 }
 
-.resume-tittle {
+.title {
   margin: 2rem 0 0rem 0;
   font-size: 1.5rem;
   font-weight: 500;
@@ -73,8 +74,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc(15rem + 8px);
-  height: calc(15rem + 8px);
+  width: calc(12.5rem + 8px);
+  height: calc(12.5rem + 8px);
   margin: 0 auto 2rem;
 }
 
@@ -92,8 +93,8 @@ body {
 .photo {
   position: absolute;
   color: var(--foreground);
-  width: 15rem;
-  height: 15rem;
+  width: 12.5rem;
+  height: 12.5rem;
   border-radius: 50%;
   top: 50%;
   left: 50%;

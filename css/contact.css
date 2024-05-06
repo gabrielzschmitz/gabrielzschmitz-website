@@ -30,7 +30,7 @@ header {
   display: flex;
   flex-direction: column; /* Stack items vertically */
   align-items: center; /* Center items horizontally */
-  margin: 0 auto; /* Center the form horizontally */
+  margin: 0 auto 2rem auto; /* Center the form horizontally */
 }
 
 input,
@@ -200,5 +200,30 @@ textarea:hover::focus:-ms-placeholder {
   }
   #submit {
     width: 23.1rem;
+  }
+  html,
+  body {
+    height: auto;
+  }
+  nav {
+    height: 15vh;
+    margin-top: -0.6vh;
+  }
+  .middle-container {
+    height: calc(100vh - 34vh);
+  }
+}
+
+@media only screen and (max-height: 850px) {
+  html,
+  body {
+    height: auto;
+  }
+  nav {
+    height: 15vh;
+    margin-top: -0.6vh;
+  }
+  .middle-container {
+    height: auto;
   }
 }

@@ -23,7 +23,6 @@
   overflow: hidden;
   border-right: 1px solid var(--border);
   white-space: nowrap;
-  margin: 0;
 }
 
 .typing-erase {
@@ -58,5 +57,15 @@
   }
   50% {
     border-color: var(--border);
+  }
+}
+
+@media only screen and (max-height: 430px) {
+  html,
+  body {
+    height: 100vh;
+  }
+  .middle-container {
+    height: calc(100vh - 34vh);
   }
 }

@@ -118,7 +118,7 @@ nav {
   text-align: left;
 }
 
-.nav-items {
+.nav-container-right {
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -128,7 +128,8 @@ nav {
   margin-right: 1rem;
 }
 
-.nav-items a {
+.nav-container-right a {
+  font-weight: 500;
   color: inherit;
 }
 
@@ -203,6 +204,7 @@ footer {
   column-gap: 1rem;
   justify-content: center;
   text-align: center;
+  font-weight: 500;
 }
 
 .copyright {
@@ -219,7 +221,17 @@ footer {
   margin: 0 0.1rem 0 0.1rem;
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-height: 430px) {
+  html,
+  body {
+    height: min-content;
+  }
+  .middle-container {
+    height: min-content;
+  }
+}
+
+@media only screen and (max-width: 430px) {
   html,
   body {
     font-size: 10px;
@@ -229,7 +241,7 @@ footer {
   }
 }
 
-@media only screen and (min-width: 425px) {
+@media only screen and (min-width: 430px) {
   html,
   body {
     font-size: 12px;
