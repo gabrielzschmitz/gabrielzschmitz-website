@@ -21,7 +21,8 @@
 }
 
 .construction-guy {
-  height: 75%;
+  max-width: 70vw;
+  max-height: 70%;
   border-style: solid;
   border-width: 0.5rem;
   border-color: var(--border);
