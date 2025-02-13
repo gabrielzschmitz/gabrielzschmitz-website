@@ -281,7 +281,8 @@ body {
 
 #EducationItem {
   margin-bottom: 1.5rem;
-  padding: 1rem;
+  padding: 0.5rem;
+  padding-left: 12px;
   border-left: 3px solid white;
   transition: all 0.3s ease;
 }
