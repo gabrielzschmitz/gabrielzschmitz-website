@@ -3,9 +3,15 @@
 */
 const mouse_glow = document.getElementById("MouseGlow");
 window.addEventListener("mousemove", (event) => {
+  const scroll_x = window.scrollX || window.pageXOffset;
+  const scroll_y = window.scrollY || window.pageYOffset;
+
+  const mouse_x = event.pageX;
+  const mouse_y = event.pageY;
+
   mouse_glow.animate(
-    { left: `${event.clientX}px`, top: `${event.clientY}px` },
-    { duration: 3500, fill: "forwards" }
+    {left: `${mouse_x}px`, top: `${mouse_y}px`},
+    {duration: 3500, fill: "forwards"}
   );
 });
 
