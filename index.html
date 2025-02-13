@@ -1,90 +1,245 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <script
-        src="https://kit.fontawesome.com/238a5231e5.js"
-        crossorigin="anonymous"
-        ></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="./css/styles.css" rel="stylesheet" />
-    <link href="./css/index.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link rel="icon" type="image/x-icon" href="./images/GZS-LIGHT-NOBACKGROUND.ico"/>
     <title>gabrielzschmitz</title>
-    <link
-        rel="icon"
-        type="image/x-icon"
-        href="./images/GZS-LIGHT-NOBACKGROUND.ico"
-        />
 
-    <meta
-        name="description"
-        content="About gabrielzschmitz, a computer engineer based in Toledo, Paraná, Brazil."
-        />
+    <script src="https://kit.fontawesome.com/238a5231e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/main.css">
   </head>
 
   <body>
-    <script src="./js/background.js"></script>
+    <div id="MainDiv">
+      <div id="MouseGlow"></div>
+      <div id="MouseGlowBlur"></div>
 
-    <nav>
-      <div class="nav-container">
+      <div id="ContentWrapper">
+        <div id="RightPanel">
+          <div id="Section1" class="Section">
+            <h2>About</h2>
+            <p>
+            I’ve been coding since I was 14, starting with Minecraft mods in Java,
+            which eventually led me down the rabbit hole of low-level programming
+            with C and tinkering with simple NCurses apps.<br><br>
 
-        <div class="nav-container-left">
-          <a href="./index.html">
-            <img
-                class="logo"
-                src="./images/GZS-LIGHT-NOBACKGROUND.svg"
-                alt="LOGO"
-                />
-            GABRIELZSCHMITZ
-          </a>
+            Studying computer engineering at UTFPR deepened my love for
+            programming, and now I’m comfortable with C, C++, Python, Go, Java,
+            and JavaScript, along with tools like LaTeX, PostgreSQL, Redis,
+            OpenCV, NumPy, and Docker.
+            </p>
+          </div>
+
+          <div id="Section2" class="Section">
+            <h2>Projects</h2>
+            <p>
+            Below are a few of the projects I’ve developed over my 6+ years of
+            coding experience. This selection highlights some of my work, though
+            many other projects didn’t make the list.
+            </p>
+
+            <div class="ProjectContainer">
+              <a href="https://github.com/gabrielzschmitz/Tomato.C" target="_blank" class="Project">
+                <p id="p1" data-value="Tomato.C ">Tomato.C </p>
+                <p data-value="Pomodoro timer written in pure C">Pomodoro timer written in pure C</p>
+                <div class="Separator"></div>
+                <p data-value="2022">2022</p>
+              </a>
+              <a href="https://github.com/gabrielzschmitz/Pendulum-Tracker" target="_blank" class="Project">
+                <p id="p1" data-value="Pendulum Tracker ">Pendulum Tracker </p>
+                <p data-value="Real pendulum webcam tracker">Real pendulum webcam tracker</p>
+                <div class="Separator"></div>
+                <p data-value="2024">2024</p>
+              </a>
+              <a href="https://github.com/gabrielzschmitz/zkpop-go" target="_blank" class="Project">
+                <p id="p1" data-value="ZKPop Go ">ZKPop Go </p>
+                <p data-value="Golang wrapper for KEM-NIZKPoP">Golang wrapper for KEM-NIZKPoP</p>
+                <div class="Separator"></div>
+                <p data-value="2024">2024</p>
+              </a>
+              <a href="https://github.com/gabrielzschmitz/research" target="_blank" class="Project">
+                <p id="p1" data-value="Research ">Research </p>
+                <p data-value="Research related resources by me">Research related resources by me</p>
+                <div class="Separator"></div>
+                <p data-value="2024">2024</p>
+              </a>
+              <a href="https://github.com/gabrielzschmitz/bujoshell" target="_blank" class="Project">
+                <p id="p1" data-value="Bujoshell ">Bujoshell </p>
+                <p data-value="Bullet journal app for the terminal">Bullet journal app for the terminal</p>
+                <div class="Separator"></div>
+                <p data-value="2023">2023</p>
+              </a>
+              <a href="https://github.com/gabrielzschmitz/BessyAdventure" target="_blank" class="Project">
+                <p id="p1" data-value="BessyAdventure ">BessyAdventure </p>
+                <p data-value="Simple text RPG written in Prolog">Simple text RPG written in Prolog</p>
+                <div class="Separator"></div>
+                <p data-value="2022">2022</p>
+              </a>
+            </div>
+          </div>
+
+          <div id="Section3" class="Section">
+            <h2>Experience</h2>
+            <p>
+            Throughout my journey in software development and research, I’ve had
+            the opportunity to work on diverse projects, ranging from academic
+            research to industry applications. Below is a timeline of my
+            professional and research experiences, showcasing my contributions
+            across different technologies and domains.
+            </p>
+
+            <div class="ExperienceContainer">
+              <ul class="ExperienceItem">
+                <li>
+                  <div class="ExpericenceTitle">Scientific Research Grant RNP - UTFPR</div>
+                  <div class="ExpericenceTimePlace">November 2024 - November 2025 | Toledo, Brazil</div>
+                  <p>
+                  Researching post-quantum cryptography integration in blockchain,
+                  focusing on efficiency analysis and optimizing signature sizes
+                  for long-term security.
+                  </p>
+                </li>
+                <li>
+                  <div class="ExpericenceTitle">Scientific Research Grant PIBIC - UTFPR</div>
+                  <div class="ExpericenceTimePlace">September 2024 - November 2024 | Toledo, Brazil</div>
+                  <p>
+                  Researched KEMTLS and Post-Quantum TLS, implementing bindings
+                  for the KEM-NIZKPoP library from C to Go to enhance secure key
+                  exchange.
+                  </p>
+                </li>
+                <li>
+                  <div class="ExpericenceTitle">Junior Software Developer - NeticShard</div>
+                  <div class="ExpericenceTimePlace">April 2024 - August 2024 | LATAM, Homeoffice</div>
+                  <p>
+                  Developed and optimized back-end APIs using Go and Echo V4,
+                  managed PostgreSQL migrations, integrated Valkey for caching,
+                  and contributed to Docker-based deployments and HTMX-powered
+                  endpoints.
+                  </p>
+                </li>
+                <li>
+                  <div class="ExpericenceTitle">Undergraduate Research Assistant - UTFPR</div>
+                  <div class="ExpericenceTimePlace">July 2023 - Present | Toledo, Brazil</div>
+                  <p>
+                  Researched post-quantum cryptography and lattice-based
+                  cryptosystems, developed a Goldreich–Goldwasser–Halevi (GGH)
+                  implementation.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="Section4" class="Section">
+            <h2>Education</h2>
+            <p>
+            Here are some of the academic programs and certifications I have
+            completed throughout my studies. This selection showcases key
+            milestones in my education, covering both formal degrees and
+            specialized courses in computer science.
+            </p>
+
+            <div id="EducationContainer">
+              <div id="EducationItem">
+                <div class="ExpericenceTime">2022-2027</div>
+                <div class="ExpericencePlace">Federal University of Technology - Paraná</div>
+                <a href="https://www.utfpr.edu.br/campus/toledo" target="blank">
+                  Bachelor's Degree in Computer Engineering
+                  <div class="fa-solid fa-building-columns"></div>
+                </a>
+              </div>
+              <div id="EducationItem">
+                <div class="ExpericenceTime">2024</div>
+                <div class="ExpericencePlace">Harvard University</div>
+                <a href="./certificates/CS50x.pdf" target="blank">
+                  CS50x: Introduction to Computer Science
+                  <div class="fa-solid fa-award"></div>
+                </a>
+              </div>
+              <div id="EducationItem">
+                <div class="ExpericenceTime">2024</div>
+                <div class="ExpericencePlace">Princeton University</div>
+                <a href="./certificates/algorithms-coursera.pdf" target="blank">
+                  Algorithms, Part I & II
+                  <div class="fa-solid fa-award"></div>
+                </a>
+              </div>
+              <div id="EducationItem">
+                <div class="ExpericenceTime">2024</div>
+                <div class="ExpericencePlace">Linux Foundation</div>
+                <a href="./certificates/LFS171.pdf" target="blank">
+                  Introduction to Hyperledger Blockchain Technologies
+                  <div class="fa-solid fa-award"></div>
+                </a>
+              </div>
+              <div id="EducationItem">
+                <div class="ExpericenceTime">2024</div>
+                <div class="ExpericencePlace">Higher School of Networks</div>
+                <a href="./certificates/hyperledgerfagric-esr.pdf" target="blank">
+                  Hyperledger Fabric
+                  <div class="fa-solid fa-award"></div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <p id="Copyright">
+          Copyright
+          <a style="color: inherit; text-decoration: none;" class="fa-regular fa-copyright fa-xs" href="https://www.instagram.com/gabriel_santos_schmitz/"></a>
+          2025 - Gabriel dos Santos Schmitz - All Rights Reserved
+          </p>
         </div>
-        <div class="nav-container-right">
-          <div class="underline-buttom">
-            <a class="portfolio" href="./portfolio.html">Portfolio</a>
-          </div>
-          <div class="underline-buttom">
-            <a class="resume" href="./resume.html">Resume</a>
-          </div>
-          <div class="underline-buttom">
-            <a class="contact" href="./contact.html">Contact</a>
+
+        <div id="LeftPanel">
+          <h1>gabrielzschmitz</h1>
+          <h2>Computer Engineer Based on Brazil</h2>
+          <p>
+          I enjoy low-level programming and cryptography,<br>
+          building fast and efficient systems.<br>
+          I love solving technical problems and<br>
+          creating practical solutions.
+          </p>
+
+          <nav class="NavContainer">
+            <div class="NavItem" DataSection="Section1">
+              <div class="NavItemDot"></div>
+              <span class="NavItemText">About</span>
+            </div>
+            <div class="NavItem" DataSection="Section2">
+              <div class="NavItemDot"></div>
+              <span class="NavItemText">Projects</span>
+            </div>
+            <div class="NavItem" DataSection="Section3">
+              <div class="NavItemDot"></div>
+              <span class="NavItemText">Experience</span>
+            </div>
+            <div class="NavItem" DataSection="Section4">
+              <div class="NavItemDot"></div>
+              <span class="NavItemText">Education</span>
+            </div>
+          </nav>
+
+          <div id="SocialsContainer">
+            <a href="https://github.com/gabrielzschmitz" target="_blank" title="Github">
+              <img id="SocialIcons" src="./images/githubicon.png" alt="Github">
+            </a>
+            <a href="https://www.linkedin.com/in/gabrielzschmitz" target="_blank" title="LinkedIn">
+              <img id="SocialIcons" src="./images/linkedinicon.png" alt="LinkedIn">
+            </a>
+            <a href="mailto:gabrielzschmitz@protonmail.com" target="_blank" title="Email">
+              <img id="SocialIcons" src="./images/emailicon.png" alt="Email">
+            </a>
+            <a href="./resume.pdf" target="_blank" title="CV">
+              <img id="SocialIcons" src="./images/cvicon.png" alt="CV">
+            </a>
           </div>
         </div>
       </div>
-    </nav>
-
-    <div class="middle-container">
-      <h1 class="me">COMPUTER ENGINEER</h1>
-      <h2 class="typing-erase">
-        I love to learn new technologies to create new experiences to people.
-      </h2>
     </div>
 
-    <footer>
-      <div class="footer-container">
-        <div class="socials">
-          <a
-              class="fa-brands fa-instagram"
-              href="https://www.instagram.com/gabriel_santos_schmitz/"
-              ></a>
-          <a
-              class="fa-brands fa-github"
-              href="https://github.com/gabrielzschmitz"
-              ></a>
-          <a
-              class="fa-brands fa-linkedin"
-              href="https://www.linkedin.com/in/gabrielzschmitz"
-              ></a>
-        </div>
-        <div class="copyright">
-          Copyright
-          <a
-              class="fa-regular fa-copyright fa-xs"
-              href="https://www.instagram.com/gabriel_santos_schmitz/"
-              ></a>
-          2024 - Gabriel dos Santos Schmitz - All Rights Reserved
-        </div>
-    </footer>
+    <script src="./js/main.js"></script>
   </body>
 </html>
