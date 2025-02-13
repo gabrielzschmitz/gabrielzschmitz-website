@@ -1,0 +1,460 @@
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/******************************************************************************/
+
+#MainDiv {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background-color: rgb(26, 26, 26);
+  transition: transform 0.5s ease-in-out;
+  transform: translateY(0%);
+}
+
+#MainDiv.hidden {
+  transform: translateY(100%);
+}
+
+.Section {
+  margin-bottom: 10vh;
+}
+
+/******************************************************************************/
+
+#LeftPanel {
+  width: 50vh;
+  height: 100%;
+  left: calc(50vw - 50vh);
+  position: absolute;
+  margin-top: 10vh;
+  pointer-events: none;
+}
+
+#RightPanel {
+  width: 50vh;
+  height: 100%;
+  position: absolute;
+  padding: 10vh calc(50vw - 50vh) 0 50vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#RightPanel::-webkit-scrollbar {
+  display: none;
+}
+
+/******************************************************************************/
+
+#MouseGlow {
+  width: 30vmax;
+  height: 30vmax;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  background-color: rgba(153, 153, 153, 0.25);
+  border-radius: 50%;
+}
+
+#MouseGlowBlur {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backdrop-filter: blur(12vmax);
+}
+
+/******************************************************************************/
+
+.NavContainer {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-100%);
+}
+
+.NavItem {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.NavItemDot {
+  width: 1.1vh;
+  height: 1.1vh;
+  border-radius: 50%;
+  background-color: gray;
+  transition: all 0.3s ease;
+}
+
+.NavItemText {
+  margin-left: 1.1vh;
+  font-size: 1.6vh;
+  color: gray;
+  transition: color 0.3s ease;
+}
+
+.NavItem.Active .NavItemDot {
+  background-color: white;
+  transform: scale(1.5);
+}
+
+.NavItem.Active .NavItemText {
+  color: white;
+}
+
+/******************************************************************************/
+
+#SocialsContainer {
+  position: absolute;
+  top: 80vh;
+  transform: translateY(-100%);
+  display: flex;
+  justify-content: flex-start;
+  gap: 2.5vh;
+}
+
+#SocialsContainer a {
+  transform: scale(1);
+  filter: invert(100%) brightness(50%);
+  transition: all 0.15s ease;
+  pointer-events: auto;
+}
+
+#SocialsContainer a:hover {
+  transform: scale(1.1);
+  filter: invert(100%) brightness(100%);
+}
+
+#SocialIcons {
+  width: 3vh;
+  height: 3vh;
+}
+
+/******************************************************************************/
+
+.ProjectContainer {
+  padding-top: 1.6rem;
+}
+
+.Project {
+  margin-bottom: 0.5vh;
+  padding: 0.75vh;
+  border-radius: 0.75vh;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Project #p1 {
+  color: white;
+  font-weight: bold;
+  white-space: pre;
+  transition: background-color 0.3s ease;
+}
+
+.Project:hover #p1 {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.Project p {
+  user-select: none;
+  font-size: 1.4vh;
+  color: gray;
+  transition: background-color 0.3s ease;
+}
+
+.Project:hover p {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.15);
+}
+
+
+.Separator {
+  flex-grow: 1;
+  border-bottom: 1px solid gray;
+  margin: 0 0.75vh 0.75em 0.75vh;
+}
+
+/******************************************************************************/
+
+.ExperienceContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1vh;
+  padding-top: 1.6rem;
+}
+
+.ExperienceItem {
+  padding: 0rem;
+  margin: 0rem;
+  border-radius: 12px;
+  position: relative;
+}
+
+.ExperienceItem li {
+  padding-bottom: 1rem;
+  position: relative;
+  border-left: 1px solid gray;
+  color: rgba(0, 0, 0, 0);
+  padding-left: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.ExperienceItem li:hover::before {
+  background: white;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.85);
+}
+
+.ExperienceItem li:hover .title {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.ExperienceItem li:hover .time {
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.15);
+}
+
+.ExperienceItem li:hover p {
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.ExperienceItem li:last-child {
+  border: 0px;
+  padding-bottom: 0;
+}
+
+.ExperienceItem li::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  left: -4px;
+  top: 0px;
+}
+
+.ExperienceItem .ExpericenceTitle {
+  color: white;
+  font-size: 1.6vh;
+}
+
+.ExperienceItem .ExpericenceTimePlace {
+  color: silver;
+  font-size: 1.15vh;
+}
+
+.ExperienceItem p {
+  color: gray;
+  font-size: 1.3vh;
+  line-height: 1.5;
+  margin-top: 0.4rem;
+}
+
+#Copyright{
+  padding-bottom: 42.5vh;
+  font-size: 1.25vh;
+}
+
+/******************************************************************************/
+
+#EducationContainer {
+  padding: 1rem;
+  padding-top: 1.6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+#EducationItem {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-left: 3px solid white;
+  transition: all 0.3s ease;
+}
+
+#EducationItem:hover {
+  transform: translateX(5px);
+}
+
+#EducationItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -5px;
+  width: 5px;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+#EducationItem:hover::before {
+  opacity: 1;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.85);
+}
+
+#EducationItem:hover .ExpericenceTime {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+#EducationItem:hover .ExpericencePlace {
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.15);
+}
+
+#EducationItem:hover a {
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+#EducationItem .ExpericenceTime {
+  font-size: 1.6vh;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+#EducationItem .ExpericencePlace {
+  font-size: 1.15vh;
+  color: silver;
+  margin-bottom: 0.25rem;
+}
+
+#EducationItem a:hover {
+  color: white;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+#EducationItem a {
+  font-size: 1.3vh;
+  display: flex;
+  align-items: center;
+  color: gray;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+#EducationItem a .fa-solid {
+  margin-left: 0.5rem;
+  font-size: 1.35vh;
+}
+
+.fa-building-columns {
+  color: ghostwhite;
+}
+
+.fa-award {
+  color: lightgray;
+}
+
+/******************************************************************************/
+
+h1 {
+  font-size: 5.5vh;
+  margin: 0 0 1vh 0;
+  color: white;
+  font-weight: bold;
+  pointer-events: auto;
+}
+
+h2 {
+  font-size: 2vh;
+  margin: 0 0 1.5vh 0;
+  color: white;
+  font-weight: normal;
+  pointer-events: auto;
+}
+
+p {
+  font-size: 1.6vh;
+  margin: 0;
+  color: gray;
+  line-height: 2.5vh;
+  pointer-events: auto;
+}
+
+/******************************************************************************/
+
+@media screen and (max-width: 1375px) {
+  body {
+    overflow-y: auto;
+  }
+
+  #MainDiv {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  #ContentWrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5vh;
+  }
+
+  #LeftPanel {
+    position: relative;
+    width: 80%;
+    left: 0;
+    margin: 0 auto;
+    text-align: center;
+	order: 1;
+  }
+
+  #RightPanel {
+    position: relative;
+    width: 80%;
+    height: auto;
+    padding: 0;
+    margin: 0 auto;
+    overflow-y: visible;
+	order: 2;
+	padding-left
+  }
+
+  #SocialsContainer {
+    position: relative;
+    top: auto;
+    transform: none;
+    justify-content: center;
+    margin: 4vh 0;
+  }
+
+  .NavContainer {
+	display: none;
+  }
+
+  #Copyright{
+    padding-bottom: 2.5vh;
+    font-size: 1.25vh;
+  }
+
+  #SocialIcons {
+	width: 2.5vh;
+	height: 2.5vh;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #LeftPanel {
+    width: 90%;
+  }
+
+  #RightPanel {
+    width: 90%;
+  }
+}
