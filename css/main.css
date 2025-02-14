@@ -2,7 +2,35 @@ body {
   margin: 0;
   height: 100%;
   overflow: hidden;
+  min-height: 100vh;
   font-family: Arial, sans-serif;
+}
+
+#Matrix {
+  position: fixed;
+  top: -8px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+  image-rendering: crisp-edges;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+#cryptoToggle {
+  color: dimgray;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s;
+  display: inline-block;
+}
+
+#cryptoToggle:hover {
+  color: lightgray;
 }
 
 /******************************************************************************/
