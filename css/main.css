@@ -1,36 +1,60 @@
+/* Dark Theme */
+:root {
+  --background-color: rgb(26, 26, 26);
+  --text-color: gray;
+  --dim-text-color: dimgray;
+  --alt-text-color: silver;
+  --icon-color: lightgray;
+  --alt-icon-color: ghostwhite;
+  --text-hover-color: lightgray;
+  --accent-color: white;
+  --nav-dot-color: gray;
+  --nav-dot-active-color: white;
+  --nav-text-color: gray;
+  --nav-text-active-color: white;
+  --mouse-glow-color: rgba(153, 153, 153, 0.25);
+  --mouse-glow-blur: 12vmax;
+  --border-color: gray;
+  --separator-color: gray;
+  --education-border-color: white;
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  body {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+  }
+}
+
+#toggleTheme {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2.5vh;
+  z-index: 100;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  width: max-content;
+  height: max-content;
+  margin-left: auto;
+}
+
 body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  -webkit-transition: 0.25s -webkit-filter linear;
+  -moz-transition: 0.25s -moz-filter linear;
+  -moz-transition: 0.25s filter linear;
+  -ms-transition: 0.25s -ms-filter linear;
+  -o-transition: 0.25s -o-filter linear;
+  transition: 0.25s filter linear, 0.25s -webkit-filter linear;
   margin: 0;
   height: 100%;
   overflow: hidden;
   min-height: 100vh;
   font-family: Arial, sans-serif;
-}
-
-#Matrix {
-  position: fixed;
-  top: -8px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  pointer-events: none;
-  image-rendering: crisp-edges;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: -webkit-optimize-contrast;
-  -ms-interpolation-mode: nearest-neighbor;
-}
-
-#cryptoToggle {
-  color: dimgray;
-  cursor: pointer;
-  text-decoration: none;
-  transition: color 0.3s;
-  display: inline-block;
-}
-
-#cryptoToggle:hover {
-  color: lightgray;
 }
 
 /******************************************************************************/
@@ -42,7 +66,7 @@ body {
   top: 0;
   left: 0;
   overflow: hidden;
-  background-color: rgb(26, 26, 26);
+  background-color: var(--background-color);
   transition: transform 0.5s ease-in-out;
   transform: translateY(0%);
 }
@@ -90,7 +114,7 @@ body {
   left: 50%;
   top: 50%;
   translate: -50% -50%;
-  background-color: rgba(153, 153, 153, 0.25);
+  background-color: var(--mouse-glow-color);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -99,7 +123,7 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
-  backdrop-filter: blur(12vmax);
+  backdrop-filter: blur(var(--mouse-glow-blur));
 }
 
 /******************************************************************************/
@@ -122,24 +146,24 @@ body {
   width: 1.1vh;
   height: 1.1vh;
   border-radius: 50%;
-  background-color: gray;
+  background-color: var(--nav-dot-color);
   transition: all 0.3s ease;
 }
 
 .NavItemText {
   margin-left: 1.1vh;
   font-size: 1.6vh;
-  color: gray;
+  color: var(--nav-text-color);
   transition: color 0.3s ease;
 }
 
 .NavItem.Active .NavItemDot {
-  background-color: white;
+  background-color: var(--nav-dot-active-color);
   transform: scale(1.5);
 }
 
 .NavItem.Active .NavItemText {
-  color: white;
+  color: var(--nav-text-active-color);
 }
 
 /******************************************************************************/
@@ -189,7 +213,7 @@ body {
 }
 
 .Project #p1 {
-  color: white;
+  color: var(--accent-color);
   font-weight: bold;
   white-space: pre;
   transition: background-color 0.3s ease;
@@ -202,7 +226,7 @@ body {
 .Project p {
   user-select: none;
   font-size: 1.4vh;
-  color: gray;
+  color: var(--text-color);
   transition: background-color 0.3s ease;
 }
 
@@ -213,7 +237,7 @@ body {
 
 .Separator {
   flex-grow: 1;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid var(--separator-color);
   margin: 0 0.75vh 0.75em 0.75vh;
 }
 
@@ -237,14 +261,14 @@ body {
 .ExperienceItem li {
   padding-bottom: 1rem;
   position: relative;
-  border-left: 1px solid gray;
+  border-left: 1px solid var(--border-color);
   color: rgba(0, 0, 0, 0);
   padding-left: 20px;
   transition: background-color 0.3s ease;
 }
 
 .ExperienceItem li:hover::before {
-  background: white;
+  background: var(--accent-color);
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.85);
 }
 
@@ -269,7 +293,7 @@ body {
   content: '';
   width: 8px;
   height: 8px;
-  background: white;
+  background: var(--accent-color);
   border-radius: 50%;
   position: absolute;
   left: -4px;
@@ -277,17 +301,17 @@ body {
 }
 
 .ExperienceItem .ExpericenceTitle {
-  color: white;
+  color: var(--accent-color);
   font-size: 1.6vh;
 }
 
 .ExperienceItem .ExpericenceTimePlace {
-  color: silver;
+  color: var(--alt-text-color);
   font-size: 1.15vh;
 }
 
 .ExperienceItem p {
-  color: gray;
+  color: var(--text-color);
   font-size: 1.3vh;
   line-height: 1.5;
   margin-top: 0.4rem;
@@ -312,7 +336,7 @@ body {
   margin-bottom: 1.5rem;
   padding: 0.5rem;
   padding-left: 12px;
-  border-left: 3px solid white;
+  border-left: 3px solid var(--accent-color);
   transition: all 0.3s ease;
 }
 
@@ -327,7 +351,7 @@ body {
   left: -5px;
   width: 5px;
   height: 100%;
-  background: white;
+  background: var(--accent-color);
   opacity: 0;
   transition: opacity 0.3s ease, box-shadow 0.3s ease;
 }
@@ -352,18 +376,18 @@ body {
 #EducationItem .ExpericenceTime {
   font-size: 1.6vh;
   font-weight: bold;
-  color: white;
+  color: var(--accent-color);
   margin-bottom: 0.5rem;
 }
 
 #EducationItem .ExpericencePlace {
   font-size: 1.15vh;
-  color: silver;
+  color: var(--alt-text-color);
   margin-bottom: 0.25rem;
 }
 
 #EducationItem a:hover {
-  color: white;
+  color: var(--accent-color);
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
 }
 
@@ -371,7 +395,7 @@ body {
   font-size: 1.3vh;
   display: flex;
   align-items: center;
-  color: gray;
+  color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -383,11 +407,40 @@ body {
 }
 
 .fa-building-columns {
-  color: ghostwhite;
+  color: var(--alt-icon-color);
 }
 
 .fa-award {
-  color: lightgray;
+  color: var(--icon-color);
+}
+
+/******************************************************************************/
+
+#Matrix {
+  position: fixed;
+  top: -8px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+  image-rendering: crisp-edges;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+#cryptoToggle {
+  color: var(--dim-text-color);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s;
+  display: inline-block;
+}
+
+#cryptoToggle:hover {
+  color: var(--text-hover-color);
 }
 
 /******************************************************************************/
@@ -395,7 +448,7 @@ body {
 h1 {
   font-size: 5.5vh;
   margin: 0 0 1vh 0;
-  color: white;
+  color: var(--accent-color);
   font-weight: bold;
   pointer-events: auto;
 }
@@ -403,7 +456,7 @@ h1 {
 h2 {
   font-size: 2vh;
   margin: 0 0 1.5vh 0;
-  color: white;
+  color: var(--accent-color);
   font-weight: normal;
   pointer-events: auto;
 }
@@ -411,7 +464,7 @@ h2 {
 p {
   font-size: 1.6vh;
   margin: 0;
-  color: gray;
+  color: var(--text-color);
   line-height: 2.5vh;
   pointer-events: auto;
 }
@@ -420,6 +473,7 @@ p {
 
 @media screen and (max-width: 1375px) {
   body {
+	margin-top: -2.5vh;
     overflow-y: auto;
   }
 
@@ -453,7 +507,11 @@ p {
     margin: 0 auto;
     overflow-y: visible;
 	order: 2;
-	padding-left
+  }
+
+  #toggleTheme {
+	position: sticky;
+	padding-left: 5vh;
   }
 
   #SocialsContainer {
