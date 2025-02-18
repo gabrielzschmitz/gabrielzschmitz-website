@@ -86,16 +86,12 @@ window.addEventListener("resize", () => {
 /******************************************************************************/
 
 /**
-* Handles the hidden log for no JS.
-*/
-
-/**
 * ASCII Warning Message in the Console
 */
 console.log(`
-%cHacking detected...\nInitializing firewall defense.
+%cHacking detected...\nInitializing firewall defense. 🛡️
 %cJust kidding, happy coding! :)
-`, "color: red; font-weight: bold;", "color: green; font-weight: bold;");
+`, "color: indianred; font-weight: bold;", "color: seagreen; font-weight: bold;");
 
 /**
 * Function to Simulate Disabling JavaScript
@@ -114,13 +110,46 @@ function disableJS() {
   overlay.style.fontSize = "24px";
   overlay.style.color = "white";
   overlay.style.background = "rgb(26, 26, 26)";
-  overlay.innerText = "Error 418: I'm a teapot 🫖";
+  overlay.innerHTML = "Error 418: I'm a teapot <span id='teapot' style='cursor: pointer; margin-left: 10px;'>🫖</span>";
   document.body.appendChild(overlay);
 
-  /* Stop all JavaScript execution */
-  setTimeout(() => {
-    while (true) {} /* Infinite loop to simulate JS freeze */
-  }, 100);
+
+  /* Hide the rest of the page */
+  document.body.style.overflow = "hidden";
+  Array.from(document.body.children).forEach(child => {
+    if (child !== overlay) {
+      child.style.display = "none";
+    }
+  });
+
+  console.log(`
+  %cYou found the teapot!...\n
+  %cNow you're cursed forever! 🧿
+  `, "color: lightblue; font-weight: bold;", "color: cornflowerblue; font-weight: bold;");
+
+  /* Restore the page if the teapot emoji is clicked */
+  document.getElementById("teapot").addEventListener("click", enableJS);
+}
+
+/**
+* Function to Restore the Page
+*/
+function enableJS() {
+  const teapot = document.getElementById("teapot");
+  if (!teapot) {
+    console.warn("Teapot vanished into the void! 🌀");
+    return;
+  }
+  const overlay = teapot.parentElement;
+  if (overlay) overlay.remove();
+  document.body.style.overflow = "";
+  Array.from(document.body.children).forEach(child => {
+    child.style.display = "";
+  });
+  console.log(`
+  %cTeapot broken!...\n
+  %cNow your curse is broken! 🔮
+  `, "color: lightblue; font-weight: bold;", "color: mediumpurple; font-weight: bold;");
 }
 
 /******************************************************************************/
