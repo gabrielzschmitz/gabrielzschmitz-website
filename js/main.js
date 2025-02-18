@@ -5,7 +5,6 @@ const canvas_context = canvas.getContext("2d");
 /**
 * Handles the hidden matrix effect.
 */
-
 let is_effect_on = false;
 let animation_frame_id;
 const font_size = 16;
@@ -81,6 +80,29 @@ window.addEventListener("resize", () => {
   if (is_effect_on) {
     SetupCanvas();
   }
+});
+
+/******************************************************************************/
+
+/**
+* Handles Dark Mode
+*/
+document.addEventListener("DOMContentLoaded", function () {
+  const themeToggleBtn = document.getElementById("toggleTheme");
+
+  function setTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    themeToggleBtn.textContent = theme === "dark" ? "☀️" : "🌙";
+  }
+
+  themeToggleBtn.addEventListener("click", function () {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    setTheme(currentTheme === "dark" ? "light" : "dark");
+  });
+
+  const savedTheme = localStorage.getItem("theme") || "dark";
+  setTheme(savedTheme);
 });
 
 /******************************************************************************/
