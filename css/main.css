@@ -35,10 +35,15 @@
   z-index: 100;
   cursor: pointer;
   background: rgba(0, 0, 0, 0);
+  color: var(--text-color);
   border: none;
   width: max-content;
   height: max-content;
   margin-left: auto;
+}
+
+#toggleTheme i:hover {
+  color: var(--text-hover-color);
 }
 
 body {
