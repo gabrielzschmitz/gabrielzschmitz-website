@@ -2,11 +2,18 @@ const mouse_glow = document.getElementById("MouseGlow");
 const canvas = document.getElementById("Matrix");
 const canvas_context = canvas.getContext("2d");
 
+/**
+* Handles the hidden matrix effect.
+*/
+
 let is_effect_on = false;
 let animation_frame_id;
 const font_size = 16;
 let columns, drops;
 
+/**
+* Handle background Canvas to Matrix effect.
+*/
 function SetupCanvas() {
   const dpr = window.devicePixelRatio || 1;
 
@@ -28,19 +35,20 @@ function SetupCanvas() {
   drops = new Array(columns).fill(0);
 }
 
+/**
+* Matrix effect.
+*/
 function DrawMatrix() {
   if (!is_effect_on) return;
 
   canvas_context.fillStyle = "rgba(26, 26, 26, 0.25)";
   canvas_context.fillRect(0, 0, canvas.width, canvas.height);
-
   canvas_context.fillStyle = "dimgray";
   canvas_context.font = `${font_size}px monospace`;
 
   for (let i = 0; i < drops.length; i++) {
     let text = String.fromCharCode(0x30A0 + Math.random() * 96);
     canvas_context.fillText(text, i * font_size, drops[i] * font_size);
-
     if (drops[i] * font_size > canvas.height && Math.random() > 0.975) {
       drops[i] = 0;
     }
@@ -50,6 +58,9 @@ function DrawMatrix() {
   animation_frame_id = requestAnimationFrame(DrawMatrix);
 }
 
+/**
+* Logic to toggle matrix effect.
+*/
 document.getElementById("cryptoToggle").addEventListener("click", () => {
   is_effect_on = !is_effect_on;
   if (is_effect_on) {
@@ -63,11 +74,56 @@ document.getElementById("cryptoToggle").addEventListener("click", () => {
   }
 });
 
+/**
+* Make canvas resize when window resize.
+*/
 window.addEventListener("resize", () => {
   if (is_effect_on) {
     SetupCanvas();
   }
 });
+
+/******************************************************************************/
+
+/**
+* Handles the hidden log for no JS.
+*/
+
+/**
+* ASCII Warning Message in the Console
+*/
+console.log(`
+%cHacking detected...\nInitializing firewall defense.
+%cJust kidding, happy coding! :)
+`, "color: red; font-weight: bold;", "color: green; font-weight: bold;");
+
+/**
+* Function to Simulate Disabling JavaScript
+*/
+function disableJS() {
+  const overlay = document.createElement("div");
+  overlay.style.position = "fixed";
+  overlay.style.top = "0";
+  overlay.style.left = "0";
+  overlay.style.width = "100vw";
+  overlay.style.height = "100vh";
+  overlay.style.display = "flex";
+  overlay.style.alignItems = "center";
+  overlay.style.justifyContent = "center";
+  overlay.style.zIndex = "9999";
+  overlay.style.fontSize = "24px";
+  overlay.style.color = "white";
+  overlay.style.background = "rgb(26, 26, 26)";
+  overlay.innerText = "Error 418: I'm a teapot 🫖";
+  document.body.appendChild(overlay);
+
+  /* Stop all JavaScript execution */
+  setTimeout(() => {
+    while (true) {} /* Infinite loop to simulate JS freeze */
+  }, 100);
+}
+
+/******************************************************************************/
 
 /**
 * Handles the glowing effect that follows the mouse cursor.
