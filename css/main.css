@@ -42,6 +42,10 @@
   margin-left: auto;
 }
 
+#toggleTheme i {
+  font-size: 2vh; /* Set icon size to 3vh */
+}
+
 #toggleTheme i:hover {
   color: var(--text-hover-color);
 }
@@ -478,7 +482,7 @@ p {
 
 @media screen and (max-width: 1375px) {
   body {
-	margin-top: -2.5vh;
+	margin-top: -3vh;
     overflow-y: auto;
   }
 
