@@ -27,7 +27,7 @@
   }
 }
 
-#toggleTheme {
+#ToggleTheme {
   position: absolute;
   top: 0;
   right: 0;
@@ -42,11 +42,11 @@
   margin-left: auto;
 }
 
-#toggleTheme i {
+#ToggleTheme i {
   font-size: 2vh; /* Set icon size to 3vh */
 }
 
-#toggleTheme i:hover {
+#ToggleTheme i:hover {
   color: var(--text-hover-color);
 }
 
@@ -64,6 +64,10 @@ body {
   overflow: hidden;
   min-height: 100vh;
   font-family: Arial, sans-serif;
+}
+
+.hidden {
+  display: none !important; /* Force the element to be hidden */
 }
 
 /******************************************************************************/
@@ -425,6 +429,20 @@ body {
 
 /******************************************************************************/
 
+#MinecraftToggle {
+  color: var(--dim-text-color);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s;
+  display: inline-block;
+}
+
+#MinecraftToggle:hover {
+  color: var(--text-hover-color);
+}
+
+/******************************************************************************/
+
 #Matrix {
   position: fixed;
   top: -8px;
@@ -440,7 +458,7 @@ body {
   -ms-interpolation-mode: nearest-neighbor;
 }
 
-#cryptoToggle {
+#CryptoToggle {
   color: var(--dim-text-color);
   cursor: pointer;
   text-decoration: none;
@@ -448,7 +466,7 @@ body {
   display: inline-block;
 }
 
-#cryptoToggle:hover {
+#CryptoToggle:hover {
   color: var(--text-hover-color);
 }
 
@@ -518,7 +536,7 @@ p {
 	order: 2;
   }
 
-  #toggleTheme {
+  #ToggleTheme {
 	position: sticky;
 	padding-left: 5vh;
   }
