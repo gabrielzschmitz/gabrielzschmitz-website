@@ -1,6 +1,26 @@
 const mouse_glow = document.getElementById("MouseGlow");
+const mouse_glow_blur = document.getElementById("MouseGlowBlur");
 const canvas = document.getElementById("Matrix");
 const canvas_context = canvas.getContext("2d");
+
+/**
+* Logic to toggle Minecraft cube and hide mouse glow.
+*/
+document.getElementById("MinecraftToggle").addEventListener("click", () => {
+  const cube = document.querySelector(".Minecraft");
+
+  if (cube.style.display === "none" || cube.style.display === "") {
+    cube.style.display = "block";
+    mouse_glow.classList.add("hidden");
+    mouse_glow_blur.classList.add("hidden");
+  } else {
+    cube.style.display = "none";
+    mouse_glow.classList.remove("hidden");
+    mouse_glow_blur.classList.remove("hidden");
+  }
+});
+
+/******************************************************************************/
 
 /**
 * Handles the hidden matrix effect.
@@ -60,14 +80,16 @@ function DrawMatrix() {
 /**
 * Logic to toggle matrix effect.
 */
-document.getElementById("cryptoToggle").addEventListener("click", () => {
+document.getElementById("CryptoToggle").addEventListener("click", () => {
   is_effect_on = !is_effect_on;
   if (is_effect_on) {
     mouse_glow.classList.add('hidden');
+    mouse_glow_blur.classList.add("hidden");
     SetupCanvas();
     DrawMatrix();
   } else {
     mouse_glow.classList.remove('hidden');
+    mouse_glow_blur.classList.remove("hidden");
     cancelAnimationFrame(animation_frame_id);
     canvas_context.clearRect(0, 0, canvas.width, canvas.height);
   }
@@ -88,7 +110,7 @@ window.addEventListener("resize", () => {
 * Handles Dark Mode
 */
 document.addEventListener("DOMContentLoaded", function () {
-  const themeToggleBtn = document.getElementById("toggleTheme");
+  const themeToggleBtn = document.getElementById("ToggleTheme");
 
   function setTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
@@ -132,7 +154,7 @@ function disableJS() {
   overlay.style.fontSize = "24px";
   overlay.style.color = "white";
   overlay.style.background = "rgb(26, 26, 26)";
-  overlay.innerHTML = "Error 418: I'm a teapot <span id='teapot' style='cursor: pointer; margin-left: 10px;'>🫖</span>";
+  overlay.innerHTML = "Error 418: I'm a teapot <span id='Teapot' style='cursor: pointer; margin-left: 10px;'>🫖</span>";
   document.body.appendChild(overlay);
 
 
@@ -150,14 +172,14 @@ function disableJS() {
   `, "color: lightblue; font-weight: bold;", "color: cornflowerblue; font-weight: bold;");
 
   /* Restore the page if the teapot emoji is clicked */
-  document.getElementById("teapot").addEventListener("click", enableJS);
+  document.getElementById("Teapot").addEventListener("click", enableJS);
 }
 
 /**
 * Function to Restore the Page
 */
 function enableJS() {
-  const teapot = document.getElementById("teapot");
+  const teapot = document.getElementById("Teapot");
   if (!teapot) {
     console.warn("Teapot vanished into the void! 🌀");
     return;
