@@ -8,6 +8,7 @@
     <title>gabrielzschmitz</title>
 
     <script src="https://kit.fontawesome.com/238a5231e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/cube.css">
     <link rel="stylesheet" href="./css/main.css">
   </head>
 
@@ -16,14 +17,26 @@
       <div id="MouseGlow"></div>
       <div id="MouseGlowBlur"></div>
       <canvas id="Matrix"></canvas>
+      <div class="Minecraft">
+        <div class="CubeOverlay"></div>
+        <div class="Cube">
+          <div class="CubeFace CubeFaceLeft"></div>
+          <div class="CubeFace CubeFaceRight"></div>
+          <div class="CubeFace CubeFaceTop"></div>
+          <div class="CubeFace CubeFaceBottom"></div>
+          <div class="CubeFace CubeFaceFront"></div>
+          <div class="CubeFace CubeFaceBack"></div>
+        </div>
+      </div>
 
       <div id="ContentWrapper">
-        <button id="toggleTheme"><i class="fa-solid fa-sun"></i></button>
+        <button id="ToggleTheme"><i class="fa-solid fa-sun"></i></button>
         <div id="RightPanel">
           <div id="Section1" class="Section">
             <h2>About</h2>
             <p>
-            I’ve been coding since I was 14, starting with Minecraft mods in Java,
+            I’ve been coding since I was 14, starting with
+            <span id="MinecraftToggle">Minecraft</span> mods in Java,
             which eventually led me down the rabbit hole of low-level programming
             with C and tinkering with simple NCurses apps.<br><br>
 
@@ -205,7 +218,7 @@
           <h1>gabrielzschmitz</h1>
           <h2>Computer Engineer Based on Brazil</h2>
           <p>
-          I enjoy low-level programming and <span id="cryptoToggle">cryptography</span>,<br>
+          I enjoy low-level programming and <span id="CryptoToggle">cryptography</span>,<br>
           building fast and efficient systems.<br>
           I love solving technical problems and<br>
           creating practical solutions.
