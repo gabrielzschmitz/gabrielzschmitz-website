@@ -25,6 +25,10 @@
     -webkit-filter: invert(100%);
     filter: invert(100%);
   }
+  .CubeFace {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+  }
 }
 
 #ToggleTheme {
