@@ -4,9 +4,9 @@ const canvas = document.getElementById("Matrix");
 const canvas_context = canvas.getContext("2d");
 
 /**
-* Logic to toggle Minecraft cube and hide mouse glow.
-*/
-document.getElementById("MinecraftToggle").addEventListener("click", () => {
+ * Logic to toggle Minecraft cube and hide mouse glow.
+ */
+function toggleMinecraft() {
   const cube = document.querySelector(".Minecraft");
 
   if (cube.style.display === "none" || cube.style.display === "") {
@@ -18,6 +18,11 @@ document.getElementById("MinecraftToggle").addEventListener("click", () => {
     mouse_glow.classList.remove("hidden");
     mouse_glow_blur.classList.remove("hidden");
   }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleButton = document.getElementById("MinecraftToggle");
+  toggleButton.addEventListener("click", toggleMinecraft);
 });
 
 /******************************************************************************/
@@ -78,22 +83,31 @@ function DrawMatrix() {
 }
 
 /**
-* Logic to toggle matrix effect.
-*/
-document.getElementById("CryptoToggle").addEventListener("click", () => {
+ * Toggle the Matrix effect on and off.
+ */
+function toggleMatrixEffect() {
   is_effect_on = !is_effect_on;
+
   if (is_effect_on) {
-    mouse_glow.classList.add('hidden');
+    // Hide mouse glow effects
+    mouse_glow.classList.add("hidden");
     mouse_glow_blur.classList.add("hidden");
+
+    // Initialize and start the Matrix effect
     SetupCanvas();
     DrawMatrix();
   } else {
-    mouse_glow.classList.remove('hidden');
+    // Show mouse glow effects
+    mouse_glow.classList.remove("hidden");
     mouse_glow_blur.classList.remove("hidden");
+
+    // Stop the Matrix effect
     cancelAnimationFrame(animation_frame_id);
     canvas_context.clearRect(0, 0, canvas.width, canvas.height);
   }
-});
+}
+
+document.getElementById("CryptoToggle").addEventListener("click", toggleMatrixEffect);
 
 /**
 * Make canvas resize when window resize.
