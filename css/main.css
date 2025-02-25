@@ -25,33 +25,16 @@
     -webkit-filter: invert(100%);
     filter: invert(100%);
   }
+
   .CubeFace {
     -webkit-filter: invert(100%);
     filter: invert(100%);
   }
-}
 
-#ToggleTheme {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 2.5vh;
-  z-index: 100;
-  cursor: pointer;
-  background: rgba(0, 0, 0, 0);
-  color: var(--text-color);
-  border: none;
-  width: max-content;
-  height: max-content;
-  margin-left: auto;
-}
-
-#ToggleTheme i {
-  font-size: 2vh; /* Set icon size to 3vh */
-}
-
-#ToggleTheme i:hover {
-  color: var(--text-hover-color);
+  #LanguageCycle {
+    -webkit-filter: invert(100%) grayscale(100%) brightness(0.55);
+    filter: invert(100%) grayscale(100%) brightness(0.85);
+  }
 }
 
 body {
@@ -141,6 +124,43 @@ body {
   height: 100%;
   position: absolute;
   backdrop-filter: blur(var(--mouse-glow-blur));
+}
+
+/******************************************************************************/
+
+#ControlPanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  gap: 1vh;
+  padding: 2vh;
+  z-index: 100;
+}
+
+#LanguageCycle {
+  -webkit-filter: grayscale(100%) brightness(0.85);
+  filter: grayscale(100%) brightness(0.85);
+}
+
+#ToggleTheme,
+#LanguageCycle {
+  cursor: pointer;
+  pointer-events: auto;
+  background: rgba(0, 0, 0, 0);
+  color: var(--text-color);
+  border: none;
+  font-size: 2vh;
+}
+
+#ToggleTheme i,
+#LanguageCycle i {
+  font-size: 2vh;
+}
+
+#ToggleTheme:hover,
+#LanguageCycle:hover {
+  color: var(--text-hover-color);
 }
 
 /******************************************************************************/
@@ -317,12 +337,12 @@ body {
   top: 0px;
 }
 
-.ExperienceItem .ExpericenceTitle {
+.ExperienceItem .ExperienceTitle {
   color: var(--accent-color);
   font-size: 1.6vh;
 }
 
-.ExperienceItem .ExpericenceTimePlace {
+.ExperienceItem .ExperienceTimePlace {
   color: var(--alt-text-color);
   font-size: 1.15vh;
 }
@@ -378,11 +398,11 @@ body {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.85);
 }
 
-#EducationItem:hover .ExpericenceTime {
+#EducationItem:hover .ExperienceTime {
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
-#EducationItem:hover .ExpericencePlace {
+#EducationItem:hover .ExperiencePlace {
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.15);
 }
 
@@ -390,14 +410,14 @@ body {
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
 }
 
-#EducationItem .ExpericenceTime {
+#EducationItem .ExperienceTime {
   font-size: 1.6vh;
   font-weight: bold;
   color: var(--accent-color);
   margin-bottom: 0.5rem;
 }
 
-#EducationItem .ExpericencePlace {
+#EducationItem .ExperiencePlace {
   font-size: 1.15vh;
   color: var(--alt-text-color);
   margin-bottom: 0.25rem;
@@ -502,9 +522,8 @@ p {
 
 /******************************************************************************/
 
-@media screen and (max-width: 1375px) {
+@media screen and (max-width: 1200px) {
   body {
-	margin-top: -3vh;
     overflow-y: auto;
   }
 
@@ -518,7 +537,6 @@ p {
   #ContentWrapper {
     display: flex;
     flex-direction: column;
-    padding-top: 5vh;
   }
 
   #LeftPanel {
@@ -540,9 +558,15 @@ p {
 	order: 2;
   }
 
-  #ToggleTheme {
-	position: sticky;
-	padding-left: 5vh;
+  #ControlPanel {
+	position: fixed;
+	top: 0;
+	right: 0;
+	display: flex;
+	gap: 1vh;
+	padding: 2vh;
+	align-self: flex-end;
+	margin-left: auto;
   }
 
   #SocialsContainer {
@@ -565,6 +589,27 @@ p {
   #SocialIcons {
 	width: 2.5vh;
 	height: 2.5vh;
+  }
+}
+
+@media screen and (max-width: 825px) {
+  body {
+    margin-top: 0;
+  }
+
+  h1{
+    padding-top: 2vh;
+  }
+
+  #SocialsContainer {
+	margin-bottom: 0;
+  }
+
+  #ControlPanel {
+	position: sticky;
+	display: block;
+    justify-content: center;
+    margin: auto;
   }
 }
 
