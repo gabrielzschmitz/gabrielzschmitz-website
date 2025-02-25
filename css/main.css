@@ -88,7 +88,7 @@ body {
   position: absolute;
   margin-top: 10vh;
   pointer-events: none;
-  overflow-x: hidden;
+  overflow-x: visible;
 }
 
 #RightPanel {
@@ -553,7 +553,7 @@ p {
     margin: 0 auto;
     text-align: center;
 	order: 1;
-	overflow-x: hidden;
+    overflow-x: visible;
   }
 
   #RightPanel {
