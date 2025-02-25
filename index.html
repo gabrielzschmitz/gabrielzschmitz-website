@@ -8,6 +8,7 @@
     <title>gabrielzschmitz</title>
 
     <script src="https://kit.fontawesome.com/238a5231e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
     <link rel="stylesheet" href="./css/cube.css">
     <link rel="stylesheet" href="./css/main.css">
   </head>
@@ -16,7 +17,9 @@
     <div id="MainDiv">
       <div id="MouseGlow"></div>
       <div id="MouseGlowBlur"></div>
+
       <canvas id="Matrix"></canvas>
+
       <div class="Minecraft">
         <div class="CubeOverlay"></div>
         <div class="Cube">
@@ -30,71 +33,119 @@
       </div>
 
       <div id="ContentWrapper">
-        <button id="ToggleTheme"><i class="fa-solid fa-sun"></i></button>
         <div id="RightPanel">
           <div id="Section1" class="Section">
-            <h2>About</h2>
-            <p>
-            I’ve been coding since I was 14, starting with
-            <span id="MinecraftToggle">Minecraft</span> mods in Java,
-            which eventually led me down the rabbit hole of low-level programming
-            with C and tinkering with simple NCurses apps.<br><br>
+            <h2 data-en="About" data-pt="Sobre">About</h2>
+            <p data-en="
+              I’ve been coding since I was 14, starting with
+              <span id='MinecraftToggle'>Minecraft</span> mods in Java,
+              which eventually led me down the rabbit hole of low-level programming
+              with C and tinkering with simple NCurses apps.<br><br>
 
-            Studying computer engineering at UTFPR deepened my love for
-            programming, and now I’m comfortable with C, C++, Python, Go, Java,
-            and JavaScript, along with tools like LaTeX, PostgreSQL, Redis,
-            OpenCV, NumPy, and Docker.
+              Studying computer engineering at UTFPR deepened my love for
+              programming, and now I’m comfortable with C, C++, Python, Go, Java,
+              and JavaScript, along with tools like LaTeX, PostgreSQL, Redis,
+              OpenCV, NumPy, and Docker.
+              " data-pt="
+              Programo desde os 14 anos, começando com mods de
+              <span id='MinecraftToggle'>Minecraft</span> em Java,
+              o que eventualmente me levou ao mundo da programação
+              de baixo nível com C e a experimentar aplicativos
+              simples em NCurses.<br><br>
+
+              Cursar engenharia de computação na UTFPR aprofundou meu
+              amor pela programação, e agora estou confortável com C, C++,
+              Python, Go, Java e JavaScript, além de ferramentas como LaTeX,
+              PostgreSQL, Redis, OpenCV, NumPy e Docker.
+              ">
+              I’ve been coding since I was 14, starting with
+              <span id='MinecraftToggle'>Minecraft</span> mods in Java,
+              which eventually led me down the rabbit hole of low-level programming
+              with C and tinkering with simple NCurses apps.<br><br>
+
+              Studying computer engineering at UTFPR deepened my love for
+              programming, and now I’m comfortable with C, C++, Python, Go, Java,
+              and JavaScript, along with tools like LaTeX, PostgreSQL, Redis,
+              OpenCV, NumPy, and Docker.
             </p>
           </div>
 
           <div id="Section2" class="Section">
-            <h2>Projects</h2>
-            <p>
+            <h2 data-en="Projects" data-pt="Projetos">Projects</h2>
+            <p data-en="
+            Below are a few of the projects I’ve developed over my 6+ years of
+            coding experience. This selection highlights some of my work, though
+            many other projects didn’t make the list.
+            " data-pt="
+            Abaixo estão alguns dos projetos que desenvolvi ao longo de mais de
+            6 anos de experiência em programação. Esta seleção destaca parte do
+            meu trabalho, embora muitos outros projetos não tenham sido incluídos.
+            ">
             Below are a few of the projects I’ve developed over my 6+ years of
             coding experience. This selection highlights some of my work, though
             many other projects didn’t make the list.
             </p>
-
             <div class="ProjectContainer">
               <a href="https://github.com/gabrielzschmitz/Tomato.C" target="_blank" class="Project">
                 <p id="p1" data-value="Tomato.C ">Tomato.C </p>
-                <p data-value="Pomodoro timer written in pure C">Pomodoro timer written in pure C</p>
+                <p data-value="Pomodoro timer written in pure C"
+                data-en="Pomodoro timer written in pure C"
+                data-pt="Temporizador Pomodoro escrito em C puro">
+                Pomodoro timer written in pure C</p>
                 <div class="Separator"></div>
                 <p data-value="2022">2022</p>
               </a>
               <a href="https://github.com/gabrielzschmitz/root-finder" target="_blank" class="Project">
                 <p id="p1" data-value="Root Finder ">Root Finder </p>
-                <p data-value="Root Finder app using numeric methods">Root Finder app using numeric methods</p>
+                <p data-value="Root Finder app using numeric methods"
+                data-en="Root Finder app using numeric methods"
+                data-pt="Localizador de raízes usando métodos numéricos">
+                Root Finder app using numeric methods</p>
                 <div class="Separator"></div>
                 <p data-value="2025">2025</p>
               </a>
               <a href="https://github.com/gabrielzschmitz/Pendulum-Tracker" target="_blank" class="Project">
                 <p id="p1" data-value="Pendulum Tracker ">Pendulum Tracker </p>
-                <p data-value="Real pendulum webcam tracker">Real pendulum webcam tracker</p>
+                <p data-value="Real pendulum webcam tracker"
+                data-en="Real pendulum webcam tracker"
+                data-pt="Tracker de pêndulo usando webcam">
+                Real pendulum webcam tracker</p>
                 <div class="Separator"></div>
                 <p data-value="2024">2024</p>
               </a>
               <a href="https://github.com/gabrielzschmitz/zkpop-go" target="_blank" class="Project">
                 <p id="p1" data-value="ZKPop Go ">ZKPop Go </p>
-                <p data-value="Golang wrapper for KEM-NIZKPoP">Golang wrapper for KEM-NIZKPoP</p>
+                <p data-value="Golang wrapper for KEM-NIZKPoP"
+                data-en="Golang wrapper for KEM-NIZKPoP"
+                data-pt="Wrapper em Golang para KEM-NIZKPoP">
+                Golang wrapper for KEM-NIZKPoP</p>
                 <div class="Separator"></div>
                 <p data-value="2024">2024</p>
               </a>
               <a href="https://github.com/gabrielzschmitz/research" target="_blank" class="Project">
                 <p id="p1" data-value="Research ">Research </p>
-                <p data-value="Research related resources by me">Research related resources by me</p>
+                <p data-value="Research related resources by me"
+                data-en="Research related resources by me"
+                data-pt="Recursos relacionados à pesquisa por mim">
+                Research related resources by me</p>
                 <div class="Separator"></div>
                 <p data-value="2024">2024</p>
               </a>
               <a href="https://github.com/gabrielzschmitz/bujoshell" target="_blank" class="Project">
                 <p id="p1" data-value="Bujoshell ">Bujoshell </p>
-                <p data-value="Bullet journal app for the terminal">Bullet journal app for the terminal</p>
+                <p data-value="Bullet journal app for the terminal"
+                data-en="Bullet journal app for the terminal"
+                data-pt="Aplicativo de diário bullet para o terminal">
+                Bullet journal app for the terminal</p>
                 <div class="Separator"></div>
                 <p data-value="2023">2023</p>
               </a>
               <a href="https://github.com/gabrielzschmitz/BessyAdventure" target="_blank" class="Project">
                 <p id="p1" data-value="BessyAdventure ">BessyAdventure </p>
-                <p data-value="Simple text RPG written in Prolog">Simple text RPG written in Prolog</p>
+                <p data-value="Simple text RPG written in Prolog"
+                data-en="Simple text RPG written in Prolog"
+                data-pt="RPG de texto simples escrito em Prolog">
+                Simple text RPG written in Prolog</p>
                 <div class="Separator"></div>
                 <p data-value="2022">2022</p>
               </a>
@@ -102,8 +153,20 @@
           </div>
 
           <div id="Section3" class="Section">
-            <h2>Experience</h2>
-            <p>
+            <h2 data-en="Experience" data-pt="Experiência">Experience</h2>
+            <p data-en="
+            Throughout my journey in software development and research, I’ve had
+            the opportunity to work on diverse projects, ranging from academic
+            research to industry applications. Below is a timeline of my
+            professional and research experiences, showcasing my contributions
+            across different technologies and domains.
+            " data-pt="
+            Ao longo da minha jornada no desenvolvimento de software e pesquisa,
+            tive a oportunidade de trabalhar em diversos projetos, desde pesquisas
+            acadêmicas até aplicações industriais. Abaixo está uma linha do tempo
+            das minhas experiências profissionais e de pesquisa, destacando minhas
+            contribuições em diferentes tecnologias e domínios.
+            ">
             Throughout my journey in software development and research, I’ve had
             the opportunity to work on diverse projects, ranging from academic
             research to industry applications. Below is a timeline of my
@@ -114,40 +177,63 @@
             <div class="ExperienceContainer">
               <ul class="ExperienceItem">
                 <li>
-                  <div class="ExpericenceTitle">Scientific Research Grant RNP - UTFPR</div>
-                  <div class="ExpericenceTimePlace">November 2024 - November 2025 | Toledo, Brazil</div>
-                  <p>
-                  Researching post-quantum cryptography integration in blockchain,
-                  focusing on efficiency analysis and optimizing signature sizes
-                  for long-term security.
+                  <div class="ExperienceTitle" data-en="Scientific Research Grant RNP - UTFPR" data-pt="Bolsa de Pesquisa Científica RNP - UTFPR">Scientific Research Grant RNP - UTFPR</div>
+                  <div class="ExperienceTimePlace" data-en="November 2024 - November 2025 | Toledo, Brazil" data-pt="Novembro 2024 - Novembro 2025 | Toledo, Brasil">November 2024 - November 2025 | Toledo, Brazil</div>
+                  <p data-en="Researching post-quantum cryptography integration
+                     in blockchain, focusing on efficiency analysis and
+                     optimizing signature sizes for long-term security."
+                     data-pt="Pesquisando a integração de criptografia
+                     pós-quântica em blockchain, com foco na análise de
+                     eficiência e otimização de tamanhos de assinatura para
+                     segurança de longo prazo.">
+                    Researching post-quantum cryptography integration in
+                    blockchain, focusing on efficiency analysis and optimizing
+                    signature sizes for long-term security.
                   </p>
                 </li>
                 <li>
-                  <div class="ExpericenceTitle">Scientific Research Grant PIBIC - UTFPR</div>
-                  <div class="ExpericenceTimePlace">September 2024 - November 2024 | Toledo, Brazil</div>
-                  <p>
-                  Researched KEMTLS and Post-Quantum TLS, implementing bindings
-                  for the KEM-NIZKPoP library from C to Go to enhance secure key
-                  exchange.
+                  <div class="ExperienceTitle" data-en="Scientific Research Grant PIBIC - UTFPR" data-pt="Bolsa de Pesquisa Científica PIBIC - UTFPR">Scientific Research Grant PIBIC - UTFPR</div>
+                  <div class="ExperienceTimePlace" data-en="September 2024 - November 2024 | Toledo, Brazil" data-pt="Setembro 2024 - Novembro 2024 | Toledo, Brasil">September 2024 - November 2024 | Toledo, Brazil</div>
+                  <p data-en="Researched KEMTLS and Post-Quantum TLS,
+                     implementing bindings for the KEM-NIZKPoP library from C to
+                     Go to enhance secure key exchange."
+                     data-pt="Pesquisei KEMTLS e TLS Pós-Quântico, implementando
+                     bindings para a biblioteca KEM-NIZKPoP de C para Go para
+                     melhorar a troca segura de chaves.">
+                    Researched KEMTLS and Post-Quantum TLS, implementing
+                    bindings for the KEM-NIZKPoP library from C to Go to enhance
+                    secure key exchange.
                   </p>
                 </li>
                 <li>
-                  <div class="ExpericenceTitle">Junior Software Developer - NeticShard</div>
-                  <div class="ExpericenceTimePlace">April 2024 - August 2024 | LATAM, Homeoffice</div>
-                  <p>
-                  Developed and optimized back-end APIs using Go and Echo V4,
-                  managed PostgreSQL migrations, integrated Valkey for caching,
-                  and contributed to Docker-based deployments and HTMX-powered
-                  endpoints.
+                  <div class="ExperienceTitle" data-en="Junior Software Developer - NeticShard" data-pt="Desenvolvedor de Software Júnior - NeticShard">Junior Software Developer - NeticShard</div>
+                  <div class="ExperienceTimePlace" data-en="April 2024 - August 2024 | LATAM, Homeoffice" data-pt="Abril 2024 - Agosto 2024 | LATAM, Homeoffice">April 2024 - August 2024 | LATAM, Homeoffice</div>
+                  <p data-en="Developed and optimized back-end APIs using Go and
+                     Echo V4, managed PostgreSQL migrations, integrated Valkey
+                     for caching, and contributed to Docker-based deployments
+                     and HTMX-powered endpoints."
+                     data-pt="Desenvolvi e otimizou APIs back-end usando Go e
+                     Echo V4, gerenciei migrações PostgreSQL, integrei Valkey
+                     para cache e contribui para implantações baseadas em Docker
+                     e endpoints com HTMX.">
+                    Developed and optimized back-end APIs using Go and Echo V4,
+                    managed PostgreSQL migrations, integrated Valkey for
+                    caching, and contributed to Docker-based deployments and
+                    HTMX-powered endpoints.
                   </p>
                 </li>
                 <li>
-                  <div class="ExpericenceTitle">Undergraduate Research Assistant - UTFPR</div>
-                  <div class="ExpericenceTimePlace">July 2023 - Present | Toledo, Brazil</div>
-                  <p>
-                  Researched post-quantum cryptography and lattice-based
-                  cryptosystems, developed a Goldreich–Goldwasser–Halevi (GGH)
-                  implementation.
+                  <div class="ExperienceTitle" data-en="Undergraduate Research Assistant - UTFPR" data-pt="Assistente de Pesquisa de Graduação - UTFPR">Undergraduate Research Assistant - UTFPR</div>
+                  <div class="ExperienceTimePlace" data-en="July 2023 - Present | Toledo, Brazil" data-pt="Julho 2023 - Presente | Toledo, Brasil">July 2023 - Present | Toledo, Brazil</div>
+                  <p data-en="Researched post-quantum cryptography and
+                     lattice-based cryptosystems, developed a
+                     Goldreich–Goldwasser–Halevi (GGH) implementation."
+                     data-pt="Pesquisei criptografia pós-quântica e
+                     criptossistemas baseados em reticulados, desenvolvendo uma
+                     implementação de Goldreich–Goldwasser–Halevi (GGH).">
+                    Researched post-quantum cryptography and lattice-based
+                    cryptosystems, developed a Goldreich–Goldwasser–Halevi (GGH)
+                    implementation.
                   </p>
                 </li>
               </ul>
@@ -155,8 +241,18 @@
           </div>
 
           <div id="Section4" class="Section">
-            <h2>Education</h2>
-            <p>
+            <h2 data-en="Education" data-pt="Educação">Education</h2>
+            <p data-en="
+            Here are some of the academic programs and certifications I have
+            completed throughout my studies. This selection showcases key
+            milestones in my education, covering both formal degrees and
+            specialized courses in computer science.
+            " data-pt="
+            Aqui estão alguns dos programas acadêmicos e certificações que concluí
+            ao longo dos meus estudos. Esta seleção destaca marcos importantes da
+            minha formação, abrangendo tanto diplomas formais quanto cursos
+            especializados em ciência da computação.
+            ">
             Here are some of the academic programs and certifications I have
             completed throughout my studies. This selection showcases key
             milestones in my education, covering both formal degrees and
@@ -165,40 +261,52 @@
 
             <div id="EducationContainer">
               <div id="EducationItem">
-                <div class="ExpericenceTime">2022-2027</div>
-                <div class="ExpericencePlace">Federal University of Technology - Paraná</div>
+                <div class="ExperienceTime">2022-2027</div>
+                <div class="ExperiencePlace"
+                  data-en="Federal University of Technology of Paraná"
+                  data-pt="Universidade Tecnológica Federal do Paraná">
+                  Federal University of Technology - Paraná
+                </div>
                 <a href="https://www.utfpr.edu.br/campus/toledo" target="blank">
-                  Bachelor's Degree in Computer Engineering
+                  <span
+                    data-en="Bachelor's Degree in Computer Engineering"
+                    data-pt="Bacharelado em Engenharia de Computação">
+                    Bachelor's Degree in Computer Engineering
+                  </span>
                   <div class="fa-solid fa-building-columns"></div>
                 </a>
               </div>
               <div id="EducationItem">
-                <div class="ExpericenceTime">2024</div>
-                <div class="ExpericencePlace">Harvard University</div>
+                <div class="ExperienceTime">2024</div>
+                <div class="ExperiencePlace">Harvard University</div>
                 <a href="./certificates/CS50x.pdf" target="blank">
                   CS50x: Introduction to Computer Science
                   <div class="fa-solid fa-award"></div>
                 </a>
               </div>
               <div id="EducationItem">
-                <div class="ExpericenceTime">2024</div>
-                <div class="ExpericencePlace">Princeton University</div>
+                <div class="ExperienceTime">2024</div>
+                <div class="ExperiencePlace">Princeton University</div>
                 <a href="./certificates/algorithms-coursera.pdf" target="blank">
                   Algorithms, Part I & II
                   <div class="fa-solid fa-award"></div>
                 </a>
               </div>
               <div id="EducationItem">
-                <div class="ExpericenceTime">2024</div>
-                <div class="ExpericencePlace">Linux Foundation</div>
+                <div class="ExperienceTime">2024</div>
+                <div class="ExperiencePlace">Linux Foundation</div>
                 <a href="./certificates/LFS171.pdf" target="blank">
                   Introduction to Hyperledger Blockchain Technologies
                   <div class="fa-solid fa-award"></div>
                 </a>
               </div>
               <div id="EducationItem">
-                <div class="ExpericenceTime">2024</div>
-                <div class="ExpericencePlace">Higher School of Networks</div>
+                <div class="ExperienceTime">2024</div>
+                <div class="ExperiencePlace"
+                  data-en="Higher School of Networks"
+                  data-pt="Escola Superior de Redes">
+                  Higher School of Networks
+                </div>
                 <a href="./certificates/hyperledgerfagric-esr.pdf" target="blank">
                   Hyperledger Fabric
                   <div class="fa-solid fa-award"></div>
@@ -207,18 +315,41 @@
             </div>
           </div>
 
-          <p id="Copyright">
+          <p id="Copyright" data-en="
           Copyright
-          <a style="color: inherit; text-decoration: none;" class="fa-regular fa-copyright fa-xs" href="https://www.instagram.com/gabriel_santos_schmitz/"></a>
+          <a style='color: inherit; text-decoration: none;' class='fa-regular fa-copyright fa-xs' href='https://www.instagram.com/gabriel_santos_schmitz/'></a>
+          2025 - Gabriel dos Santos Schmitz - All Rights Reserved
+          " data-pt="
+          Copyright
+          <a style='color: inherit; text-decoration: none;' class='fa-regular fa-copyright fa-xs' href='https://www.instagram.com/gabriel_santos_schmitz/'></a>
+          2025 - Gabriel dos Santos Schmitz - Todos os direitos reservados
+          ">
+          Copyright
+          <a style='color: inherit; text-decoration: none;' class='fa-regular fa-copyright fa-xs' href='https://www.instagram.com/gabriel_santos_schmitz/'></a>
           2025 - Gabriel dos Santos Schmitz - All Rights Reserved
           </p>
         </div>
 
         <div id="LeftPanel">
           <h1>gabrielzschmitz</h1>
-          <h2>Computer Engineer Based on Brazil</h2>
-          <p>
-          I enjoy low-level programming and <span id="CryptoToggle">cryptography</span>,<br>
+          <h2 data-en="
+          Computer Engineer Based on Brazil
+          " data-pt="
+          Engenheiro de Computação baseado no Brasil
+          ">
+          Computer Engineer Based on Brazil</h2>
+          <p data-en="
+          I enjoy low-level programming and <span id='CryptoToggle'>cryptography</span>,<br>
+          building fast and efficient systems.<br>
+          I love solving technical problems and<br>
+          creating practical solutions.
+          " data-pt="
+          Eu gosto de programação de baixo nível e <span id='CryptoToggle'>criptografia</span>,<br>
+          construindo sistemas rápidos e eficientes.<br>
+          Adoro resolver problemas técnicos e<br>
+          criar soluções práticas.
+          ">
+          I enjoy low-level programming and <span id='CryptoToggle'>cryptography</span>,<br>
           building fast and efficient systems.<br>
           I love solving technical problems and<br>
           creating practical solutions.
@@ -227,19 +358,19 @@
           <nav class="NavContainer">
             <div class="NavItem" DataSection="Section1">
               <div class="NavItemDot"></div>
-              <span class="NavItemText">About</span>
+              <span class="NavItemText" data-en="About" data-pt="Sobre">About</span>
             </div>
             <div class="NavItem" DataSection="Section2">
               <div class="NavItemDot"></div>
-              <span class="NavItemText">Projects</span>
+              <span class="NavItemText" data-en="Projects" data-pt="Projetos">Projects</span>
             </div>
             <div class="NavItem" DataSection="Section3">
               <div class="NavItemDot"></div>
-              <span class="NavItemText">Experience</span>
+              <span class="NavItemText" data-en="Experience" data-pt="Experiência">Experience</span>
             </div>
             <div class="NavItem" DataSection="Section4">
               <div class="NavItemDot"></div>
-              <span class="NavItemText">Education</span>
+              <span class="NavItemText" data-en="Education" data-pt="Educação">Education</span>
             </div>
           </nav>
 
@@ -257,10 +388,17 @@
               <img id="SocialIcons" src="./images/cvicon.png" alt="CV">
             </a>
           </div>
+
+          <div id="ControlPanel">
+            <button id="ToggleTheme"><i class="fa-solid fa-sun"></i></button>
+            <button id="LanguageCycle"><i class="fi fi-br"></i></button>
+          </div>
+
         </div>
       </div>
     </div>
 
+    <script src="./js/lang.js"></script>
     <script src="./js/main.js"></script>
   </body>
 </html>
