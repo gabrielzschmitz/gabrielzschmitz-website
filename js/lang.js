@@ -4,7 +4,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   const languageCycle = document.getElementById("LanguageCycle");
   const elements = document.querySelectorAll("[data-en]");
+  const cvLink = document.querySelector("#SocialsContainer a[title='CV']");
   let isEnglish = true;
+
+  function updateCVFile() {
+    cvLink.href = isEnglish ? "./resume.pdf" : "./curriculo.pdf";
+  }
+
+  updateCVFile();
 
   languageCycle.addEventListener("click", () => {
     languageCycle.innerHTML = isEnglish ? '<i class="fi fi-us">' : '<i class="fi fi-br">';
@@ -22,6 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     isEnglish = !isEnglish;
+
+    updateCVFile();
 
 	/* Readd the MinecraftToggle button */
     const minecraftButton = document.getElementById("MinecraftToggle");
