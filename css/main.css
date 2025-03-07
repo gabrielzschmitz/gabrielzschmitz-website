@@ -458,6 +458,7 @@ body {
 
 /******************************************************************************/
 
+#Built,
 #MinecraftToggle {
   color: var(--dim-text-color);
   cursor: pointer;
@@ -466,6 +467,7 @@ body {
   display: inline-block;
 }
 
+#Built:hover,
 #MinecraftToggle:hover {
   color: var(--text-hover-color);
 }
