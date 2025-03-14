@@ -107,7 +107,7 @@ function InitProjectPopup() {
       <div class="project-popup-container">
         <div class="project-popup-close"></div>
         <div class="project-popup-image-container">
-          <img class="project-popup-image" src="/placeholder.svg" alt="Project preview">
+          <img class="project-popup-image" src="./images/placeholder.png" alt="Project preview">
         </div>
         <div class="project-popup-content">
           <h2 class="project-popup-title"></h2>
