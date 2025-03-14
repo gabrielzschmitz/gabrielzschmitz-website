@@ -47,7 +47,7 @@ const projects_data = {
   "ZKPop Go": {
     title: "ZKPop Go",
     description: "A Go wrapper for KEM-NIZKPoP (Key Encapsulation Mechanism with Non-Interactive Zero-Knowledge Proofs of Possession), focusing on post-quantum cryptography.",
-    image: "https://placehold.co/900x500/gray/1A1A1A?text=ZKPop+Go&font=raleway",
+    image: "./images/placeholder.png",
     year: "2024",
     github: "https://github.com/gabrielzschmitz/zkpop-go",
     learnings: [
@@ -60,7 +60,7 @@ const projects_data = {
   "Research": {
     title: "Research",
     description: "A collection of research materials, presentations, and implementations produced during my undergraduate research projects.",
-    image: "https://placehold.co/900x500/gray/1A1A1A?text=Research&font=raleway",
+    image: "./images/placeholder.png",
     year: "2024",
     github: "https://github.com/gabrielzschmitz/research",
     learnings: [
