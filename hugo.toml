@@ -3,6 +3,7 @@ languageCode = "pt-br"
 title = "Blog do JUPEC"
 theme = "anubis2"
 disqusShortname = ""
+publishDir = "public/blog"
 
 [pagination]
 pagerSize = 5
