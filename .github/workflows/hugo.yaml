@@ -76,8 +76,8 @@ jobs:
           path: |
             ${{ runner.temp }}/hugo_cache
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
-      - name: Copy portfolio index.html to root
-        run: cp index.html public/
+      - name: Copy portfolio files to root
+        run: cp -r index.html certificates css images js curriculo.pdf resume.pdf under-construction.html public/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
