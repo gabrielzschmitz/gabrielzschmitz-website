@@ -1,6 +1,6 @@
-baseURL = "/blog/"
-languageCode = "pt-br"
-title = "Blog do JUPEC"
+baseURL = "/"
+languageCode = "en-us"
+title = "blog."
 theme = "anubis2"
 disqusShortname = ""
 publishDir = "public/blog"
@@ -13,12 +13,12 @@ pagerSize = 5
     dir = ':cacheDir/images'
 
 [params.author]
-name = "JUPEC"
+name = "gabrielzschmitz"
 email  = "gabrielzschmitz@protonmail.com"
 location = "Brasil"
 
 [params]
-description = "Este é o Blog do JUPEC, onde você irá encontrar posts sobre catolicismo!"
+description = "This is the gabrielzschmitz blog."
 dateFormat = "2006-01-02"
 paginationSinglePost = true
 
@@ -32,7 +32,7 @@ readMore = false
 readNextPosts = 2
 copyCodeButton = true
 rssAsSocialIcon = true
-locale = "pt-br"
+locale = "en-us"
 math = false # true: enable mathjax globally (default is false)
 toc = true
 
@@ -40,25 +40,24 @@ toc = true
 graphcommentId = ""
 
 social = [
-    { id = "email", url = "mailto:jupec@gmail.com" },
-    { id = "instagram", url = "https://www.instagram.com/pj.jupec/" },
+    { id = "email", url = "mailto:gabrielzschmitz@protonmail.com" },
 ]
 
 [[menu.main]]
 identifier = "home"
-name = "Início"
+name = "home"
 url = "/"
 weight = 1
 
 [[menu.main]]
 identifier = "about"
-name = "Sobre"
+name = "about"
 url = "/about/"
 weight = 2
 
 [[menu.main]]
 identifier = "tags"
-name = "Temas"
+name = "tags"
 url = "/tags/"
 weight = 3
 

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Authors on Blog do JUPEC</title>
-    <link>/blog/authors/</link>
-    <description>Blog do JUPEC (Authors)</description>
+    <title>Authors on blog.</title>
+    <link>/authors/</link>
+    <description>blog. (Authors)</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>pt-br</language>
+    <language>en-us</language>
     
       
         <managingEditor>gabrielzschmitz@protonmail.com
           
-            (JUPEC)
+            (gabrielzschmitz)
           
         </managingEditor>
       
@@ -20,7 +20,7 @@
 
     
     
-    <atom:link href="/blog/authors/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

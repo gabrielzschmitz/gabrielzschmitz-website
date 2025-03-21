@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Blog do JUPEC</title>
-    <link>/blog/tags/</link>
-    <description>Blog do JUPEC (Tags)</description>
+    <title>Tags on blog.</title>
+    <link>/tags/</link>
+    <description>blog. (Tags)</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>pt-br</language>
+    <language>en-us</language>
     
       
         <managingEditor>gabrielzschmitz@protonmail.com
           
-            (JUPEC)
+            (gabrielzschmitz)
           
         </managingEditor>
       
@@ -19,9 +19,8 @@
     
 
     
-    <lastBuildDate>Sat, 25 Jan 2025 00:00:00 +0000</lastBuildDate>
     
-    <atom:link href="/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

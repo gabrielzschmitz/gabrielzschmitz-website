@@ -2,32 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-        <loc>/blog/</loc>
+        <loc>//localhost:1313/about/</loc>
+        <lastmod>2025-03-21T00:00:00+00:00</lastmod>
+      </url><url>
+        <loc>//localhost:1313/</loc>
+        <lastmod>2025-03-21T00:00:00+00:00</lastmod>
+      </url><url>
+        <loc>//localhost:1313/posts/first/first/</loc>
         <lastmod>2025-03-03T00:00:00+00:00</lastmod>
       </url><url>
-        <loc>/blog/about/</loc>
+        <loc>//localhost:1313/posts/</loc>
         <lastmod>2025-03-03T00:00:00+00:00</lastmod>
       </url><url>
-        <loc>/blog/tags/historia/</loc>
-        <lastmod>2025-01-25T00:00:00+00:00</lastmod>
+        <loc>//localhost:1313/authors/</loc>
       </url><url>
-        <loc>/blog/posts/nossa-senhora-de-guadalupe/nossa-senhora-de-guadalupe/</loc>
-        <lastmod>2025-01-25T00:00:00+00:00</lastmod>
+        <loc>//localhost:1313/categories/</loc>
       </url><url>
-        <loc>/blog/posts/</loc>
-        <lastmod>2025-01-25T00:00:00+00:00</lastmod>
-      </url><url>
-        <loc>/blog/tags/santos/</loc>
-        <lastmod>2025-01-25T00:00:00+00:00</lastmod>
-      </url><url>
-        <loc>/blog/tags/simbolismo/</loc>
-        <lastmod>2025-01-25T00:00:00+00:00</lastmod>
-      </url><url>
-        <loc>/blog/tags/</loc>
-        <lastmod>2025-01-25T00:00:00+00:00</lastmod>
-      </url><url>
-        <loc>/blog/authors/</loc>
-      </url><url>
-        <loc>/blog/categories/</loc>
+        <loc>//localhost:1313/tags/</loc>
       </url>
 </urlset>

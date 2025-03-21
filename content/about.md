@@ -1,39 +1,35 @@
 +++
-title = "Sobre"
-description = "Blog do JUPEC, aqui encontrará conteúdo católico de qualidade"
-date = "2025-03-03"
-aliases = ["about-us", "about-jupec"]
+title = "About"
+description = "The gabrielzschmitz blog."
+date = "2025-03-21"
+aliases = ["about-us"]
 author = ["gabrielzschmitz"]
+toc = false
 +++
 
-## Sobre o JUPEC
+## About
 
-O JUPEC (Juventude Perseverant em Cristo) é um grupo formado por jovens
-católicos que desejam viver e testemunhar sua fé de forma autêntica e alegre.
-Nosso propósito é crescer juntos na caminhada com Cristo, aprofundando nosso
-conhecimento da fé católica, fortalecendo nossa espiritualidade e levando a
-mensagem do Evangelho ao mundo.
+Welcome to my personal blog!
 
-Este blog é uma extensão do nosso trabalho missionário. Aqui você encontrará
-reflexões, orações, formações, dicas de leitura espiritual, testemunhos e muito
-mais conteúdo voltado para a juventude católica que deseja viver sua fé com
-profundidade e alegria.
+I’m Gabriel dos Santos Schmitz, a passionate software developer, researcher, and
+tech enthusiast. In this space, I share my journey through various projects,
+challenges, and the latest insights I gather along the way. Whether it's coding
+tutorials, new technologies, or the latest trends in software development, this
+blog serves as a space to document what I’m learning and experimenting with.
 
-### Nossa Missão
+### What to Expect
 
-- Evangelizar com alegria e autenticidade;
-- Formar jovens em uma fé sólida e enraizada na Tradição da Igreja;
-- Criar um espaço de partilha, reflexão e crescimento espiritual.
-
-### Junte-se a nós!
-
-Se você deseja caminhar conosco, participar dos encontros ou colaborar com o
-blog, entre em contato! Vamos juntos transformar o mundo, começando pelo nosso
-próprio coração.
+- **Coding challenges**: I love solving problems in multiple programming
+  languages and sharing my solutions.
+- **Projects**: I often work on open-source projects and document their progress
+  here.
+- **Tech talks**: Insights into emerging technologies, methodologies, and tools
+  I find interesting.
+- **Research**: A deeper dive into some of the academic and practical aspects of
+  software and systems design.
 
 ---
 
-📬 **Contato:** [@pj.jupec](https://www.instagram.com/pj.jupec)
-
-🙏 **Oração do JUPEC:** "Jovem, sê luz, sê sal e sê santo!"
-
+Feel free to browse through my posts, and don’t hesitate to reach out if you
+have any questions or suggestions. I'm always open to new ideas and
+collaboration!
