@@ -1,0 +1,76 @@
+baseURL = "/blog/"
+languageCode = "pt-br"
+title = "Blog do JUPEC"
+theme = "anubis2"
+disqusShortname = ""
+
+[pagination]
+pagerSize = 5
+
+[params.author]
+name = "JUPEC"
+email  = "gabrielzschmitz@protonmail.com"
+location = "Brasil"
+
+[params]
+description = "Este é o Blog do JUPEC, onde você irá encontrar posts sobre catolicismo!"
+dateFormat = "2006-01-02"
+paginationSinglePost = true
+
+# icp = "京ICP备xxxxx号-1" # for China ICP license
+# police = "京公网安备 12345678号" # for China police beian
+
+colorTheme = "auto"
+colorThemeSwitcher = true
+
+readMore = false
+readNextPosts = 2
+copyCodeButton = true
+rssAsSocialIcon = true
+locale = "pt-br"
+math = false # true: enable mathjax globally (default is false)
+toc = true
+
+# Graphcomment support
+graphcommentId = ""
+
+social = [
+    { id = "email", url = "mailto:jupec@gmail.com" },
+    { id = "instagram", url = "https://www.instagram.com/pj.jupec/" },
+]
+
+[[menu.main]]
+identifier = "home"
+name = "Início"
+url = "/"
+weight = 1
+
+[[menu.main]]
+identifier = "about"
+name = "Sobre"
+url = "/about/"
+weight = 2
+
+[[menu.main]]
+identifier = "tags"
+name = "Temas"
+url = "/tags/"
+weight = 3
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+author = "authors"
+
+[markup]
+defaultMarkdownHandler = 'goldmark'
+
+[markup.goldmark.renderer]
+unsafe = true # Enable unsafe mode to have a better experience
+
+[markup.highlight]
+anchorLineNos      = false
+codeFences         = true # tested with true and false. Both work.
+noClasses          = true # If you run with markup.highlight.noClasses=false in your site configuration, you need a style sheet.
+style              = 'catppuccin-frappe' # Find more style at here: https://swapoff.org/chroma/playground/
+tabWidth           = 2

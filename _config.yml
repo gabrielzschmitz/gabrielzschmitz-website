@@ -1,4 +1,0 @@
-plugins:
-  - jekyll-paginate
-paginate: 5
-remote_theme: "mmistakes/so-simple-theme@3.2.0"

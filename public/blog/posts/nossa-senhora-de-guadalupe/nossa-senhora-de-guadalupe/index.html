@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+
+<html lang="pt-br" data-theme="">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>Nossa Senhora de Guadalupe - Blog do JUPEC</title>
+
+<meta name="description" content="História e simbolismo de Nossa Senhora de Guadalupe">
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="/blog/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="/blog/favicon.png">
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+<style>
+  body {
+    visibility: hidden;
+    opacity: 0;
+  }
+</style>
+
+<noscript>
+  <style>
+    body {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</noscript>
+
+
+
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <link rel="stylesheet" href="/blog/css/style.min.44f8240afd8df81b52565c4119ac5ae247776c77fc6d7ccf6e101a6c98abfa7a.css" integrity="sha256-RPgkCv2N&#43;BtSVlxBGaxa4kd3bHf8bXzPbhAabJir&#43;no=">
+    
+
+
+
+
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <link rel="stylesheet" href="/blog/css/style.min.c4c04b3ef88e3d619ad4c7ee5e03048422bc55c4fefdc1f07657c1133670aa22.css" integrity="sha256-xMBLPviOPWGa1MfuXgMEhCK8VcT&#43;/cHwdlfBEzZwqiI=">
+    
+
+
+
+
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <link rel="stylesheet" href="/blog/css/style.min.21c5d8fe0a79d623b0adc1ce4bd4f6dd2c05cd939c9aaaa966ba7186b1464f4d.css" integrity="sha256-IcXY/gp51iOwrcHOS9T23SwFzZOcmqqpZrpxhrFGT00=">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <script src="/blog/js/script.min.08f04d96386c73c9bf4d160333f8f448c05a6e01c06770542ee0e013954ce930.js" type="text/javascript" charset="utf-8" integrity="sha256-CPBNljhsc8m/TRYDM/j0SMBabgHAZ3BULuDgE5VM6TA="></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</head>
+<body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <div class="container">
+        <header class="common-header">
+            
+                <div class="header-top">
+    <div class="header-top-left">
+        <h1 class="site-title noselect">
+    <a href="/blog/">Blog do JUPEC</a>
+</h1>
+
+        
+
+
+
+    
+
+
+
+    
+
+
+
+    
+        <div class="theme-switcher">
+            <span class="inline-svg">
+
+    
+
+
+    
+    
+    
+    
+    
+
+    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-sun-high"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg>
+
+
+</span>
+
+        </div>
+    
+
+    <script>
+        const STORAGE_KEY = 'user-color-scheme'
+        const defaultTheme = "auto"
+
+        let currentTheme
+        let switchButton
+        let autoDefinedScheme = window.matchMedia('(prefers-color-scheme: dark)')
+
+        function switchTheme(e) {
+            currentTheme = (currentTheme === 'dark') ? 'light' : 'dark';
+            if (localStorage) localStorage.setItem(STORAGE_KEY, currentTheme);
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            changeGiscusTheme(currentTheme);
+            document.body.dispatchEvent(new CustomEvent(currentTheme + "-theme-set"));
+        }
+
+        const autoChangeScheme = e => {
+            currentTheme = e.matches ? 'dark' : 'light'
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            changeGiscusTheme(currentTheme);
+            document.body.dispatchEvent(new CustomEvent(currentTheme + "-theme-set"));
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            switchButton = document.querySelector('.theme-switcher')
+            currentTheme = detectCurrentScheme()
+
+            if (currentTheme === 'auto') {
+                autoChangeScheme(autoDefinedScheme);
+                autoDefinedScheme.addListener(autoChangeScheme);
+            } else {
+                document.documentElement.setAttribute('data-theme', currentTheme)
+            }
+
+            if (switchButton) {
+                switchButton.addEventListener('click', switchTheme, false)
+            }
+
+            showContent();
+        })
+
+        function detectCurrentScheme() {
+            if (localStorage !== null && localStorage.getItem(STORAGE_KEY)) {
+                return localStorage.getItem(STORAGE_KEY)
+            }
+            if (defaultTheme) {
+                return defaultTheme
+            }
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        function showContent() {
+            document.body.style.visibility = 'visible';
+            document.body.style.opacity = 1;
+        }
+
+        function changeGiscusTheme (theme) {
+            function sendMessage(message) {
+              const iframe = document.querySelector('iframe.giscus-frame');
+              if (!iframe) return;
+              iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+            }
+
+            sendMessage({
+              setConfig: {
+                theme: theme
+              }
+            });
+        }
+    </script>
+
+
+        <ul class="social-icons noselect">
+
+
+    
+        <li>
+            <a href="mailto:jupec@gmail.com" title="Email" rel="me">
+            <span class="inline-svg">
+
+    
+
+
+    
+    
+    
+    
+    
+
+    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg>
+
+
+</span>
+
+            </a>
+        </li>
+    
+
+    
+        <li>
+            <a href="https://www.instagram.com/pj.jupec/" title="Instagram" rel="me">
+            <span class="inline-svg">
+
+    
+
+
+    
+    
+    
+    
+    
+
+    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M16.5 7.5l0 .01" /></svg>
+
+
+</span>
+
+            </a>
+        </li>
+    
+
+
+
+
+
+
+    <li>
+            <a href="/blog/index.xml" title="RSS" rel="me">
+            <span class="inline-svg">
+
+    
+
+
+    
+    
+    
+    
+    
+
+    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-rss"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M4 4a16 16 0 0 1 16 16" /><path d="M4 11a9 9 0 0 1 9 9" /></svg>
+
+
+</span>
+
+            </a>
+        </li>
+    
+
+</ul>
+
+    </div>
+    <div class="header-top-right">
+
+    </div>
+</div>
+
+
+    <nav class="noselect">
+        
+        
+        <a class="" href="/blog/" title="">Início</a>
+        
+        <a class="" href="/blog/about/" title="">Sobre</a>
+        
+        <a class="" href="/blog/tags/" title="">Temas</a>
+        
+    </nav>
+
+
+
+
+
+
+
+
+            
+        </header>
+        <main id="main" tabindex="-1">
+            
+    
+
+    <article class="post h-entry">
+        <div class="post-header">
+            <header>
+                <h1 class="p-name post-title">Nossa Senhora de Guadalupe</h1>
+                
+
+            </header>
+            
+
+    
+
+
+
+<div class="post-info noselect">
+    
+        <div class="post-date dt-published">
+            <time datetime="2025-01-25">2025-01-25</time>
+            
+        </div>
+    
+
+    <a class="post-hidden-url u-url" href="/blog/posts/nossa-senhora-de-guadalupe/nossa-senhora-de-guadalupe/">/blog/posts/nossa-senhora-de-guadalupe/nossa-senhora-de-guadalupe/</a>
+    <a href="/blog/" class="p-name p-author post-hidden-author h-card" rel="me">Gabriel dos Santos Schmitz</a>
+
+
+    <div class="post-taxonomies">
+        
+        
+            <ul class="post-tags">
+                
+                    
+                    <li><a href="/blog/tags/santos/">#Santos</a></li>
+                
+                    
+                    <li><a href="/blog/tags/historia/">#Historia</a></li>
+                
+                    
+                    <li><a href="/blog/tags/simbolismo/">#Simbolismo</a></li>
+                
+            </ul>
+        
+        
+    </div>
+</div>
+
+        </div>
+        
+
+  
+  
+
+
+
+
+  
+  
+  
+  <details class="toc noselect">
+    <summary>Tabela de Conteúdos</summary>
+    <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#resumo">Resumo</a></li>
+    <li><a href="#história">História</a></li>
+    <li><a href="#características-da-tilma">Características da Tilma</a></li>
+    <li><a href="#milagres">Milagres</a></li>
+    <li><a href="#simbolismo">Simbolismo</a>
+      <ul>
+        <li><a href="#o-nome">O Nome</a></li>
+        <li><a href="#o-cabelo">O Cabelo</a></li>
+        <li><a href="#o-laço-preto">O laço preto</a></li>
+        <li><a href="#o-manto">O manto</a></li>
+        <li><a href="#a-lua-negra">A lua negra</a></li>
+        <li><a href="#as-mãos">As mãos</a></li>
+        <li><a href="#os-olhos">Os olhos</a></li>
+        <li><a href="#música">Música</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+  </details>
+  
+
+
+
+<script>
+  var toc = document.querySelector(".toc");
+  if (toc) {
+    toc.addEventListener("click", function () {
+      if (event.target.tagName !== "A") {
+        event.preventDefault();
+        if (this.open) {
+          this.open = false;
+          this.classList.remove("expanded");
+        } else {
+          this.open = true;
+          this.classList.add("expanded");
+        }
+      }
+    });
+  }
+</script>
+
+        <div class="content e-content">
+            <h2 id="resumo" >
+<div>
+    <a href="#resumo">
+        #
+    </a>
+    Resumo
+</div>
+</h2>
+<p>Este documento explora a história, simbolismo e mistérios associados à imagem de
+Nossa Senhora de Guadalupe, um dos ícones religiosos mais venerados do mundo. A
+narrativa abrange desde as aparições a São Juan Diego em 1531, destacando os
+eventos milagrosos que envolveram a tilma, até os aspectos científicos e
+culturais que intrigam estudiosos há séculos.</p>
+<p>São analisados detalhes como a inexplicável preservação do tecido, a ausência de
+pigmentos na imagem, sua temperatura semelhante à de um corpo humano vivo e os
+padrões celestes representados no manto. Além disso, são discutidos elementos
+simbólicos, como o laço preto, que indica gravidez, as mãos unidas em oração que
+representam a união dos povos, e os reflexos oculares que capturam figuras
+históricas. A riqueza estética da composição, baseada na proporção áurea, também
+revelou uma peça musical oculta, evidenciando a profundidade espiritual e
+cultural dessa representação mariana.</p>
+<hr>
+<p><img src="/posts/nossa-senhora-de-guadalupe/fig5.png" alt="Nossa Senhora de Guadalupe"></p>
+<hr>
+<h2 id="história" >
+<div>
+    <a href="#hist%c3%b3ria">
+        #
+    </a>
+    História
+</div>
+</h2>
+<p>Antes da chegada dos Jesuítas ao México, o território era dominado pelo povo
+asteca, uma civilização índio-americana conhecida por seu politeísmo e práticas
+guerreiras. Entre seus rituais, destacavam-se os sacrifícios humanos ao deus
+sol, incluindo a extração do coração de homens ainda vivos, com o intuito de
+apaziguar a divindade. Após a conquista espanhola do território mexicano por
+Hernán Cortés, uma nova era teve início.</p>
+<p><img src="/posts/nossa-senhora-de-guadalupe/fig1.png" alt="Conquest of Mexico por Nicolas Eustache Maurin"></p>
+<p>Mesmo com a dominação espanhola, a conversão religiosa da população local
+promovida por Jesuítas e Franciscanos encontrou grande resistência. No entanto,
+tudo mudou com o evento conhecido como a aparição de Nossa Senhora de Guadalupe.</p>
+<p>Na manhã de 9 de dezembro de 1531, um índio chamado Juan Diego teve uma visão de
+uma senhora radiante na Colina de Tepeyac. Falando em sua língua nativa, o
+náuatle, a senhora se apresentou como a Virgem Maria, mãe do verdadeiro Deus, e
+pediu que uma igreja fosse construída na colina em sua honra.</p>
+<p>Após a visão, Juan Diego procurou o recém-nomeado Arcebispo da Cidade do México,
+Frei Juan de Zumárraga, para relatar o ocorrido. Inicialmente, o bispo não
+acreditou em Juan e solicitou uma prova da identidade da senhora.</p>
+<p>No dia seguinte, quando Juan Diego deveria retornar à colina, ele precisou
+cuidar de seu tio gravemente doente e não pôde comparecer ao encontro. Em 12 de
+dezembro, ao se encontrar novamente com a aparição, esta lhe perguntou o motivo
+de sua preocupação, assegurando que seu tio já havia sido curado. Suas palavras,
+<em>Kuix amo nikan nika nimonants?</em>, traduzidas como <em>Não estou aqui, que sou sua
+mãe?</em>, marcaram profundamente o momento. A senhora então pediu que Juan subisse
+o Monte Tepeyac e colhesse as flores que encontrasse lá.</p>
+<p>Apesar do inverno rigoroso, Juan encontrou rosas castelhanas no alto do monte,
+uma espécie não nativa do México. Ele as recolheu e as levou à senhora, que as
+organizou em seu manto e instruiu que as entregasse ao bispo como prova.</p>
+<p>Ao chegar ao palácio arquiepiscopal, Juan Diego abriu o manto diante do bispo.
+As rosas caíram no chão, revelando no tecido a imagem da Virgem de Guadalupe,
+que permanece preservada até hoje na Basílica de Nossa Senhora de Guadalupe.</p>
+<p><img src="/posts/nossa-senhora-de-guadalupe/fig2.png" alt="São Juan Diego mostra a tilma ao bispo"></p>
+<hr>
+<h2 id="características-da-tilma" >
+<div>
+    <a href="#caracter%c3%adsticas-da-tilma">
+        #
+    </a>
+    Características da Tilma
+</div>
+</h2>
+<p>A história do manto de Nossa Senhora de Guadalupe é repleta de elementos que
+despertam a curiosidade de cientistas e estudiosos. Entre eles, destacam-se as
+características físicas da tilma, que até hoje permanecem envoltas em mistério.</p>
+<p>Primeiramente, a tilma é um tecido feito a partir do cacto agave. Por ser
+composta majoritariamente de fibras de cacto, trata-se de um material de baixa
+qualidade, com superfície áspera, dificultando tanto o uso quanto a conservação
+de imagens nele pintadas. Em condições normais, uma tilma comum possui uma vida
+útil de no máximo 20 anos. No entanto, a tilma que contém a imagem de Nossa
+Senhora de Guadalupe permanece intacta há mais de 500 anos, desafiando as
+explicações científicas.</p>
+<p>Outro aspecto intrigante é a forma como a imagem se apresenta no tecido.
+Cientistas e especialistas em fotografia que analisaram a tilma afirmam que não
+há indícios de tintas ou pigmentos aplicados, tampouco sinais de pinceladas.
+Estudos indicam que a imagem parece ter sido formada de maneira única, como se
+tivesse sido &ldquo;impressa&rdquo; de uma só vez. Além disso, suas cores não contêm
+elementos de origem animal ou mineral e apresentam leves variações de tonalidade
+dependendo do ângulo de visão.</p>
+<p>Curiosamente, apesar da textura áspera do tecido, a porção onde a imagem está
+impressa possui uma suavidade peculiar, que destoa do restante do material.</p>
+<p>Em 1979, o biofísico Dr. Philip Callahan, da Universidade da Flórida, realizou
+uma análise detalhada do manto. Ele constatou que a tilma mantém uma temperatura
+constante entre 36 e 37 graus Celsius, semelhante à temperatura de um corpo
+humano vivo.</p>
+<p><img src="/posts/nossa-senhora-de-guadalupe/fig3.png" alt="My Search for Traces of God por Philip S. Callahan"></p>
+<hr>
+<h2 id="milagres" >
+<div>
+    <a href="#milagres">
+        #
+    </a>
+    Milagres
+</div>
+</h2>
+<p>Em 1785, durante a limpeza do vidro que protege o manto, um acidente ocorreu: um
+solvente de ácido nítrico foi derramado sobre grande parte da imagem.
+Quimicamente, esperava-se que a imagem fosse instantaneamente destruída pelo
+ácido. No entanto, de forma surpreendente, ela se restaurou sozinha em apenas 30
+dias.</p>
+<p>Outro evento marcante ocorreu em 1921, quando um militante anticlerical realizou
+um atentado na Basílica de Nossa Senhora de Guadalupe. Ele colocou diante do
+manto um vaso de rosas que escondia 29 cargas de dinamite. A explosão destruiu o
+piso, o genuflexório de mármore e janelas a 150 metros de distância. Um pesado
+crucifixo de bronze foi retorcido, mas o manto permaneceu intacto.</p>
+<p><img src="/posts/nossa-senhora-de-guadalupe/fig4.png" alt="Santo Cristo do Atentado"></p>
+<hr>
+<h2 id="simbolismo" >
+<div>
+    <a href="#simbolismo">
+        #
+    </a>
+    Simbolismo
+</div>
+</h2>
+<h3 id="o-nome" >
+<div>
+    <a href="#o-nome">
+        ##
+    </a>
+    O Nome
+</div>
+</h3>
+<p><em>&ldquo;Guadalupe&rdquo;</em> é a tradução do Nahuatl para o espanhol das palavras usadas pela
+Virgem durante sua aparição. O termo original seria <em>-coatlaxopuh</em>, que
+significa &ldquo;aquela que esmaga a cabeça da serpente&rdquo;, referindo-se ao mal.</p>
+<p><img src="/posts/nossa-senhora-de-guadalupe/fig6.png" alt="Imagem da Virgem"></p>
+<h3 id="o-cabelo" >
+<div>
+    <a href="#o-cabelo">
+        ##
+    </a>
+    O Cabelo
+</div>
+</h3>
+<p>Maria é representada com o cabelo solto, símbolo asteca de virgindade,
+reforçando a mensagem de sua pureza.</p>
+<p><img src="/posts/nossa-senhora-de-guadalupe/fig8.png" alt="Detalhe do Cabelo"></p>
+<h3 id="o-laço-preto" >
+<div>
+    <a href="#o-la%c3%a7o-preto">
+        ##
+    </a>
+    O laço preto
+</div>
+</h3>
+<p>A fita preta ajustada na cintura da jovem mexicana é um sinal claro de que ela
+está grávida de alguns meses. Este detalhe é complementado pela leve
+protuberância abaixo da fita e pela intensidade do brilho solar que se concentra
+na região de sua barriga. A presença do laço preto indica que a Virgem Maria
+está <em>grávida</em>, simbolizando que Deus quis que Jesus nascesse na América, no
+coração de cada americano.</p>
+<p>Um dos médicos que estudou a tilma realizou um experimento notável: ao colocar
+um estetoscópio sob a fita preta, ele ouviu batidas rítmicas a uma frequência de
+115 batimentos por minuto, semelhante ao som do coração de um bebê no ventre
+materno. Este fenômeno reforça o significado profundo da imagem como um sinal da
+maternidade divina e da presença viva de Maria junto aos povos americanos.</p>
+<p><img src="/posts/nossa-senhora-de-guadalupe/fig7.png" alt="Laço Preto"></p>
+<h3 id="o-manto" >
+<div>
+    <a href="#o-manto">
+        ##
+    </a>
+    O manto
+</div>
+</h3>
+<p>O manto azul adornado com estrelas, conhecido como a &ldquo;Tilma Turquesa&rdquo;, era uma
+veste reservada aos grandes senhores, simbolizando nobreza e importância. Por
+essa razão, a Virgem de Guadalupe é reverenciada como a Imperatriz da América.</p>
+<p>Um aspecto notável da tilma é que a fibra de maguey, material com que foi
+confeccionada, mantém uma temperatura constante de 36,6 graus Celsius,
+equivalente à de uma pessoa viva. Além disso, análises científicas não
+identificaram vestígios de tinta no tecido, desafiando explicações convencionais
+sobre a origem da imagem.</p>
+<p>O manto apresenta 46 estrelas distribuídas em um padrão que reproduz exatamente
+as constelações visíveis no céu na noite de 12 de dezembro de 1531, data
+tradicionalmente associada à aparição. Nessa representação, Maria aparece
+vestida de estrelas, carregando em seu ventre o Rei e Criador do universo,
+destacando o caráter celestial de sua missão.</p>
+<p>Ao redor da imagem, há raios de sol irradiando de Maria, um elemento com
+profundo significado cultural. Na tradição asteca, o sol era a maior divindade,
+e os raios intensificados ao redor do ventre de Maria indicam que o Filho que
+ela traz em seu ventre é o verdadeiro &ldquo;Sol&rdquo; que iluminará o mundo. Essa
+integração de simbolismos ressalta a conexão entre a espiritualidade cristã e a
+cultura indígena.</p>
+<p><img src="/posts/nossa-senhora-de-guadalupe/fig9.png" alt="Manto"></p>
+<h3 id="a-lua-negra" >
+<div>
+    <a href="#a-lua-negra">
+        ##
+    </a>
+    A lua negra
+</div>
+</h3>
+<p>A Virgem está representada com seu pé apoiado sobre uma lua negra, símbolo
+associado ao mal na tradição mexicana. Esse detalhe reforça sua vitória sobre o
+mal, enquanto o anjo que a sustenta, com um gesto solene, abre suas asas de
+águia, simbolizando proteção e força.</p>
+<p>A lua negra também aparece no escudo concepcionista, onde é associada ao tempo e
+à fertilidade feminina. Sua posição &ldquo;sob os pés&rdquo; da Virgem representa a união
+perfeita entre maternidade e virgindade, além de simbolizar sua supremacia sobre
+o tempo e as adversidades terrenas. Essa representação está intimamente ligada à
+descrição bíblica de Apocalipse 12, que retrata &ldquo;uma mulher vestida de sol, com
+a lua sob seus pés&rdquo;, reforçando a mensagem de triunfo e transcendência
+espiritual.</p>
+<p><img src="/posts/nossa-senhora-de-guadalupe/fig10.png" alt="Lua Negra"></p>
+<h3 id="as-mãos" >
+<div>
+    <a href="#as-m%c3%a3os">
+        ##
+    </a>
+    As mãos
+</div>
+</h3>
+<p>Um detalhe significativo na imagem é o posicionamento das mãos da Virgem, unidas
+em sinal de oração e recolhimento. Observa-se que a mão direita é mais clara,
+enquanto a esquerda é mais morena, simbolizando a união das raças. Essa
+representação reflete o papel de Maria como mediadora da fé católica, que seria
+levada pelos espanhóis ao povo asteca. Assim, as mãos da Virgem simbolizam a
+integração dos povos na comunhão de uma única fé.</p>
+<p><img src="/posts/nossa-senhora-de-guadalupe/fig11.png" alt="As Mãos"></p>
+<h3 id="os-olhos" >
+<div>
+    <a href="#os-olhos">
+        ##
+    </a>
+    Os olhos
+</div>
+</h3>
+<p>José Aste Tönsmann, engenheiro civil peruano formado pela Universidade Nacional
+de Engenharia (UNI) e doutor em Engenharia de Sistemas pela Universidade de
+Cornell, dedica-se desde 1979 ao estudo da imagem da Virgem de Guadalupe.
+Utilizando técnicas digitais de análise de imagens, ele identificou 13 figuras
+humanas refletidas nos olhos da Virgem.</p>
+<p>As figuras estão localizadas nas córneas da imagem — uma com 8 milímetros e
+outra com 7 milímetros de diâmetro — e aparecem nas mesmas posições em ambos os
+olhos, mas em proporções ligeiramente diferentes. O primeiro grupo inclui
+figuras históricas como um indígena sentado, o bispo Juan de Zumárraga, seu
+tradutor Juan González, São Juan Diego (o vidente da Virgem), uma mulher negra
+que acompanhou o bispo ao México e recebeu sua liberdade, e um homem europeu
+barbado.</p>
+<p>O segundo grupo retrata uma família indígena: uma jovem mulher (provavelmente a
+mãe), um homem com chapéu (possivelmente o pai), duas crianças e um bebê,
+acompanhados por um casal maduro ao fundo (os avós). Curiosamente, a figura do
+homem maduro aparece apenas na córnea do olho direito, adicionando um detalhe
+único a essa intrigante descoberta.</p>
+<p><img src="/posts/nossa-senhora-de-guadalupe/fig12.png" alt="Pessoas identificadas nos olhos da Virgem">
+Fonte: <a href="https://www.youtube.com/watch?v=Ooe-EBfqvc8">YouTube</a></p>
+<h3 id="música" >
+<div>
+    <a href="#m%c3%basica">
+        ##
+    </a>
+    Música
+</div>
+</h3>
+<p>A imagem no manto da Virgem de Guadalupe apresenta a proporção áurea em sua
+composição, o que confere uma simetria perfeita. Essa harmonia estrutural serviu
+de base para uma fascinante descoberta: Fernando Ojeda, analisando as
+proporcionalidades da imagem, conseguiu reconstruir uma música completa a partir
+do próprio manto. Este feito ressalta não apenas a riqueza simbólica da imagem,
+mas também a profundidade estética que ela carrega.</p>
+<p><img src="/posts/nossa-senhora-de-guadalupe/fig13.png" alt="Método usado para extrair a música do manto">
+Fonte: <a href="https://fernandoojeda.com/audios/">fernandoojeda.com</a></p>
+
+        </div>
+
+    </article>
+
+    
+    
+        
+    
+
+    
+        
+        
+    
+
+    
+        
+
+
+
+
+    
+
+    
+        
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+        </main>
+        
+            <footer class="common-footer noselect">
+    
+    
+
+    <div class="common-footer-bottom">
+        
+
+        <div style="display: flex; align-items: center; gap:8px">
+            ©  JUPEC,  2025
+            
+        </div>
+        <div style="display:flex;align-items: center">
+            
+            
+            
+            
+            
+            
+        </div>
+        <div>
+            Powered by <a target="_blank" rel="noopener noreferrer"
+              href="https://github.com/gabrielzschmitz">gabrielzschmitz</a>.<br>
+            
+
+        </div>
+    </div>
+
+    <p class="h-card vcard">
+
+    <a href=/blog/ class="p-name u-url url fn" rel="me">map[email:gabrielzschmitz@protonmail.com location:Brasil name:JUPEC]</a>
+
+    
+
+    
+</p>
+
+</footer>
+
+        
+    </div>
+</body>
+</html>
