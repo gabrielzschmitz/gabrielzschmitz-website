@@ -7,6 +7,10 @@ disqusShortname = ""
 [pagination]
 pagerSize = 5
 
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
 [params.author]
 name = "JUPEC"
 email  = "gabrielzschmitz@protonmail.com"
