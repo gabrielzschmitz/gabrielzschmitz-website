@@ -7,6 +7,10 @@ author = ["gabrielzschmitz"]
 +++
 
 ![Post Header](/blog/posts/first/header.svg)
+*Header image by [gabrielzschmitz](https://gabrielzschmitz.github.io),
+licensed under [Creative Commons 4.0 Attribution license](https://creativecommons.org/licenses/by/4.0/).*
+
+<br>
 
 Hello and welcome to my first blog post!
 
