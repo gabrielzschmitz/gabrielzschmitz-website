@@ -6,7 +6,7 @@ aliases = ["getting-started"]
 author = ["gabrielzschmitz"]
 +++
 
-![Post Header](/blog/posts/first/header.png)
+![Post Header](/blog/posts/first/header.svg)
 
 Hello and welcome to my first blog post!
 
