@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on blog.</title>
-    <link>/posts/</link>
+    <link>/blog/posts/</link>
     <description>blog. (Posts)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -19,19 +19,23 @@
     
 
     
-    <lastBuildDate>Mon, 03 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 21 Mar 2025 00:00:00 +0000</lastBuildDate>
     
-    <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My Journey into Software Development</title>
-      <link>/posts/first/first/</link>
-      <pubDate>Mon, 03 Mar 2025 00:00:00 +0000</pubDate>
+      <link>/blog/posts/first/first/</link>
+      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
       <author>gabrielzschmitz@protonmail.com (gabrielzschmitz)</author>
-      <guid>/posts/first/first/</guid>
+      <guid>/blog/posts/first/first/</guid>
       <description>&lt;p&gt;Hello and welcome to my first blog post!&lt;/p&gt;
-&lt;p&gt;As I begin this blogging adventure, I thought it would be fitting to share a little about my journey into software development. I’ve always been intrigued by how things work—whether it’s computers, devices, or systems. But it wasn’t until my teenage years that I truly discovered my passion for coding.&lt;/p&gt;
+&lt;p&gt;As I begin this blogging adventure, I thought it would be fitting to share a
+little about my journey into software development. I’ve always been intrigued by
+how things work—whether it’s computers, devices, or systems. But it wasn’t until
+my teenage years that I truly discovered my passion for coding.&lt;/p&gt;
+&lt;hr&gt;
 &lt;h2 id=&#34;the-beginning&#34; &gt;
 &lt;div&gt;
     &lt;a href=&#34;#the-beginning&#34;&gt;
@@ -40,7 +44,12 @@
     The Beginning
 &lt;/div&gt;
 &lt;/h2&gt;
-&lt;p&gt;Like many developers, my journey started with small coding experiments. I dabbled in HTML and CSS to build simple websites, and I remember feeling a sense of accomplishment when my first webpage went live. From there, I moved on to more complex languages like Python and JavaScript, which opened up an entire new world of possibilities for me. I could build not just static websites, but entire applications, games, and tools that I could share with others.&lt;/p&gt;
+&lt;p&gt;Like many developers, my journey started with Minecraft mods in &lt;code&gt;Java&lt;/code&gt; (Yuck!).
+What began as a hobby quickly grew into a deeper passion for programming. Over
+time, I ventured into low-level programming with &lt;code&gt;C&lt;/code&gt; and began tinkering with
+simple &lt;code&gt;NCurses&lt;/code&gt; applications. These early experiences sparked my curiosity and
+set me on a path of exploring more complex and challenging areas of software
+development.&lt;/p&gt;
 &lt;h2 id=&#34;building-projects&#34; &gt;
 &lt;div&gt;
     &lt;a href=&#34;#building-projects&#34;&gt;
@@ -49,17 +58,15 @@
     Building Projects
 &lt;/div&gt;
 &lt;/h2&gt;
-&lt;p&gt;One of the key things that has kept me motivated throughout my development journey is working on real-world projects. Over the years, I&amp;rsquo;ve contributed to open-source projects, created my own tools, and tackled coding challenges. It’s been a rewarding experience seeing my work come to life and be used by others.&lt;/p&gt;
-&lt;p&gt;In particular, I’ve spent a lot of time focusing on algorithms, data structures, and systems design. These areas have taught me how to think critically and optimize solutions for complex problems. I’ve also recently been diving into the world of Go, C++, and Python to tackle a variety of software challenges.&lt;/p&gt;
-&lt;h2 id=&#34;the-importance-of-learning&#34; &gt;
-&lt;div&gt;
-    &lt;a href=&#34;#the-importance-of-learning&#34;&gt;
-        #
-    &lt;/a&gt;
-    The Importance of Learning
-&lt;/div&gt;
-&lt;/h2&gt;
-&lt;p&gt;Software development is an ever-evolving field, and one thing I&amp;rsquo;ve learned is the importance of continuous learning. Whether it’s learning a new framework, picking up a new language, or diving deep into a specific topic, there’s always something new to explore. And that&amp;rsquo;s one of the things I love most about this field—it never gets boring!&lt;/p&gt;
+&lt;p&gt;One of the key things that has kept me motivated throughout my development
+journey is working on real-world projects. Over the years, I&amp;rsquo;ve contributed to
+open-source projects, created my own tools, and tackled coding challenges. It’s
+been a rewarding experience seeing my work come to life and be used by others.&lt;/p&gt;
+&lt;p&gt;In particular, I’ve spent a lot of time focusing on algorithms, data structures,
+and systems design. These areas have taught me how to think critically and
+optimize solutions for complex problems. I’ve also recently been diving into the
+world of &lt;code&gt;Golang&lt;/code&gt; to tackle a variety of software challenges, including my most
+recent research in post quantum cryptography at blockchain.&lt;/p&gt;
 &lt;h2 id=&#34;looking-ahead&#34; &gt;
 &lt;div&gt;
     &lt;a href=&#34;#looking-ahead&#34;&gt;
@@ -68,11 +75,14 @@
     Looking Ahead
 &lt;/div&gt;
 &lt;/h2&gt;
-&lt;p&gt;As I continue this journey, I’m excited to share what I’m learning here on my blog. I’ll be posting about coding techniques, solutions to challenges I encounter, and the projects I’m working on. My hope is that you’ll find some useful insights here and maybe even learn something new.&lt;/p&gt;
+&lt;p&gt;As I continue this journey, I’m excited to share what I’m learning here on my
+blog. I’ll be posting about projects I’m working on and maybe somethings about
+my research or related topics. My hope is that you’ll find some useful insights
+here and maybe even learn something new.&lt;/p&gt;
+&lt;hr&gt;
 &lt;p&gt;Thanks for reading, and I look forward to sharing more with you!&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Gabriel Zschmitz&lt;/li&gt;
-&lt;/ul&gt;
+&lt;br&gt;
+&lt;p&gt;- &lt;em&gt;gabrielzschmitz&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     

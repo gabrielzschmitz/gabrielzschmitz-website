@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>blog.</title>
-    <link>/</link>
+    <link>/blog/</link>
     <description>blog.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -21,15 +21,15 @@
     
     <lastBuildDate>Fri, 21 Mar 2025 00:00:00 +0000</lastBuildDate>
     
-    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About</title>
-      <link>/about/</link>
+      <link>/blog/about/</link>
       <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
       <author>gabrielzschmitz@protonmail.com (gabrielzschmitz)</author>
-      <guid>/about/</guid>
+      <guid>/blog/about/</guid>
       <description>&lt;h2 id=&#34;about&#34; &gt;
 &lt;div&gt;
     &lt;a href=&#34;#about&#34;&gt;
@@ -71,10 +71,10 @@ collaboration!&lt;/p&gt;
     
     <item>
       <title>My Journey into Software Development</title>
-      <link>/posts/first/first/</link>
+      <link>/blog/posts/first/first/</link>
       <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
       <author>gabrielzschmitz@protonmail.com (gabrielzschmitz)</author>
-      <guid>/posts/first/first/</guid>
+      <guid>/blog/posts/first/first/</guid>
       <description>&lt;p&gt;Hello and welcome to my first blog post!&lt;/p&gt;
 &lt;p&gt;As I begin this blogging adventure, I thought it would be fitting to share a
 little about my journey into software development. I’ve always been intrigued by
