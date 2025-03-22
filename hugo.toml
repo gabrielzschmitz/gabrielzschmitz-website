@@ -41,6 +41,9 @@ graphcommentId = ""
 
 social = [
     { id = "email", url = "mailto:gabrielzschmitz@protonmail.com" },
+    { id = "github", url = "https://github.com/gabrielzschmitz" },
+    { id = "linkedin", url = "https://www.linkedin.com/in/gabrielzschmitz" },
+    { id = "website", url = "https://gabrielzschmitz.github.io" },
 ]
 
 [[menu.main]]
