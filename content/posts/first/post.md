@@ -2,6 +2,8 @@
 title = "My Journey into Software Development"
 description = "A look back at how I got started in coding and what I’ve learned so far."
 date = "2025-03-21"
+tags = ['Software Development', 'Programming Journey', 'Open Source',
+'Algorithms', 'Blockchain', 'Post-Quantum Cryptography']
 aliases = ["getting-started"]
 author = ["gabrielzschmitz"]
 +++
