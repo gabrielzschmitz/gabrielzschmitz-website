@@ -1,5 +1,5 @@
 +++
-title = "Starting a new project"
+title = "Starting a New Project"
 description = "A sneek peek at Axiom Nexus"
 date = "2025-04-01"
 tags = ['Mathematics', 'Golang', 'HTMX', 'PostgreSQL', 'Open Source',
