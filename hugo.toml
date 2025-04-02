@@ -1,7 +1,7 @@
 baseURL = "/"
 languageCode = "en-us"
 title = "blog."
-theme = "anubis2"
+theme = "PaperMod"
 disqusShortname = ""
 publishDir = "public/blog"
 
@@ -17,13 +17,25 @@ name = "gabrielzschmitz"
 email  = "gabrielzschmitz@protonmail.com"
 location = "Brasil"
 
+[params.homeInfoParams]
+Title = "Hi there"
+Content = "Welcome to gabrielzschmitz blog."
+
 [params]
 description = "This is the gabrielzschmitz blog."
 dateFormat = "2006-01-02"
 paginationSinglePost = true
 
+socialIcons = [
+    { name = "email", url = "mailto:gabrielzschmitz@protonmail.com" },
+    { name = "github", url = "https://github.com/gabrielzschmitz" },
+    { name = "linkedin", url = "https://www.linkedin.com/in/gabrielzschmitz" },
+    { name = "website", url = "https://gabrielzschmitz.github.io" },
+]
+
 # icp = "京ICP备xxxxx号-1" # for China ICP license
 # police = "京公网安备 12345678号" # for China police beian
+
 
 colorTheme = "auto"
 colorThemeSwitcher = true
@@ -38,13 +50,6 @@ toc = true
 
 # Graphcomment support
 graphcommentId = ""
-
-social = [
-    { id = "email", url = "mailto:gabrielzschmitz@protonmail.com" },
-    { id = "github", url = "https://github.com/gabrielzschmitz" },
-    { id = "linkedin", url = "https://www.linkedin.com/in/gabrielzschmitz" },
-    { id = "website", url = "https://gabrielzschmitz.github.io" },
-]
 
 [[menu.main]]
 identifier = "home"
