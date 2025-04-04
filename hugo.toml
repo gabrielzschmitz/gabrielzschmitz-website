@@ -21,6 +21,9 @@ location = "Brasil"
 Title = "Hi there"
 Content = "Welcome to gabrielzschmitz blog."
 
+[params.assets]
+favicon = "/blog/favicon.ico"
+
 [params]
 description = "This is the gabrielzschmitz blog."
 dateFormat = "2006-01-02"
