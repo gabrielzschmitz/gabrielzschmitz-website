@@ -23,6 +23,8 @@ Content = "Welcome to gabrielzschmitz blog."
 
 [params.assets]
 favicon = "/blog/favicon.ico"
+favicon16x16 = "/blog/favicon-16x16.png"
+favicon32x32 = "/blog/favicon-32x32.png"
 
 [params]
 description = "This is the gabrielzschmitz blog."
@@ -30,15 +32,11 @@ dateFormat = "2006-01-02"
 paginationSinglePost = true
 
 socialIcons = [
-    { name = "email", url = "mailto:gabrielzschmitz@protonmail.com" },
-    { name = "github", url = "https://github.com/gabrielzschmitz" },
-    { name = "linkedin", url = "https://www.linkedin.com/in/gabrielzschmitz" },
-    { name = "website", url = "https://gabrielzschmitz.github.io" },
+  { name = "email", url = "mailto:gabrielzschmitz@protonmail.com" },
+  { name = "github", url = "https://github.com/gabrielzschmitz" },
+  { name = "linkedin", url = "https://www.linkedin.com/in/gabrielzschmitz" },
+  { name = "website", url = "https://gabrielzschmitz.github.io" },
 ]
-
-# icp = "京ICP备xxxxx号-1" # for China ICP license
-# police = "京公网安备 12345678号" # for China police beian
-
 
 colorTheme = "auto"
 colorThemeSwitcher = true
