@@ -116,7 +116,8 @@ To explain how this works, let’s start with a simple analogy using **colors**.
   exchanged colors can't reconstruct it without knowing the secrets.
 
 ![Diffie-Hellman as Colors](/blog/posts/cryptography-and-the-quantum-problem/diffie-hellman-as-colors.png)
-*Diffie-Hellman as Colors Scheme*
+*Diffie-Hellman as Colors Scheme by [gabrielzschmitz](https://gabrielzschmitz.github.io),
+licensed under [Creative Commons 4.0 Attribution license](https://creativecommons.org/licenses/by/4.0/).*
 
 ---
 
