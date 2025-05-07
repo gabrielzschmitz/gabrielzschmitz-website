@@ -221,10 +221,12 @@ Enter quantum computing.
 ## The Quantum Problem
 ### Breaking Today’s Cryptography
 
-<img
-src="/blog/posts/cryptography-and-the-quantum-problem/computador-quantico.png"
-alt="Quantum Computer" height="500">
-_Google’s Quantum Computer_
+<p style="display: grid; place-items: center">
+  <img
+  src="/blog/posts/cryptography-and-the-quantum-problem/computador-quantico.png"
+  alt="Quantum Computer" height="500">
+  <em>Google’s Quantum Computer</em>
+</p>
 
 Quantum computers can **solve discrete logarithms exponentially faster** than
 classical ones using
