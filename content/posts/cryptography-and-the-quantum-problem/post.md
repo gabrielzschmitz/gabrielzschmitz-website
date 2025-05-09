@@ -285,17 +285,17 @@ The future isn’t just encrypted. It’s quantum-resistant.
 * **Peter W. Shor (1994)**
   *“Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer.”*
   Shows that a quantum computer can break RSA and Diffie–Hellman by factoring and computing discrete logs in polynomial time.
-  [📄 Read on arXiv (quant-ph/9508027)](https://arxiv.org/abs/quant-ph/9508027)
+  [📄 Read on arXiv (quant-ph/9508027)](https://arxiv.org/pdf/quant-ph/9508027)
 
 * **Leslie Lamport (1979)**
   *“Constructing Digital Signatures from a One-Way Function.”*
   First one-time signature scheme based on hash functions — a precursor to hash-based cryptography.
-  [📄 SRI Technical Report (CSL-98)](https://www.microsoft.com/en-us/research/publication/constructing-digital-signatures-from-a-one-way-function/)
+  [📄 SRI Technical Report (CSL-98)](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/Constructing-Digital-Signatures-from-a-One-Way-Function.pdf)
 
 * **Oded Regev (2005)**
   *“On Lattices, Learning with Errors, Random Linear Codes, and Cryptography,”* in Proc. 37th ACM STOC.
   Introduces the Learning With Errors (LWE) problem and a quantum-resistant public-key encryption scheme.
-  [📄 Read PDF from STOC (2005)](https://cims.nyu.edu/~regev/papers/lwe.pdf)
+  [📄 Read PDF from STOC (2005)](https://cims.nyu.edu/~regev/papers/qcrypto.pdf)
 
 * **Dam, D.-T. et al. (2023)**
   *“A Survey of Post-Quantum Cryptography: Start of a New Race,”* Cryptography 2023, 7(3): 40.
