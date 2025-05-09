@@ -25,10 +25,9 @@ could break it --- unless we prepare now.
 ---
 
 ## What Is Cryptography?
-### Keeping Messages Secure
 
 [Cryptography](https://en.wikipedia.org/wiki/Cryptography) is the art of
-protecting information through **mathematical transformations**. It ensures that
+protecting information through *mathematical transformations*. It ensures that
 only the intended recipient can access a message’s contents, even if others
 intercept it.
 
@@ -46,12 +45,11 @@ _blockchain_, _e-commerce_, and _VPNs_.
 ---
 
 ## A Classic Example: Caesar Cipher
-### One of the First Ciphers in History
 
 One of the simplest and oldest encryption techniques is the
 [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher).
 
-Each letter in a message is **shifted** by a fixed number of positions in the
+Each letter in a message is *shifted* by a fixed number of positions in the
 alphabet.
 For example, with a key `k = 3`:
 
@@ -62,9 +60,9 @@ $$
 
 So the message `ATTACK` becomes `DWWDFN`.
 
-With today's computers, this cipher is extremely easy to break --- one only
-needs to try all 26 letters of the alphabet. However, it still serves as a
-useful introduction to basic encryption concepts such as:
+Today, this cipher is trivially breakable --- one only needs to try all 26
+letters of the alphabet. However, it still serves as a useful introduction to
+basic encryption concepts such as:
 
 - **Cipher key**, in this case _k = 3_;
 - **Plaintext** and **ciphertext**, _ATTACK_ and _DWWDFN_ respectively.
@@ -72,22 +70,20 @@ useful introduction to basic encryption concepts such as:
 ---
 
 ## Diffie-Hellman
-### How Two People Share a Secret in Public
 
 While the Caesar cipher illustrates the basics of encryption, it lacks the
 security needed for real-world communication. Modern systems require a way for
-two people to **establish a shared secret key** --- even when communicating over
-an insecure channel.
+two people to establish a shared secret key --- even when communicating over an
+insecure channel.
 
 This raises an important question:  
 **How can two people agree on a secret if everyone can hear their
 conversation?**
 
-This is exactly the problem that the **Diffie-Hellman key exchange** solves. It
-allows two parties to create a **shared secret**, without ever sending the
-secret itself.
+This is the problem that *Diffie-Hellman key exchange* solves. It allows two
+parties to create a *shared secret*, without ever sending the secret itself.
 
-To explain how this works, let’s start with a simple analogy using **colors**.
+To explain how this works, start with a simple analogy using *colors*.
 
 - Imagine Alice and Bob want to exchange a secret.
   - Alice chooses a secret color:
@@ -121,10 +117,9 @@ licensed under [Creative Commons 4.0 Attribution license](https://creativecommon
 
 ---
 
-## Diffie-Hellman with Modular Arithmetic  
-### Turning Colors into Numbers
+## Turning Colors into Numbers
 
-Now let’s translate the color analogy into **mathematical operations** --- this
+We’ll now translate the color analogy into *mathematical operations* --- this
 is where the real magic of Diffie-Hellman happens.
 
 In the previous example, Alice and Bob created a shared color without ever
@@ -149,11 +144,11 @@ attackers from deducing secrets even when partial information is shared.
    - A base number `g` (generator)
    - A large prime number `p` (modulus)
 
-2. **Alice and Bob choose private numbers**:
+2. Alice and Bob choose **private numbers**:
    - Alice chooses a secret number `a`
    - Bob chooses a secret number `b`
 
-3. **They generate public values** using modular exponentiation:
+3. They generate **public values** using modular exponentiation:
 
 $$
 A = g^a \pmod{p}
@@ -162,9 +157,9 @@ $$
 B = g^b \pmod{p}
 $$
 
-4. **They exchange** `A` and `B` over an open channel.
+4. **They exchange `A` and `B`** over an open channel.
 
-5. **They each compute the same secret key**:
+5. They each compute the **same secret key**:
 
 $$
 \text{Alice: } K = B^a \pmod p = g^{ba} \pmod p
@@ -185,10 +180,9 @@ metaphor --- even though their private values remain hidden.
 ---
 
 ## Security Through Discrete Logarithms  
-### Why Diffie-Hellman Is Hard to Crack
 
 Now that we’ve seen how Alice and Bob generate a shared secret, let’s explore
-**why an attacker can’t just reverse the process**.
+*why an attacker can’t just reverse the process*.
 
 Even though the values `g`, `p`, `A`, and `B` are publicly visible, the attacker
 still doesn’t know the private values `a` or `b`.
@@ -203,32 +197,35 @@ $$
 A = g^a \pmod{p}
 $$
 
-This problem is **computationally hard** for large enough values of `p`. There’s
+This problem is *computationally hard* for large enough values of `p`. There’s
 no efficient shortcut to reverse modular exponentiation without knowing the
 secret exponent. In fact:
 
-- For modern key sizes, it would take longer than the **age of the universe**
+- For modern key sizes, it would take longer than the *age of the universe*
   using today’s best classical algorithms.
 
 > “Or would it?”
 
-This question marks a turning point.
+This is the tipping point where classical security assumptions fall apart.
 
 Enter quantum computing.
 
 ---
 
 ## The Quantum Problem
-### Breaking Today’s Cryptography
 
 <p style="display: grid; place-items: center">
   <img
   src="/blog/posts/cryptography-and-the-quantum-problem/computador-quantico.png"
   alt="Quantum Computer" height="500">
-  <em>Google’s Quantum Computer</em>
+  <em>
+  <a href="https://research.ibm.com/interactive/system-one/" target="_blank">
+  IBM Quantum System from Ehningen, Germany
+  </a>
+  </em>
 </p>
 
-Quantum computers can **solve discrete logarithms exponentially faster** than
+Quantum computers can solve discrete logarithms **exponentially faster** than
 classical ones using
 [**Shor’s Algorithm**](https://en.wikipedia.org/wiki/Shor's_algorithm).
 
@@ -236,12 +233,12 @@ That means encryption schemes like _RSA_, _Diffie-Hellman_, and _ECC_ --- the
 bedrock of internet security --- could be broken in minutes by a powerful
 quantum machine.
 
-We don’t yet have large-scale quantum computers. But when they arrive, most of
-our current cryptographic infrastructure will become obsolete.
+Large-scale quantum computers don’t yet exist. But when they arrive, most of our
+current cryptographic infrastructure will become obsolete.
 
 ---
 
-## Why We Need Post-Quantum Cryptography?
+## Why We Need Post-Quantum Cryptography
 
 **Post-Quantum Cryptography (PQC)** is about building encryption systems that
 resist attacks from quantum computers.
@@ -270,6 +267,40 @@ If we want to preserve privacy, trust, and security in the digital age, we must
 act now to **transition to post-quantum cryptography**.
 
 The future isn’t just encrypted. It’s quantum-resistant.
+
+---
+
+### Further Reading
+
+* **Whitfield Diffie & Martin E. Hellman (1976)**
+  *“New Directions in Cryptography,”* IEEE Trans. Inf. Theory 22(6): 644–654.
+  Seminal paper introducing public‐key cryptography and digital signatures.
+  [📄 Read PDF from Stanford](https://ee.stanford.edu/~hellman/publications/24.pdf)
+
+* **Rivest, R. L., A. Shamir & L. Adleman (1978)**
+  *“A Method for Obtaining Digital Signatures and Public-Key Cryptosystems,”* Commun. ACM 21(2): 120–126.
+  Introduces the RSA algorithm and shows how to enable secure communication without prior key sharing.
+  [📄 Read PDF from MIT](https://people.csail.mit.edu/rivest/Rsapaper.pdf)
+
+* **Peter W. Shor (1994)**
+  *“Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer.”*
+  Shows that a quantum computer can break RSA and Diffie–Hellman by factoring and computing discrete logs in polynomial time.
+  [📄 Read on arXiv (quant-ph/9508027)](https://arxiv.org/abs/quant-ph/9508027)
+
+* **Leslie Lamport (1979)**
+  *“Constructing Digital Signatures from a One-Way Function.”*
+  First one-time signature scheme based on hash functions — a precursor to hash-based cryptography.
+  [📄 SRI Technical Report (CSL-98)](https://www.microsoft.com/en-us/research/publication/constructing-digital-signatures-from-a-one-way-function/)
+
+* **Oded Regev (2005)**
+  *“On Lattices, Learning with Errors, Random Linear Codes, and Cryptography,”* in Proc. 37th ACM STOC.
+  Introduces the Learning With Errors (LWE) problem and a quantum-resistant public-key encryption scheme.
+  [📄 Read PDF from STOC (2005)](https://cims.nyu.edu/~regev/papers/lwe.pdf)
+
+* **Dam, D.-T. et al. (2023)**
+  *“A Survey of Post-Quantum Cryptography: Start of a New Race,”* Cryptography 2023, 7(3): 40.
+  An accessible and up-to-date survey of PQC approaches, NIST candidates, and research directions.
+  [📄 Open-access MDPI paper](https://www.mdpi.com/2410-387X/7/3/40)
 
 ---
 
