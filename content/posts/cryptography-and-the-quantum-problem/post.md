@@ -60,9 +60,9 @@ $$
 
 So the message `ATTACK` becomes `DWWDFN`.
 
-Today, this cipher is trivially breakable --- one only needs to try all 26
-letters of the alphabet. However, it still serves as a useful introduction to
-basic encryption concepts such as:
+Today, this cipher is trivially breakable --- one only needs to try all 26 `k`
+possibilities. However, it still serves as a useful introduction to basic
+encryption concepts such as:
 
 - **Cipher key**, in this case _k = 3_;
 - **Plaintext** and **ciphertext**, _ATTACK_ and _DWWDFN_ respectively.
@@ -83,7 +83,11 @@ conversation?**
 This is the problem that *Diffie-Hellman key exchange* solves. It allows two
 parties to create a *shared secret*, without ever sending the secret itself.
 
-To explain how this works, start with a simple analogy using *colors*.
+Historically, the Diffie-Hellman key exchange is credited to Whitfield Diffie
+and Martin Hellman, who published it in 1976. However, Ralph Merkle also
+contributed key ideas, and Diffie has since acknowledged him as a co-inventor.
+
+But, to explain how this works, start with a simple analogy using *colors*.
 
 - Imagine Alice and Bob want to exchange a secret.
   - Alice chooses a secret color:
@@ -271,6 +275,11 @@ The future isn’t just encrypted. It’s quantum-resistant.
 ---
 
 ### Further Reading
+
+* **Palomar College (2018)**
+  *“Basic and Historical Cryptography”* slide set.
+  Introduces Caesar cipher as E(p,k) = (p + k) (mod 26).
+  [📄 Slide Deck PDF](https://www.palomar.edu/math/wp-content/uploads/sites/134/2018/09/Basic-and-Historical-Cryptography.pdf)
 
 * **Whitfield Diffie & Martin E. Hellman (1976)**
   *“New Directions in Cryptography,”* IEEE Trans. Inf. Theory 22(6): 644–654.
