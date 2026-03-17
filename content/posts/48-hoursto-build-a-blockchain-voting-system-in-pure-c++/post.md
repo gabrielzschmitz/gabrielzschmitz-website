@@ -8,7 +8,7 @@ aliases = ["48-hours-to-build-a-blockchain-voting-system-in-pure-cpp"]
 author = ["gabrielzschmitz"]
 +++
 
-![Post Header](/posts/48-hoursto-build-a-blockchain-voting-system-in-pure-c++/header.svg)
+![Post Header](/blog/posts/48-hoursto-build-a-blockchain-voting-system-in-pure-c++/header.svg)
 *Header image by [gabrielzschmitz](https://gabrielzschmitz.github.io),
 licensed under [Creative Commons 4.0 Attribution license](https://creativecommons.org/licenses/by/4.0/).*
 
@@ -551,7 +551,7 @@ This is what transforms storage into trust. In
 merely an ordering primitive --- it is the mechanism that turns replicated
 execution into election legitimacy.
 
-![BigBFT Pipeline](/posts/48-hoursto-build-a-blockchain-voting-system-in-pure-c++/bigbft-pipeline.png)
+![BigBFT Pipeline](/blog/posts/48-hoursto-build-a-blockchain-voting-system-in-pure-c++/bigbft-pipeline.png)
 _BigBFT Pipeline by [gabrielzschmitz](https://gabrielzschmitz.github.io),
 licensed under [Creative Commons 4.0 Attribution license](https://creativecommons.org/licenses/by/4.0/)._
 
@@ -613,7 +613,7 @@ $$
 
 where (E) represents an event such as `MessageReceived` or `ConnectionClosed`.
 
-![Reactor Pattern Diagram](/posts/48-hoursto-build-a-blockchain-voting-system-in-pure-c++/reactor-pattern-diagram.png)
+![Reactor Pattern Diagram](/blog/posts/48-hoursto-build-a-blockchain-voting-system-in-pure-c++/reactor-pattern-diagram.png)
 _Reactor Pattern Diagram by [gabrielzschmitz](https://gabrielzschmitz.github.io),
 licensed under [Creative Commons 4.0 Attribution license](https://creativecommons.org/licenses/by/4.0/)._
 
@@ -676,7 +676,7 @@ rector election workflow. The client node performed:
 * vote submission;
 * result retrieval through sending a `QUERY ELECTION STATUS` request.
 
-![Case Study Demonstration](/posts/48-hoursto-build-a-blockchain-voting-system-in-pure-c++/case-study.png)
+![Case Study Demonstration](/blog/posts/48-hoursto-build-a-blockchain-voting-system-in-pure-c++/case-study.png)
 _Case Stydy Demonstration by [gabrielzschmitz](https://gabrielzschmitz.github.io),
 licensed under [Creative Commons 4.0 Attribution license](https://creativecommons.org/licenses/by/4.0/)._
 
@@ -761,7 +761,7 @@ Observed latency statistics were:
 
 A simplified latency distribution is shown below:
 
-![Latency Distribution](/posts/48-hoursto-build-a-blockchain-voting-system-in-pure-c++/latency-distribution.png)
+![Latency Distribution](/blog/posts/48-hoursto-build-a-blockchain-voting-system-in-pure-c++/latency-distribution.png)
 _Latency Distribution by [gabrielzschmitz](https://gabrielzschmitz.github.io),
 licensed under [Creative Commons 4.0 Attribution license](https://creativecommons.org/licenses/by/4.0/)._
 
