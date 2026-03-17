@@ -296,7 +296,7 @@ $$
 \mathrm{req} \rightarrow \lbrace L_1,L_2,\dots,L_{F+1} \rbrace
 $$
 
-where `L_j` denotes a leader node.
+where `L_i` denotes a leader node.
 
 Only after leader-side verification does the request become an ordered
 proposal.
@@ -313,9 +313,9 @@ encapsulating the validated operation into an ordered candidate block.
 
 This verification stage includes:
 
-* validating block structure;
-* checking transaction integrity;
-* assigning a sequence number.
+* Validating block structure;
+* Checking transaction integrity;
+* Assigning a sequence number.
 
 After verification, the leader creates a prepare message, denoted by `prep`,
 which carries both the newly proposed block and the proof generated in the
@@ -359,10 +359,10 @@ same deterministic consensus stage.
 Each leader broadcasts its prepare message to all other leaders.
 
 $$
-\mathrm{prep}_j \rightarrow \lbrace L_1,L_2,\dots,L_N \rbrace
+\mathrm{prep}_i \rightarrow \lbrace L_1,L_2,\dots,L_N \rbrace
 $$
 
-where `prep_j` denotes the prepare message emitted by leader `L_j`.
+where `prep_i` denotes the prepare message emitted by leader `L_i`.
 
 At this stage, multiple leaders may propose blocks in parallel.
 
@@ -398,13 +398,13 @@ where:
   valid proposals in the current round;
 * `round` identifies the consensus round in which the vote was produced.
 
-For a leader `L_j`, the vote set `V_j` generated in round `r` is expressed as:
+For a leader `L_i`, the vote set `V_i` generated in round `r` is expressed as:
 
 $$
-V_j = \lbrace \sigma_j(B_k)\mid B_k\in \mathcal{P}_r \rbrace
+V_i = \lbrace \sigma_i(B_i)\mid B_i\in \mathcal{P}_r \rbrace
 $$
 
-where each signature `\sigma_j(B_i)` represents validator `L_j`'s approval of
+where each signature `\sigma_i(B_i)` represents validator `L_i`'s approval of
 block `B_i`.
 
 For example:
@@ -441,7 +441,7 @@ $$
 where quorum certificate `QC` for block `B_i` is defined as:
 
 $$
-QC(B_i) = \lbrace \sigma_j(B_i)\mid L_j\in Q_r \rbrace
+QC(B_i) = \lbrace \sigma_i(B_i)\mid L_i\in Q_r \rbrace
 $$
 
 For example:
@@ -459,7 +459,7 @@ Because multiple blocks may be certified during the same round, all quorum
 certificates produced in round `r` are aggregated into a single structure:
 
 $$
-AggQC_r = \lbrace QC(B_k)\mid B_k\in \mathcal{P}_r \rbrace
+AggQC_r = \lbrace QC(B_i)\mid B_i\in \mathcal{P}_r \rbrace
 $$
 
 The aggregated certificate is then attached to prepare messages in the next
@@ -486,7 +486,8 @@ Commit_{r+1}(B_i)
 $$
 
 where block `B_i` becomes permanently part of the replicated ledger during
-round `r + 1`.
+round <br>
+`r + 1`.
 
 After commitment, the leader emits a reply message to the client, denoted by:
 
@@ -543,7 +544,7 @@ assignment.
 
 The practical consequence is simple:
 
-* no vote becomes official unless enough replicas agree and quorum proof
+* No vote becomes official unless enough replicas agree and quorum proof
   survives into the next round.
 
 This is what transforms storage into trust. In
@@ -557,7 +558,7 @@ licensed under [Creative Commons 4.0 Attribution license](https://creativecommon
 
 ---
 
-## Reactor Pattern: Why Networking Could Not Block
+## Reactor Pattern: Eliminating Blocking in Network Operations
 
 In a distributed consensus system, the reliability and timeliness of message
 delivery are as critical as the consensus protocol itself. Inefficient
@@ -617,7 +618,7 @@ where (E) represents an event such as `MessageReceived` or `ConnectionClosed`.
 _Reactor Pattern Diagram by [gabrielzschmitz](https://gabrielzschmitz.github.io),
 licensed under [Creative Commons 4.0 Attribution license](https://creativecommons.org/licenses/by/4.0/)._
 
-### Advantages in ProofVote
+### Advantages of the Reactor Pattern in ProofVote
 
 This design provides several key benefits:
 
@@ -638,8 +639,8 @@ $$
 
 depending on the underlying OS mechanism (e.g., `epoll`, `kqueue`, or `IOCP`).
 
-By adopting the [Reactor
-Pattern](https://en.wikipedia.org/wiki/Reactor_pattern),
+By adopting the
+[Reactor Pattern](https://en.wikipedia.org/wiki/Reactor_pattern),
 [ProofVote](https://github.com/gabrielzschmitz/proofvote) ensures that
 networking **does not block consensus progress**, even under high load. In
 distributed systems, the design of the event architecture can be as important
@@ -654,11 +655,11 @@ directly impacts safety, liveness, and overall throughput.
 actions as transactions. The case study implemented during the hackathon
 included:
 
-* member registration
-* election creation
-* candidate definition
-* vote submission
-* election query 
+* Member registration
+* Election creation
+* Candidate definition
+* Vote submission
+* Election query 
 
 This means the blockchain does not merely store votes. It stores the full
 election lifecycle. That makes the ledger a state machine rather than a passive
@@ -671,10 +672,10 @@ archive.
 To validate the architecture beyond synthetic tests, we executed a university
 rector election workflow. The client node performed:
 
-* registration of eligible members;
-* election creation;
-* vote submission;
-* result retrieval through sending a `QUERY ELECTION STATUS` request.
+* Registration of eligible members;
+* Election creation;
+* Vote submission;
+* Result retrieval through sending a `QUERY ELECTION STATUS` request.
 
 ![Case Study Demonstration](/blog/posts/48-hoursto-build-a-blockchain-voting-system-in-pure-c++/case-study.png)
 _Case Stydy Demonstration by [gabrielzschmitz](https://gabrielzschmitz.github.io),
@@ -725,9 +726,9 @@ the protocol itself.
 
 The primary objective of the benchmark was to measure:
 
-* sustained throughput;
-* end-to-end commit latency;
-* execution stability under continuous consensus activity.
+* Sustained throughput;
+* End-to-end commit latency;
+* Execution stability under continuous consensus activity.
 
 ### Benchmark Summary
 
