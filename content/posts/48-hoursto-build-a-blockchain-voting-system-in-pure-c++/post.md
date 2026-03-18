@@ -41,7 +41,7 @@ authority.
 
 ---
 
-## Why Traditional Electronic Voting Is Difficult
+## Why Traditional Electronic Voting Is Problematic
 
 Most electronic voting systems rely on centralized infrastructure. This
 introduces structural weaknesses:
