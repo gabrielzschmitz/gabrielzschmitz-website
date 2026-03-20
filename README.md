@@ -41,7 +41,7 @@ structured blogging platform.
 
 * **Extras**
 
-  * Resume (`resume.pdf`, `curriculo.pdf`)
+  * Resume (`resume/resume.pdf`, `resume/curriculo.pdf`)
   * Certificates (`certificates/`)
   * Under-construction page
 

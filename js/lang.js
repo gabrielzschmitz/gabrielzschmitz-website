@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let isEnglish = true;
 
   function updateCVFile() {
-    cvLink.href = isEnglish ? "./resume.pdf" : "./curriculo.pdf";
+    cvLink.href = isEnglish ? "./resume/resume.pdf" : "./resume/curriculo.pdf";
   }
 
   updateCVFile();

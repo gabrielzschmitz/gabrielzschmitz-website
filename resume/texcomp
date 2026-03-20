@@ -1,0 +1,70 @@
+#!/bin/bash
+
+# =========================================================
+# TEXCOMP
+# =========================================================
+
+if [ -z "$1" ]; then
+  echo -e "\033[1;31mOops! No file given! Please provide a .tex file.\033[0m"
+  echo -e "Usage: $0 <file.tex>"
+  exit 1
+fi
+
+FILE="$1"
+BASENAME="${FILE%.tex}"
+AUX_DIR=".aux"
+
+# =========================================================
+# AUX DIRECTORY
+# =========================================================
+
+mkdir -p "$AUX_DIR"
+rm -rf "$AUX_DIR"/*
+
+# =========================================================
+# SVG -> PDF AUTO CONVERSION
+# =========================================================
+
+if [ -f "logo.svg" ] && [ ! -f "logo.pdf" ]; then
+  echo -e "\033[1;34mConverting logo.svg -> logo.pdf using Inkscape 🎨...\033[0m"
+
+  if command -v inkscape >/dev/null 2>&1; then
+    inkscape logo.svg --export-filename=logo.pdf >/dev/null 2>&1
+
+    if [ $? -eq 0 ]; then
+      echo -e "\033[1;32mlogo.pdf created successfully ✅\033[0m"
+    else
+      echo -e "\033[1;31mFailed to convert logo.svg ❌\033[0m"
+      exit 1
+    fi
+  else
+    echo -e "\033[1;31mInkscape not found. Install it first ❌\033[0m"
+    exit 1
+  fi
+fi
+
+# =========================================================
+# LATEX COMPILATION
+# =========================================================
+
+echo -e "\033[1;34mRunning latexmk 💾...\033[0m"
+latexmk -pdf -f -bibtex -silent "$FILE" > /dev/null 2>&1
+
+# =========================================================
+# MOVE AUX FILES
+# =========================================================
+
+for ext in aux bbl bcf blg fdb_latexmk fls log pdfxref run.xml out toc synctex.gz bbl-SAVE-ERROR bcf-SAVE-ERROR; do
+  if [ -f "$BASENAME.$ext" ]; then
+    mv "$BASENAME.$ext" "$AUX_DIR"
+    echo -e "\033[1;32mMoved $BASENAME.$ext to $AUX_DIR 🚚\033[0m"
+  fi
+done
+
+# indent.log
+if [ -f "indent.log" ]; then
+  mv "indent.log" "$AUX_DIR"
+  echo -e "\033[1;32mMoved indent.log to $AUX_DIR 🎉\033[0m"
+fi
+
+echo -e "\033[1;33mCompilation complete 🎉!\033[0m"

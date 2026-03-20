@@ -1,0 +1,335 @@
+\documentclass[letterpaper,11pt]{article}
+
+% ==================================================
+% PACKAGES
+% ==================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+
+\usepackage[left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm]{geometry}
+
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+% ==================================================
+% COLORS
+% ==================================================
+\definecolor{cvblue}{RGB}{20,40,90}
+\definecolor{cvgray}{RGB}{90,90,90}
+
+% ==================================================
+% STYLE
+% ==================================================
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\titleformat{\section}
+{\large\bfseries\color{cvblue}}
+{}{0em}{}
+[\color{cvblue}\titlerule]
+
+\setlist[itemize]{
+leftmargin=1.2em,
+itemsep=0pt,
+topsep=1pt,
+parsep=0pt,
+partopsep=0pt,
+label=\textcolor{cvblue}{\small$\bullet$}
+}
+
+% ==================================================
+% MODULAR COMMANDS
+% ==================================================
+
+% ---------- header ----------
+\newcommand{\cvheader}[5]{
+\noindent
+\begin{minipage}[t]{0.12\textwidth}
+\vspace{0pt}
+\includegraphics[width=2cm]{#1}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.85\textwidth}
+\vspace{0pt}
+{\LARGE \textbf{\color{cvblue}#2}}\\[1pt]
+{\small #3}\\
+{\small #4}\\
+{\small #5}
+\end{minipage}
+
+\vspace{2pt}
+{\color{cvblue}\rule{\textwidth}{0.6pt}}
+\vspace{-10pt}
+}
+
+% ---------- section ----------
+\newcommand{\cvsection}[2][6pt]{
+\vspace{#1}
+{\large\bfseries\color{cvblue} #2}\\[-6pt]
+{\color{cvblue}\rule{\textwidth}{0.4pt}}
+\vspace{-6pt}
+}
+
+% ---------- title line ----------
+\newcommand{\cvtitle}[2]{
+\textbf{#1} \hfill {\color{cvgray}#2}
+}
+
+% ---------- subtitle line ----------
+\newcommand{\cvsubtitle}[2]{
+\textit{\color{cvgray}#1} \hfill \textit{\color{cvgray}#2}
+}
+
+% ---------- institution block ----------
+\newcommand{\cventry}[4]{
+\cvtitle{#1}{#2}\\
+\cvsubtitle{#3}{#4}
+\vspace{2pt}
+}
+
+% ---------- paragraph ----------
+\newcommand{\cvparagraph}[1]{
+\vspace{2pt}
+#1
+
+\vspace{3pt}
+}
+
+% ---------- bullet item ----------
+\newcommand{\cvbullet}[1]{
+\item #1
+}
+
+% ---------- bullet list ----------
+\newcommand{\cvliststart}{
+\begin{itemize}
+}
+
+\newcommand{\cvlistend}{
+\end{itemize}
+}
+
+% ---------- skill line ----------
+\newcommand{\cvskill}[2]{
+\textbf{\color{cvblue}#1:} #2\par
+}
+
+% ---------- language line ----------
+\newcommand{\cvlanguage}[2]{
+\textbf{\color{cvblue}#1:} #2\par
+}
+
+% ==================================================
+% DOCUMENT
+% ==================================================
+\begin{document}
+
+% ==================================================
+% HEADER
+% ==================================================
+\cvheader
+{logo.pdf}
+{Gabriel dos Santos Schmitz}
+{Backend Engineer (Go)\ |\ Distributed Systems\ |\ Applied Cryptography}
+{(+55) 45 99936-2034\ |\ \href{mailto:gabrielzschmitz@protonmail.com}{gabrielzschmitz@protonmail.com}}
+{\href{https://linkedin.com/in/gabrielzschmitz}{linkedin.com/in/gabrielzschmitz}\ |\ \href{https://github.com/gabrielzschmitz}{github.com/gabrielzschmitz}}
+
+% ==================================================
+% ABOUT
+% ==================================================
+\cvsection[-2pt]{About}
+
+\cvparagraph{
+Backend Developer focused on Golang, distributed systems, and performance-oriented software engineering.
+Professional experience in SaaS application development, automated testing, modular architecture, and CI/CD pipelines.
+}
+
+\cvparagraph{
+Additional work in low-level systems, applied cryptography, and post-quantum security research,
+including implementation of cryptographic primitives, blockchain, and integration with ecosystems such as Hyperledger Fabric.
+}
+
+\textbf{\color{cvblue}Highlights}
+
+\cvliststart
+\cvbullet{Professional backend experience with Golang applied to SaaS products}
+\cvbullet{Applied research in post-quantum cryptography and blockchain integration}
+\cvbullet{Implementation of low-level systems in C/C++ focused on performance}
+\cvbullet{Public open-source projects with real adoption and technical visibility}
+\cvbullet{Experience with automated testing, CI/CD, and distributed architecture}
+\cvlistend
+
+% ==================================================
+% EXPERIENCE
+% ==================================================
+\cvsection{Professional Experience}
+
+\cventry
+{NeticShard}
+{April 2024 -- March 2025}
+{Junior Software Developer}
+{Remote -- LATAM}
+
+\cvliststart
+\cvbullet{Backend development of a SaaS platform for IT incident response using Golang.}
+\cvbullet{Implementation of unit, integration, and E2E tests to improve product reliability.}
+\cvbullet{Structuring CI/CD pipelines and Git workflows in an international collaborative environment.}
+\cvbullet{Application of Domain-Driven Design principles and modular architecture.}
+\cvlistend
+
+% ==================================================
+% RESEARCH
+% ==================================================
+\cvsection{Academic Research}
+
+\cventry
+{National Education and Research Network (RNP)}
+{November 2024 -- November 2025}
+{Scientific Research Scholarship}
+{Toledo, PR}
+
+\cvliststart
+\cvbullet{Research on integrating post-quantum cryptography into blockchain,
+focused on efficiency analysis and signature-size optimization for
+long-term security.}
+\cvbullet{Integration of post-quantum cryptographic algorithms into the Go language.}
+\cvbullet{Integration of modified Go language into Hyperledger Fabric.}
+\cvlistend
+
+\cventry
+{Institutional Program for Scientific Initiation in Technological Development and Innovation (PIBITI)}
+{September 2024 -- November 2024}
+{Scientific Research Scholarship}
+{Toledo, PR}
+
+\cvliststart
+\cvbullet{Research in post-quantum cryptography applied to lattices and quantum-resistant systems.}
+\cvbullet{Study and implementation of cryptographic primitives focused on security, efficiency, and practical applicability.}
+\cvbullet{Study of KEMTLS and post-quantum TLS protocols.}
+\cvlistend
+
+\cventry
+{Paraná Federal University of Technology (UTFPR)}
+{2023 -- 2024}
+{Scientific Initiation}
+{Toledo, PR}
+
+\cvliststart
+\cvbullet{Research in post-quantum cryptography focused on lattice-based primitives.}
+\cvbullet{Implementation of the Goldreich-Goldwasser-Halevi (GGH) cryptosystem and experimental analysis of computational properties.}
+\cvlistend
+
+% ==================================================
+% PROJECTS
+% ==================================================
+\newpage
+\cvsection{Projects}
+
+\cventry
+{Tomato.C}
+{2022 -- 2025}
+{C, NCurses, Makefile, Shellscript}
+{}
+
+\cvliststart
+\cvbullet{Pure C terminal application with more than 400 public stars on GitHub and international adoption by developers.}
+\cvbullet{TUI interface with ASCII animations, notifications, and ncurses-based modular architecture.}
+\cvbullet{Cross-platform deployment across Linux, MacOS, and WSL.}
+\cvlistend
+
+\cventry
+{ProofVote}
+{2026}
+{Blockchain, Cryptography, C++ / Distributed Systems}
+{}
+
+\cvliststart
+\cvbullet{Experimental electronic voting system based on blockchain with verifiable integrity and cryptographic traceability.}
+\cvbullet{Implementation of block structure, hashing, vote validation, and record chaining.}
+\cvbullet{Practical exploration of distributed consensus, fault tolerance, and blockchain architecture from scratch.}
+\cvlistend
+
+\cventry
+{BibInject}
+{2026}
+{Python, Text Parsing, Academic Automation}
+{}
+
+\cvliststart
+\cvbullet{Tool for automating insertion and manipulation of LaTeX bibliographic references in HTML pages.}
+\cvbullet{Developed with TDD, test coverage above 90\%, including unit and E2E tests.}
+\cvbullet{Complete CI/CD pipeline with GitHub Actions, including linting, type checking, and automated validation.}
+\cvlistend
+
+\cventry
+{Motrix}
+{2026 -- Present}
+{C++, Raylib, ECS Architecture}
+{}
+
+\cvliststart
+\cvbullet{Own implementation of a minimalist Entity Component System aimed at graphics engines.}
+\cvbullet{Explicit separation between components, systems, and entities focused on performance.}
+\cvbullet{Architectural foundation for visual experiments and real-time simulations.}
+\cvlistend
+
+\cventry
+{Pendulum Tracker}
+{2024}
+{Python, Flask, Dash, OpenCV}
+{}
+
+\cvliststart
+\cvbullet{Full-stack application for real-time experimental pendulum tracking via computer vision.}
+\cvbullet{Automatic extraction of angular position and generation of dynamic oscillation graphs.}
+\cvbullet{Integration between OpenCV and interactive web dashboard for experimental physics analysis.}
+\cvlistend
+
+% ==================================================
+% EDUCATION
+% ==================================================
+\cvsection{Education}
+
+\cventry
+{Federal University of Technology -- Paraná}
+{2022 -- 2027}
+{Bachelor's Degree in Computer Engineering}
+{Toledo, PR}
+
+\cventry
+{State University of Western Paraná}
+{2020 -- 2022}
+{Language Teaching Program -- English}
+{Cascavel, PR}
+
+\cventry
+{Harvard University \& Princeton University}
+{2024}
+{CS50x: Introduction to Computer Science \ |\ Algorithms, Part I \& II}
+{Remote}
+
+% ==================================================
+% SKILLS
+% ==================================================
+\cvsection{Technical Skills}
+
+\cvskill{Languages}{Go, C, C++, Python, JavaScript, Java, SQL}
+\cvskill{Backend}{REST APIs, Concurrency, Distributed Systems, Testing}
+\cvskill{Infrastructure}{Docker, CI/CD, Linux, AWS, Git}
+\cvskill{Frameworks}{Flask, Node.js, HTMX}
+\cvskill{Specialties}{Cryptography, Systems Programming, Software Architecture}
+
+% ==================================================
+% LANGUAGES
+% ==================================================
+\cvsection{Languages}
+
+\cvlanguage{Portuguese}{Native}
+\cvlanguage{English}{Advanced (professional experience)}
+
+\end{document}
