@@ -26,6 +26,13 @@ secure, decentralized voting system implemented entirely in
 [C++](https://pt.wikipedia.org/wiki/C%2B%2B). (Our work can be viewed on
 [GitHub](https://github.com/gabrielzschmitz/proofvote).)
 
+---
+
+📜 **[Sinhgad Hackathon 2026 Certificate](/blog/posts/48-hoursto-build-a-blockchain-voting-system-in-pure-c++/certificate-sinhgad-hackathon-2026.pdf)**  
+_Official participation certificate issued by the hackathon organizers._
+
+---
+
 Rather than treating voting as a simple database problem, we approached it as a
 **distributed trust problem**:
 
