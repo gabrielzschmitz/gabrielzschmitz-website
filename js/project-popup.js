@@ -44,32 +44,6 @@ const projects_data = {
       "Integrated webcam input processing and object masking"
     ]
   },
-  "ZKPop Go": {
-    title: "ZKPop Go",
-    description: "A Go wrapper for KEM-NIZKPoP (Key Encapsulation Mechanism with Non-Interactive Zero-Knowledge Proofs of Possession), focusing on post-quantum cryptography.",
-    image: "./images/placeholder.png",
-    year: "2024",
-    github: "https://github.com/gabrielzschmitz/zkpop-go",
-    learnings: [
-      "Created C-to-Go bindings for cryptographic libraries",
-      "Implemented post-quantum cryptographic mechanisms",
-      "Designed secure key exchange protocols",
-      "Optimized performance for cryptographic operations"
-    ]
-  },
-  "Research": {
-    title: "Research",
-    description: "A collection of research materials, presentations, and implementations produced during my undergraduate research projects.",
-    image: "./images/placeholder.png",
-    year: "2024",
-    github: "https://github.com/gabrielzschmitz/research",
-    learnings: [
-      "Created LaTeX-generated PDFs for research documentation",
-      "Implemented and analyzed post-quantum algorithms",
-      "Authored clear documentation for complex cryptographic concepts",
-      "Contributed to academic research in cryptography"
-    ]
-  },
   "Bujoshell": {
     title: "Bujoshell",
     description: "A terminal-based bullet journal application that helps users organize tasks, notes, and schedules directly from the command line.",
@@ -94,6 +68,45 @@ const projects_data = {
       "Developed a dynamic storytelling engine",
       "Implemented decision trees for game progression",
       "Designed text-based user interactions and game mechanics"
+    ]
+  },
+  "ProofVote": {
+    title: "ProofVote",
+    description: "Experimental blockchain-based electronic voting system with verifiable integrity and cryptographic traceability. Focused on distributed consensus and fault tolerance.",
+    image: "./images/proofvote.gif?height=500&width=900",
+    year: "2026",
+    github: "https://github.com/gabrielzschmitz/ProofVote",
+    learnings: [
+      "Implemented blockchain block structure, hashing, and vote validation",
+      "Explored distributed consensus and fault-tolerant architectures",
+      "Developed cryptographic verification for transparent voting",
+      "Architected the system from scratch with C++ and distributed principles"
+    ]
+  },
+  "BibInject": {
+    title: "BibInject",
+    description: "Tool for automating insertion and manipulation of LaTeX bibliographic references in HTML pages with TDD methodology and CI/CD integration.",
+    image: "./images/bibinject.png?height=500&width=900",
+    year: "2026",
+    github: "https://github.com/gabrielzschmitz/BibInject",
+    learnings: [
+      "Implemented automated LaTeX bibliographic injections",
+      "Test-driven development with >90% coverage",
+      "Integrated CI/CD pipelines with linting and validation",
+      "Ensured robustness for academic workflows"
+    ]
+  },
+  "Motrix": {
+    title: "Motrix",
+    description: "Own implementation of a minimalist Entity Component System aimed at graphics engines, separating components, systems, and entities for performance-focused real-time simulations.",
+    image: "./images/motrix.gif?height=500&width=900",
+    year: "2026",
+    github: "https://github.com/gabrielzschmitz/Motrix",
+    learnings: [
+      "Developed a custom ECS architecture in C++",
+      "Optimized component-system interactions for real-time performance",
+      "Created foundation for graphics and simulation experiments",
+      "Implemented entity management and system scheduling from scratch"
     ]
   }
 };
