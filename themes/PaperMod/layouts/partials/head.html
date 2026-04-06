@@ -11,6 +11,11 @@
 <title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ end }}{{ site.Title }}</title>
 
 {{- /* Meta */}}
+<script
+  data-goatcounter="https://gabrielzschmitz.goatcounter.com/count"
+  async
+  src="//gc.zgo.at/count.js">
+</script>
 {{- if .IsHome }}
 {{ with site.Params.keywords -}}<meta name="keywords" content="{{- range $i, $e := . }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}">{{ end }}
 {{- else }}
