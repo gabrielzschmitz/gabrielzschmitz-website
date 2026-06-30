@@ -54,7 +54,8 @@ body {
 }
 
 .hidden {
-  display: none !important; /* Force the element to be hidden */
+  display: none !important;
+  /* Force the element to be hidden */
 }
 
 /******************************************************************************/
@@ -155,12 +156,12 @@ body {
   background: rgba(0, 0, 0, 0);
   color: var(--text-color);
   border: none;
-  font-size: 2vh;
+  font-size: max(1rem, 2vh);
 }
 
 #ToggleTheme i,
 #LanguageCycle i {
-  font-size: 2vh;
+  font-size: max(1rem, 2vh);
 }
 
 #ToggleTheme:hover,
@@ -194,7 +195,7 @@ body {
 
 .NavItemText {
   margin-left: 1.1vh;
-  font-size: 1.6vh;
+  font-size: max(0.8rem, 1.6vh);
   color: var(--nav-text-color);
   transition: color 0.3s ease;
 }
@@ -267,7 +268,7 @@ body {
 
 .Project p {
   user-select: none;
-  font-size: 1.4vh;
+  font-size: max(0.85rem, 1.4vh);
   color: var(--text-color);
   transition: background-color 0.3s ease;
 }
@@ -344,24 +345,24 @@ body {
 
 .ExperienceItem .ExperienceTitle {
   color: var(--accent-color);
-  font-size: 1.6vh;
+  font-size: max(0.95rem, 1.6vh);
 }
 
 .ExperienceItem .ExperienceTimePlace {
   color: var(--alt-text-color);
-  font-size: 1.15vh;
+  font-size: max(0.72rem, 1.15vh);
 }
 
 .ExperienceItem p {
   color: var(--text-color);
-  font-size: 1.3vh;
+  font-size: max(0.85rem, 1.3vh);
   line-height: 1.5;
   margin-top: 0.4rem;
 }
 
-#Copyright{
+#Copyright {
   padding-bottom: 36.5vh;
-  font-size: 1.25vh;
+  font-size: max(0.72rem, 1.25vh);
 }
 
 /******************************************************************************/
@@ -416,14 +417,14 @@ body {
 }
 
 #EducationItem .ExperienceTime {
-  font-size: 1.6vh;
+  font-size: max(0.95rem, 1.6vh);
   font-weight: bold;
   color: var(--accent-color);
   margin-bottom: 0.5rem;
 }
 
 #EducationItem .ExperiencePlace {
-  font-size: 1.15vh;
+  font-size: max(0.72rem, 1.15vh);
   color: var(--alt-text-color);
   margin-bottom: 0.25rem;
 }
@@ -434,7 +435,7 @@ body {
 }
 
 #EducationItem a {
-  font-size: 1.3vh;
+  font-size: max(0.85rem, 1.3vh);
   display: flex;
   align-items: center;
   color: var(--text-color);
@@ -445,7 +446,7 @@ body {
 
 #EducationItem a .fa-solid {
   margin-left: 0.5rem;
-  font-size: 1.35vh;
+  font-size: max(0.85rem, 1.35vh);
 }
 
 .fa-building-columns {
@@ -504,7 +505,10 @@ body {
 /******************************************************************************/
 
 h1 {
-  font-size: 5.5vh;
+  /* max() keeps a readable floor so the title doesn't shrink ("zoom out")
+     on short viewports. At normal heights the vh value wins, so the look
+     is unchanged. */
+  font-size: max(2.4rem, 5.5vh);
   margin: 0 0 1vh 0;
   color: var(--accent-color);
   font-weight: bold;
@@ -512,7 +516,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2vh;
+  font-size: max(1rem, 2vh);
   margin: 0 0 1.5vh 0;
   color: var(--accent-color);
   font-weight: normal;
@@ -520,19 +524,32 @@ h2 {
 }
 
 p {
-  font-size: 1.6vh;
+  font-size: max(0.9rem, 1.6vh);
   margin: 0;
   color: var(--text-color);
-  line-height: 2.5vh;
+  line-height: max(1.4rem, 2.5vh);
   pointer-events: auto;
 }
 
 /******************************************************************************/
+/* RESPONSIVE                                                                 */
+/*                                                                            */
+/* The desktop layout above is intentionally driven by viewport-height (vh)   */
+/* units. Once the layout collapses into a single scrolling column, those     */
+/* vh-based sizes become unreliable (tiny text on short/landscape viewports,  */
+/* awkward spacing). The rules below keep the same visual identity but switch */
+/* to fixed, readable units and fix a few small-screen layout problems.       */
+/******************************************************************************/
 
-@media screen and (max-width: 1200px) {
+/* Collapse to the stacked, scrollable layout when the viewport is either
+   narrow OR short. The short-height trigger fixes the "browser too short"
+   case where the desktop layout (which assumes a tall window) would
+   overlap the nav/socials with the body text and look zoomed out. */
+@media screen and (max-width: 1200px),
+screen and (max-height: 600px) {
   body {
     overflow-y: auto;
-	overflow-x: hidden;
+    overflow-x: hidden;
   }
 
   #MainDiv {
@@ -540,7 +557,7 @@ p {
     height: auto;
     min-height: 100vh;
     overflow: visible;
-	overflow-x: hidden;
+    overflow-x: hidden;
   }
 
   #ContentWrapper {
@@ -551,55 +568,116 @@ p {
   #LeftPanel {
     position: relative;
     width: 80%;
+    max-width: 640px;
     left: 0;
     margin: 0 auto;
     text-align: center;
-	order: 1;
+    order: 1;
     overflow-x: visible;
   }
 
   #RightPanel {
     position: relative;
     width: 80%;
+    max-width: 640px;
     height: auto;
     padding: 0;
     margin: 0 auto;
-	order: 2;
+    order: 2;
     overflow-y: visible;
-	overflow-x: hidden;
+    overflow-x: hidden;
   }
 
   #ControlPanel {
-	position: fixed;
-	top: 0;
-	right: 0;
-	display: flex;
-	gap: 1vh;
-	padding: 2vh;
-	align-self: flex-end;
-	margin-left: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
   }
 
   #SocialsContainer {
     position: relative;
     top: auto;
     transform: none;
+    flex-wrap: wrap;
     justify-content: center;
-    margin: 4vh 0;
-  }
-
-  .NavContainer {
-	display: none;
-  }
-
-  #Copyright{
-    padding-bottom: 2.5vh;
-    font-size: 1.25vh;
+    gap: 1.75rem;
+    margin: 2.5rem 0;
   }
 
   #SocialIcons {
-	width: 2.5vh;
-	height: 2.5vh;
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .NavContainer {
+    display: none;
+  }
+
+  /* Readable, viewport-independent typography for the stacked layout. */
+  h1 {
+    font-size: clamp(2.25rem, 9vw, 3.5rem);
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .Section {
+    margin-bottom: 3rem;
+  }
+
+  .ProjectContainer,
+  .ExperienceContainer,
+  #EducationContainer {
+    padding-top: 1.25rem;
+  }
+
+  .Project p {
+    font-size: 0.95rem;
+  }
+
+  .ExperienceItem .ExperienceTitle {
+    font-size: 1.05rem;
+  }
+
+  .ExperienceItem .ExperienceTimePlace {
+    font-size: 0.8rem;
+  }
+
+  .ExperienceItem p {
+    font-size: 0.95rem;
+  }
+
+  #EducationItem .ExperienceTime {
+    font-size: 1rem;
+  }
+
+  #EducationItem .ExperiencePlace {
+    font-size: 0.8rem;
+  }
+
+  #EducationItem a {
+    font-size: 0.95rem;
+  }
+
+  #EducationItem a .fa-solid {
+    font-size: 1rem;
+  }
+
+  #Copyright {
+    padding-bottom: 2.5rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -608,19 +686,53 @@ p {
     margin-top: 0;
   }
 
-  h1{
-    padding-top: 2vh;
+  h1 {
+    padding-top: 2rem;
   }
 
-  #SocialsContainer {
-	margin-bottom: 0;
-  }
-
+  /* Keep the theme/language controls pinned and tidy on small screens. */
   #ControlPanel {
-	position: sticky;
-	display: block;
-    justify-content: center;
-    margin: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  /* Single-column education cards so they aren't crushed side by side. */
+  #EducationContainer {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.25rem 0 0;
+  }
+
+  #EducationItem {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Stack each project's title, description and year so nothing is clipped. */
+  .Project {
+    flex-direction: column;
+    align-items: flex-start;
+    white-space: normal;
+    gap: 0.2rem;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .Project #p1 {
+    white-space: normal;
+  }
+
+  .Project p {
+    white-space: normal;
+  }
+
+  .Project .Separator {
+    display: none;
   }
 }
 
@@ -631,5 +743,13 @@ p {
 
   #RightPanel {
     width: 90%;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 11vw, 2.75rem);
+  }
+
+  #SocialsContainer {
+    gap: 1.25rem;
   }
 }
