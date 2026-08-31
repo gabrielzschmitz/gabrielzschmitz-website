@@ -106,6 +106,18 @@ a {
 }
 
 /* QUIRKY STYLES */
+#MinecraftToggle {
+  color: var(--text-subtle);
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%230a0a0a' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, pointer;
+  text-decoration: none;
+  transition: color 0.3s;
+  display: inline-block;
+}
+
+#MinecraftToggle:hover {
+  color: var(--burgundy-hover);
+}
+
 #CryptoToggle {
   color: var(--text-subtle);
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%230a0a0a' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, pointer;
@@ -118,7 +130,7 @@ a {
   color: var(--burgundy-hover);
 }
 
-#MinecraftToggle {
+#Built {
   color: var(--text-subtle);
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%230a0a0a' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, pointer;
   text-decoration: none;
@@ -126,9 +138,10 @@ a {
   display: inline-block;
 }
 
-#MinecraftToggle:hover {
+#Built:hover {
   color: var(--burgundy-hover);
 }
+
 
 body.dark-mode #CryptoToggle,
 body.dark-mode #MinecraftToggle {
