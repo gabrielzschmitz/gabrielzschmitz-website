@@ -412,6 +412,16 @@ section.lead-article {
   background-color: var(--paper-texture-subtle);
 }
 
+.quote-source {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--burgundy);
+}
+
 /* LIST OF PROJECTS / EXPERIENCE / EDUCATION */
 .article-list {
   list-style: none;
