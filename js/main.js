@@ -1,10 +1,28 @@
-const mouse_glow = document.getElementById("MouseGlow");
-const mouse_glow_blur = document.getElementById("MouseGlowBlur");
-const canvas = document.getElementById("Matrix");
-const canvas_context = canvas.getContext("2d");
+/**
+ * Dark/Light Theme
+ */
+function applyTheme(isDark) {
+  document.body.classList.toggle('dark-mode', isDark);
+  localStorage.setItem('neocities-theme', isDark ? 'dark' : 'light');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modeSeal = document.getElementById('ModeToggle');
+  const saved = localStorage.getItem('neocities-theme')
+    || localStorage.getItem('theme')
+    || 'light';
+
+  applyTheme(saved === 'dark');
+
+  if (modeSeal) {
+    modeSeal.addEventListener('click', () => {
+      applyTheme(!document.body.classList.contains('dark-mode'));
+    });
+  }
+});
 
 /**
- * Logic to toggle Minecraft cube and hide mouse glow.
+ * Minecraft cube
  */
 function toggleMinecraft() {
   const cube = document.querySelector(".Minecraft");
@@ -25,18 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
   toggleButton.addEventListener("click", toggleMinecraft);
 });
 
-/******************************************************************************/
-
 /**
-* Handles the hidden matrix effect.
-*/
-let is_effect_on = false;
-let animation_frame_id;
-const font_size = 16;
-let columns, drops;
-
-/**
-* Handle background Canvas to Matrix effect.
+* Matrix effect
 */
 function SetupCanvas() {
   const dpr = window.devicePixelRatio || 1;
@@ -59,15 +67,12 @@ function SetupCanvas() {
   drops = new Array(columns).fill(0);
 }
 
-/**
-* Matrix effect.
-*/
 function DrawMatrix() {
   if (!is_effect_on) return;
 
-  canvas_context.fillStyle = "rgba(26, 26, 26, 0.25)";
+  canvas_context.fillStyle = "rgb(13, 13, 13)";
   canvas_context.fillRect(0, 0, canvas.width, canvas.height);
-  canvas_context.fillStyle = "dimgray";
+  canvas_context.fillStyle = "#d2c8b6";
   canvas_context.font = `${font_size}px monospace`;
 
   for (let i = 0; i < drops.length; i++) {
@@ -82,9 +87,6 @@ function DrawMatrix() {
   animation_frame_id = requestAnimationFrame(DrawMatrix);
 }
 
-/**
- * Toggle the Matrix effect on and off.
- */
 function toggleMatrixEffect() {
   is_effect_on = !is_effect_on;
 
@@ -110,50 +112,16 @@ function toggleMatrixEffect() {
 document.getElementById("CryptoToggle").addEventListener("click", toggleMatrixEffect);
 
 /**
-* Make canvas resize when window resize.
-*/
-window.addEventListener("resize", () => {
-  if (is_effect_on) {
-    SetupCanvas();
-  }
-});
-
-/******************************************************************************/
-
-/**
-* Handles Dark Mode
-*/
-document.addEventListener("DOMContentLoaded", function () {
-  const themeToggleBtn = document.getElementById("ToggleTheme");
-
-  function setTheme(theme) {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-    themeToggleBtn.innerHTML = theme === "dark" ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
-  }
-
-  themeToggleBtn.addEventListener("click", function () {
-    const currentTheme = document.documentElement.getAttribute("data-theme");
-    setTheme(currentTheme === "dark" ? "light" : "dark");
-  });
-
-  const savedTheme = localStorage.getItem("theme") || "dark";
-  setTheme(savedTheme);
-});
-
-/******************************************************************************/
-
-/**
-* ASCII Warning Message in the Console
-*/
+ * ASCII Warning Message in the Console
+ */
 console.log(`
 %cHacking detected...\nInitializing firewall defense. 🛡️
 %cJust kidding, happy coding! :)
 `, "color: indianred; font-weight: bold;", "color: seagreen; font-weight: bold;");
 
 /**
-* Function to Simulate Disabling JavaScript
-*/
+ * Simulate Disabling JavaScript
+ */
 function disableJS() {
   const overlay = document.createElement("div");
   overlay.style.position = "fixed";
@@ -167,10 +135,9 @@ function disableJS() {
   overlay.style.zIndex = "9999";
   overlay.style.fontSize = "24px";
   overlay.style.color = "white";
-  overlay.style.background = "rgb(26, 26, 26)";
+  overlay.style.background = "rgb(13, 13, 13)";
   overlay.innerHTML = "Error 418: I'm a teapot <span id='Teapot' style='cursor: pointer; margin-left: 10px;'>🫖</span>";
   document.body.appendChild(overlay);
-
 
   /* Hide the rest of the page */
   document.body.style.overflow = "hidden";
@@ -190,8 +157,8 @@ function disableJS() {
 }
 
 /**
-* Function to Restore the Page
-*/
+ * Restore the Page
+ */
 function enableJS() {
   const teapot = document.getElementById("Teapot");
   if (!teapot) {
@@ -209,102 +176,3 @@ function enableJS() {
   %cNow your curse is broken! 🔮
   `, "color: lightblue; font-weight: bold;", "color: mediumpurple; font-weight: bold;");
 }
-
-/******************************************************************************/
-
-/**
-* Handles the glowing effect that follows the mouse cursor.
-*/
-window.addEventListener("mousemove", (event) => {
-  if (!is_effect_on) {
-    const scroll_x = window.scrollX || window.pageXOffset;
-    const scroll_y = window.scrollY || window.pageYOffset;
-
-    const mouse_x = event.pageX;
-    const mouse_y = event.pageY;
-
-    mouse_glow.animate(
-      {left: `${mouse_x}px`, top: `${mouse_y}px`},
-      {duration: 3500, fill: "forwards"}
-    );
-  }
-});
-
-/******************************************************************************/
-
-/**
-* Scrollspy logic to highlight the active section in the navigation.
-*/
-const right_panel = document.getElementById("RightPanel");
-const nav_items = document.querySelectorAll(".NavItem");
-const sections = document.querySelectorAll(".Section");
-
-/**
-* Determines which section is currently visible and highlights the corresponding
-* nav item.
-*/
-function SetActiveSection() {
-  const scrollPosition = right_panel.scrollTop;
-  const scrollHeight = right_panel.scrollHeight;
-  const clientHeight = right_panel.clientHeight;
-
-  const isNearBottom = scrollHeight - (scrollPosition + clientHeight) < 50;
-
-  if (isNearBottom) {
-    nav_items.forEach((item) => item.classList.remove("Active"));
-    nav_items[nav_items.length - 1].classList.add("Active");
-    return;
-  }
-
-  let index = sections.length;
-  while (--index && scrollPosition + 125 < sections[index].offsetTop) {}
-  nav_items.forEach((item) => item.classList.remove("Active"));
-  nav_items[index].classList.add("Active");
-}
-
-/**
-* Scrolls smoothly to the selected section when a nav item is clicked.
-*/
-function ScrollToSection(event) {
-  const section_id = event.currentTarget.getAttribute("DataSection");
-  const target_section = document.getElementById(section_id);
-  right_panel.scrollTo({
-    top: target_section.offsetTop - window.innerHeight * 0.05,
-    behavior: "smooth"
-  });
-}
-
-nav_items.forEach(item => item.addEventListener("click", ScrollToSection));
-right_panel.addEventListener("scroll", SetActiveSection);
-SetActiveSection();
-
-/******************************************************************************/
-
-/**
-* Projects list logic - Animates project text by scrambling characters when
-* hovered.
-*/
-const projects = document.querySelectorAll(".Project");
-const letters = "abcdefghijklmnopqrstuvwxyz0123456789";
-
-projects.forEach(project => {
-  project.addEventListener("mouseenter", event => {
-    event.target.querySelectorAll("p").forEach(text => {
-      let iteration = 0;
-      let interval = setInterval(() => {
-        text.innerText = text.innerText.split("")
-          .map((letter, index) => {
-            if (index < iteration || text.dataset.value[index] === " ") {
-              return text.dataset.value[index];
-            }
-            return letters[Math.floor(Math.random() * letters.length)];
-          })
-          .join("");
-        if (iteration >= text.dataset.value.length) {
-          clearInterval(interval);
-        }
-        iteration += 1;
-      }, 30);
-    });
-  });
-});

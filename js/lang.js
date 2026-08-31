@@ -1,51 +1,30 @@
 /**
-* Logic to cycle website text language.
-*/
+ * Logic to cycle website text language.
+ */
 document.addEventListener("DOMContentLoaded", () => {
   const languageCycle = document.getElementById("LanguageCycle");
   const elements = document.querySelectorAll("[data-en]");
-  const cvLink = document.querySelector("#SocialsContainer a[title='CV']");
   let isEnglish = true;
 
-  function updateCVFile() {
-    cvLink.href = isEnglish ? "./resume/resume.pdf" : "./resume/curriculo.pdf";
+  function updateCVLinks() {
+    const cvLinks = document.querySelectorAll("[data-cv]");
+    cvLinks.forEach(link => {
+      link.href = isEnglish ? "./resume/resume.pdf" : "./resume/curriculo.pdf";
+    });
   }
 
-  updateCVFile();
+  updateCVLinks();
 
   languageCycle.addEventListener("click", () => {
-    languageCycle.innerHTML = isEnglish ? '<i class="fi fi-us">' : '<i class="fi fi-br">';
+    languageCycle.innerHTML = isEnglish ? '<i class="fi fi-us"></i>' : '<i class="fi fi-br"></i>';
 
     elements.forEach(el => {
       const temp = el.innerHTML;
       el.innerHTML = el.getAttribute(isEnglish ? "data-pt" : "data-en");
       el.setAttribute(isEnglish ? "data-en" : "data-pt", temp);
-
-      /* Update the data-value attribute for <p> elements */
-      if (el.tagName === "P" && el.hasAttribute("data-value")) {
-        const newValue = el.getAttribute(isEnglish ? "data-pt" : "data-en");
-        el.setAttribute("data-value", newValue);
-      }
     });
 
     isEnglish = !isEnglish;
-
-    updateCVFile();
-
-	/* Readd the MinecraftToggle button */
-    const minecraftButton = document.getElementById("MinecraftToggle");
-	if (minecraftButton) {
-      minecraftButton.addEventListener("click", toggleMinecraft);
-	} else {
-	  console.error("MinecraftToggle button not found!");
-	}
-
-	/* Readd the CryptoToggle button */
-    const cryptoButton = document.getElementById("CryptoToggle");
-	if (cryptoButton) {
-      cryptoButton.addEventListener("click", toggleMatrixEffect);
-	} else {
-	  console.error("CryptoToggle button not found!");
-	}
+    updateCVLinks();
   });
 });

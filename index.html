@@ -11,376 +11,452 @@
   <link rel="icon" type="image/x-icon" href="./images/GZS-LIGHT-NOBACKGROUND.ico" />
   <title>gabrielzschmitz</title>
 
+  <!-- ANALITICS -->
   <script data-goatcounter="https://gabrielzschmitz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Eczar:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Courier+Prime&display=swap"
+    rel="stylesheet">
   <script src="https://kit.fontawesome.com/238a5231e5.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css" />
+
+  <!-- STYLES -->
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/cube.css">
-  <link rel="stylesheet" href="./css/popup.css">
 </head>
 
 <body>
-  <div id="MainDiv">
-    <div id="MouseGlow"></div>
-    <div id="MouseGlowBlur"></div>
 
-    <canvas id="Matrix"></canvas>
+  <div class="newspaper-wrapper">
 
-    <div class="Minecraft">
-      <div class="CubeOverlay"></div>
-      <div class="Cube">
-        <div class="CubeFace CubeFaceLeft"></div>
-        <div class="CubeFace CubeFaceRight"></div>
-        <div class="CubeFace CubeFaceTop"></div>
-        <div class="CubeFace CubeFaceBottom"></div>
-        <div class="CubeFace CubeFaceFront"></div>
-        <div class="CubeFace CubeFaceBack"></div>
+    <!-- PERIODIC HEADER -->
+    <header class="newspaper-header">
+      <div class="header-top-bar">
+        <span>VOL. I — N.º 01</span>
+        <span>ANNO DOMINI MMXXVI</span>
+      </div>
+
+      <h1 class="main-title">gabrielzschmitz</h1>
+
+      <p class="tagline" data-en="&quot;crafting systems where speed meets elegance...&quot;"
+        data-pt="&quot;criando sistemas onde velocidade encontra elegância...&quot;">
+        &quot;crafting systems where speed meets elegance...&quot;
+      </p>
+
+      <!-- EMBLEM -->
+      <div class="header-emblem-container">
+        <div class="emblem-line"></div>
+        <div class="header-seal-graphic">
+          <span class="seal-ornament">⚜</span>
+          <span class="seal-monogram">𓇣</span>
+          <span class="seal-ornament">⚜</span>
+        </div>
+        <div class="emblem-line"></div>
+      </div>
+
+      <!-- MAIN NAVEGATION -->
+      <nav class="newspaper-nav">
+        <a href="#about" data-en="About" data-pt="Sobre">About</a>
+        <span class="nav-sep">♦</span>
+        <a href="#projects" data-en="Projects" data-pt="Projetos">Projects</a>
+        <span class="nav-sep">♦</span>
+        <a href="#experience" data-en="Experience" data-pt="Experiência">Experience</a>
+        <span class="nav-sep">♦</span>
+        <a href="#education" data-en="Education" data-pt="Formação">Education</a>
+      </nav>
+
+      <div class="header-meta">
+        <span class="meta-item">SECTIO: PRAESENTATIONE</span>
+        <span class="meta-item-right">EDITIO SPECIALIS</span>
+      </div>
+    </header>
+
+    <!-- FLOATING ICONS: THEME + LANGUAGE -->
+    <div class="header-controls">
+      <div class="mode-seal" id="ModeToggle" title="Alternar Luz / Penumbra">
+        <span class="seal-icon">✦</span>
+      </div>
+      <div class="mode-seal lang-seal" id="LanguageCycle" title="Switch language">
+        <i class="fi fi-br"></i>
       </div>
     </div>
 
-    <div id="ContentWrapper">
-      <div id="RightPanel">
-        <div id="Section1" class="Section">
-          <h2 data-en="About" data-pt="Sobre">About</h2>
-          <p data-en="
-              I’ve been coding since I was 14, starting with
-              <span id='MinecraftToggle'>Minecraft</span> mods in Java,
-              which eventually led me down the rabbit hole of low-level programming
-              with C and tinkering with simple NCurses apps.<br><br>
+    <div class="section-break">
+      <span>🕇 ┼ 🕇</span>
+    </div>
 
-              Studying computer engineering at UTFPR deepened my love for
-              programming, and now I’m comfortable with C, C++, Python, Go, Java,
-              and JavaScript, along with tools like LaTeX, PostgreSQL, Redis,
-              OpenCV, NumPy, and Docker.
-              " data-pt="
-              Programo desde os 14 anos, começando com mods de
-              <span id='MinecraftToggle'>Minecraft</span> em Java,
-              o que eventualmente me levou ao mundo da programação
-              de baixo nível com C e a experimentar aplicativos
-              simples em NCurses.<br><br>
+    <!-- MAIN CONTENT -->
+    <main class="newspaper-body">
 
-              Cursar engenharia de computação na UTFPR aprofundou meu
-              amor pela programação, e agora estou confortável com C, C++,
-              Python, Go, Java e JavaScript, além de ferramentas como LaTeX,
-              PostgreSQL, Redis, OpenCV, NumPy e Docker.
-              ">
-            I’ve been coding since I was 14, starting with
-            <span id='MinecraftToggle'>Minecraft</span> mods in Java,
-            which eventually led me down the rabbit hole of low-level programming
-            with C and tinkering with simple NCurses apps.<br><br>
+      <!-- MAIN COLUMN -->
+      <div class="main-column">
 
-            Studying computer engineering at UTFPR deepened my love for
-            programming, and now I’m comfortable with C, C++, Python, Go, Java,
-            and JavaScript, along with tools like LaTeX, PostgreSQL, Redis,
-            OpenCV, NumPy, and Docker.
-          </p>
-        </div>
+        <!-- ABOUT -->
+        <section class="lead-article" id="about">
+          <div class="article-header-block">
+            <span class="article-badge">MANIFESTATIO</span>
+            <h2 class="article-title" data-en="About" data-pt="Sobre">About</h2>
+            <p class="subheading" data-en="A short declaration about who I am and why this page exists."
+              data-pt="Uma breve declaração sobre quem sou e por que esta página existe.">A short declaration about who
+              I am and why this page exists.</p>
+          </div>
 
-        <div id="Section2" class="Section">
-          <h2 data-en="Projects" data-pt="Projetos">Projects</h2>
-          <p data-en="
-            Below are some of the projects I’ve
-            <a id='Built' href='./under-construction.html'>built</a> over my 6+ years of coding experience. This selection highlights work in software engineering, systems programming, and cryptography.
-            " data-pt="
-            Abaixo estão alguns dos projetos que
-            <a id='Built' href='./under-construction.html'>construí</a> ao longo de mais de 6 anos de experiência em programação. Esta seleção destaca trabalhos em engenharia de software, programação de sistemas e criptografia.
-            ">
-            Below are some of the projects I’ve
-            <a id='Built' href='./under-construction.html'>built</a> over my 6+ years of coding experience. This
+          <p class="drop-cap-p"
+            data-en="I've been coding since I was 14, starting with <span id='MinecraftToggle'>Minecraft</span> mods in Java, which eventually led me down the rabbit hole of low-level programming with C and tinkering with simple NCurses apps."
+            data-pt="Programo desde os 14 anos, começando com mods de <span id='MinecraftToggle'>Minecraft</span> em Java, o que eventualmente me levou ao mundo da programação de baixo nível com C e a experimentar aplicativos simples em NCurses.">
+            I've been coding since I was 14, starting with <span id='MinecraftToggle'>Minecraft</span> mods in Java,
+            which eventually led me down the
+            rabbit hole of low-level programming with C and tinkering with simple NCurses apps.</p>
+
+          <p data-en="Studying computer engineering at UTFPR deepened my love for programming, and now I'm comfortable with C, C++, Python, Go, Rust, Java, and JavaScript, along with tools like LaTeX, PostgreSQL, Redis, OpenCV, NumPy, and Docker."
+            data-pt="Cursar engenharia de computação na UTFPR aprofundou meu amor pela programação, e agora estou confortável com C, C++, Python, Go, Rust, Java e JavaScript, além de ferramentas como LaTeX, PostgreSQL, Redis, OpenCV, NumPy e Docker.">
+            Studying computer engineering at UTFPR deepened my love for programming, and now I'm comfortable with C,
+            C++, Python, Go, Rust, Java, and JavaScript, along with tools like LaTeX, PostgreSQL, Redis, OpenCV, NumPy,
+            and Docker.</p>
+
+          <blockquote class="burgundy-quote"
+            data-en="«Efficiency is not an accident: it is the deliberate absence of waste.»"
+            data-pt="«Eficiência não é acidente: é a ausência deliberada de desperdício.»">«Efficiency is not an
+            accident:
+            it is the deliberate absence of waste.»</blockquote>
+
+          <p data-en="I enjoy low-level programming and <span id='CryptoToggle'>cryptography</span>, building fast and efficient systems. I love solving technical problems and creating practical solutions."
+            data-pt="Eu gosto de programação de baixo nível e <span id='CryptoToggle'>criptografia</span>, construindo sistemas rápidos e eficientes. Adoro resolver problemas técnicos e criar soluções práticas.">
+            I enjoy low-level programming and <span id='CryptoToggle'>cryptography</span>, building fast and efficient
+            systems. I love solving
+            technical problems and creating practical solutions.</p>
+        </section>
+
+        <div class="section-break"><span>🕇 ┼ 🕇</span></div>
+
+        <!-- PROJECTS -->
+        <section class="lead-article" id="projects">
+          <div class="article-header-block">
+            <span class="article-badge">OPUS</span>
+            <h2 class="article-title" data-en="Projects" data-pt="Projetos">Projects</h2>
+            <p class="subheading" data-en="A collection of things shaped by code, curiosity, and craft."
+              data-pt="Uma coleção de coisas moldadas por código, curiosidade e ofício.">
+              A collection of things shaped by code, curiosity, and craft.
+            </p>
+          </div>
+
+          <p data-en="Below are some of the projects I've built over my 4+ years of coding experience. This selection highlights work in software engineering, systems programming, and cryptography."
+            data-pt="Abaixo estão alguns dos projetos que construí ao longo de mais de 4 anos de experiência em programação. Esta seleção destaca trabalhos em engenharia de software, programação de sistemas e criptografia.">
+            Below are some of the projects I've built over my 4+ years of coding experience. This
             selection highlights work in software engineering, systems programming, and cryptography.
           </p>
-          <div class="ProjectContainer">
-            <a href="https://github.com/gabrielzschmitz/Tomato.C" target="_blank" class="Project">
-              <p id="p1" data-value="Tomato.C ">Tomato.C </p>
-              <p data-value="Pure C terminal application with TUI interface"
-                data-en="Pure C terminal application with TUI interface"
-                data-pt="Aplicativo terminal em C puro com interface TUI">
-                Pure C terminal application with TUI interface</p>
-              <div class="Separator"></div>
-              <p data-value="2022">2022</p>
-            </a>
-            <a href="https://github.com/gabrielzschmitz/ProofVote" target="_blank" class="Project">
-              <p id="p1" data-value="ProofVote ">ProofVote </p>
-              <p data-value="Experimental blockchain-based electronic voting system"
-                data-en="Experimental blockchain-based electronic voting system"
-                data-pt="Sistema experimental de votação eletrônica baseado em blockchain">
-                Experimental blockchain-based electronic voting system</p>
-              <div class="Separator"></div>
-              <p data-value="2026">2026</p>
-            </a>
-            <a href="https://github.com/gabrielzschmitz/BibInject" target="_blank" class="Project">
-              <p id="p1" data-value="BibInject ">BibInject </p>
-              <p data-value="Automates LaTeX references in HTML" data-en="Automates LaTeX references in HTML"
-                data-pt="Automatiza referências LaTeX em HTML">
-                Automates LaTeX references in HTML</p>
-              <div class="Separator"></div>
-              <p data-value="2026">2026</p>
-            </a>
-            <a href="https://github.com/gabrielzschmitz/Motrix" target="_blank" class="Project">
-              <p id="p1" data-value="Motrix ">Motrix </p>
-              <p data-value="Minimal C++ ECS framework" data-en="Minimal C++ ECS framework"
-                data-pt="Framework ECS minimalista em C++">
-                Minimal C++ ECS framework</p>
-              <div class="Separator"></div>
-              <p data-value="2026">2026</p>
-            </a>
-            <a href="https://github.com/gabrielzschmitz/Pendulum-Tracker" target="_blank" class="Project">
-              <p id="p1" data-value="Pendulum Tracker ">Pendulum Tracker </p>
-              <p data-value="Full-stack app for pendulum tracking" data-en="Full-stack app for pendulum tracking"
-                data-pt="App full-stack para rastrear pêndulo">
-                Full-stack app for pendulum tracking</p>
-              <div class="Separator"></div>
-              <p data-value="2024">2024</p>
-            </a>
-          </div>
-        </div>
 
-        <div id="Section3" class="Section">
-          <h2 data-en="Experience" data-pt="Experiência">Experience</h2>
-          <p data-en="
-            Throughout my journey in software development and research, I’ve had the opportunity to work on diverse projects, from academic research to professional SaaS development. Below is a timeline of my professional and research experiences, highlighting contributions in distributed systems, applied cryptography, and backend engineering.
-            " data-pt="
-            Ao longo da minha jornada em desenvolvimento de software e pesquisa, tive a oportunidade de trabalhar em diversos projetos, desde pesquisa acadêmica até desenvolvimento profissional de SaaS. Abaixo está uma linha do tempo das minhas experiências profissionais e de pesquisa, destacando contribuições em sistemas distribuídos, criptografia aplicada e engenharia de backend.
-            ">
-            Throughout my journey in software development and research, I’ve had the opportunity to work on diverse
+          <ul class="article-list projects-list">
+            <li class="project-item">
+              <h3 class="project-name">
+                <a href="https://github.com/gabrielzschmitz/Tomato.C" target="_blank" rel="noopener">Tomato.C</a>
+              </h3>
+              <div class="project-meta">2022</div>
+              <p class="project-desc" data-en="Pure C terminal application with TUI interface"
+                data-pt="Aplicativo terminal em C puro com interface TUI">Pure C terminal application with TUI interface
+              </p>
+            </li>
+            <li class="project-item">
+              <h3 class="project-name">
+                <a href="https://github.com/gabrielzschmitz/ProofVote" target="_blank" rel="noopener">ProofVote</a>
+              </h3>
+              <div class="project-meta">2026</div>
+              <p class="project-desc" data-en="Experimental blockchain-based electronic voting system"
+                data-pt="Sistema experimental de votação eletrônica baseado em blockchain">Experimental blockchain-based
+                electronic voting system</p>
+            </li>
+            <li class="project-item">
+              <h3 class="project-name">
+                <a href="https://github.com/gabrielzschmitz/BibInject" target="_blank" rel="noopener">BibInject</a>
+              </h3>
+              <div class="project-meta">2026</div>
+              <p class="project-desc" data-en="Automates LaTeX references in HTML"
+                data-pt="Automatiza referências LaTeX em HTML">Automates LaTeX references in HTML</p>
+            </li>
+            <li class="project-item">
+              <h3 class="project-name">
+                <a href="https://github.com/gabrielzschmitz/Motrix" target="_blank" rel="noopener">Motrix</a>
+              </h3>
+              <div class="project-meta">2026</div>
+              <p class="project-desc" data-en="Minimal C++ ECS framework" data-pt="Framework ECS minimalista em C++">
+                Minimal C++ ECS framework</p>
+            </li>
+            <li class="project-item">
+              <h3 class="project-name">
+                <a href="https://github.com/gabrielzschmitz/Pendulum-Tracker" target="_blank" rel="noopener">Pendulum
+                  Tracker</a>
+              </h3>
+              <div class="project-meta">2024</div>
+              <p class="project-desc" data-en="Full-stack app for pendulum tracking"
+                data-pt="App full-stack para rastrear pêndulo">Full-stack app for pendulum tracking</p>
+            </li>
+          </ul>
+        </section>
+
+        <div class="section-break"><span>🕇 ┼ 🕇</span></div>
+
+        <!-- EXPERIENCE -->
+        <section class="lead-article" id="experience">
+          <div class="article-header-block">
+            <span class="article-badge">CURRICULUM</span>
+            <h2 class="article-title" data-en="Experience" data-pt="Experiência">Experience</h2>
+            <p class="subheading" data-en="A timeline of activities in research and software development."
+              data-pt="Uma linha do tempo de atuações em pesquisa e desenvolvimento de software.">A timeline of
+              activities in research and software development.</p>
+          </div>
+
+          <p data-en="Throughout my journey in software development and research, I've had the opportunity to work on diverse projects, from academic research to professional SaaS development. Below is a timeline of my professional and research experiences, highlighting contributions in distributed systems, applied cryptography, and backend engineering."
+            data-pt="Ao longo da minha jornada em desenvolvimento de software e pesquisa, tive a oportunidade de trabalhar em diversos projetos, desde pesquisa acadêmica até desenvolvimento profissional de SaaS. Abaixo está uma linha do tempo das minhas experiências profissionais e de pesquisa, destacando contribuições em sistemas distribuídos, criptografia aplicada e engenharia de backend.">
+            Throughout my journey in software development and research, I've had the opportunity to work on diverse
             projects, from academic research to professional SaaS development. Below is a timeline of my professional
             and research experiences, highlighting contributions in distributed systems, applied cryptography, and
-            backend engineering.
-          </p>
+            backend engineering.</p>
 
-          <div class="ExperienceContainer">
-            <ul class="ExperienceItem">
-              <li>
-                <div class="ExperienceTitle" data-en="Scientific Research Scholarship - RNP"
-                  data-pt="Bolsa de Pesquisa Científica - RNP">Scientific Research Scholarship - RNP</div>
-                <div class="ExperienceTimePlace" data-en="November 2024 - November 2025 | Toledo, Brazil"
-                  data-pt="Novembro 2024 - Novembro 2025 | Toledo, Brasil">November 2024 - November 2025 | Toledo,
-                  Brazil</div>
-                <p data-en="Integrated post-quantum cryptography into blockchain, analyzing efficiency and optimizing signature sizes for long-term security. Implemented Go bindings and adapted the Go runtime for Hyperledger Fabric integration."
-                  data-pt="Integrei criptografia pós-quântica em blockchain, analisando eficiência e otimizando tamanhos de assinatura para segurança de longo prazo. Implementei bindings em Go e adaptei o runtime Go para integração com Hyperledger Fabric.">
-                  Integrated post-quantum cryptography into blockchain, analyzing efficiency and optimizing signature
-                  sizes for long-term security. Implemented Go bindings and adapted the Go runtime for Hyperledger
-                  Fabric integration.
-                </p>
-              </li>
-              <li>
-                <div class="ExperienceTitle" data-en="Junior Software Developer - NeticShard"
-                  data-pt="Desenvolvedor de Software Júnior - NeticShard">Junior Software Developer - NeticShard</div>
-                <div class="ExperienceTimePlace" data-en="April 2024 - March 2025 | Remote, LATAM"
-                  data-pt="Abril 2024 - Março 2025 | Remoto, LATAM">April 2024 - March 2025 | Remote, LATAM</div>
-                <p data-en="Developed backend for a SaaS IT incident response platform in Go. Implemented unit, integration, and E2E tests, structured CI/CD pipelines, applied Domain-Driven Design principles, and built modular architecture."
-                  data-pt="Desenvolvi backend para plataforma SaaS de resposta a incidentes de TI em Go. Implementei testes unitários, de integração e E2E, estruturei pipelines CI/CD, apliquei princípios de Domain-Driven Design e construí arquitetura modular.">
-                  Developed backend for a SaaS IT incident response platform in Go. Implemented unit, integration, and
-                  E2E tests, structured CI/CD pipelines, applied Domain-Driven Design principles, and built modular
-                  architecture.
-                </p>
-              </li>
-              <li>
-                <div class="ExperienceTitle" data-en="Scientific Research Scholarship - PIBITI"
-                  data-pt="Bolsa de Pesquisa Científica - PIBITI">Scientific Research Scholarship - PIBITI</div>
-                <div class="ExperienceTimePlace" data-en="September 2024 - November 2024 | Toledo, Brazil"
-                  data-pt="Setembro 2024 - Novembro 2024 | Toledo, Brasil">September 2024 - November 2024 | Toledo,
-                  Brazil</div>
-                <p data-en="Researched post-quantum cryptography applied to lattice-based systems, studying KEMTLS and post-quantum TLS protocols, and implementing cryptographic primitives focusing on security and efficiency."
-                  data-pt="Pesquisei criptografia pós-quântica aplicada a sistemas baseados em reticulados, estudando KEMTLS e protocolos TLS pós-quânticos, e implementando primitivos criptográficos com foco em segurança e eficiência.">
-                  Researched post-quantum cryptography applied to lattice-based systems, studying KEMTLS and
-                  post-quantum TLS protocols, and implementing cryptographic primitives focusing on security and
-                  efficiency.
-                </p>
-              </li>
-              <li>
-                <div class="ExperienceTitle" data-en="Undergraduate Research Assistant - UTFPR"
-                  data-pt="Assistente de Pesquisa de Graduação - UTFPR">Undergraduate Research Assistant - UTFPR</div>
-                <div class="ExperienceTimePlace" data-en="2023 - 2024 | Toledo, Brazil"
-                  data-pt="2023 - 2024 | Toledo, Brasil">2023 - 2024 | Toledo, Brazil</div>
-                <p data-en="Researched lattice-based post-quantum cryptography, implemented the Goldreich–Goldwasser–Halevi (GGH) cryptosystem, and performed experimental analysis of computational properties."
-                  data-pt="Pesquisei criptografia pós-quântica baseada em reticulados, implementei o criptossistema Goldreich–Goldwasser–Halevi (GGH) e realizei análise experimental das propriedades computacionais.">
-                  Researched lattice-based post-quantum cryptography, implemented the Goldreich–Goldwasser–Halevi (GGH)
-                  cryptosystem, and performed experimental analysis of computational properties.
-                </p>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div id="Section4" class="Section">
-          <h2 data-en="Education" data-pt="Educação">Education</h2>
-          <p data-en="
-            Here are some of the academic programs and certifications I have
-            completed throughout my studies. This selection showcases key
-            milestones in my education, covering both formal degrees and
-            specialized courses in computer science.
-            " data-pt="
-            Aqui estão alguns dos programas acadêmicos e certificações que concluí
-            ao longo dos meus estudos. Esta seleção destaca marcos importantes da
-            minha formação, abrangendo tanto diplomas formais quanto cursos
-            especializados em ciência da computação.
-            ">
-            Here are some of the academic programs and certifications I have
-            completed throughout my studies. This selection showcases key
-            milestones in my education, covering both formal degrees and
-            specialized courses in computer science.
-          </p>
-
-          <div id="EducationContainer">
-            <div id="EducationItem">
-              <div class="ExperienceTime">2022-2027</div>
-              <div class="ExperiencePlace" data-en="Federal University of Technology of Paraná"
-                data-pt="Universidade Tecnológica Federal do Paraná">
-                Federal University of Technology - Paraná
+          <ul class="article-list experience-list">
+            <li id="first" class="experience-item">
+              <div class="experience-title" data-en="Scientific Research Scholarship - RNP"
+                data-pt="Bolsa de Pesquisa Científica - RNP">Scientific Research Scholarship - RNP</div>
+              <div class="experience-time" data-en="November 2024 - November 2025 | Toledo, Brazil"
+                data-pt="Novembro 2024 - Novembro 2025 | Toledo, Brasil">November 2024 - November 2025 | Toledo, Brazil
               </div>
-              <a href="https://www.utfpr.edu.br/campus/toledo" target="blank">
+              <p class="experience-desc"
+                data-en="Integrated post-quantum cryptography into blockchain, analyzing efficiency and optimizing signature sizes for long-term security. Implemented Go bindings and adapted the Go runtime for Hyperledger Fabric integration."
+                data-pt="Integrei criptografia pós-quântica em blockchain, analisando eficiência e otimizando tamanhos de assinatura para segurança de longo prazo. Implementei bindings em Go e adaptei o runtime Go para integração com Hyperledger Fabric.">
+                Integrated post-quantum cryptography into blockchain, analyzing efficiency and optimizing signature
+                sizes for long-term security. Implemented Go bindings and adapted the Go runtime for Hyperledger Fabric
+                integration.</p>
+            </li>
+            <li class="experience-item">
+              <div class="experience-title" data-en="Junior Software Developer - NeticShard"
+                data-pt="Desenvolvedor de Software Júnior - NeticShard">Junior Software Developer - NeticShard</div>
+              <div class="experience-time" data-en="April 2024 - March 2025 | Remote, LATAM"
+                data-pt="Abril 2024 - Março 2025 | Remoto, LATAM">April 2024 - March 2025 | Remote, LATAM</div>
+              <p class="experience-desc"
+                data-en="Developed backend for a SaaS IT incident response platform in Go. Implemented unit, integration, and E2E tests, structured CI/CD pipelines, applied Domain-Driven Design principles, and built modular architecture."
+                data-pt="Desenvolvi backend para plataforma SaaS de resposta a incidentes de TI em Go. Implementei testes unitários, de integração e E2E, estruturei pipelines CI/CD, apliquei princípios de Domain-Driven Design e construí arquitetura modular.">
+                Developed backend for a SaaS IT incident response platform in Go. Implemented unit, integration, and
+                E2E tests, structured CI/CD pipelines, applied Domain-Driven Design principles, and built modular
+                architecture.</p>
+            </li>
+            <li class="experience-item">
+              <div class="experience-title" data-en="Scientific Research Scholarship - PIBITI"
+                data-pt="Bolsa de Pesquisa Científica - PIBITI">Scientific Research Scholarship - PIBITI</div>
+              <div class="experience-time" data-en="September 2024 - November 2024 | Toledo, Brazil"
+                data-pt="Setembro 2024 - Novembro 2024 | Toledo, Brasil">September 2024 - November 2024 | Toledo, Brazil
+              </div>
+              <p class="experience-desc"
+                data-en="Researched post-quantum cryptography applied to lattice-based systems, studying KEMTLS and post-quantum TLS protocols, and implementing cryptographic primitives focusing on security and efficiency."
+                data-pt="Pesquisei criptografia pós-quântica aplicada a sistemas baseados em reticulados, estudando KEMTLS e protocolos TLS pós-quânticos, e implementando primitivos criptográficos com foco em segurança e eficiência.">
+                Researched post-quantum cryptography applied to lattice-based systems, studying KEMTLS and
+                post-quantum TLS protocols, and implementing cryptographic primitives focusing on security and
+                efficiency.</p>
+            </li>
+            <li class="experience-item">
+              <div class="experience-title" data-en="Undergraduate Research Assistant - UTFPR"
+                data-pt="Assistente de Pesquisa de Graduação - UTFPR">Undergraduate Research Assistant - UTFPR</div>
+              <div class="experience-time" data-en="2023 - 2024 | Toledo, Brazil"
+                data-pt="2023 - 2024 | Toledo, Brasil">2023 - 2024 | Toledo, Brazil</div>
+              <p class="experience-desc"
+                data-en="Researched lattice-based post-quantum cryptography, implemented the Goldreich–Goldwasser–Halevi (GGH) cryptosystem, and performed experimental analysis of computational properties."
+                data-pt="Pesquisei criptografia pós-quântica baseada em reticulados, implementei o criptossistema Goldreich–Goldwasser–Halevi (GGH) e realizei análise experimental das propriedades computacionais.">
+                Researched lattice-based post-quantum cryptography, implemented the Goldreich–Goldwasser–Halevi (GGH)
+                cryptosystem, and performed experimental analysis of computational properties.</p>
+            </li>
+          </ul>
+        </section>
+
+        <div class="section-break"><span>🕇 ┼ 🕇</span></div>
+
+        <!-- EDUCATION -->
+        <section class="lead-article" id="education">
+          <div class="article-header-block">
+            <span class="article-badge">STUDIA</span>
+            <h2 class="article-title" data-en="Education" data-pt="Formação">Education</h2>
+            <p class="subheading" data-en="Formal degrees and specialized courses in computer science."
+              data-pt="Diplomas formais e cursos especializados em ciência da computação.">Formal degrees and
+              specialized courses in computer science.</p>
+          </div>
+
+          <p data-en="Here are some of the academic programs and certifications I have completed throughout my studies. This selection showcases key milestones in my education, covering both formal degrees and specialized courses in computer science."
+            data-pt="Aqui estão alguns dos programas acadêmicos e certificações que concluí ao longo dos meus estudos. Esta seleção destaca marcos importantes da minha formação, abrangendo tanto diplomas formais quanto cursos especializados em ciência da computação.">
+            Here are some of the academic programs and certifications I have completed throughout my studies. This
+            selection showcases key milestones in my education, covering both formal degrees and specialized courses in
+            computer science.</p>
+
+          <ul class="article-list education-list">
+            <li class="education-item">
+              <div class="experience-time">2022–2027</div>
+              <div class="education-place" data-en="Federal University of Technology of Paraná"
+                data-pt="Universidade Tecnológica Federal do Paraná">Federal University of Technology - Paraná</div>
+              <a href="https://www.utfpr.edu.br/campus/toledo" target="_blank" rel="noopener">
                 <span data-en="Bachelor's Degree in Computer Engineering"
-                  data-pt="Bacharelado em Engenharia de Computação">
-                  Bachelor's Degree in Computer Engineering
-                </span>
-                <div class="fa-solid fa-building-columns"></div>
+                  data-pt="Bacharelado em Engenharia de Computação">Bachelor's Degree in Computer Engineering</span>
+                <i class="fa-solid fa-building-columns"></i>
               </a>
-            </div>
-            <div id="EducationItem">
-              <div class="ExperienceTime">2020-2022</div>
-              <div class="ExperiencePlace" data-en="State University of Western Paraná"
-                data-pt="Universidade Estadual do Oeste do Paraná">
-                State University of Western Paraná
-              </div>
-              <a href="https://www.unioeste.br/portal/pel-programa-de-ensino-de-linguas" target="blank">
-                <span data-en="Language Teaching Program - English" data-pt="Programa de Ensino de Línguas - Inglês">
-                  Language Teaching Program - English
-                </span>
-                <div class="fa-solid fa-building-columns"></div>
+            </li>
+            <li class="education-item">
+              <div class="experience-time">2020–2022</div>
+              <div class="education-place" data-en="State University of Western Paraná"
+                data-pt="Universidade Estadual do Oeste do Paraná">State University of Western Paraná</div>
+              <a href="https://www.unioeste.br/portal/pel-programa-de-ensino-de-linguas" target="_blank" rel="noopener">
+                <span data-en="Language Teaching Program - English"
+                  data-pt="Programa de Ensino de Línguas - Inglês">Language
+                  Teaching Program - English</span>
+                <i class="fa-solid fa-building-columns"></i>
               </a>
-            </div>
-            <div id="EducationItem">
-              <div class="ExperienceTime">2024</div>
-              <div class="ExperiencePlace">Harvard University</div>
-              <a href="./certificates/CS50x.pdf" target="blank">
-                CS50x: Introduction to Computer Science
-                <div class="fa-solid fa-award"></div>
+            </li>
+            <li class="education-item">
+              <div class="experience-time">2024</div>
+              <div class="education-place" data-en="Harvard University" data-pt="Universidade de Harvard">Harvard
+                University</div>
+              <a href="./certificates/CS50x.pdf" target="_blank" rel="noopener">
+                <span data-en="CS50x: Introduction to Computer Science"
+                  data-pt="CS50x: Intrudução a Ciência da Computação">
+                  CS50x: Introduction to Computer Science</span>
+                <i class="fa-solid fa-award"></i>
               </a>
-            </div>
-            <div id="EducationItem">
-              <div class="ExperienceTime">2024</div>
-              <div class="ExperiencePlace">Princeton University</div>
-              <a href="./certificates/algorithms-coursera.pdf" target="blank">
-                Algorithms, Part I & II
-                <div class="fa-solid fa-award"></div>
+            </li>
+            <li class="education-item">
+              <div class="experience-time">2024</div>
+              <div class="education-place" data-en="Princeton University" data-pt="Universidade de Princeton">Princeton
+                University</div>
+              <a href="./certificates/algorithms-coursera.pdf" target="_blank" rel="noopener">
+                <span data-en="Algorithms, Part I &amp; II" data-pt="Algoritimos, Parte I &amp; II">
+                  Algorithms, Part I &amp; II</span>
+                <i class="fa-solid fa-award"></i>
               </a>
-            </div>
-            <div id="EducationItem">
-              <div class="ExperienceTime">2024</div>
-              <div class="ExperiencePlace">Linux Foundation</div>
-              <a href="./certificates/LFS171.pdf" target="blank">
-                Introduction to Hyperledger Blockchain Technologies
-                <div class="fa-solid fa-award"></div>
+            </li>
+            <li class="education-item">
+              <div class="experience-time">2024</div>
+              <div class="education-place" data-en="Linux Foundation" data-pt="Fundação Linux">Linux Foundation</div>
+              <a href="./certificates/LFS171.pdf" target="_blank" rel="noopener">
+                <span data-en="Introduction to Hyperledger Blockchain Technologies"
+                  data-pt="Intrudução a Tecnologia de Blockchain Hyperledger">
+                  Introduction to Hyperledger Blockchain Technologies</span>
+                <i class="fa-solid fa-award"></i>
               </a>
-            </div>
-            <div id="EducationItem">
-              <div class="ExperienceTime">2024</div>
-              <div class="ExperiencePlace" data-en="Higher School of Networks" data-pt="Escola Superior de Redes">
-                Higher School of Networks
-              </div>
-              <a href="./certificates/hyperledgerfagric-esr.pdf" target="blank">
+            </li>
+            <li class="education-item">
+              <div class="experience-time">2024</div>
+              <div class="education-place" data-en="Higher School of Networks" data-pt="Escola Superior de Redes">Higher
+                School of Networks</div>
+              <a href="./certificates/hyperledgerfagric-esr.pdf" target="_blank" rel="noopener">
                 Hyperledger Fabric
-                <div class="fa-solid fa-award"></div>
+                <i class="fa-solid fa-award"></i>
               </a>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- LATERAL COLUMN -->
+      <aside class="sidebar-article">
+
+        <!-- WORKS INDEX -->
+        <!-- <div class="sidebar-box index-box"> -->
+        <!--   <div class="box-header-tag">ARCHIVUM</div> -->
+        <!--   <h3 class="sidebar-title" data-en="Index of Works" data-pt="Índice de Projetos">Index of Works</h3> -->
+        <!--   <div class="burgundy-line"></div> -->
+        <!--   <ul class="article-list"> -->
+        <!--     <li> -->
+        <!--       <span class="date">2022</span> -->
+        <!--       <a href="https://github.com/gabrielzschmitz/Tomato.C" target="_blank" rel="noopener" -->
+        <!--         class="article-link">Tomato.C</a> -->
+        <!--     </li> -->
+        <!--     <li> -->
+        <!--       <span class="date">2026</span> -->
+        <!--       <a href="https://github.com/gabrielzschmitz/ProofVote" target="_blank" rel="noopener" -->
+        <!--         class="article-link">ProofVote</a> -->
+        <!--     </li> -->
+        <!--     <li> -->
+        <!--       <span class="date">2026</span> -->
+        <!--       <a href="https://github.com/gabrielzschmitz/BibInject" target="_blank" rel="noopener" -->
+        <!--         class="article-link">BibInject</a> -->
+        <!--     </li> -->
+        <!--     <li> -->
+        <!--       <span class="date">2026</span> -->
+        <!--       <a href="https://github.com/gabrielzschmitz/Motrix" target="_blank" rel="noopener" -->
+        <!--         class="article-link">Motrix</a> -->
+        <!--     </li> -->
+        <!--     <li> -->
+        <!--       <span class="date">2024</span> -->
+        <!--       <a href="https://github.com/gabrielzschmitz/Pendulum-Tracker" target="_blank" rel="noopener" -->
+        <!--         class="article-link">Pendulum Tracker</a> -->
+        <!--     </li> -->
+        <!--   </ul> -->
+        <!--   <a href="https://github.com/gabrielzschmitz" target="_blank" rel="noopener" class="view-all-btn" -->
+        <!--     data-en="SEE THE FULL CATALOGUE →" data-pt="VER O CATÁLOGO COMPLETO →">SEE THE FULL CATALOGUE →</a> -->
+        <!-- </div> -->
+
+        <!-- CONTACT -->
+        <div class="sidebar-box">
+          <div class="box-header-tag">CONTACTUS</div>
+          <h3 class="sidebar-title" data-en="Connect" data-pt="Contato">Connect</h3>
+          <div class="burgundy-line"></div>
+          <ul class="article-list social-list">
+            <li>
+              <img class="social-icon" src="./images/GZS-LIGHT-NOBACKGROUND.svg" alt="gabrielzschmitz blog">
+              <a href="/blog" class="article-link">Blog</a>
+            </li>
+            <li>
+              <i class="fa-brands fa-github social-icon"></i>
+              <a href="https://github.com/gabrielzschmitz" target="_blank" rel="noopener"
+                class="article-link">GitHub</a>
+            </li>
+            <li>
+              <i class="fa-brands fa-linkedin-in social-icon"></i>
+              <a href="https://www.linkedin.com/in/gabrielzschmitz" target="_blank" rel="noopener"
+                class="article-link">LinkedIn</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope social-icon"></i>
+              <a href="mailto:gabrielzschmitz@protonmail.com" target="_blank" rel="noopener"
+                class="article-link">E-mail</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- EMBLEM RÉSUMÉ -->
+        <div class="sidebar-box lamb-illustration-box">
+          <a href="./resume/resume.pdf" data-cv target="_blak" rel="noopener" class="seal-link">
+            <div class="illustration-border">
+              <div class="lamb-symbol">⚔ 𓇣 ⚔</div>
+              <p class="illustration-caption">CURRICULUM VITAE</p>
+              <p class="latin-sub">«Festina lente»</p>
             </div>
-          </div>
-        </div>
-
-        <p id="Copyright" data-en="
-          Copyright
-          <a style='color: inherit; text-decoration: none;' class='fa-regular fa-copyright fa-xs' href='https://www.instagram.com/gabriel_santos_schmitz/'></a>
-          2026 - Gabriel dos Santos Schmitz - All Rights Reserved
-          " data-pt="
-          Copyright
-          <a style='color: inherit; text-decoration: none;' class='fa-regular fa-copyright fa-xs' href='https://www.instagram.com/gabriel_santos_schmitz/'></a>
-          2026 - Gabriel dos Santos Schmitz - Todos os direitos reservados
-          ">
-          Copyright
-          <a style='color: inherit; text-decoration: none;' class='fa-regular fa-copyright fa-xs'
-            href='https://www.instagram.com/gabriel_santos_schmitz/'></a>
-          2026 - Gabriel dos Santos Schmitz - All Rights Reserved
-        </p>
-      </div>
-
-      <div id="LeftPanel">
-        <h1>gabrielzschmitz</h1>
-        <h2 data-en="
-          Computer Engineer Based on Brazil
-          " data-pt="
-          Engenheiro de Computação baseado no Brasil
-          ">
-          Computer Engineer Based on Brazil</h2>
-        <p data-en="
-          I enjoy low-level programming and <span id='CryptoToggle'>cryptography</span>,<br>
-          building fast and efficient systems.<br>
-          I love solving technical problems and<br>
-          creating practical solutions.
-          " data-pt="
-          Eu gosto de programação de baixo nível e <span id='CryptoToggle'>criptografia</span>,<br>
-          construindo sistemas rápidos e eficientes.<br>
-          Adoro resolver problemas técnicos e<br>
-          criar soluções práticas.
-          ">
-          I enjoy low-level programming and <span id='CryptoToggle'>cryptography</span>,<br>
-          building fast and efficient systems.<br>
-          I love solving technical problems and<br>
-          creating practical solutions.
-        </p>
-
-        <nav class="NavContainer">
-          <div class="NavItem" DataSection="Section1">
-            <div class="NavItemDot"></div>
-            <span class="NavItemText" data-en="About" data-pt="Sobre">About</span>
-          </div>
-          <div class="NavItem" DataSection="Section2">
-            <div class="NavItemDot"></div>
-            <span class="NavItemText" data-en="Projects" data-pt="Projetos">Projects</span>
-          </div>
-          <div class="NavItem" DataSection="Section3">
-            <div class="NavItemDot"></div>
-            <span class="NavItemText" data-en="Experience" data-pt="Experiência">Experience</span>
-          </div>
-          <div class="NavItem" DataSection="Section4">
-            <div class="NavItemDot"></div>
-            <span class="NavItemText" data-en="Education" data-pt="Educação">Education</span>
-          </div>
-        </nav>
-
-        <div id="SocialsContainer">
-          <a href="/blog" title="gabrielzschmitz blog">
-            <img id="SocialIcons" src="./images/GZS-LIGHT-NOBACKGROUND.svg" alt="gabrielzschmitz blog">
-          </a>
-          <a href="https://github.com/gabrielzschmitz" target="_blank" title="Github">
-            <img id="SocialIcons" src="./images/githubicon.png" alt="Github">
-          </a>
-          <a href="https://www.linkedin.com/in/gabrielzschmitz" target="_blank" title="LinkedIn">
-            <img id="SocialIcons" src="./images/linkedinicon.png" alt="LinkedIn">
-          </a>
-          <a href="mailto:gabrielzschmitz@protonmail.com" target="_blank" title="Email">
-            <img id="SocialIcons" src="./images/emailicon.png" alt="Email">
-          </a>
-          <a href="./resume/resume.pdf" target="_blank" title="CV">
-            <img id="SocialIcons" src="./images/cvicon.png" alt="CV">
           </a>
         </div>
 
-        <div id="ControlPanel">
-          <button id="ToggleTheme" aria-label="Toggle light/dark theme">
-            <i class="fa-solid fa-sun"></i>
-          </button>
-          <button id="LanguageCycle" aria-label="Switch language">
-            <i class="fi fi-br"></i>
-          </button>
-        </div>
+      </aside>
 
-      </div>
-    </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="newspaper-footer">
+      <div class="footer-divider">♦ ♦ ♦</div>
+      <p data-en="Printed digitally in the dependencies of GitHub Pages."
+        data-pt="Impresso digitalmente nas dependências do GitHub Pages.">Printed digitally in the dependencies of
+        GitHub Pages.</p>
+
+      <p class="copyright" data-en="
+        <a style='color: inherit; text-decoration: none;' class='fa-regular fa-copyright fa-xs' href='https://www.instagram.com/gabriel_santos_schmitz/'></a>
+        MMXXVI - Gabriel dos Santos Schmitz - All Rights Reserved" data-pt="
+        <a style='color: inherit; text-decoration: none;' class='fa-regular fa-copyright fa-xs' href='https://www.instagram.com/gabriel_santos_schmitz/'></a>
+        MMXXVI - Gabriel dos Santos Schmitz - Todos os direitos reservados">
+        <a style='color: inherit; text-decoration: none;' class='fa-regular fa-copyright fa-xs'
+          href='https://www.instagram.com/gabriel_santos_schmitz/'></a>
+        MMXXVI - Gabriel dos Santos Schmitz - All Rights Reserved
+      </p>
+    </footer>
+
   </div>
 
-  <script src="./js/project-popup.js"></script>
-  <script src="./js/lang.js"></script>
   <script src="./js/main.js"></script>
+  <script src="./js/lang.js"></script>
 </body>
 
 </html>
