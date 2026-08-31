@@ -14,6 +14,8 @@
   --font-serif: 'Lora', Georgia, serif;
   --font-accent: 'Eczar', serif;
   --font-mono: 'Courier Prime', monospace;
+  --font-symbol: 'Noto Sans Symbols', 'Lora', serif;
+  --font-hiero: 'Noto Sans Egyptian Hieroglyphs', 'Lora', serif;
 }
 
 /* DARK MODE */
@@ -211,13 +213,14 @@ body.dark-mode #MinecraftToggle {
 }
 
 .seal-monogram {
-  font-family: var(--font-accent);
+  font-family: var(--font-hiero);
   font-size: 2rem;
   letter-spacing: 3px;
   line-height: 1;
 }
 
 .seal-ornament {
+  font-family: var(--font-serif);
   font-size: 1rem;
   opacity: 0.8;
 }
@@ -255,6 +258,7 @@ body.dark-mode #MinecraftToggle {
 }
 
 .nav-sep {
+  font-family: var(--font-symbol);
   color: var(--burgundy);
   font-size: 0.6rem;
 }
@@ -294,6 +298,10 @@ body.dark-mode #MinecraftToggle {
   font-size: 1.1rem;
 }
 
+.seal-icon {
+  font-family: var(--font-symbol);
+}
+
 .header-meta {
   display: flex;
   justify-content: space-between;
@@ -325,6 +333,7 @@ body.dark-mode #MinecraftToggle {
 
 /* LINE OF ORNAMENTATION */
 .section-break {
+  font-family: var(--font-symbol);
   text-align: center;
   font-size: 1.1rem;
   color: var(--burgundy);
@@ -570,9 +579,14 @@ section.lead-article {
 }
 
 .lamb-symbol {
+  font-family: var(--font-symbol);
   font-size: 1.8rem;
   margin-bottom: 10px;
   color: var(--burgundy);
+}
+
+.lamb-symbol .lamb-hiero {
+  font-family: var(--font-hiero);
 }
 
 .illustration-caption {
@@ -643,6 +657,7 @@ section.lead-article {
 }
 
 .footer-divider {
+  font-family: var(--font-symbol);
   color: var(--burgundy);
   font-size: 0.6rem;
   margin-bottom: 10px;
