@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateCVLinks() {
     const cvLinks = document.querySelectorAll("[data-cv]");
     cvLinks.forEach(link => {
-      link.href = isEnglish ? "./resume/resume.pdf" : "./resume/curriculo.pdf";
+      link.href = isEnglish ? "./assets/resume/resume.pdf" : "./assets/resume/curriculo.pdf";
     });
   }
 

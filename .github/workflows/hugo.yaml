@@ -66,9 +66,10 @@ jobs:
           hugo \
             --gc \
             --minify \
+            --source blog \
             --baseURL "${{ steps.pages.outputs.base_url }}/blog/" \
             --cacheDir "${{ runner.temp }}/hugo_cache" \
-            --destination public/blog
+            --destination ../public/blog
       - name: Cache Save
         id: cache-save
         uses: actions/cache/save@v4
@@ -77,7 +78,7 @@ jobs:
             ${{ runner.temp }}/hugo_cache
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
       - name: Copy portfolio files to root
-        run: cp -r index.html certificates css images js resume public/
+        run: cp -r index.html under-construction.html assets public/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

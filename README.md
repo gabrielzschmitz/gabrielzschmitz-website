@@ -1,6 +1,6 @@
 # Personal Website
 
-<img align="right" width="192px" src="./images/logo.svg" alt="gabrielzschmitz Logo">
+<img align="right" width="192px" src="./assets/images/logo.svg" alt="gabrielzschmitz Logo">
 
 <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="License"></a>
 <a href="https://www.buymeacoffee.com/gabrielzschmitz" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 20px !important;width: 87px;" ></a>
@@ -20,30 +20,32 @@ structured blogging platform.
 * **Landing Page (`/`)**
 
   * Handcrafted using **HTML**, **CSS**, and **JavaScript**
-  * Lives directly in the root (`index.html`, plus `css/`, `js/`, `images/`, etc.)
+  * Lives directly in the root (`index.html`, `under-construction.html`,
+    plus everything grouped under `assets/` → `assets/css/`, `assets/js/`,
+    `assets/images/`, `assets/certificates/`, `assets/resume/`)
 
 <p align="center">
-    <img width="640px" src="./images/website-demo.png" alt="Website Demonstration">
+    <img width="640px" src="./assets/images/website-demo.png" alt="Website Demonstration">
 </p>
 
 
 * **Blog (`/blog`)**
 
-  * Built with **Hugo**
-  * Markdown posts in `content/`
-  * Themes in `themes/`
-  * Build output in `public/`
-  * Configured via `hugo.toml`
+  * Built with **Hugo**, source fully under `blog/`
+  * Markdown posts in `blog/content/`
+  * Themes in `blog/themes/`
+  * Build output in `public/blog/`
+  * Configured via `blog/hugo.toml`
 
 <p align="center">
-    <img align="center" height="640px" src="./images/blog-demo.png" alt="Blog Demonstration">
+    <img align="center" height="640px" src="./assets/images/blog-demo.png" alt="Blog Demonstration">
 </p>
 
 * **Extras**
 
-  * Resume (`resume/resume.pdf`, `resume/curriculo.pdf`)
-  * Certificates (`certificates/`)
-  * Under-construction page
+  * Resume (`assets/resume/resume.pdf`, `assets/resume/curriculo.pdf`)
+  * Certificates (`assets/certificates/`)
+  * Under-construction page (`under-construction.html`)
 
 ## License
 
