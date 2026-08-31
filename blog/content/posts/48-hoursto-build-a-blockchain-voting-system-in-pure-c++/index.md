@@ -422,11 +422,11 @@ block $ B_i $.
 
 For example:
 
-```cpp
-L1: { σ1(B10), σ1(B11), σ1(B12) }
-L2: { σ2(B10), σ2(B11), σ2(B12) }
-L3: { σ3(B10), σ3(B11), σ3(B12) }
-```
+$$
+L_1: \lbrace \sigma_1(B_{10}),\ \sigma_1(B_{11}),\ \sigma_1(B_{12}) \rbrace \break
+L_2: \lbrace \sigma_2(B_{10}),\ \sigma_2(B_{11}),\ \sigma_2(B_{12}) \rbrace \break
+L_3: \lbrace \sigma_3(B_{10}),\ \sigma_3(B_{11}),\ \sigma_3(B_{12}) \rbrace
+$$
 
 This means that each leader emits one signature per valid proposal, and the set
 of signatures generated locally becomes the vote payload transmitted to the
@@ -459,11 +459,11 @@ $$
 
 For example:
 
-```cpp
-QC(B10) = { σ1(B10), σ2(B10), σ3(B10) }
-QC(B11) = { σ1(B11), σ2(B11), σ3(B11) }
-QC(B12) = { σ1(B12), σ2(B12), σ3(B12) }
-```
+$$
+QC(B_{10}) = \lbrace \sigma_1(B_{10}),\ \sigma_2(B_{10}),\ \sigma_3(B_{10}) \rbrace \break
+QC(B_{11}) = \lbrace \sigma_1(B_{11}),\ \sigma_2(B_{11}),\ \sigma_3(B_{11}) \rbrace \break
+QC(B_{12}) = \lbrace \sigma_1(B_{12}),\ \sigma_2(B_{12}),\ \sigma_3(B_{12}) \rbrace
+$$
 
 Each quorum certificate proves that a sufficient number of validators accepted
 the corresponding proposal, making the block eligible for later commitment.
@@ -812,8 +812,8 @@ transport pipeline.
 
 The most immediate lesson from the hackathon was clear:
 
-_Designing a blockchain is conceptually straightforward, but operationalizing
-it is profoundly challenging._
+> _Designing a blockchain is conceptually straightforward, but
+> operationalizing it is profoundly challenging._
 
 The engineering difficulty emerges in concrete questions:
 
@@ -924,4 +924,4 @@ explore and experiment with yourself.
 
 <br>
 
-- _gabrielzschmitz_
+\- *gabrielzschmitz*

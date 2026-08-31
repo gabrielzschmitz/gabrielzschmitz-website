@@ -1,5 +1,4 @@
-# Zola configuration for the gabrielzschmitz blog.
-# Keep it minimal so the site is easy to restyle.
+# Zola configuration for the gabrielzschmitz blog. Keep it minimal
 
 base_url = "/blog/"
 title = "blog."
@@ -12,10 +11,21 @@ minify_html = true
 
 # Static assets live here (blog/static/) and are copied verbatim to the output.
 # Templates live in blog/templates/, styling in blog/static/blog.css.
-
 taxonomies = [
   { name = "tags", feed = true },
 ]
+
+[markdown]
+# Typographic punctuation: `--` -> en dash, `---` -> em dash, curly quotes,
+# `...` -> ellipsis.
+smart_punctuation = true
+
+# Language-aware syntax highlighting, colors emitted inline (no extra CSS
+# file).
+[markdown.highlighting]
+style = "inline"
+light_theme = "github-light"
+dark_theme = "github-dark"
 
 [extra]
 # Author info surfaced in the templates.
