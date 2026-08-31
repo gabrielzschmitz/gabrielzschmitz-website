@@ -299,6 +299,15 @@ body.dark-mode #MinecraftToggle {
   font-size: 1.1rem;
 }
 
+/* Tint the language flag toward the site's text color */
+.mode-seal .fi {
+  filter: sepia(1) saturate(0.6) brightness(0.45) contrast(1.6);
+}
+
+body.dark-mode .mode-seal .fi {
+  filter: sepia(1) saturate(0.6) brightness(1.0) contrast(1.6);
+}
+
 .seal-icon {
   font-family: var(--font-symbol);
 }
