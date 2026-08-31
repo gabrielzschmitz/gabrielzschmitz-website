@@ -32,5 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (mcBtn) mcBtn.addEventListener("click", toggleMinecraft);
     const cryptoBtn = document.getElementById("CryptoToggle");
     if (cryptoBtn) cryptoBtn.addEventListener("click", toggleMatrixEffect);
+
+    /* Re-apply theme-colored sword cursor to recreated toggle spans */
+    applySwordCursor();
   });
 });

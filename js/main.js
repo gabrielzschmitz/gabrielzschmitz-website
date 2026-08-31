@@ -5,9 +5,30 @@ function getCSSVar(name) {
   return getComputedStyle(document.body).getPropertyValue(name).trim();
 }
 
+function swordCursor(color) {
+  const hex = color.replace('#', '');
+  return `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%23${hex}' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, pointer`;
+}
+
+function applySwordCursor() {
+  const pen = swordCursor(getCSSVar('--burgundy-hover'));
+  const selectors = [
+    'a', 'a:link', 'a:visited', 'a:hover', 'a:active', 'a:focus',
+    'button', '[data-cv]', '[data-en]', '#ModeToggle', '#LanguageCycle',
+    '#CryptoToggle', '#MinecraftToggle'
+  ];
+  selectors.forEach(sel => {
+    document.querySelectorAll(sel).forEach(el => {
+      el.style.cursor = pen;
+    });
+  });
+  document.body.style.cursor = pen;
+}
+
 function applyTheme(isDark) {
   document.body.classList.toggle('dark-mode', isDark);
   localStorage.setItem('newspaper-theme', isDark ? 'dark' : 'light');
+  applySwordCursor();
 }
 
 /**
@@ -133,8 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --- Minecraft cube mouse-follow --- */
   const cube = document.querySelector('.Minecraft');
   document.addEventListener('mousemove', (e) => {
-    cubeX = e.clientX + 10;
-    cubeY = e.clientY - 10;
+    cubeX = e.clientX + 20;
+    cubeY = e.clientY - 5;
     if (cubeActive) {
       cube.style.left = `${cubeX}px`;
       cube.style.top = `${cubeY}px`;
