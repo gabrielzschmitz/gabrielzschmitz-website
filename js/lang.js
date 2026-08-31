@@ -26,5 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     isEnglish = !isEnglish;
     updateCVLinks();
+
+    /* Rebind easter-egg toggles (innerHTML swap destroys the spans) */
+    const mcBtn = document.getElementById("MinecraftToggle");
+    if (mcBtn) mcBtn.addEventListener("click", toggleMinecraft);
+    const cryptoBtn = document.getElementById("CryptoToggle");
+    if (cryptoBtn) cryptoBtn.addEventListener("click", toggleMatrixEffect);
   });
 });

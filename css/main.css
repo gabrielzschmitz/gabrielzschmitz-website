@@ -109,6 +109,7 @@ a {
   background-color: var(--bg-color);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   position: relative;
+  z-index: 1;
   transition: border-color 0.4s ease;
 }
 

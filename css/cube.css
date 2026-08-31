@@ -3,56 +3,49 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
+  width: 10px;
+  height: 10px;
   perspective: 800px;
-  z-index: -1;
+  z-index: 10;
   display: none;
 }
 
 .Cube {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 10px;
+  height: 10px;
   transform-style: preserve-3d;
   animation: rotation 10s infinite alternate;
 }
 
 .CubeOverlay {
-  position: fixed;
-  top: -50vh;
-  left: -50vw;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(26, 26, 26, 0.75);
-  z-index: 2;
-  pointer-events: none;
+  display: none;
 }
 
 .CubeFace {
   filter: grayscale(75%) brightness(0.85);
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 10px;
+  height: 10px;
 }
 
 .CubeFaceLeft {
-  transform: translateX(-100px) rotateY(90deg);
+  transform: translateX(-5px) rotateY(90deg);
   z-index: 1;
 }
 
 .CubeFaceRight {
-  transform: translateX(100px) rotateY(90deg);
+  transform: translateX(5px) rotateY(90deg);
   z-index: 1;
 }
 
 .CubeFaceBack {
-  transform: translateZ(-100px);
+  transform: translateZ(-5px);
   z-index: 1;
 }
 
 .CubeFaceFront {
-  transform: translateZ(100px);
+  transform: translateZ(5px);
   z-index: 1;
 }
 
@@ -210,8 +203,8 @@
   background-size: 100% 7.7%;
   background-repeat: repeat-x;
   background-position: 0 0, 0 7.7%, 0 15.4%, 0 23.1%, 0 30.8%, 0 38.5%, 0 46.2%, 0 53.9%, 0 61.6%, 0 69.3%, 0 77%, 0 84.7%, 0 92.4%, 0 100%;
-  transform: translateY(100px) rotateX(90deg);
-  transform: translateY(-100px) rotateX(90deg);
+  transform: translateY(5px) rotateX(90deg);
+  transform: translateY(-5px) rotateX(90deg);
 }
 
 /* four faces background */
@@ -534,7 +527,7 @@
   background-size: 100% 7.7%;
   background-repeat: repeat-x;
   background-position: 0 0, 0 7.7%, 0 15.4%, 0 23.1%, 0 30.8%, 0 38.5%, 0 46.2%, 0 53.9%, 0 61.6%, 0 69.3%, 0 77%, 0 84.7%, 0 92.4%, 0 100%;
-  transform: translateY(100px) rotateX(90deg);
+  transform: translateY(5px) rotateX(90deg);
 }
 
 @keyframes rotation {
