@@ -54,6 +54,7 @@ body {
   transition: background-color 0.4s ease, color 0.4s ease;
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%230a0a0a' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, auto;
   display: flex;
+  padding: 10px 10px;
   justify-content: center;
 }
 
@@ -328,7 +329,7 @@ body.dark-mode #MinecraftToggle {
 }
 
 .lead-article {
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 /* LINE OF ORNAMENTATION */
@@ -337,10 +338,7 @@ body.dark-mode #MinecraftToggle {
   text-align: center;
   font-size: 1.1rem;
   color: var(--burgundy);
-  margin-top: -10px;
-  margin-bottom: 30px;
-  margin-right: 0px;
-  margin-left: 0px;
+  margin: 25px 0 30px 0;
   letter-spacing: 5px;
 }
 
@@ -365,11 +363,6 @@ section.lead-article {
   padding: 2px 8px;
   display: inline-block;
   margin-bottom: 8px;
-  font-weight: bold;
-}
-
-.box-header-tag {
-  margin-bottom: 12px;
 }
 
 .article-title {
@@ -385,7 +378,7 @@ section.lead-article {
   font-family: var(--font-serif);
   font-style: italic;
   opacity: 0.85;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 /* FIRST LETTER LARGER */
@@ -402,7 +395,7 @@ section.lead-article {
 }
 
 .burgundy-quote {
-  margin: 25px 0;
+  margin: 12px 0;
   padding: 15px 20px;
   border-left: 3px solid var(--burgundy);
   font-style: italic;
@@ -451,6 +444,7 @@ section.lead-article {
 }
 
 .article-list>.education-item {
+  margin-bottom: 0px;
   padding-bottom: 16px;
 }
 
