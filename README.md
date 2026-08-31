@@ -8,9 +8,9 @@
 
 This repository contains the full source code for my personal website. It
 brings together a **handcrafted static landing page** at `/` --- built entirely
-with HTML, CSS, and JavaScript --- and a **[Hugo](https://gohugo.io/)-powered
+with HTML, CSS, and JavaScript --- and a **[Zola](https://www.getzola.org/)-powered
 blog** served at `/blog`, where all long-form writing and technical posts live.
-The project blends a lightweight custom front page with Hugo’s fast, flexible
+The project blends a lightweight custom front page with Zola’s fast, flexible
 content system, allowing the site to function both as a portfolio and as a
 structured blogging platform.
 
@@ -31,11 +31,12 @@ structured blogging platform.
 
 * **Blog (`/blog`)**
 
-  * Built with **Hugo**, source fully under `blog/`
+  * Built with **Zola**, source fully under `blog/`
   * Markdown posts in `blog/content/`
-  * Themes in `blog/themes/`
+  * Minimal custom templates in `blog/templates/`
+  * Styling in `blog/static/blog.css` (style it yourself)
   * Build output in `public/blog/`
-  * Configured via `blog/hugo.toml`
+  * Configured via `blog/config.toml`
 
 <p align="center">
     <img align="center" height="640px" src="./assets/images/blog-demo.png" alt="Blog Demonstration">

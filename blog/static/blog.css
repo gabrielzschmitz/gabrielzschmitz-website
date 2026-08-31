@@ -1,0 +1,208 @@
+/* Minimal structural styling for the gabrielzschmitz blog.
+   Tweak the variables below to restyle the whole site. */
+
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #666666;
+  --accent: #8a1e2d;
+  --border: #e0e0e0;
+  --code-bg: #f4f4f4;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --max-width: 46rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  line-height: 1.7;
+}
+
+.site-header,
+.site-main,
+.site-footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.site-nav {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.site-title {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.nav-links a {
+  margin-left: 1rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: var(--fg);
+  text-decoration: underline;
+}
+
+a {
+  color: var(--accent);
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.post-item {
+  margin-bottom: 1.25rem;
+}
+
+.post-date {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-family: var(--mono);
+}
+
+.post-link {
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.post-link:hover {
+  text-decoration: underline;
+}
+
+.post-desc {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+.page-header {
+  margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+  margin-bottom: 0.25rem;
+}
+
+.page-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.page-content pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: 4px;
+}
+
+.page-content .MathJax {
+  font-size: 1em;
+}
+
+.page-content mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.page-content code {
+  font-family: var(--mono);
+  background: var(--code-bg);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+.page-content pre code {
+  background: none;
+  padding: 0;
+}
+
+.page-content blockquote {
+  margin: 1rem 0;
+  padding: 0 1rem;
+  border-left: 3px solid var(--border);
+  color: var(--muted);
+}
+
+.page-taxonomies {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.taxonomy-name {
+  color: var(--muted);
+  margin-right: 0.5rem;
+}
+
+.taxonomy-term {
+  margin-right: 0.75rem;
+  text-decoration: none;
+}
+
+.taxonomy-term:hover {
+  text-decoration: underline;
+}
+
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.nav-prev,
+.nav-next {
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.nav-prev:hover,
+.nav-next:hover {
+  color: var(--accent);
+}
+
+.taxonomy-list,
+.taxonomy-item {
+  margin: 0;
+}
+
+.taxonomy-count {
+  color: var(--muted);
+}
+
+.site-footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  color: var(--muted);
+}

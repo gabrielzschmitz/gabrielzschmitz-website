@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} · {{ config.title }}{% endblock title %}
+
+{% block content %}
+  <article class="page">
+    <header class="page-header">
+      <h1>{{ page.title }}</h1>
+      {% if page.date %}
+      <time class="post-date" datetime="{{ page.date | date(format='%Y-%m-%d') }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+      {% endif %}
+    </header>
+
+    <div class="page-content">
+      {{ page.content | safe }}
+    </div>
+
+    {% if page.taxonomies %}
+      {% for name, terms in page.taxonomies %}
+        <div class="page-taxonomies">
+          <span class="taxonomy-name">{{ name }}:</span>
+          {% for term in terms %}
+            <a class="taxonomy-term" href="{{ get_taxonomy_url(kind=name, name=term) | safe }}">{{ term }}</a>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    {% if page.earlier or page.later %}
+    <nav class="page-nav">
+      {% if page.earlier %}<a class="nav-prev" href="{{ page.earlier.permalink | safe }}">← {{ page.earlier.title }}</a>{% endif %}
+      {% if page.later %}<a class="nav-next" href="{{ page.later.permalink | safe }}">{{ page.later.title }} →</a>{% endif %}
+    </nav>
+    {% endif %}
+  </article>
+{% endblock content %}

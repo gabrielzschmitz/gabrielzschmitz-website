@@ -1,0 +1,22 @@
+# Zola configuration for the gabrielzschmitz blog.
+# Keep it minimal so the site is easy to restyle.
+
+base_url = "/blog/"
+title = "blog."
+description = "This is the gabrielzschmitz blog."
+default_language = "en"
+generate_feeds = true
+feed_filenames = ["rss.xml"]
+build_search_index = false
+minify_html = true
+
+# Static assets live here (blog/static/) and are copied verbatim to the output.
+# Templates live in blog/templates/, styling in blog/static/blog.css.
+
+taxonomies = [
+  { name = "tags", feed = true },
+]
+
+[extra]
+# Author info surfaced in the templates.
+author = "gabrielzschmitz"
