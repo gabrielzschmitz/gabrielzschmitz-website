@@ -91,6 +91,12 @@ a:hover {
   padding: 0;
 }
 
+.seal-ornament {
+  font-family: var(--font-symbol);
+  font-style: normal;
+  font-weight: normal;
+}
+
 /* THEME / CONTROL TOGGLES */
 .blog-controls {
   position: fixed;
@@ -145,7 +151,7 @@ a:hover {
 
 .site-nav {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   flex-wrap: wrap;
 }
@@ -153,9 +159,8 @@ a:hover {
 .site-title {
   font-family: var(--font-serif);
   font-weight: 1000;
-  font-size: 2rem;
-  line-height: 1.5;
-  margin-bottom: 5px;
+  font-size: 2.25rem;
+  line-height: 2.25;
   letter-spacing: 2px;
   color: var(--text-color);
   text-decoration: none;
@@ -168,12 +173,12 @@ a:hover {
 .nav-sep {
   font-family: var(--font-symbol);
   color: var(--burgundy);
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 }
 
 .nav-links {
   display: flex;
-  align-items: baseline;
+  align-items: center;
 }
 
 .nav-links a {
@@ -181,10 +186,10 @@ a:hover {
   color: var(--text-subtle);
   text-decoration: none;
   font-family: var(--font-serif);
-  font-size: 0.85rem;
+  font-size: 1rem;
   letter-spacing: 2px;
   font-weight: 400;
-  line-height: 1;
+  line-height: 2.25;
   transition: color 0.2s ease;
 }
 
@@ -246,8 +251,8 @@ a:hover {
 .archive-intro-banner h2 {
   font-family: var(--font-serif);
   font-weight: 800;
-  font-size: 1.8rem;
-  line-height: 1.1;
+  font-size: 1.6rem;
+  line-height: 1.25;
   margin: 5px 0;
   letter-spacing: 1px;
   color: var(--text-color);
