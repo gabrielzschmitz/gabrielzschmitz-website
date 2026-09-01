@@ -1,7 +1,7 @@
 # Zola configuration for gabrielzschmitz.xyz
 # One site builds both the portfolio (site root) and the blog (under /blog/).
 
-base_url = "https://gabrielzschmitz.xyz/"
+base_url = "https://www.gabrielzschmitz.xyz/"
 title = "gabrielzschmitz"
 default_language = "en"
 generate_feeds = true
