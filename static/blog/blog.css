@@ -243,7 +243,7 @@ a:hover {
 
 /* ARCHIVUM / WRITINGS INDEX */
 .archive-intro-banner {
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 3px double var(--border-color);
   padding-bottom: 20px;
   margin-bottom: 30px;
 }
@@ -305,6 +305,12 @@ a:hover {
 .grid-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.grid-card .card-inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .card-featured {
@@ -371,6 +377,7 @@ a:hover {
   margin-bottom: 15px;
   padding-bottom: 0;
   font-family: var(--font-serif);
+  flex-grow: 1;
 }
 
 .card-featured .drop-cap-p::first-letter {
@@ -544,9 +551,9 @@ a:hover {
 
 .lamb-illustration-box {
   text-align: center;
-  border: 1px solid var(--border-color);
+  border: 3px double var(--border-color);
   background-color: var(--paper-texture-subtle);
-  padding: 12px;
+  padding: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
