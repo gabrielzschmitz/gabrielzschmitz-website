@@ -6,47 +6,47 @@
 <a href="https://www.buymeacoffee.com/gabrielzschmitz" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 20px !important;width: 87px;" ></a>
 <a href="https://github.com/gabrielzschmitz/gabrielzschmitz.github.io"><img src="https://img.shields.io/github/stars/gabrielzschmitz/gabrielzschmitz.github.io?style=social" alt="Give me a Star"></a>
 
-This repository contains the full source code for my personal website. It
-brings together a **handcrafted static landing page** at `/` --- built entirely
-with HTML, CSS, and JavaScript --- and a **[Zola](https://www.getzola.org/)-powered
-blog** served at `/blog`, where all long-form writing and technical posts live.
-The project blends a lightweight custom front page with Zola’s fast, flexible
-content system, allowing the site to function both as a portfolio and as a
-structured blogging platform.
+This repository contains the full source code for my personal website. It is
+built as a **single [Zola](https://www.getzola.org/) site** that serves both the
+handcrafted **portfolio landing page** at `/` and the **blog** at `/blog`, where
+all long-form writing and technical posts live. The landing page is a custom
+template that pulls in the latest posts, blending a handcrafted front page with
+Zola’s fast, flexible content system.
 
 ## Overview
 
 
 * **Landing Page (`/`)**
 
-  * Handcrafted using **HTML**, **CSS**, and **JavaScript**
-  * Lives directly in the root (`index.html`, `under-construction.html`,
-    plus everything grouped under `assets/` → `assets/css/`, `assets/js/`,
-    `assets/images/`, `assets/certificates/`, `assets/resume/`)
+  * Handcrafted **HTML**, **CSS**, and **JavaScript**, exposed as a Zola
+    template (`templates/index.html`) and content section (`content/_index.md`)
+  * The *From the Blog* sidebar box renders the latest 3 blog posts
+  * Static assets grouped under `static/assets/` → `css/`, `js/`,
+    `images/`, `certificates/`, `resume/`
 
 <p align="center">
-    <img width="640px" src="./assets/images/website-demo.png" alt="Website Demonstration">
+    <img width="640px" src="./static/assets/images/website-demo.png" alt="Website Demonstration">
 </p>
 
 
 * **Blog (`/blog`)**
 
-  * Built with **Zola**, source fully under `blog/`
-  * Markdown posts in `blog/content/`
-  * Minimal custom templates in `blog/templates/`
-  * Styling in `blog/static/blog.css` (style it yourself)
-  * Build output in `public/blog/`
-  * Configured via `blog/config.toml`
+  * Built with **Zola**, served under `/blog`
+  * Markdown posts in `content/blog/posts/`
+  * Minimal custom templates in `templates/`
+  * Blog styling in `static/blog/blog.css` (style it yourself)
+  * Build output in `public/`
+  * Configured via `config.toml`
 
 <p align="center">
-    <img align="center" height="640px" src="./assets/images/blog-demo.png" alt="Blog Demonstration">
+    <img align="center" height="640px" src="./static/assets/images/blog-demo.png" alt="Blog Demonstration">
 </p>
 
 * **Extras**
 
-  * Resume (`assets/resume/resume.pdf`, `assets/resume/curriculo.pdf`)
-  * Certificates (`assets/certificates/`)
-  * Under-construction page (`under-construction.html`)
+  * Resume (`static/assets/resume/resume.pdf`, `static/assets/resume/curriculo.pdf`)
+  * Certificates (`static/assets/certificates/`)
+  * Under-construction page (`static/under-construction.html`)
 
 ## License
 

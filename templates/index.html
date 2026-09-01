@@ -146,7 +146,8 @@
 
           <p data-en="Below are some of the projects I've <a id='Built' href='./under-construction.html'>built</a> over my 4+ years of coding experience. This selection highlights work in software engineering, systems programming, and cryptography."
             data-pt="Abaixo estão alguns dos projetos que <a id='Built' href='./under-construction.html'>construí</a> ao longo de mais de 4 anos de experiência em programação. Esta seleção destaca trabalhos em engenharia de software, programação de sistemas e criptografia.">
-            Below are some of the projects I've <a id='Built' href='./under-construction.html'>built</a> over my 4+ years of coding
+            Below are some of the projects I've <a id='Built' href='./under-construction.html'>built</a> over my 4+
+            years of coding
             experience. This
             selection highlights work in software engineering, systems programming, and cryptography.
           </p>
@@ -374,41 +375,25 @@
       <!-- LATERAL COLUMN -->
       <aside class="sidebar-article">
 
-        <!-- WORKS INDEX -->
-        <!-- <div class="sidebar-box index-box"> -->
-        <!--   <div class="box-header-tag">ARCHIVUM</div> -->
-        <!--   <h3 class="sidebar-title" data-en="Index of Works" data-pt="Índice de Projetos">Index of Works</h3> -->
-        <!--   <div class="burgundy-line"></div> -->
-        <!--   <ul class="article-list"> -->
-        <!--     <li> -->
-        <!--       <span class="date">2022</span> -->
-        <!--       <a href="https://github.com/gabrielzschmitz/Tomato.C" target="_blank" rel="noopener" -->
-        <!--         class="article-link">Tomato.C</a> -->
-        <!--     </li> -->
-        <!--     <li> -->
-        <!--       <span class="date">2026</span> -->
-        <!--       <a href="https://github.com/gabrielzschmitz/ProofVote" target="_blank" rel="noopener" -->
-        <!--         class="article-link">ProofVote</a> -->
-        <!--     </li> -->
-        <!--     <li> -->
-        <!--       <span class="date">2026</span> -->
-        <!--       <a href="https://github.com/gabrielzschmitz/BibInject" target="_blank" rel="noopener" -->
-        <!--         class="article-link">BibInject</a> -->
-        <!--     </li> -->
-        <!--     <li> -->
-        <!--       <span class="date">2026</span> -->
-        <!--       <a href="https://github.com/gabrielzschmitz/Motrix" target="_blank" rel="noopener" -->
-        <!--         class="article-link">Motrix</a> -->
-        <!--     </li> -->
-        <!--     <li> -->
-        <!--       <span class="date">2024</span> -->
-        <!--       <a href="https://github.com/gabrielzschmitz/Pendulum-Tracker" target="_blank" rel="noopener" -->
-        <!--         class="article-link">Pendulum Tracker</a> -->
-        <!--     </li> -->
-        <!--   </ul> -->
-        <!--   <a href="https://github.com/gabrielzschmitz" target="_blank" rel="noopener" class="view-all-btn" -->
-        <!--     data-en="SEE THE FULL CATALOGUE →" data-pt="VER O CATÁLOGO COMPLETO →">SEE THE FULL CATALOGUE →</a> -->
-        <!-- </div> -->
+        <!-- POSTS INDEX -->
+        {% set posts = get_section(path="blog/posts/_index.md") %}
+        <div class="sidebar-box index-box">
+          <div class="box-header-tag">ARCHIVUM</div>
+          <h3 class="sidebar-title" data-en="Index of writings" data-pt="Índice
+            de escritos">Index of writings</h3>
+          <div class="burgundy-line"></div>
+          <ul class="article-list">
+            {% for page in posts.pages %}
+            {% if loop.index <= 3 %} <li>
+              <span class="date">{{ page.date | date(format="%Y") }}</span>
+              <a href="{{ page.permalink | safe }}" class="article-link">{{ page.title }}</a>
+              </li>
+              {% endif %}
+              {% endfor %}
+          </ul>
+          <a href="/blog/" class="view-all-btn" data-en="SEE THE FULL CATALOGUE →"
+            data-pt="VEJA O CATÁLOGO COMPLETO →">SEE THE FULL CATALOGUE →</a>
+        </div>
 
         <!-- CONTACT -->
         <div class="sidebar-box">

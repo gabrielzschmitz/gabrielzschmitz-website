@@ -8,6 +8,7 @@
   --border-color: #1a1816;
   --light-border: #d2c8b6;
   --paper-texture-subtle: rgba(0, 0, 0, 0.03);
+  --blank: rgba(0, 0, 0, 0);
 
   /* FONTS */
   --font-headers: 'Cormorant Garamond', Georgia, serif;
@@ -297,7 +298,7 @@ body.dark-mode #MinecraftToggle {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background-color: var(--bg-color);
+  background-color: var(--blank);
   font-size: 1rem;
   transition: all 0.3s ease;
 }
@@ -656,12 +657,12 @@ section.lead-article {
   margin-top: 15px;
   padding-top: 10px;
   border-top: 1px dashed var(--light-border);
-  font-family: var(--font-headers);
+  font-family: var(--font-accent);
   font-size: 0.7rem;
   letter-spacing: 1.5px;
   color: var(--burgundy);
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .view-all-btn:hover {

@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <meta name="description" content="{{ config.description }}">
-    <link rel="icon" href="{{ get_url(path='favicon.ico') }}" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ get_url(path='favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ get_url(path='favicon-16x16.png') }}">
-    <link rel="stylesheet" href="{{ get_url(path='blog.css') }}">
+    <link rel="icon" href="{{ get_url(path='blog/favicon.ico') }}" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ get_url(path='blog/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ get_url(path='blog/favicon-16x16.png') }}">
+    <link rel="stylesheet" href="{{ get_url(path='blog/blog.css') }}">
     {% if config.generate_feed %}
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml', trailing_slash=false) }}">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='blog/rss.xml', trailing_slash=false) }}">
     {% endif %}
     <script>
       window.MathJax = {
@@ -30,10 +30,10 @@
   <body>
     <header class="site-header">
       <nav class="site-nav">
-        <a class="site-title" href="{{ get_url(path='/') }}">{{ config.title }}</a>
+        <a class="site-title" href="{{ get_url(path='/blog/') }}">blog.</a>
         <span class="nav-links">
-          <a href="/">portfolio</a>
-          <a href="{{ get_url(path='/about/') }}">about</a>
+          <a href="/">home</a>
+          <a href="{{ get_url(path='/blog/about/') }}">about</a>
           <a href="{{ get_url(path='/tags/') }}">tags</a>
         </span>
       </nav>
@@ -44,7 +44,7 @@
     </main>
 
     <footer class="site-footer">
-      <p>© {{ now() | date(format="%Y") }} {{ config.extra.author }} · <a href="{{ get_url(path='rss.xml', trailing_slash=false) }}">rss</a></p>
+      <p>© {{ now() | date(format="%Y") }} {{ config.extra.author }} · <a href="{{ get_url(path='blog/rss.xml', trailing_slash=false) }}">rss</a></p>
     </footer>
   </body>
 </html>

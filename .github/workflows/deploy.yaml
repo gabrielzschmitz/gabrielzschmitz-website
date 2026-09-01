@@ -39,13 +39,9 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       - name: Build with Zola
-        working-directory: blog
         run: |
           zola build \
-            --base-url "${{ steps.pages.outputs.base_url }}/blog/" \
-            --output-dir ../public/blog
-      - name: Copy portfolio files to root
-        run: cp -r index.html under-construction.html assets public/
+            --base-url "${{ steps.pages.outputs.base_url }}/"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

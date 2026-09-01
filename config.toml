@@ -1,16 +1,14 @@
-# Zola configuration for the gabrielzschmitz blog. Keep it minimal
+# Zola configuration for gabrielzschmitz.github.io.
+# One site builds both the portfolio (site root) and the blog (under /blog/).
 
-base_url = "/blog/"
-title = "blog."
-description = "This is the gabrielzschmitz blog."
+base_url = "/"
+title = "gabrielzschmitz"
 default_language = "en"
 generate_feeds = true
 feed_filenames = ["rss.xml"]
 build_search_index = false
 minify_html = true
 
-# Static assets live here (blog/static/) and are copied verbatim to the output.
-# Templates live in blog/templates/, styling in blog/static/blog.css.
 taxonomies = [
   { name = "tags", feed = true },
 ]
