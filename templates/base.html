@@ -12,6 +12,26 @@
     {% if config.generate_feed %}
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='blog/rss.xml', trailing_slash=false) }}">
     {% endif %}
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Eczar:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Courier+Prime&family=Noto+Sans+Symbols:wght@400&family=Noto+Sans+Egyptian+Hieroglyphs&display=swap"
+      rel="stylesheet">
+
+    <!-- THEME (follows the portfolio's persisted newspaper-theme preference) -->
+    <script>
+      (function () {
+        var theme = localStorage.getItem('newspaper-theme')
+          || localStorage.getItem('theme')
+          || 'light';
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark-mode');
+          if (document.body) document.body.classList.add('dark-mode');
+        }
+      })();
+    </script>
     <script>
       window.MathJax = {
         tex: {
@@ -28,6 +48,16 @@
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
   </head>
   <body>
+    <div class="blog-controls">
+      {% if page and "posts" in page.components %}
+      <div class="mode-seal" id="BackToTop" title="Back to top" hidden>
+        <span class="seal-icon">🢁</span>
+      </div>
+      {% endif %}
+      <div class="mode-seal" id="ModeToggle" title="Change theme">
+        <span class="seal-icon">✦</span>
+      </div>
+    </div>
     <header class="site-header">
       <nav class="site-nav">
         <a class="site-title" href="{{ get_url(path='/blog/') }}">blog.</a>
@@ -46,5 +76,36 @@
     <footer class="site-footer">
       <p>© {{ now() | date(format="%Y") }} {{ config.extra.author }} · <a href="{{ get_url(path='blog/rss.xml', trailing_slash=false) }}">rss</a></p>
     </footer>
+
+    <script>
+      (function () {
+        var body = document.body;
+        var docEl = document.documentElement;
+        var btn = document.getElementById('ModeToggle');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          var dark = !body.classList.contains('dark-mode');
+          body.classList.toggle('dark-mode', dark);
+          docEl.classList.toggle('dark-mode', dark);
+          localStorage.setItem('newspaper-theme', dark ? 'dark' : 'light');
+        });
+      })();
+    </script>
+    <script>
+      (function () {
+        var topBtn = document.getElementById('BackToTop');
+        if (!topBtn) return;
+        topBtn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        var THRESHOLD = 1000;
+        function toggle() {
+          topBtn.hidden = (window.scrollY || document.documentElement.scrollTop) < THRESHOLD;
+        }
+        toggle();
+        window.addEventListener('scroll', toggle, { passive: true });
+      })();
+    </script>
   </body>
 </html>
