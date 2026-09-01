@@ -5,7 +5,7 @@ function getCSSVar(name) {
   return getComputedStyle(document.body).getPropertyValue(name).trim();
 }
 
-function swordCursor(color) {
+function swordCursor() {
   const isDark = document.body.classList.contains('dark-mode');
   const png = isDark
     ? 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAFQUExURbMkOAAAALMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOLMkOAAAAN2tvPMAAABudFJOUwAAs3EFcuJ4C3fylhQKlfyqIBOnwzIevtNDAS/Q5F4EPt7vCVbt948RA2rz/aMcBoL7vS0Om/7OPRat3wIkxuwH9IcxCEScGDvaQFzutSF8b/bMi/h1D50VgTp9yfmDJqiFezO7ehDxdG3w3JLXLJHlyQAAAAFiS0dEAf8CLd4AAAAJcEhZcwAAASwAAAEsAHOI6VIAAAAHdElNRQfqCQEONBKMqjjlAAABMUlEQVQoz3XSV1PCUBAF4HMlWFDAhiKCqCBIADWAsaESxd4VxYpdrPv/H10cdSbJzX3b+R727J2DJpcC4fDgbm5pdVIobZ72DgcFvD5/ZxekDIHuHuoNSJURff0UHAhBhqyDYYoMRSFD1uERGnXHIEPW+BglkuOQoUBKTVMmO2GJ9TthckojyuXN+jegMK0TzcyaQv8j5uaJaCFehB1ZF5dYl9US7MgaCLIaKwUgtlqGCVnXIqza+gY2t7YtKBDa2WXV9/YPKNlIZo6eOjxqqO+YcjErCpRP/KwV0k5hQ4GzaoaVsgXrzh89v0gz+rx2ROny6lonnW5qkp23Yb7l7t5DiQf+DAtGH2tPzy+Kq07Ga8lWHRTLKUB5eyejGpCXElG1TvTh1FjlkzM7lj3/RZVvLRE5pMcJpvoAAAAASUVORK5CYII='
@@ -14,16 +14,15 @@ function swordCursor(color) {
 }
 
 function applySwordCursor() {
-  const pen = swordCursor(getCSSVar('--burgundy-hover'));
+  const pen = swordCursor();
   const selectors = [
     'a', 'a:link', 'a:visited', 'a:hover', 'a:active', 'a:focus',
     'button', '[data-cv]', '[data-en]', '#ModeToggle', '#LanguageCycle',
     '#CryptoToggle', '#MinecraftToggle'
-  ];
-  selectors.forEach(sel => {
-    document.querySelectorAll(sel).forEach(el => {
-      el.style.cursor = pen;
-    });
+  ].join(',');
+  const matches = document.querySelectorAll(selectors);
+  matches.forEach(el => {
+    el.style.cursor = pen;
   });
   document.body.style.cursor = pen;
 }
