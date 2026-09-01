@@ -3,6 +3,7 @@
   --bg-color: #f9f6ee;
   --text-color: #0a0a0a;
   --text-subtle: #33302c;
+  --badge-text: #e6dfcc;
   --burgundy: #7a0e1c;
   --burgundy-hover: #9e1426;
   --border-color: #1a1816;
@@ -24,6 +25,7 @@ body.dark-mode {
   --bg-color: #0d0d0d;
   --text-color: #e6dfcc;
   --text-subtle: #b5ad9e;
+  --badge-text: #e6dfcc;
   --burgundy: #8f1726;
   --burgundy-hover: #b32438;
   --border-color: #e6dfcc;
@@ -382,7 +384,7 @@ section.lead-article {
   font-size: 0.65rem;
   letter-spacing: 2px;
   background-color: var(--burgundy);
-  color: var(--text-color);
+  color: var(--badge-text);
   padding: 2px 8px;
   display: inline-block;
   margin-bottom: 8px;
