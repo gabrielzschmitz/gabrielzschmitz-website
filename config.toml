@@ -3,6 +3,7 @@
 
 base_url = "https://www.gabrielzschmitz.xyz/"
 title = "gabrielzschmitz"
+description = "gabrielzschmitz — personal website and blog on computer science, programming languages, distributed systems, and post-quantum cryptography."
 default_language = "en"
 generate_feeds = true
 feed_filenames = ["rss.xml"]
