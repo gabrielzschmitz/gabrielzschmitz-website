@@ -486,6 +486,40 @@ a:hover {
   height: auto;
 }
 
+/* Post header image + caption, styled as a box like the lamb illustration */
+.page-content p:has(img):has(em) {
+  text-align: center;
+  border: 3px double var(--border-color);
+  background-color: var(--paper-texture-subtle);
+  padding: 18px;
+  margin: 0 0 20px;
+}
+
+.page-content p:has(img):has(em) img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 12px;
+  border: 1px solid var(--light-border);
+}
+
+.page-content p:has(img):has(em) em {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  color: var(--text-subtle);
+  line-height: 1.5;
+}
+
+.page-content p:has(img):has(em) a {
+  color: var(--burgundy);
+}
+
+.page-content p:has(img):has(em) a:hover {
+  color: var(--burgundy-hover);
+}
+
 .page-content pre {
   background: var(--paper-texture-subtle);
   border: 1px solid var(--light-border);

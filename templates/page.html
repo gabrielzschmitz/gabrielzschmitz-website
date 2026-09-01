@@ -39,9 +39,22 @@
       {% endif %}
     </header>
 
+    {% set hero = page.extra.hero %}
     <div class="page-content">
-      {{ page.content | safe }}
-    </div>
+    {% if hero %}
+      {% set hero_url = page.permalink ~ hero %}
+      <p>
+        <img
+          src="{{ hero_url | safe }}"
+          alt="{{ page.title }}"
+          width="{{ page.extra.hero_width | default(value='832') }}"
+          height="{{ page.extra.hero_height | default(value='448') }}"
+          fetchpriority="high">
+        <em>{{ page.extra.hero_caption | safe }}</em>
+      </p>
+    {% endif %}
+    {{ page.content | safe }}
+  </div>
 
     {% if page.taxonomies %}
       {% for name, terms in page.taxonomies %}

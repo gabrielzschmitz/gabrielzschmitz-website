@@ -11,11 +11,9 @@ tags = ["C++", "Blockchain", "Distributed Systems", "Consensus",
 [extra]
 author = ["gabrielzschmitz"]
 mathjax = true
+hero = "header.svg"
+hero_caption = "Header image by <a href=\"https://gabrielzschmitz.xyz\">gabrielzschmitz</a>, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons 4.0 Attribution license</a>."
 +++
-
-![Post Header](header.svg)
-*Header image by [gabrielzschmitz](https://gabrielzschmitz.github.io),
-licensed under [Creative Commons 4.0 Attribution license](https://creativecommons.org/licenses/by/4.0/).*
 
 <br>
 
@@ -567,7 +565,7 @@ merely an ordering primitive --- it is the mechanism that turns replicated
 execution into election legitimacy.
 
 ![BigBFT Pipeline](bigbft-pipeline.png)
-_BigBFT Pipeline by [gabrielzschmitz](https://gabrielzschmitz.github.io),
+_BigBFT Pipeline by [gabrielzschmitz](https://gabrielzschmitz.xyz),
 licensed under [Creative Commons 4.0 Attribution license](https://creativecommons.org/licenses/by/4.0/)._
 
 ---
@@ -629,7 +627,7 @@ $$
 where (E) represents an event such as $ MessageReceived $ or $ ConnectionClosed $.
 
 ![Reactor Pattern Diagram](reactor-pattern-diagram.png)
-_Reactor Pattern Diagram by [gabrielzschmitz](https://gabrielzschmitz.github.io),
+_Reactor Pattern Diagram by [gabrielzschmitz](https://gabrielzschmitz.xyz),
 licensed under [Creative Commons 4.0 Attribution license](https://creativecommons.org/licenses/by/4.0/)._
 
 ### Advantages of the Reactor Pattern in ProofVote
@@ -692,7 +690,7 @@ rector election workflow. The client node performed:
 * Result retrieval through sending a `QUERY ELECTION STATUS` request.
 
 ![Case Study Demonstration](case-study.png)
-_Case Stydy Demonstration by [gabrielzschmitz](https://gabrielzschmitz.github.io),
+_Case Stydy Demonstration by [gabrielzschmitz](https://gabrielzschmitz.xyz),
 licensed under [Creative Commons 4.0 Attribution license](https://creativecommons.org/licenses/by/4.0/)._
 
 This transformed [ProofVote](https://github.com/gabrielzschmitz/proofvote) from
@@ -777,7 +775,7 @@ Observed latency statistics were:
 A simplified latency distribution is shown below:
 
 ![Latency Distribution](latency-distribution.png)
-_Latency Distribution by [gabrielzschmitz](https://gabrielzschmitz.github.io),
+_Latency Distribution by [gabrielzschmitz](https://gabrielzschmitz.xyz),
 licensed under [Creative Commons 4.0 Attribution license](https://creativecommons.org/licenses/by/4.0/)._
 
 

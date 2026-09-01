@@ -11,11 +11,9 @@ tags = ["Cryptography", "Cybersecurity", "Quantum Computing",
 [extra]
 author = ["gabrielzschmitz"]
 mathjax = true
+hero = "header.svg"
+hero_caption = "Header image by <a href=\"https://gabrielzschmitz.xyz\">gabrielzschmitz</a>, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons 4.0 Attribution license</a>."
 +++
-
-![Post Header](header.svg)
-*Header image by [gabrielzschmitz](https://gabrielzschmitz.github.io),
-licensed under [Creative Commons 4.0 Attribution license](https://creativecommons.org/licenses/by/4.0/).*
 
 <br>
 
@@ -121,7 +119,7 @@ But, to explain how this works, start with a simple analogy using *colors*.
   exchanged colors can't reconstruct it without knowing the secrets.
 
 ![Diffie-Hellman as Colors](diffie-hellman-as-colors.png)
-*Diffie-Hellman as Colors Scheme by [gabrielzschmitz](https://gabrielzschmitz.github.io),
+*Diffie-Hellman as Colors Scheme by [gabrielzschmitz](https://gabrielzschmitz.xyz),
 licensed under [Creative Commons 4.0 Attribution license](https://creativecommons.org/licenses/by/4.0/).*
 
 ---

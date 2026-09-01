@@ -10,11 +10,9 @@ tags = ["Mathematics", "Golang", "HTMX", "PostgreSQL", "Open Source",
 
 [extra]
 author = ["gabrielzschmitz"]
+hero = "header.svg"
+hero_caption = "Header image by <a href=\"https://gabrielzschmitz.xyz\">gabrielzschmitz</a>, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons 4.0 Attribution license</a>."
 +++
-
-![Post Header](header.svg)
-*Header image by [gabrielzschmitz](https://gabrielzschmitz.github.io),
-licensed under [Creative Commons 4.0 Attribution license](https://creativecommons.org/licenses/by/4.0/).*
 
 <br>
 
