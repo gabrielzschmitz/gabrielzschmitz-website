@@ -569,7 +569,7 @@ section.lead-article {
 }
 
 .article-link {
-  color: var(--text-color);
+  color: var(--text-subtle);
   text-decoration: none;
   transition: color 0.2s ease;
 }
