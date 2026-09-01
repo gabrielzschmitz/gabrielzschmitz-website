@@ -22,6 +22,7 @@
   --font-accent: 'Eczar', serif;
   --font-mono: 'Courier Prime', monospace;
   --font-symbol: 'Noto Sans Symbols', 'Lora', serif;
+  --font-hiero: 'Noto Sans Egyptian Hieroglyphs', 'Lora', serif;
 
   --max-width: 46rem;
 }
@@ -91,8 +92,9 @@ a:hover {
   padding: 0;
 }
 
+.seal-key,
 .seal-ornament {
-  font-family: var(--font-symbol);
+  font-family: var(--font-hiero);
   font-style: normal;
   font-weight: normal;
 }
