@@ -15,7 +15,14 @@
   <script>
     window.va = window.va || function () {(window.vaq = window.vaq || []).push(arguments);};
   </script>
-  <script defer src="/_vercel/insights/script.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      var s = document.createElement('script');
+      s.defer = true;
+      s.src = '/_vercel/insights/script.js';
+      document.head.appendChild(s);
+    });
+  </script>
 
   <!-- FONTS -->
   <link rel="preload" as="font" type="font/woff2" href="/fonts/font-ecda3beb1e54db01.woff2" crossorigin>
@@ -530,7 +537,14 @@
   <script>
     window.si = window.si || function () {(window.siq = window.siq || []).push(arguments);};
   </script>
-  <script defer src="/_vercel/speed-insights/script.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      var s = document.createElement('script');
+      s.defer = true;
+      s.src = '/_vercel/speed-insights/script.js';
+      document.head.appendChild(s);
+    });
+  </script>
 </body>
 
 </html>
