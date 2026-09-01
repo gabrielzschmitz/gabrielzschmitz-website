@@ -311,16 +311,16 @@ body.dark-mode #MinecraftToggle {
   border-color: var(--burgundy);
 }
 
-.mode-seal .fi {
-  font-size: 1.1rem;
+.mode-seal .flag-icon {
+  display: block;
 }
 
 /* Tint the language flag toward the site's text color */
-.mode-seal .fi {
+.mode-seal .flag-icon {
   filter: sepia(1) saturate(0.6) brightness(0.45) contrast(1.6);
 }
 
-body.dark-mode .mode-seal .fi {
+body.dark-mode .mode-seal .flag-icon {
   filter: sepia(1) saturate(0.6) brightness(1.0) contrast(1.6);
 }
 
@@ -530,6 +530,18 @@ section.lead-article {
   text-decoration: none;
 }
 
+.education-item .edu-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--burgundy);
+  vertical-align: -2px;
+}
+
+.footer-copy {
+  color: currentColor;
+  vertical-align: -2px;
+}
+
 .education-item a:hover {
   text-decoration: underline;
 }
@@ -590,9 +602,8 @@ section.lead-article {
 
 .social-list .social-icon {
   width: 18px;
-  text-align: center;
+  height: 18px;
   color: var(--burgundy);
-  font-size: 0.85rem;
   flex-shrink: 0;
 }
 

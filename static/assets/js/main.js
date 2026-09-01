@@ -113,12 +113,24 @@ function toggleMatrixEffect() {
  * Minecraft cube
  */
 let cubeActive = false;
-let cubeX = window.innerWidth / 2;
-let cubeY = window.innerHeight / 2;
+let cubeX = 0;
+let cubeY = 0;
+
+let cubeCssLoaded = false;
+
+function loadCubeCss() {
+  if (cubeCssLoaded) return;
+  cubeCssLoaded = true;
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = './assets/css/cube.css';
+  document.head.appendChild(link);
+}
 
 function toggleMinecraft() {
   const cube = document.querySelector('.Minecraft');
   cubeActive = !cubeActive;
+  if (cubeActive) loadCubeCss();
 
   if (cubeActive) {
     cube.style.display = 'block';
