@@ -10,6 +10,7 @@ tags = ["C++", "Blockchain", "Distributed Systems", "Consensus",
 
 [extra]
 author = ["gabrielzschmitz"]
+mathjax = true
 +++
 
 ![Post Header](header.svg)

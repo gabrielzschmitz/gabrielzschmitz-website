@@ -2,6 +2,32 @@
 
 {% block title %}{{ page.title }} · {{ config.title }}{% endblock title %}
 
+{% block mathjax %}
+  {% if page.extra.mathjax %}
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]],
+        displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+        ignoreHtmlClass: "tex2jax_ignore"
+      }
+    };
+  </script>
+  <script>
+    window.addEventListener('load', function () {
+      var s = document.createElement('script');
+      s.defer = true;
+      s.src = 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js';
+      document.head.appendChild(s);
+    });
+  </script>
+  {% endif %}
+{% endblock mathjax %}
+
 {% block content %}
   <article class="page">
     <header class="page-header">

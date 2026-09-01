@@ -10,6 +10,7 @@ tags = ["Cryptography", "Cybersecurity", "Quantum Computing",
 
 [extra]
 author = ["gabrielzschmitz"]
+mathjax = true
 +++
 
 ![Post Header](header.svg)
