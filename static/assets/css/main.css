@@ -305,7 +305,7 @@ body.dark-mode #MinecraftToggle {
 
 .mode-seal:hover {
   background-color: var(--burgundy);
-  color: #fff;
+  color: var(--text-color);
   border-color: var(--burgundy);
 }
 
@@ -382,7 +382,7 @@ section.lead-article {
   font-size: 0.65rem;
   letter-spacing: 2px;
   background-color: var(--burgundy);
-  color: #ffffff;
+  color: var(--text-color);
   padding: 2px 8px;
   display: inline-block;
   margin-bottom: 8px;
