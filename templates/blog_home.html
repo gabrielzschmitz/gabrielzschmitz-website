@@ -3,16 +3,76 @@
 {% block title %}{{ config.title }}{% endblock title %}
 
 {% block content %}
-  <p>{{ section.description }}</p>
-
   {% set posts = get_section(path="blog/posts/_index.md") %}
-  <ul class="post-list">
+
+  <!-- ARCHIVE INTRO BANNER -->
+  <section class="archive-intro-banner">
+    <div class="banner-content">
+      <span class="archive-code">CODEX — MMXXVI</span>
+      <h2>Manuscript Catalog</h2>
+      <p>Texts classified by chronology and nature. Select a work to open the
+      folio.</p>
+    </div>
+  </section>
+
+  <!-- FEATURED + LAMB ROW -->
+  <main class="featured-row">
     {% for page in posts.pages %}
-      <li class="post-item">
-        <time class="post-date" datetime="{{ page.date | date(format='%Y-%m-%d') }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
-        <a class="post-link" href="{{ page.permalink | safe }}">{{ page.title }}</a>
-        {% if page.description %}<p class="post-desc">{{ page.description }}</p>{% endif %}
-      </li>
+      {% if loop.first %}
+        <article class="grid-card card-featured">
+          <div class="card-badge">ULTIMUS FOLIO</div>
+          <div class="card-inner">
+            <div class="card-meta">
+              <span class="date">{{ page.date | date(format="%d.%m.%Y") }}</span>
+              {% if page.taxonomies.tags %}
+                <span class="bullet">•</span>
+                <span class="category">{{ page.taxonomies.tags | first }}</span>
+              {% endif %}
+            </div>
+            <h3 class="card-title"><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h3>
+            {% if page.description %}
+              <p class="card-text drop-cap-p">{{ page.description }}</p>
+            {% endif %}
+            <a href="{{ page.permalink | safe }}" class="card-read-btn">OPEN MANUSCRIPT ┼</a>
+          </div>
+        </article>
+
+        <aside class="sidebar-box lamb-illustration-box">
+          <a
+              href="https://www.vatican.va/archive/bible/nova_vulgata/documents/nova-vulgata_nt_evang-ioannem_lt.html#ioannes-1-29"
+              data-cv target="_blak" rel="noopener" class="seal-link">
+            <div class="illustration-border">
+              <div class="lamb-symbol">⚔ <span class="lamb-hiero">𓇣</span> ⚔</div>
+              <p class="illustration-caption">AGNUS DEI</p>
+              <p class="latin-sub">«Qui tollis peccata mundi»</p>
+            </div>
+          </a>
+        </aside>
+      {% endif %}
     {% endfor %}
-  </ul>
+  </main>
+
+  <!-- WRITINGS GRID -->
+  <main class="writings-grid">
+    {% for page in posts.pages %}
+      {% if not loop.first %}
+        <article class="grid-card">
+          <div class="card-inner">
+            <div class="card-meta">
+              <span class="date">{{ page.date | date(format="%d.%m.%Y") }}</span>
+              {% if page.taxonomies.tags %}
+                <span class="bullet">•</span>
+                <span class="category">{{ page.taxonomies.tags | first }}</span>
+              {% endif %}
+            </div>
+            <h3 class="card-title"><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h3>
+            {% if page.description %}
+              <p class="card-text">{{ page.description }}</p>
+            {% endif %}
+            <a href="{{ page.permalink | safe }}" class="card-read-btn">READ ┼</a>
+          </div>
+        </article>
+      {% endif %}
+    {% endfor %}
+  </main>
 {% endblock content %}

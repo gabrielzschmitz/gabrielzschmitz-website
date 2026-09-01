@@ -58,25 +58,73 @@
         <span class="seal-icon">✦</span>
       </div>
     </div>
-    <header class="site-header">
-      <nav class="site-nav">
-        <a class="site-title" href="{{ get_url(path='/blog/') }}">blog.</a>
-        <span class="nav-links">
-          <a href="/">home</a>
-          <a href="{{ get_url(path='/blog/about/') }}">about</a>
-          <a href="{{ get_url(path='/tags/') }}">tags</a>
-        </span>
-      </nav>
-    </header>
+    <div class="newspaper-wrapper">
+      <header class="site-header">
+        <nav class="site-nav">
+          <a class="site-title" href="{{ get_url(path='/blog/') }}">Gabrielis Archives 🗝</a>
+          <span class="nav-links">
+            <a href="/">Home</a>
+            <span class="nav-sep">♦</span>
+            <a href="{{ get_url(path='/blog/about/') }}">About</a>
+            <span class="nav-sep">♦</span>
+            <a href="{{ get_url(path='/tags/') }}">Tags</a>
+          </span>
+        </nav>
+      </header>
 
-    <main class="site-main">
-      {% block content %}{% endblock content %}
-    </main>
+      <main class="site-main">
+        {% block content %}{% endblock content %}
+      </main>
 
-    <footer class="site-footer">
-      <p>© {{ now() | date(format="%Y") }} {{ config.extra.author }} · <a href="{{ get_url(path='blog/rss.xml', trailing_slash=false) }}">rss</a></p>
-    </footer>
+      <footer class="site-footer">
+        <p>
+        © <span id="roman-year"></span> — <a href="{{
+          get_url(path='blog/rss.xml', trailing_slash=false) }}">Scriptorium de
+          Gabriel.</a>
+        </p>
+      </footer>
+    </div>
 
+    <script>
+      const toRoman = (num) => {
+        const values = [
+          [1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'],
+          [100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'],
+          [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']
+        ];
+
+        return values.reduce((result, [value, numeral]) => {
+          while (num >= value) {
+            result += numeral;
+            num -= value;
+          }
+          return result;
+        }, '');
+      };
+
+      document.getElementById('roman-year').textContent =
+        toRoman(new Date().getFullYear());
+    </script>
+    <script>
+      function getCSSVar(name) {
+        return getComputedStyle(document.body).getPropertyValue(name).trim();
+      }
+
+      function swordCursor(color) {
+        const hex = color.replace('#', '');
+        return `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%23${hex}' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, pointer`;
+      }
+
+      function applySwordCursor() {
+        const pen = swordCursor(getCSSVar('--burgundy-hover'));
+        ['a', 'button', '#ModeToggle', '#BackToTop'].forEach(sel => {
+          document.querySelectorAll(sel).forEach(el => {
+            el.style.cursor = pen;
+          });
+        });
+        document.body.style.cursor = pen;
+      }
+    </script>
     <script>
       (function () {
         var body = document.body;
@@ -88,7 +136,13 @@
           body.classList.toggle('dark-mode', dark);
           docEl.classList.toggle('dark-mode', dark);
           localStorage.setItem('newspaper-theme', dark ? 'dark' : 'light');
+          if (window.applySwordCursor) window.applySwordCursor();
         });
+      })();
+    </script>
+    <script>
+      (function () {
+        if (window.applySwordCursor) window.applySwordCursor();
       })();
     </script>
     <script>
