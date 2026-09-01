@@ -9,8 +9,6 @@ author = ["gabrielzschmitz"]
 toc = false
 +++
 
-## About
-
 Welcome to my personal blog!
 
 I’m Gabriel dos Santos Schmitz, a passionate software developer, researcher, and

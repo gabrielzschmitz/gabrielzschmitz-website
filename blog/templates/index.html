@@ -3,7 +3,6 @@
 {% block title %}{{ config.title }}{% endblock title %}
 
 {% block content %}
-  <h1>{{ config.title }}</h1>
   <p>{{ config.description }}</p>
 
   {% set posts = get_section(path="posts/_index.md") %}
