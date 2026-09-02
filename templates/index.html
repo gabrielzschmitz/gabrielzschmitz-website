@@ -11,6 +11,19 @@
   <link rel="icon" type="image/x-icon" href="./assets/images/GZS-LIGHT-NOBACKGROUND.ico" />
   <title>gabrielzschmitz</title>
 
+  <!-- THEME (applied before first paint so the flag filter matches the saved theme) -->
+  <script>
+    (function () {
+      var theme = localStorage.getItem('newspaper-theme')
+        || localStorage.getItem('theme')
+        || 'light';
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+        if (document.body) document.body.classList.add('dark-mode');
+      }
+    })();
+  </script>
+
   <!-- VERCEL ANALYTICS -->
   <script>
     window.va = window.va || function () {(window.vaq = window.vaq || []).push(arguments);};
