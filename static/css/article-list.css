@@ -1,0 +1,155 @@
+/* ARTICLE LIST + CONTACT — portfolio lists: projects, experience, education,
+ * the sidebar writing index, social links, and the view-all buttons.
+ * Loaded by the portfolio home (index.html). */
+
+.article-list {
+  list-style: none;
+}
+
+.article-list > li:first-child {
+  margin-top: 12px;
+  border-top: 1px dashed var(--light-border);
+}
+
+.article-list > li {
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--light-border);
+  font-size: 0.9rem;
+}
+
+.article-list > li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.article-list > .project-item,
+.article-list > .experience-item {
+  margin-bottom: 0px;
+  padding-bottom: 12px;
+}
+
+.article-list > .education-item {
+  margin-bottom: 0px;
+  padding-bottom: 16px;
+}
+
+.project-name {
+  font-family: var(--font-headers);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 2px;
+}
+
+.project-name a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.project-name a:hover {
+  color: var(--burgundy);
+}
+
+.project-meta {
+  font-family: var(--font-serif);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--burgundy);
+  margin-bottom: 6px;
+}
+
+.entry-title {
+  font-family: var(--font-headers);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-color);
+}
+
+.education-item .entry-title {
+  margin-bottom: 2px;
+}
+
+.entry-period {
+  font-family: var(--font-serif);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--burgundy);
+  display: block;
+  margin: 2px 0 6px 0;
+}
+
+.education-item a {
+  font-family: var(--font-serif);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.education-item .edu-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--burgundy);
+  vertical-align: -2px;
+}
+
+.education-item a:hover {
+  text-decoration: underline;
+}
+
+.article-list .post-date {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  color: var(--burgundy);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.article-link {
+  color: var(--text-subtle);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.article-link:hover {
+  color: var(--burgundy);
+  text-decoration: underline;
+}
+
+/* CONTACT / social links */
+.social-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-list .social-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--burgundy);
+  flex-shrink: 0;
+}
+
+.view-all-btn {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--light-border);
+  font-family: var(--font-accent);
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  color: var(--burgundy);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.view-all-btn:hover {
+  text-decoration: underline;
+}

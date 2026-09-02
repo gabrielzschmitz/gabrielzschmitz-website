@@ -1,0 +1,138 @@
+/* REFERENCES — BibInject-injected research references.
+ *
+ * Covers both placements:
+ *   - `.references-sidebar` — the compact TRACTATUS "Index of Research" panel
+ *     on the portfolio homepage (date • DOI / title, two lines per entry).
+ *   - `.reference-list`     — the full list on the /research page.
+ *
+ * The DOI link is auto-prepended by BibInject right after the opening <p>; the
+ * date/title spans come from the `mini` refspec (sidebar) or the built-in APA
+ * refspec (research page). */
+
+/* ------------------------------------------------------------------ *
+ * Sidebar (homepage TRACTATUS panel)                                 *
+ * ------------------------------------------------------------------ */
+
+.references-sidebar {
+  margin-top: 12px;
+}
+
+.references-sidebar p:first-child {
+  padding-top: 0;
+  margin-top: 12px;
+  border-top: 1px dashed var(--light-border);
+}
+
+.references-sidebar p {
+  margin: 0 0 12px;
+  padding: 12px 0 10px;
+  margin-bottom: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--light-border);
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-subtle);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 8px;
+}
+
+.references-sidebar p:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* DATE (year), like `.post-date` */
+.references-sidebar p .ref-date {
+  order: 1;
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  color: var(--burgundy);
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* SEPARATOR (•) between the date and the DOI */
+.references-sidebar p .ref-sep {
+  order: 2;
+  color: var(--burgundy);
+  margin: 0;
+  display: inline;
+}
+
+/* DOI, sits on the same line right after the date */
+.references-sidebar p a.doi-link {
+  order: 3;
+  text-decoration: none;
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  color: var(--burgundy);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.references-sidebar p a.doi-link:hover {
+  text-decoration: underline;
+}
+
+/* TITLE, wrapped onto its own line like `.article-link` */
+.references-sidebar p .ref-title {
+  order: 4;
+  flex-basis: 100%;
+  font-family: var(--font-serif);
+  color: var(--text-subtle);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.references-sidebar p .ref-title:hover {
+  color: var(--burgundy);
+  text-decoration: underline;
+}
+
+/* ------------------------------------------------------------------ *
+ * Research page (/research)                                          *
+ * ------------------------------------------------------------------ */
+
+.reference-list {
+  margin-bottom: 40px;
+  display: block;
+  overflow: visible;
+}
+
+.reference-list p {
+  display: block;
+  columns: 1;
+  column-width: auto;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0 0 1rem;
+  padding: 0 0 1rem;
+  border-bottom: 1px dashed var(--light-border);
+  text-align: left;
+}
+
+.reference-list p:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.reference-list a.doi-link {
+  display: inline;
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--burgundy);
+  text-decoration: none;
+}
+
+.reference-list a.doi-link:hover {
+  text-decoration: underline;
+  color: var(--burgundy-hover);
+}

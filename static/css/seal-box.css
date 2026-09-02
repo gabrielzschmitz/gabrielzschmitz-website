@@ -1,0 +1,44 @@
+/* SEAL BOX — blog variant (loaded by base.html, which serves the blog and
+ * research pages). The portfolio home styles its own header seal separately
+ * in portfolio.css and keeps its seal-box panel bare. */
+
+.seal-box {
+  text-align: center;
+  border: 3px double var(--border-color);
+  background-color: var(--paper-texture-subtle);
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.seal-box .seal-link {
+  width: 100%;
+  height: 100%;
+}
+
+.seal-box .seal-frame {
+  border: 1px double var(--border-color);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.seal-box .seal-glyph {
+  font-size: 2.25rem;
+  margin-bottom: 6px;
+}
+
+.seal-box .seal-label {
+  font-size: 0.95rem;
+}
+
+.seal-box .seal-motto {
+  font-size: 0.8rem;
+  margin-top: 4px;
+}

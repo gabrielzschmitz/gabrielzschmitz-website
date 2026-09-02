@@ -1,0 +1,60 @@
+/* ARTICLE — portfolio page article blocks (loaded by the portfolio home,
+ * index.html). Sibling files own the blog/research heading styles. */
+
+.article-header {
+  margin-bottom: 20px;
+  scroll-margin-top: 90px;
+}
+
+section.page-section {
+  scroll-margin-top: 90px;
+}
+
+.kicker {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  background-color: var(--burgundy);
+  color: var(--badge-text);
+  padding: 2px 8px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.article-title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: var(--burgundy);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.article-subheading {
+  font-family: var(--font-serif);
+  font-style: italic;
+  opacity: 0.85;
+  margin-bottom: 0;
+}
+
+.pull-quote {
+  margin: 12px 0;
+  padding: 15px 20px;
+  border-left: 3px solid var(--burgundy);
+  font-style: italic;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--text-color);
+  background-color: var(--paper-texture-subtle);
+}
+
+.quote-source {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--burgundy);
+}
