@@ -30,3 +30,13 @@
 .seal-icon {
   font-family: var(--font-symbol);
 }
+
+#back-to-top,
+#back-to-top .seal-button,
+#language-toggle,
+#language-toggle .seal-button,
+#theme-toggle,
+#theme-toggle .seal-icon {
+  -webkit-user-select: none;
+  user-select: none;
+}
