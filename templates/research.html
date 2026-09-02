@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Research · {{ config.title }}{% endblock title %}
+
+{% block description %}{{ config.description }}{% endblock description %}
+
+{% block content %}
+  {% set section = get_section(path="research/_index.md") %}
+
+  <!-- RESEARCH INTRO BANNER -->
+  <section class="archive-intro-banner">
+    <div class="archive-intro-body">
+      <span class="archive-code">TRACTATUS — MMXXVI</span>
+      <h2 data-en="Index of Research" data-pt="Índice de Pesquisa">Index of Research</h2>
+      <p data-en="Research, papers, and publications ordered by chronology and nature. Select a reference to open the record."
+        data-pt="Pesquisas, artigos e publicações ordenados por cronologia e natureza. Selecione uma referência para abrir o registro.">Research,
+        papers, and publications ordered by chronology and nature. Select a reference to open the
+      record.</p>
+    </div>
+  </section>
+
+  <!-- BIBINJECT TARGET: filled at build time by BibInject from static/assets/research/ref.bib -->
+  <div class="reference-list" id="references">
+    <p class="post-desc">Loading references…</p>
+  </div>
+{% endblock content %}

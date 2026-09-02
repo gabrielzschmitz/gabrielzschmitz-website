@@ -8,7 +8,9 @@ default_language = "en"
 generate_feeds = true
 feed_filenames = ["rss.xml"]
 build_search_index = false
-minify_html = true
+# minify_html is disabled because BibInject's build-time injection (targeted by
+# `id="..."`) requires quoted HTML attributes, which Zola's minifier strips.
+minify_html = false
 
 taxonomies = [
   { name = "tags", feed = true },
