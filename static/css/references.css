@@ -88,7 +88,13 @@
   text-decoration: none;
 }
 
-.references-sidebar p .ref-title:hover {
+/* TITLE LINK — the whole title links to its DOI */
+.references-sidebar p .ref-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.references-sidebar p .ref-title a:hover {
   color: var(--burgundy);
   text-decoration: underline;
 }
