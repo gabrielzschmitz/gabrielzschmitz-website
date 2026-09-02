@@ -13,82 +13,148 @@
       <p>Texts ordered by chronology, and nature. Select a work to open the
       folio.</p>
     </div>
+    <div class="category-pills">
+      <button class="pill-btn active" data-filter="all">ALL</button>
+      <button class="pill-btn" data-filter="English">ENGLISH</button>
+      <button class="pill-btn" data-filter="Português">PORTUGUÊS</button>
+    </div>
   </section>
 
   <!-- FEATURED + LAMB ROW -->
-  <main class="featured-row">
-    {% for page in posts.pages %}
-      {% if loop.first %}
-        <article class="grid-card card-featured">
-          <div class="card-badge">ULTIMUS FOLIO</div>
-          <div class="card-inner">
-            <div class="card-meta">
-              <span class="date">{{ page.date | date(format="%d.%m.%Y") }}</span>
-              {% if page.taxonomies.tags %}
-                <span class="bullet">•</span>
-                <span class="category">{{ page.taxonomies.tags | first }}</span>
-              {% endif %}
-              {% if page.extra.language %}
-                <span class="bullet">•</span>
-                <span class="post-lang">{{ page.extra.language }}</span>
-              {% endif %}
-            </div>
-            <h3 class="card-title"><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h3>
-            {% if page.description %}
-              <p class="card-text drop-cap-p">{{ page.description }}</p>
-            {% endif %}
-            {% if page.extra.language == "Português" %}
-            <a href="{{ page.permalink | safe }}" class="card-read-btn">ABRIR MANUSCRITO ┼</a>
-            {% else %}
-            <a href="{{ page.permalink | safe }}" class="card-read-btn">OPEN MANUSCRIPT ┼</a>
-            {% endif %}
-          </div>
-        </article>
+  {% set featured_all = posts.pages | first %}
 
-        <aside class="sidebar-box lamb-illustration-box">
-          <a
-              href="https://www.vatican.va/archive/bible/nova_vulgata/documents/nova-vulgata_nt_evang-ioannem_lt.html#ioannes-1-29"
-              data-cv target="_blak" rel="noopener" class="seal-link">
-            <div class="illustration-border">
-              <div class="lamb-symbol">⚔ <span class="lamb-hiero">𓃔</span> ⚔</div>
-              <p class="illustration-caption">AGNUS DEI</p>
-              <p class="latin-sub">«Qui tollis peccata mundi»</p>
+  {% set featured_en = [] %}
+  {% set featured_pt = [] %}
+  {% for page in posts.pages %}
+    {% if page.extra.language == "English" and featured_en | length == 0 %}
+      {% set_global featured_en = [page] %}
+    {% endif %}
+    {% if page.extra.language == "Português" and featured_pt | length == 0 %}
+      {% set_global featured_pt = [page] %}
+    {% endif %}
+  {% endfor %}
+  {% set featured_en = featured_en | first %}
+  {% set featured_pt = featured_pt | first %}
+
+  {% set featured_keys = ["all", "English", "Português"] %}
+
+  <main class="featured-row">
+    <div class="featured-slot">
+      {% for key in featured_keys %}
+        {% if key == "all" %}
+          {% set p = featured_all %}
+        {% elif key == "English" %}
+          {% set p = featured_en %}
+        {% else %}
+          {% set p = featured_pt %}
+        {% endif %}
+        {% if p %}
+          <article class="grid-card card-featured" data-lang="{{ key }}" data-url="{{ p.permalink | safe }}">
+            <div class="card-badge">ULTIMUS FOLIO</div>
+            <div class="card-inner">
+              <div class="card-meta">
+                <span class="date">{{ p.date | date(format="%d.%m.%Y") }}</span>
+                {% if p.taxonomies.tags %}
+                  <span class="bullet">•</span>
+                  <span class="category">{{ p.taxonomies.tags | first }}</span>
+                {% endif %}
+                {% if p.extra.language %}
+                  <span class="bullet">•</span>
+                  <span class="post-lang">{{ p.extra.language }}</span>
+                {% endif %}
+              </div>
+              <h3 class="card-title"><a href="{{ p.permalink | safe }}">{{ p.title }}</a></h3>
+              {% if p.description %}
+                <p class="card-text drop-cap-p">{{ p.description }}</p>
+              {% endif %}
+              {% if p.extra.language == "Português" %}
+              <a href="{{ p.permalink | safe }}" class="card-read-btn">ABRIR MANUSCRITO ┼</a>
+              {% else %}
+              <a href="{{ p.permalink | safe }}" class="card-read-btn">OPEN MANUSCRIPT ┼</a>
+              {% endif %}
             </div>
-          </a>
-        </aside>
-      {% endif %}
-    {% endfor %}
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <aside class="sidebar-box lamb-illustration-box">
+      <a
+          href="https://www.vatican.va/archive/bible/nova_vulgata/documents/nova-vulgata_nt_evang-ioannem_lt.html#ioannes-1-29"
+          data-cv target="_blak" rel="noopener" class="seal-link">
+        <div class="illustration-border">
+          <div class="lamb-symbol">⚔ <span class="lamb-hiero">𓃔</span> ⚔</div>
+          <p class="illustration-caption">AGNUS DEI</p>
+          <p class="latin-sub">«Qui tollis peccata mundi»</p>
+        </div>
+      </a>
+    </aside>
   </main>
 
   <!-- WRITINGS GRID -->
   <main class="writings-grid">
     {% for page in posts.pages %}
-      {% if not loop.first %}
-        <article class="grid-card">
-          <div class="card-inner">
-            <div class="card-meta">
-              <span class="date">{{ page.date | date(format="%d.%m.%Y") }}</span>
-              {% if page.taxonomies.tags %}
-                <span class="bullet">•</span>
-                <span class="category">{{ page.taxonomies.tags | first }}</span>
-              {% endif %}
-              {% if page.extra.language %}
-                <span class="bullet">•</span>
-                <span class="post-lang">{{ page.extra.language }}</span>
-              {% endif %}
-            </div>
-            <h3 class="card-title"><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h3>
-            {% if page.description %}
-              <p class="card-text">{{ page.description }}</p>
+      <article class="grid-card" data-language="{{ page.extra.language | default(value='') }}" data-url="{{ page.permalink | safe }}">
+        <div class="card-inner">
+          <div class="card-meta">
+            <span class="date">{{ page.date | date(format="%d.%m.%Y") }}</span>
+            {% if page.taxonomies.tags %}
+              <span class="bullet">•</span>
+              <span class="category">{{ page.taxonomies.tags | first }}</span>
             {% endif %}
-            {% if page.extra.language == "Português" %}
-            <a href="{{ page.permalink | safe }}" class="card-read-btn">LER ┼</a>
-            {% else %}
-            <a href="{{ page.permalink | safe }}" class="card-read-btn">READ ┼</a>
+            {% if page.extra.language %}
+              <span class="bullet">•</span>
+              <span class="post-lang">{{ page.extra.language }}</span>
             {% endif %}
           </div>
-        </article>
-      {% endif %}
+          <h3 class="card-title"><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h3>
+          {% if page.description %}
+            <p class="card-text">{{ page.description }}</p>
+          {% endif %}
+          {% if page.extra.language == "Português" %}
+          <a href="{{ page.permalink | safe }}" class="card-read-btn">LER ┼</a>
+          {% else %}
+          <a href="{{ page.permalink | safe }}" class="card-read-btn">READ ┼</a>
+          {% endif %}
+        </div>
+      </article>
     {% endfor %}
   </main>
+
+  <script>
+    (function () {
+      var pills = document.querySelectorAll('.pill-btn');
+      var featured = document.querySelectorAll('.featured-slot .card-featured');
+      var cards = document.querySelectorAll('.writings-grid .grid-card');
+
+      function apply(filter) {
+        pills.forEach(function (b) { b.classList.remove('active'); });
+        pills.forEach(function (b) {
+          if (b.getAttribute('data-filter') === filter) b.classList.add('active');
+        });
+
+        var shownUrl = null;
+        featured.forEach(function (c) {
+          var show = c.getAttribute('data-lang') === filter;
+          c.style.display = show ? 'flex' : 'none';
+          if (show) shownUrl = c.getAttribute('data-url');
+        });
+
+        cards.forEach(function (card) {
+          var lang = card.getAttribute('data-language');
+          var matches = filter === 'all' || lang === filter;
+          var duplicate = shownUrl && card.getAttribute('data-url') === shownUrl;
+          card.style.display = (matches && !duplicate) ? 'flex' : 'none';
+        });
+      }
+
+      pills.forEach(function (button) {
+        button.addEventListener('click', function () {
+          apply(button.getAttribute('data-filter'));
+        });
+      });
+
+      apply('all');
+    })();
+  </script>
 {% endblock content %}
