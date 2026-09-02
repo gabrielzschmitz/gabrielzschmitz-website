@@ -17,14 +17,10 @@ hero_caption = " Imagem do cabeçalho por <a href=\"https://gabrielzschmitz.xyz\
 
 <br>
 
-*Projeto:* **Formação Literária**
-
-*Sessão:* **Comentários de Poemas**
-
-Este texto integra a sessão *Comentários de Poemas* do projeto *Formação
-Literária* e discute o poema **Era um Grande Pássaro**, de
-**Augusto Frederico Schmidt** (1906--1965). A versão em LaTeX, com todo o
-material-fonte do estudo, está disponível em
+Este texto integra a sessão _Comentários de Poemas_ do projeto [*Formação
+Literária*](https://github.com/gabrielzschmitz/flit) e discute o poema **Era um
+Grande Pássaro**, de **Augusto Frederico Schmidt** (1906--1965). A versão em
+LaTeX, com todo o material-fonte do estudo, está disponível em
 [comentarios-poemas/era-um-grande-passaro](https://github.com/gabrielzschmitz/flit/tree/main/comentarios-poemas/era-um-grande-passaro).
 
 ---
@@ -38,11 +34,12 @@ Schmidt" width="450">
 </div>
 
 
-Augusto Frederico Schmidt (Rio de Janeiro, 18 de abril de 1906 -- Rio de
-Janeiro, 8 de fevereiro de 1965) foi poeta, editor, empresário, diplomata e
-homem público brasileiro. Filho de um imigrante judeu asquenaze alemão e neto
-do Visconde de Schmidt, iniciou sua trajetória no mercado editorial após atuar
-na Livraria Católica e, em 1930, fundou a Livraria Schmidt Editora.
+<span class="drop-cap">A</span>ugusto Frederico Schmidt (Rio de Janeiro, 18 de
+abril de 1906 -- Rio de Janeiro, 8 de fevereiro de 1965) foi poeta, editor,
+empresário, diplomata e homem público brasileiro. Filho de um imigrante judeu
+asquenaze alemão e neto do Visconde de Schmidt, iniciou sua trajetória no
+mercado editorial após atuar na Livraria Católica e, em 1930, fundou a Livraria
+Schmidt Editora.
 
 À frente da editora, publicou as primeiras obras de autores que se tornariam
 fundamentais para a literatura brasileira, entre eles Gilberto Freyre,
@@ -65,13 +62,13 @@ século XX.
 
 ## Por que este poema?
 
-A escolha de *Era Um Grande Pássaro* parte da convicção de que Augusto
-Frederico Schmidt ocupa um lugar muito mais elevado na literatura brasileira do
-que aquele que lhe é normalmente atribuído. Figura central da vida intelectual
-das décadas de 1930 e 1940, editor responsável pela publicação de alguns dos
-mais importantes escritores brasileiros e autor de uma obra poética singular,
-Schmidt acabou gradualmente relegado a uma posição secundária na historiografia
-literária.
+<span class="drop-cap">A</span> escolha de *Era Um Grande Pássaro* parte da
+convicção de que Augusto Frederico Schmidt ocupa um lugar muito mais elevado na
+literatura brasileira do que aquele que lhe é normalmente atribuído. Figura
+central da vida intelectual das décadas de 1930 e 1940, editor responsável pela
+publicação de alguns dos mais importantes escritores brasileiros e autor de uma
+obra poética singular, Schmidt acabou gradualmente relegado a uma posição
+secundária na historiografia literária.
 
 Seu relativo esquecimento decorre, em grande parte, da combinação de fatores
 estéticos e ideológicos. Enquanto a crítica passou a privilegiar uma poesia
@@ -93,11 +90,11 @@ universitária contribuiu para consolidar uma leitura pouco favorável da obra d
 Schmidt ao longo da segunda metade do século XX.
 
 Apesar disso, Schmidt desfrutava de enorme prestígio entre muitos de seus
-contemporâneos. Manuel Bandeira, por exemplo, prestou-lhe homenagem no poema
-*À Maneira de Augusto Frederico Schmidt* [[2, p.~111]](#referencias). O fato de
-um dos principais poetas brasileiros do século XX dedicar um poema a Schmidt
-constitui um testemunho eloquente do respeito que sua obra despertava entre seus
-pares e evidencia que sua recepção esteve longe de ser unanimemente
+contemporâneos. Manuel Bandeira, por exemplo, prestou-lhe homenagem no poema *À
+Maneira de Augusto Frederico Schmidt* [[2, p.~111]](#referencias). O fato de um
+dos principais poetas brasileiros do século XX dedicar um poema a Schmidt
+constitui um testemunho eloquente do respeito que sua obra despertava entre
+seus pares e evidencia que sua recepção esteve longe de ser unanimemente
 desfavorável.
 
 Este estudo procura, portanto, revisitar um poeta cuja obra permanece
@@ -136,12 +133,13 @@ p.~39]](#referencias)._
 
 ## Análise
 
-Em um primeiro momento, o simbolismo construído pelo texto remete à liberdade:
-um pássaro voando sobre a praia, em demanda de céus mais frios. Essa impressão
-é reforçada pelo uso recorrente do futuro do pretérito (*teria*, *estaria*),
-que confere à descrição um caráter imaginativo: o eu lírico parece reconstruir
-mentalmente a história daquele pássaro, supondo seu destino e a viagem que
-talvez realizasse. Entretanto, o poema rompe abruptamente essa expectativa:
+<span class="drop-cap">E</span>m um primeiro momento, o simbolismo construído
+pelo texto remete à liberdade: um pássaro voando sobre a praia, em demanda de
+céus mais frios. Essa impressão é reforçada pelo uso recorrente do futuro do
+pretérito (*teria*, *estaria*), que confere à descrição um caráter imaginativo:
+o eu lírico parece reconstruir mentalmente a história daquele pássaro, supondo
+seu destino e a viagem que talvez realizasse. Entretanto, o poema rompe
+abruptamente essa expectativa:
 
 > Chovia na hora em que o contemplei
 
@@ -185,9 +183,9 @@ conseguiria alcançar tamanho grau de sofisticação em tão poucos versos.
 
 ## Referências
 
-1. Leandro Garcia Rodrigues. "I know less and less what Brazil is".
-   Português. Em: *Revista do Instituto de Estudos Brasileiros* 67 (2018),
-   pp. 243--248. doi: <https://doi.org/10.11606/issn.2316-901X.v0i67p243-248>.
+1. Leandro Garcia Rodrigues. "I know less and less what Brazil is". Português.
+   Em: *Revista do Instituto de Estudos Brasileiros* 67 (2018), pp. 243--248.
+   doi: <https://doi.org/10.11606/issn.2316-901X.v0i67p243-248>.
 2. Manuel Bandeira. *Mafuá do malungo: versos de circunstância*. Rio de
    Janeiro: Livraria São José, 1955, p. 120.
 3. Augusto Frederico Schmidt. *Estrela Solitária*. Rio de Janeiro: José
