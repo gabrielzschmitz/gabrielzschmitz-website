@@ -111,7 +111,8 @@ ao centro das discussões sobre a poesia brasileira do século XX.
 <div class="poem">
   <div class="poem-head">
     <span class="poem-title">Poema (Era Um Grande Pássaro)</span>
-    <span class="poem-author">Augusto Frederico Schmidt, em <em>Estrela Solitária</em>, 1940.</span>
+    <span class="poem-author">Augusto Frederico Schmidt, em <em>Estrela
+    Solitária</em>, 1940.</span>
   </div>
   <div class="poem-lines">
     <span class="poem-line">Era um grande pássaro. As asas estavam em cruz,
