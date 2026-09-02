@@ -2,35 +2,35 @@
  * identical across the portfolio (sidebar) and the blog (home box). The blog
  * restyles the box itself in blog.css. */
 
-.lamb-illustration-box {
+.seal-box {
   text-align: center;
   background-color: var(--paper-texture-subtle);
 }
 
-.illustration-border {
+.seal-frame {
   border: 1px double var(--border-color);
   padding: 20px 10px;
 }
 
-.lamb-symbol {
+.seal-glyph {
   font-family: var(--font-symbol);
   font-size: 1.8rem;
   margin-bottom: 10px;
   color: var(--burgundy);
 }
 
-.lamb-symbol .lamb-hiero {
+.seal-glyph .seal-hiero {
   font-family: var(--font-hiero);
 }
 
-.illustration-caption {
+.seal-label {
   font-family: var(--font-serif);
   font-weight: 600;
   font-size: 0.9rem;
   letter-spacing: 2px;
 }
 
-.latin-sub {
+.seal-motto {
   color: var(--text-subtle);
   font-style: italic;
   opacity: 0.8;
@@ -48,12 +48,12 @@
   transform: translateY(-2px);
 }
 
-.seal-link .illustration-caption {
+.seal-link .seal-label {
   color: var(--text-color);
   transition: color 0.2s ease;
 }
 
-.seal-link:hover .illustration-caption,
-.seal-link:hover .lamb-symbol {
+.seal-link:hover .seal-label,
+.seal-link:hover .seal-glyph {
   color: var(--burgundy-hover);
 }

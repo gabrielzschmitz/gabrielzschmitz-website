@@ -46,16 +46,16 @@
 
 <body>
 
-  <div class="newspaper-wrapper">
+  <div class="site-frame">
 
     <!-- PERIODIC HEADER -->
-    <header class="newspaper-header">
-      <div class="header-top-bar">
+    <header class="site-header">
+      <div class="dateline">
         <span>VOL. I — N.º 01</span>
         <span>ANNO DOMINI MMXXVI</span>
       </div>
 
-      <h1 class="main-title">gabrielzschmitz</h1>
+      <h1 class="site-title">gabrielzschmitz</h1>
 
       <p class="tagline" data-en="&quot;crafting systems where speed meets elegance...&quot;"
         data-pt="&quot;criando sistemas onde velocidade encontra elegância...&quot;">
@@ -63,18 +63,18 @@
       </p>
 
       <!-- EMBLEM -->
-      <div class="header-emblem-container">
-        <div class="emblem-line"></div>
-        <div class="header-seal-graphic">
+      <div class="header-emblems">
+        <div class="header-emblem-rule"></div>
+        <div class="header-seal">
           <span class="seal-ornament">&#x269C;&#xFE0E;</span>
           <span class="seal-monogram">𓇣</span>
           <span class="seal-ornament">&#x269C;&#xFE0E;</span>
         </div>
-        <div class="emblem-line"></div>
+        <div class="header-emblem-rule"></div>
       </div>
 
       <!-- MAIN NAVEGATION -->
-      <nav class="newspaper-nav">
+      <nav class="site-nav">
         <a href="#about" data-en="About" data-pt="Sobre">About</a>
         <span class="nav-sep">♦</span>
         <a href="#projects" data-en="Projects" data-pt="Projetos">Projects</a>
@@ -88,17 +88,17 @@
 
       <div class="header-meta">
         <span class="meta-item">SECTIO: PRAESENTATIONE</span>
-        <span class="meta-item-right">EDITIO SPECIALIS</span>
+        <span class="header-meta-secondary">EDITIO SPECIALIS</span>
       </div>
     </header>
 
     <!-- FLOATING ICONS: THEME + LANGUAGE -->
-    <div class="header-controls">
-      <div class="mode-seal" id="ModeToggle" title="Change theme">
+    <div class="floating-controls">
+      <div class="seal-button" id="theme-toggle" title="Change theme">
         <span class="seal-icon">✦</span>
       </div>
-      <div class="mode-seal lang-seal" id="LanguageCycle" title="Switch language">
-        <svg class="flag-icon" id="lang-flag" viewBox="0 0 30 20" width="27" height="18" aria-hidden="true">
+      <div class="seal-button" id="language-toggle" title="Switch language">
+        <svg class="flag-icon" id="language-flag" viewBox="0 0 30 20" width="27" height="18" aria-hidden="true">
           <rect width="30" height="20" fill="#009c3b"></rect>
           <polygon points="15,1 29,10 15,19 1,10" fill="#ffdf00"></polygon>
           <circle cx="15" cy="10" r="6.5" fill="#002776"></circle>
@@ -112,30 +112,30 @@
       </div>
     </div>
 
-    <div class="section-break">
+    <div class="section-divider">
       <span>🕇 ┼ 🕇</span>
     </div>
 
     <!-- MAIN CONTENT -->
-    <main class="newspaper-body">
+    <main class="site-main">
 
       <!-- MAIN COLUMN -->
-      <div class="main-column">
+      <div class="content-column">
 
         <!-- ABOUT -->
-        <section class="lead-article" id="about">
-          <div class="article-header-block">
-            <span class="article-badge">MANIFESTATIO</span>
+        <section class="page-section" id="about">
+          <div class="article-header">
+            <span class="kicker">MANIFESTATIO</span>
             <h2 class="article-title" data-en="About" data-pt="Sobre">About</h2>
-            <p class="subheading" data-en="A short declaration about who I am and what I do."
+            <p class="article-subheading" data-en="A short declaration about who I am and what I do."
               data-pt="Uma breve declaração sobre quem sou e o que faço.">A short declaration about who I am and what I
               do.</p>
           </div>
 
-          <p class="drop-cap-p"
-            data-en="I've been coding since I was 14, starting with <span id='MinecraftToggle'>Minecraft</span> mods in Java, which eventually led me down the rabbit hole of low-level programming with C and tinkering with simple NCurses apps."
-            data-pt="Programo desde os 14 anos, começando com mods de <span id='MinecraftToggle'>Minecraft</span> em Java, o que eventualmente me levou ao mundo da programação de baixo nível com C e a experimentar aplicativos simples em NCurses.">
-            I've been coding since I was 14, starting with <span id='MinecraftToggle'>Minecraft</span> mods in Java,
+          <p class="drop-cap"
+            data-en="I've been coding since I was 14, starting with <span id='cube-toggle'>Minecraft</span> mods in Java, which eventually led me down the rabbit hole of low-level programming with C and tinkering with simple NCurses apps."
+            data-pt="Programo desde os 14 anos, começando com mods de <span id='cube-toggle'>Minecraft</span> em Java, o que eventualmente me levou ao mundo da programação de baixo nível com C e a experimentar aplicativos simples em NCurses.">
+            I've been coding since I was 14, starting with <span id='cube-toggle'>Minecraft</span> mods in Java,
             which eventually led me down the
             rabbit hole of low-level programming with C and tinkering with simple NCurses apps.</p>
 
@@ -145,7 +145,7 @@
             C++, Python, Go, Rust, Java, and JavaScript, along with tools like LaTeX, PostgreSQL, Redis, OpenCV, NumPy,
             and Docker.</p>
 
-          <blockquote class="burgundy-quote"
+          <blockquote class="pull-quote"
             data-en="«Pray as though everything depended on God.<br>Work as though everything depended on you.»<span class='quote-source'>— Saint Ignatius of Loyola</span>"
             data-pt="«Reze como se tudo dependesse de Deus.<br>Trabalhe como se tudo dependesse de você.»<span class='quote-source'>— Santo Inácio de Loyola</span>">
             «Pray as though
@@ -153,17 +153,17 @@
               Ignatius of Loyola</span></blockquote>
 
           <p data-en="I enjoy the discipline of low-level programming and <span
-             id='CryptoToggle'>cryptography</span>, where careful reasoning,
+             id='matrix-toggle'>cryptography</span>, where careful reasoning,
            attention to detail, and a deep understanding of the underlying
            systems matter. I see good work as a form of stewardship: a
            responsibility to use the abilities I have been given with care,
            humility, and purpose." data-pt="Gosto da disciplina da programação de baixo nível e da
-            <span id='CryptoToggle'>criptografia</span>, áreas em que o
+            <span id='matrix-toggle'>criptografia</span>, áreas em que o
             raciocínio cuidadoso, a atenção aos detalhes e uma compreensão
             profunda dos sistemas subjacentes são essenciais. Vejo o bom
             trabalho como uma forma de doação: uma responsabilidade de usar com
             cuidado, humildade e propósito as capacidades que me foram dadas.">
-            I enjoy the discipline of low-level programming and <span id='CryptoToggle'>cryptography</span>, where
+            I enjoy the discipline of low-level programming and <span id='matrix-toggle'>cryptography</span>, where
             careful reasoning,
             attention to detail, and a deep understanding of the underlying
             systems matter. I see good work as a form of stewardship: a
@@ -172,22 +172,22 @@
           </p>
         </section>
 
-        <div class="section-break"><span>🕇 ┼ 🕇</span></div>
+        <div class="section-divider"><span>🕇 ┼ 🕇</span></div>
 
         <!-- PROJECTS -->
-        <section class="lead-article" id="projects">
-          <div class="article-header-block">
-            <span class="article-badge">OPUS</span>
+        <section class="page-section" id="projects">
+          <div class="article-header">
+            <span class="kicker">OPUS</span>
             <h2 class="article-title" data-en="Projects" data-pt="Projetos">Projects</h2>
-            <p class="subheading" data-en="A collection of things shaped by code, curiosity, and craft."
+            <p class="article-subheading" data-en="A collection of things shaped by code, curiosity, and craft."
               data-pt="Uma coleção de coisas moldadas por código, curiosidade e ofício.">
               A collection of things shaped by code, curiosity, and craft.
             </p>
           </div>
 
-          <p data-en="Below are some of the projects I've <a id='Built' href='./under-construction.html'>built</a> over my 4+ years of coding experience. This selection highlights work in software engineering, systems programming, and cryptography."
-            data-pt="Abaixo estão alguns dos projetos que <a id='Built' href='./under-construction.html'>construí</a> ao longo de mais de 4 anos de experiência em programação. Esta seleção destaca trabalhos em engenharia de software, programação de sistemas e criptografia.">
-            Below are some of the projects I've <a id='Built' href='./under-construction.html'>built</a> over my 4+
+          <p data-en="Below are some of the projects I've <a class='built-link' href='./under-construction.html'>built</a> over my 4+ years of coding experience. This selection highlights work in software engineering, systems programming, and cryptography."
+            data-pt="Abaixo estão alguns dos projetos que <a class='built-link' href='./under-construction.html'>construí</a> ao longo de mais de 4 anos de experiência em programação. Esta seleção destaca trabalhos em engenharia de software, programação de sistemas e criptografia.">
+            Below are some of the projects I've <a class='built-link' href='./under-construction.html'>built</a> over my 4+
             years of coding
             experience. This
             selection highlights work in software engineering, systems programming, and cryptography.
@@ -256,14 +256,14 @@
           </ul>
         </section>
 
-        <div class="section-break"><span>🕇 ┼ 🕇</span></div>
+        <div class="section-divider"><span>🕇 ┼ 🕇</span></div>
 
         <!-- EXPERIENCE -->
-        <section class="lead-article" id="experience">
-          <div class="article-header-block">
-            <span class="article-badge">CURRICULUM</span>
+        <section class="page-section" id="experience">
+          <div class="article-header">
+            <span class="kicker">CURRICULUM</span>
             <h2 class="article-title" data-en="Experience" data-pt="Experiência">Experience</h2>
-            <p class="subheading" data-en="A timeline of activities in research and software development."
+            <p class="article-subheading" data-en="A timeline of activities in research and software development."
               data-pt="Uma linha do tempo de atuações em pesquisa e desenvolvimento de software.">A timeline of
               activities in research and software development.</p>
           </div>
@@ -276,10 +276,10 @@
             backend engineering.</p>
 
           <ul class="article-list experience-list">
-            <li id="first" class="experience-item">
-              <div class="experience-title" data-en="Scientific Research Scholarship - RNP"
+            <li class="experience-item">
+              <div class="entry-title" data-en="Scientific Research Scholarship - RNP"
                 data-pt="Bolsa de Pesquisa Científica - RNP">Scientific Research Scholarship - RNP</div>
-              <div class="experience-time" data-en="November 2024 - November 2025 | Toledo, Brazil"
+              <div class="entry-period" data-en="November 2024 - November 2025 | Toledo, Brazil"
                 data-pt="Novembro 2024 - Novembro 2025 | Toledo, Brasil">November 2024 - November 2025 | Toledo, Brazil
               </div>
               <p class="experience-desc"
@@ -290,9 +290,9 @@
                 integration.</p>
             </li>
             <li class="experience-item">
-              <div class="experience-title" data-en="Junior Software Developer - NeticShard"
+              <div class="entry-title" data-en="Junior Software Developer - NeticShard"
                 data-pt="Desenvolvedor de Software Júnior - NeticShard">Junior Software Developer - NeticShard</div>
-              <div class="experience-time" data-en="April 2024 - March 2025 | Remote, LATAM"
+              <div class="entry-period" data-en="April 2024 - March 2025 | Remote, LATAM"
                 data-pt="Abril 2024 - Março 2025 | Remoto, LATAM">April 2024 - March 2025 | Remote, LATAM</div>
               <p class="experience-desc"
                 data-en="Developed backend for a SaaS IT incident response platform in Go. Implemented unit, integration, and E2E tests, structured CI/CD pipelines, applied Domain-Driven Design principles, and built modular architecture."
@@ -302,9 +302,9 @@
                 architecture.</p>
             </li>
             <li class="experience-item">
-              <div class="experience-title" data-en="Scientific Research Scholarship - PIBITI"
+              <div class="entry-title" data-en="Scientific Research Scholarship - PIBITI"
                 data-pt="Bolsa de Pesquisa Científica - PIBITI">Scientific Research Scholarship - PIBITI</div>
-              <div class="experience-time" data-en="September 2024 - November 2024 | Toledo, Brazil"
+              <div class="entry-period" data-en="September 2024 - November 2024 | Toledo, Brazil"
                 data-pt="Setembro 2024 - Novembro 2024 | Toledo, Brasil">September 2024 - November 2024 | Toledo, Brazil
               </div>
               <p class="experience-desc"
@@ -315,9 +315,9 @@
                 efficiency.</p>
             </li>
             <li class="experience-item">
-              <div class="experience-title" data-en="Undergraduate Research Assistant - UTFPR"
+              <div class="entry-title" data-en="Undergraduate Research Assistant - UTFPR"
                 data-pt="Assistente de Pesquisa de Graduação - UTFPR">Undergraduate Research Assistant - UTFPR</div>
-              <div class="experience-time" data-en="2023 - 2024 | Toledo, Brazil"
+              <div class="entry-period" data-en="2023 - 2024 | Toledo, Brazil"
                 data-pt="2023 - 2024 | Toledo, Brasil">2023 - 2024 | Toledo, Brazil</div>
               <p class="experience-desc"
                 data-en="Researched lattice-based post-quantum cryptography, implemented the Goldreich–Goldwasser–Halevi (GGH) cryptosystem, and performed experimental analysis of computational properties."
@@ -328,14 +328,14 @@
           </ul>
         </section>
 
-        <div class="section-break"><span>🕇 ┼ 🕇</span></div>
+        <div class="section-divider"><span>🕇 ┼ 🕇</span></div>
 
         <!-- EDUCATION -->
-        <section class="lead-article" id="education">
-          <div class="article-header-block">
-            <span class="article-badge">STUDIA</span>
+        <section class="page-section" id="education">
+          <div class="article-header">
+            <span class="kicker">STUDIA</span>
             <h2 class="article-title" data-en="Education" data-pt="Formação">Education</h2>
-            <p class="subheading" data-en="Formal degrees and specialized courses in computer science."
+            <p class="article-subheading" data-en="Formal degrees and specialized courses in computer science."
               data-pt="Diplomas formais e cursos especializados em ciência da computação.">Formal degrees and
               specialized courses in computer science.</p>
           </div>
@@ -348,8 +348,8 @@
 
           <ul class="article-list education-list">
             <li class="education-item">
-              <div class="experience-time">2022–2027</div>
-              <div class="education-place" data-en="Federal University of Technology of Paraná"
+              <div class="entry-period">2022–2027</div>
+              <div class="entry-title" data-en="Federal University of Technology of Paraná"
                 data-pt="Universidade Tecnológica Federal do Paraná">Federal University of Technology - Paraná</div>
               <a href="https://www.utfpr.edu.br/campus/toledo" target="_blank" rel="noopener">
                 <span data-en="Bachelor's Degree in Computer Engineering"
@@ -361,8 +361,8 @@
               </a>
             </li>
             <li class="education-item">
-              <div class="experience-time">2020–2022</div>
-              <div class="education-place" data-en="State University of Western Paraná"
+              <div class="entry-period">2020–2022</div>
+              <div class="entry-title" data-en="State University of Western Paraná"
                 data-pt="Universidade Estadual do Oeste do Paraná">State University of Western Paraná</div>
               <a href="https://www.unioeste.br/portal/pel-programa-de-ensino-de-linguas" target="_blank" rel="noopener">
                 <span data-en="Language Teaching Program - English"
@@ -375,8 +375,8 @@
               </a>
             </li>
             <li class="education-item">
-              <div class="experience-time">2024</div>
-              <div class="education-place" data-en="Harvard University" data-pt="Universidade de Harvard">Harvard
+              <div class="entry-period">2024</div>
+              <div class="entry-title" data-en="Harvard University" data-pt="Universidade de Harvard">Harvard
                 University</div>
               <a href="./assets/certificates/CS50x.pdf" target="_blank" rel="noopener">
                 <span data-en="CS50x: Introduction to Computer Science"
@@ -389,8 +389,8 @@
               </a>
             </li>
             <li class="education-item">
-              <div class="experience-time">2024</div>
-              <div class="education-place" data-en="Princeton University" data-pt="Universidade de Princeton">Princeton
+              <div class="entry-period">2024</div>
+              <div class="entry-title" data-en="Princeton University" data-pt="Universidade de Princeton">Princeton
                 University</div>
               <a href="./assets/certificates/algorithms-coursera.pdf" target="_blank" rel="noopener">
                 <span data-en="Algorithms, Part I &amp; II" data-pt="Algoritimos, Parte I &amp; II">
@@ -402,8 +402,8 @@
               </a>
             </li>
             <li class="education-item">
-              <div class="experience-time">2024</div>
-              <div class="education-place" data-en="Linux Foundation" data-pt="Fundação Linux">Linux Foundation</div>
+              <div class="entry-period">2024</div>
+              <div class="entry-title" data-en="Linux Foundation" data-pt="Fundação Linux">Linux Foundation</div>
               <a href="./assets/certificates/LFS171.pdf" target="_blank" rel="noopener">
                 <span data-en="Introduction to Hyperledger Blockchain Technologies"
                   data-pt="Intrudução a Tecnologia de Blockchain Hyperledger">
@@ -415,8 +415,8 @@
               </a>
             </li>
             <li class="education-item">
-              <div class="experience-time">2024</div>
-              <div class="education-place" data-en="Higher School of Networks" data-pt="Escola Superior de Redes">Higher
+              <div class="entry-period">2024</div>
+              <div class="entry-title" data-en="Higher School of Networks" data-pt="Escola Superior de Redes">Higher
                 School of Networks</div>
               <a href="./assets/certificates/hyperledgerfagric-esr.pdf" target="_blank" rel="noopener">
                 Hyperledger Fabric
@@ -432,19 +432,19 @@
       </div>
 
       <!-- LATERAL COLUMN -->
-      <aside class="sidebar-article">
+      <aside class="sidebar">
 
         <!-- POSTS INDEX -->
         {% set posts = get_section(path="blog/posts/_index.md") %}
-        <div class="sidebar-box index-box">
-          <div class="box-header-tag">ARCHIVUM</div>
-          <h3 class="sidebar-title" data-en="Index of writings" data-pt="Índice
+        <div class="panel index-box">
+          <div class="kicker">ARCHIVUM</div>
+          <h3 class="panel-title" data-en="Index of writings" data-pt="Índice
             de escritos">Index of writings</h3>
-          <div class="burgundy-line"></div>
+          <div class="panel-rule"></div>
           <ul class="article-list">
             {% for page in posts.pages %}
             {% if loop.index <= 3 %} <li>
-              <span class="date">{{ page.date | date(format="%Y") }}</span>
+              <span class="post-date">{{ page.date | date(format="%Y") }}</span>
               <a href="{{ page.permalink | safe }}" class="article-link">{{ page.title }}</a>
               </li>
               {% endif %}
@@ -455,10 +455,10 @@
         </div>
 
         <!-- CONTACT -->
-        <div class="sidebar-box">
-          <div class="box-header-tag">CONTACTUS</div>
-          <h3 class="sidebar-title" data-en="Connect" data-pt="Contato">Connect</h3>
-          <div class="burgundy-line"></div>
+        <div class="panel">
+          <div class="kicker">CONTACTUS</div>
+          <h3 class="panel-title" data-en="Connect" data-pt="Contato">Connect</h3>
+          <div class="panel-rule"></div>
           <ul class="article-list social-list">
             <li>
               <img class="social-icon" width="18" height="18" src="./assets/images/GZS.svg" alt="gabrielzschmitz blog">
@@ -492,12 +492,12 @@
         </div>
 
         <!-- EMBLEM RÉSUMÉ -->
-        <div class="sidebar-box lamb-illustration-box">
-          <a href="./assets/resume/resume.pdf" data-cv target="_blak" rel="noopener" class="seal-link">
-            <div class="illustration-border">
-              <div class="lamb-symbol">⚔ <span class="lamb-hiero">𓇣</span> ⚔</div>
-              <p class="illustration-caption">CURRICULUM VITAE</p>
-              <p class="latin-sub">«Festina lente»</p>
+        <div class="panel seal-box">
+          <a href="./assets/resume/resume.pdf" data-resume target="_blak" rel="noopener" class="seal-link">
+            <div class="seal-frame">
+              <div class="seal-glyph">⚔ <span class="seal-hiero">𓇣</span> ⚔</div>
+              <p class="seal-label">CURRICULUM VITAE</p>
+              <p class="seal-motto">«Festina lente»</p>
             </div>
           </a>
         </div>
@@ -507,7 +507,7 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="newspaper-footer">
+    <footer class="site-footer">
       <div class="footer-divider">♦ ♦ ♦</div>
       <p data-en="Printed digitally in the dependencies of GitHub Pages."
         data-pt="Impresso digitalmente nas dependências do GitHub Pages.">Printed digitally in the dependencies of
@@ -523,17 +523,16 @@
 
   </div>
 
-  <canvas id="Matrix"></canvas>
+  <canvas id="matrix-canvas"></canvas>
 
-  <div class="Minecraft">
-    <div class="CubeOverlay"></div>
-    <div class="Cube">
-      <div class="CubeFace CubeFaceLeft"></div>
-      <div class="CubeFace CubeFaceRight"></div>
-      <div class="CubeFace CubeFaceTop"></div>
-      <div class="CubeFace CubeFaceBottom"></div>
-      <div class="CubeFace CubeFaceFront"></div>
-      <div class="CubeFace CubeFaceBack"></div>
+  <div class="cube-stage">
+    <div class="cube">
+      <div class="cube-face cube-face--left"></div>
+      <div class="cube-face cube-face--right"></div>
+      <div class="cube-face cube-face--top"></div>
+      <div class="cube-face cube-face--bottom"></div>
+      <div class="cube-face cube-face--front"></div>
+      <div class="cube-face cube-face--back"></div>
     </div>
   </div>
 

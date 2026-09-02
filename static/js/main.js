@@ -17,8 +17,8 @@ function applySwordCursor() {
   const pen = swordCursor();
   const selectors = [
     'a', 'a:link', 'a:visited', 'a:hover', 'a:active', 'a:focus',
-    'button', '[data-cv]', '[data-en]', '#ModeToggle', '#LanguageCycle',
-    '#CryptoToggle', '#MinecraftToggle'
+    'button', '[data-resume]', '[data-en]', '#theme-toggle', '#language-toggle',
+    '#matrix-toggle', '#cube-toggle'
   ].join(',');
   const matches = document.querySelectorAll(selectors);
   matches.forEach(el => {
@@ -127,7 +127,7 @@ function loadCubeCss() {
 }
 
 function toggleMinecraft() {
-  const cube = document.querySelector('.Minecraft');
+  const cube = document.querySelector('.cube-stage');
   cubeActive = !cubeActive;
   if (cubeActive) loadCubeCss();
 
@@ -145,7 +145,7 @@ function toggleMinecraft() {
  */
 document.addEventListener('DOMContentLoaded', () => {
   /* --- Theme --- */
-  const modeSeal = document.getElementById('ModeToggle');
+  const modeSeal = document.getElementById('theme-toggle');
   const saved = localStorage.getItem('newspaper-theme')
     || localStorage.getItem('theme')
     || 'light';
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --- Matrix canvas --- */
-  canvas = document.getElementById('Matrix');
+  canvas = document.getElementById('matrix-canvas');
   canvas.style.pointerEvents = 'none';
   canvas.style.position = 'fixed';
   canvas.style.top = '0';
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
   canvas.style.zIndex = '0';
 
   /* --- Minecraft cube mouse-follow --- */
-  const cube = document.querySelector('.Minecraft');
+  const cube = document.querySelector('.cube-stage');
   document.addEventListener('mousemove', (e) => {
     cubeX = e.clientX + 20;
     cubeY = e.clientY - 5;
@@ -176,16 +176,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* --- MinecraftToggle --- */
-  const minecraftButton = document.getElementById('MinecraftToggle');
-  if (minecraftButton) {
-    minecraftButton.addEventListener('click', toggleMinecraft);
+  /* --- cube-toggle --- */
+  const cubeButton = document.getElementById('cube-toggle');
+  if (cubeButton) {
+    cubeButton.addEventListener('click', toggleMinecraft);
   }
 
-  /* --- CryptoToggle --- */
-  const cryptoButton = document.getElementById('CryptoToggle');
-  if (cryptoButton) {
-    cryptoButton.addEventListener('click', toggleMatrixEffect);
+  /* --- matrix-toggle --- */
+  const matrixButton = document.getElementById('matrix-toggle');
+  if (matrixButton) {
+    matrixButton.addEventListener('click', toggleMatrixEffect);
   }
 });
 

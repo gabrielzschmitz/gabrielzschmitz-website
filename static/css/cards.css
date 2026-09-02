@@ -1,13 +1,13 @@
-/* WRITINGS CATALOG — category pills, the featured ULTIMUS FOLIO row, and the
- * card grid used on the blog home. */
+/* WRITINGS CATALOG — language filter bar, the featured ULTIMUS FOLIO row, and
+ * the card grid used on the blog home. */
 
-.category-pills {
+.filter-bar {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
 }
 
-.pill-btn {
+.filter-btn {
   background: transparent;
   border: 1px solid var(--border-color);
   color: var(--text-color);
@@ -20,8 +20,8 @@
   transition: all 0.3s ease;
 }
 
-.pill-btn:hover,
-.pill-btn.active {
+.filter-btn:hover,
+.filter-btn.active {
   background-color: var(--burgundy);
   color: #ffffff;
   border-color: var(--burgundy);
@@ -35,11 +35,11 @@
 }
 
 /* Only the ULTIMUS FOLIO card matching the active language is shown */
-.featured-slot .card-featured {
+.featured-col .post-card-featured {
   display: none;
 }
 
-.featured-slot .card-featured[data-lang="all"] {
+.featured-col .post-card-featured[data-language="all"] {
   display: flex;
 }
 
@@ -50,7 +50,7 @@
   margin-bottom: 40px;
 }
 
-.grid-card {
+.post-card {
   border: 1px solid var(--border-color);
   padding: 20px;
   background-color: var(--paper-texture-subtle);
@@ -61,24 +61,24 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.grid-card:hover {
+.post-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-.grid-card .card-inner {
+.post-card .post-card-inner {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-.card-featured {
+.post-card-featured {
   grid-column: span 1;
   background-color: transparent;
   border: 2px solid var(--border-color);
 }
 
-.card-badge {
+.post-card-badge {
   position: absolute;
   top: -10px;
   right: 15px;
@@ -91,7 +91,7 @@
   letter-spacing: 1px;
 }
 
-.card-meta {
+.post-card-meta {
   font-family: var(--font-serif);
   font-size: 0.7rem;
   color: var(--burgundy);
@@ -101,20 +101,20 @@
   text-transform: uppercase;
 }
 
-.card-meta .bullet {
+.post-card-meta .bullet {
   margin: 0 4px;
   color: var(--text-subtle);
 }
 
-.card-title {
+.post-card-title {
   margin-bottom: 10px;
 }
 
-.card-featured .card-title {
+.post-card-featured .post-card-title {
   font-size: 1.6rem;
 }
 
-.card-title a {
+.post-card-title a {
   font-family: var(--font-serif);
   font-size: 1.3rem;
   font-weight: 800;
@@ -125,11 +125,11 @@
   transition: color 0.2s ease;
 }
 
-.card-title a:hover {
+.post-card-title a:hover {
   color: var(--burgundy);
 }
 
-.card-text {
+.post-card-text {
   font-size: 0.9rem;
   font-weight: 500;
   line-height: 1.5;
@@ -139,7 +139,7 @@
   flex-grow: 1;
 }
 
-.card-read-btn {
+.post-card-link {
   font-family: var(--font-serif);
   font-size: 0.7rem;
   font-weight: 600;
@@ -150,7 +150,7 @@
   margin-top: auto;
 }
 
-.card-read-btn:hover {
+.post-card-link:hover {
   text-decoration: underline;
   color: var(--burgundy-hover);
 }
@@ -161,7 +161,7 @@
     grid-template-columns: 1fr;
   }
 
-  .card-featured {
+  .post-card-featured {
     grid-column: span 1;
   }
 }

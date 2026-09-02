@@ -44,14 +44,14 @@
     {% block mathjax %}{% endblock mathjax %}
     </head>
   <body>
-    <div class="blog-controls">
+    <div class="floating-controls">
       {% if page and "posts" in page.components %}
-      <div class="mode-seal" id="BackToTop" title="Back to top" hidden>
+      <div class="seal-button" id="back-to-top" title="Back to top" hidden>
         <span class="seal-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2L4.5 6.5h2.5v7h2v-7h2.5L8 2z" fill="currentColor"/></svg></span>
       </div>
       {% endif %}
-      <div class="mode-seal lang-seal" id="LanguageCycle" title="Switch language">
-        <svg class="flag-icon" id="lang-flag" viewBox="0 0 30 20" width="27" height="18" aria-hidden="true">
+      <div class="seal-button" id="language-toggle" title="Switch language">
+        <svg class="flag-icon" id="language-flag" viewBox="0 0 30 20" width="27" height="18" aria-hidden="true">
           <rect width="30" height="20" fill="#009c3b"></rect>
           <polygon points="15,1 29,10 15,19 1,10" fill="#ffdf00"></polygon>
           <circle cx="15" cy="10" r="6.5" fill="#002776"></circle>
@@ -63,11 +63,11 @@
           <circle cx="14.5" cy="14.5" r="0.6" fill="#fff"></circle>
         </svg>
       </div>
-      <div class="mode-seal" id="ModeToggle" title="Change theme">
+      <div class="seal-button" id="theme-toggle" title="Change theme">
         <span class="seal-icon">✦</span>
       </div>
     </div>
-    <div class="newspaper-wrapper">
+    <div class="site-frame">
       <header class="site-header">
         <nav class="site-nav">
           <a class="site-title" href="{{ get_url(path='/blog/') }}">Archivum <span class="seal-key">🗝︎</span></a>
@@ -125,7 +125,7 @@
 
       function applySwordCursor() {
         const pen = swordCursor();
-        ['a', 'button', '#ModeToggle', '#BackToTop'].forEach(sel => {
+        ['a', 'button', '#theme-toggle', '#back-to-top'].forEach(sel => {
           document.querySelectorAll(sel).forEach(el => {
             el.style.cursor = pen;
           });
@@ -137,7 +137,7 @@
       (function () {
         var body = document.body;
         var docEl = document.documentElement;
-        var btn = document.getElementById('ModeToggle');
+        var btn = document.getElementById('theme-toggle');
         if (!btn) return;
         btn.addEventListener('click', function () {
           var dark = !body.classList.contains('dark-mode');
@@ -155,11 +155,11 @@
     </script>
     <script>
       (function () {
-        var languageCycle = document.getElementById('LanguageCycle');
+        var languageCycle = document.getElementById('language-toggle');
         if (!languageCycle) return;
         var elements = document.querySelectorAll('[data-en]');
         var isEnglish = (localStorage.getItem('newspaper-lang') || 'en') !== 'pt';
-        var FLAG_US = '<svg class="flag-icon" id="lang-flag" viewBox="0 0 30 20" width="27" height="18" aria-hidden="true">' +
+        var FLAG_US = '<svg class="flag-icon" id="language-flag" viewBox="0 0 30 20" width="27" height="18" aria-hidden="true">' +
           '<rect width="30" height="20" fill="#fff"></rect>' +
           '<g fill="#b22234">' +
           '<rect y="0" width="30" height="1.54"/><rect y="3.08" width="30" height="1.54"/>' +
@@ -173,7 +173,7 @@
           '<circle cx="1.6" cy="6.75" r="0.55"/><circle cx="4.1" cy="6.75" r="0.55"/><circle cx="6.6" cy="6.75" r="0.55"/><circle cx="9.1" cy="6.75" r="0.55"/><circle cx="11.6" cy="6.75" r="0.55"/>' +
           '<circle cx="2.85" cy="9.45" r="0.55"/><circle cx="5.35" cy="9.45" r="0.55"/><circle cx="7.85" cy="9.45" r="0.55"/><circle cx="10.35" cy="9.45" r="0.55"/>' +
           '</g></svg>';
-        var FLAG_BR = '<svg class="flag-icon" id="lang-flag" viewBox="0 0 30 20" width="27" height="18" aria-hidden="true">' +
+        var FLAG_BR = '<svg class="flag-icon" id="language-flag" viewBox="0 0 30 20" width="27" height="18" aria-hidden="true">' +
           '<rect width="30" height="20" fill="#009c3b"></rect>' +
           '<polygon points="15,1 29,10 15,19 1,10" fill="#ffdf00"></polygon>' +
           '<circle cx="15" cy="10" r="6.5" fill="#002776"></circle>' +
@@ -194,7 +194,7 @@
         }
 
         function setFlag() {
-          var flag = document.getElementById('lang-flag');
+          var flag = document.getElementById('language-flag');
           if (flag) flag.outerHTML = isEnglish ? FLAG_BR : FLAG_US;
         }
 
@@ -214,7 +214,7 @@
     </script>
     <script>
       (function () {
-        var topBtn = document.getElementById('BackToTop');
+        var topBtn = document.getElementById('back-to-top');
         if (!topBtn) return;
         topBtn.addEventListener('click', function () {
           window.scrollTo({ top: 0, behavior: 'smooth' });

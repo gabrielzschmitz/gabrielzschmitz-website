@@ -1,9 +1,11 @@
 /* ARTICLE PROSE — typography for rendered blog content (posts, poems, math)
  * plus the shared drop-cap used on the portfolio lead and blog home cards. */
 
-/* Shared drop cap: first letter in burgundy, used on the portfolio lead text
- * and the blog home cards ("<span class='drop-cap-p'>…"). */
-.drop-cap-p::first-letter {
+/* Drop cap on a prose paragraph: first letter in burgundy. Used on the
+ * portfolio lead text and the blog home cards ("<p class='drop-cap'>…").
+ * Element-scoped to <p> so the inline <span class="drop-cap"> letter below
+ * is never double-floated. */
+p.drop-cap::first-letter {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 600;
   float: left;
@@ -15,21 +17,21 @@
   color: var(--burgundy);
 }
 
-.page-content {
+.article-body {
   font-family: var(--font-serif);
 }
 
-.page-content p {
+.article-body p {
   padding-bottom: 12px;
 }
 
-.page-content img {
+.article-body img {
   max-width: 100%;
   height: auto;
 }
 
 /* Post header image + caption, styled as a box like the lamb illustration */
-.page-content p:has(img):has(em) {
+.article-body p:has(img):has(em) {
   text-align: center;
   border: 3px double var(--border-color);
   background-color: var(--paper-texture-subtle);
@@ -37,7 +39,7 @@
   margin: 0 0 20px;
 }
 
-.page-content p:has(img):has(em) img {
+.article-body p:has(img):has(em) img {
   display: block;
   max-width: 100%;
   height: auto;
@@ -45,7 +47,7 @@
   border: 1px solid var(--light-border);
 }
 
-.page-content p:has(img):has(em) em {
+.article-body p:has(img):has(em) em {
   display: block;
   font-family: var(--font-serif);
   font-size: 0.85rem;
@@ -54,15 +56,15 @@
   line-height: 1.5;
 }
 
-.page-content p:has(img):has(em) a {
+.article-body p:has(img):has(em) a {
   color: var(--burgundy);
 }
 
-.page-content p:has(img):has(em) a:hover {
+.article-body p:has(img):has(em) a:hover {
   color: var(--burgundy-hover);
 }
 
-.page-content pre {
+.article-body pre {
   background: var(--paper-texture-subtle);
   border: 1px solid var(--light-border);
   padding: 1rem;
@@ -71,7 +73,7 @@
   font-family: var(--font-mono);
 }
 
-.page-content code {
+.article-body code {
   font-family: var(--font-mono);
   background: var(--code-bg);
   padding: 0.1em 0.3em;
@@ -79,23 +81,23 @@
   font-size: 0.9em;
 }
 
-.page-content pre code {
+.article-body pre code {
   background: none;
   padding: 0;
 }
 
-.page-content table {
+.article-body table {
   border-collapse: collapse;
   margin: 1rem 0;
 }
 
-.page-content th,
-.page-content td {
+.article-body th,
+.article-body td {
   border: 1px solid var(--light-border);
   padding: 0.4rem 0.75rem;
 }
 
-.page-content blockquote {
+.article-body blockquote {
   margin: 12px 0;
   padding: 10px 16px;
   border-left: 3px solid var(--burgundy);
@@ -107,7 +109,7 @@
 /* Drop cap: first letter in burgundy, as on the blog home cards. Use
  * <span class="drop-cap">A</span>s brumas... — the rest of the paragraph
  * keeps rendering as markdown. */
-.page-content .drop-cap {
+.article-body .drop-cap {
   float: left;
   font-family: var(--font-headers);
   font-weight: 600;
@@ -200,7 +202,7 @@
   counter-reset: line calc(var(--start, 1) - 1);
 }
 
-.page-content blockquote.poem-quote {
+.article-body blockquote.poem-quote {
   padding: 8px;
 }
 
@@ -223,17 +225,17 @@
   }
 }
 
-.page-content .MathJax {
+.article-body .MathJax {
   font-size: 1em;
 }
 
-.page-content mjx-container[jax="CHTML"][display="true"] {
+.article-body mjx-container[jax="CHTML"][display="true"] {
   display: block;
   margin: 1rem 0;
   text-align: center;
 }
 
-.page-content hr {
+.article-body hr {
   border: none;
   border-top: 1px dashed var(--light-border);
   margin: 1.5rem 0;
@@ -241,7 +243,7 @@
 
 /* Inline float figure: image takes roughly half the content width and the
  * following text wraps alongside it, continuing at full width below. */
-.page-content .float-figure {
+.article-body .float-figure {
   float: left;
   width: 47%;
   max-width: 430px;
@@ -252,7 +254,7 @@
   text-align: center;
 }
 
-.page-content .float-figure img {
+.article-body .float-figure img {
   display: block;
   width: 100%;
   height: auto;
@@ -260,7 +262,7 @@
   border: 1px solid var(--light-border);
 }
 
-.page-content .float-figure em {
+.article-body .float-figure em {
   display: block;
   margin-top: 8px;
   font-family: var(--font-serif);
@@ -272,7 +274,7 @@
 }
 
 @media (max-width: 600px) {
-  .page-content .float-figure {
+  .article-body .float-figure {
     float: none;
     width: 100%;
     margin: 0 auto 1rem;

@@ -1,4 +1,4 @@
-.Minecraft {
+.cube-stage {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -10,7 +10,7 @@
   display: none;
 }
 
-.Cube {
+.cube {
   position: relative;
   width: 10px;
   height: 10px;
@@ -18,39 +18,35 @@
   animation: rotation 10s infinite alternate;
 }
 
-.CubeOverlay {
-  display: none;
-}
-
-.CubeFace {
+.cube-face {
   filter: grayscale(75%) brightness(0.85);
   position: absolute;
   width: 10px;
   height: 10px;
 }
 
-.CubeFaceLeft {
+.cube-face--left {
   transform: translateX(-5px) rotateY(90deg);
   z-index: 1;
 }
 
-.CubeFaceRight {
+.cube-face--right {
   transform: translateX(5px) rotateY(90deg);
   z-index: 1;
 }
 
-.CubeFaceBack {
+.cube-face--back {
   transform: translateZ(-5px);
   z-index: 1;
 }
 
-.CubeFaceFront {
+.cube-face--front {
   transform: translateZ(5px);
   z-index: 1;
 }
 
 /* top background */
-.CubeFaceTop {
+.cube-face--top {
   z-index: 1;
   background-image:
     linear-gradient(90deg,
@@ -208,10 +204,10 @@
 }
 
 /* four faces background */
-.CubeFaceLeft,
-.CubeFaceRight,
-.CubeFaceFront,
-.CubeFaceBack {
+.cube-face--left,
+.cube-face--right,
+.cube-face--front,
+.cube-face--back {
   background-image:
     linear-gradient(90deg,
       #39ad07 0%, #39ad07 7.7%,
@@ -374,7 +370,7 @@
 }
 
 /* bottom background */
-.CubeFaceBottom {
+.cube-face--bottom {
   background-image:
     linear-gradient(90deg,
       #c37e43 0%, #c37e43 7.7%,

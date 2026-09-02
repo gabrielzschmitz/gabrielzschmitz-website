@@ -22,12 +22,12 @@ a:hover,
 a:active,
 a:focus,
 button,
-[data-cv],
+[data-resume],
 [data-en],
-#ModeToggle,
-#LanguageCycle,
-#CryptoToggle,
-#MinecraftToggle {
+#theme-toggle,
+#language-toggle,
+#matrix-toggle,
+#cube-toggle {
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%230a0a0a' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, pointer;
 }
 
@@ -45,9 +45,8 @@ body.dark-mode button {
 p,
 .project-desc,
 .experience-desc,
-.education-desc,
-.subheading,
-.latin-sub {
+.article-subheading,
+.seal-motto {
   font-family: var(--font-serif);
   font-size: 0.95rem;
   font-weight: 500;
@@ -59,7 +58,7 @@ p {
 }
 
 /* QUIRKY STYLES */
-#MinecraftToggle {
+#cube-toggle {
   color: var(--text-subtle);
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%230a0a0a' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, pointer;
   text-decoration: none;
@@ -67,11 +66,11 @@ p {
   display: inline-block;
 }
 
-#MinecraftToggle:hover {
+#cube-toggle:hover {
   color: var(--burgundy-hover);
 }
 
-#CryptoToggle {
+#matrix-toggle {
   color: var(--text-subtle);
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%230a0a0a' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, pointer;
   text-decoration: none;
@@ -79,11 +78,11 @@ p {
   display: inline-block;
 }
 
-#CryptoToggle:hover {
+#matrix-toggle:hover {
   color: var(--burgundy-hover);
 }
 
-#Built {
+.built-link {
   color: var(--text-subtle);
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%230a0a0a' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, pointer;
   text-decoration: none;
@@ -91,24 +90,24 @@ p {
   display: inline-block;
 }
 
-#Built:hover {
+.built-link:hover {
   color: var(--burgundy-hover);
 }
 
-body.dark-mode #CryptoToggle,
-body.dark-mode #MinecraftToggle {
+body.dark-mode #matrix-toggle,
+body.dark-mode #cube-toggle {
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%23e6dfcc' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, pointer;
 }
 
 /* HEADER */
-.newspaper-header {
+.site-header {
   text-align: center;
   border-bottom: 3px double var(--border-color);
   padding-bottom: 20px;
   margin-bottom: 30px;
 }
 
-.header-top-bar {
+.dateline {
   display: flex;
   justify-content: space-between;
   font-family: var(--font-serif);
@@ -120,7 +119,7 @@ body.dark-mode #MinecraftToggle {
   margin-bottom: 20px;
 }
 
-.main-title {
+.site-title {
   font-family: var(--font-serif);
   font-size: 3.8rem;
   font-weight: 500;
@@ -137,7 +136,7 @@ body.dark-mode #MinecraftToggle {
 }
 
 /* EMBLEM */
-.header-emblem-container {
+.header-emblems {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -145,24 +144,19 @@ body.dark-mode #MinecraftToggle {
   margin: 5px 0 20px 0;
 }
 
-.emblem-line {
+.header-emblem-rule {
   height: 1px;
   background-color: var(--border-color);
   flex-grow: 1;
   max-width: 150px;
 }
 
-.header-seal-graphic {
+.header-seal {
   display: flex;
   align-items: baseline;
   justify-content: center;
   gap: 10px;
   color: var(--burgundy);
-}
-
-.seal-main-symbol {
-  font-size: 2rem;
-  line-height: 1;
 }
 
 .seal-monogram {
@@ -179,7 +173,7 @@ body.dark-mode #MinecraftToggle {
 }
 
 /* MAIN NAVEGATION */
-.newspaper-nav {
+.site-nav {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -195,19 +189,14 @@ body.dark-mode #MinecraftToggle {
   letter-spacing: 2px;
 }
 
-.newspaper-nav a {
+.site-nav a {
   color: var(--text-color);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.newspaper-nav a:hover {
+.site-nav a:hover {
   color: var(--burgundy);
-}
-
-.newspaper-nav a.active-nav {
-  color: var(--burgundy);
-  font-weight: 700;
 }
 
 .nav-sep {
@@ -217,7 +206,7 @@ body.dark-mode #MinecraftToggle {
 }
 
 /* FLOATING ICONS: THEME + LANGUAGE */
-.header-controls {
+.floating-controls {
   position: fixed;
   top: 25px;
   right: 25px;
@@ -227,7 +216,7 @@ body.dark-mode #MinecraftToggle {
   z-index: 20;
 }
 
-.mode-seal:hover {
+.seal-button:hover {
   color: var(--text-color);
 }
 
@@ -240,28 +229,28 @@ body.dark-mode #MinecraftToggle {
   letter-spacing: 1px;
 }
 
-.meta-item-right {
+.header-meta-secondary {
   opacity: 0.8;
 }
 
 /* BODY */
-.newspaper-body {
+.site-main {
   display: grid;
   grid-template-columns: 1fr 300px;
   gap: 35px;
 }
 
-.main-column {
+.content-column {
   border-right: 1px solid var(--light-border);
   padding-right: 35px;
 }
 
-.lead-article {
+.page-section {
   margin-bottom: 0;
 }
 
 /* LINE OF ORNAMENTATION */
-.section-break {
+.section-divider {
   font-family: var(--font-symbol);
   text-align: center;
   font-size: 1.1rem;
@@ -271,17 +260,16 @@ body.dark-mode #MinecraftToggle {
 }
 
 /* ARTICLE BLOCK */
-.article-header-block {
+.article-header {
   margin-bottom: 20px;
   scroll-margin-top: 90px;
 }
 
-section.lead-article {
+section.page-section {
   scroll-margin-top: 90px;
 }
 
-.article-badge,
-.box-header-tag {
+.kicker {
   font-family: var(--font-serif);
   font-weight: 600;
   font-size: 0.65rem;
@@ -302,14 +290,14 @@ section.lead-article {
   line-height: 1.2;
 }
 
-.subheading {
+.article-subheading {
   font-family: var(--font-serif);
   font-style: italic;
   opacity: 0.85;
   margin-bottom: 0;
 }
 
-.burgundy-quote {
+.pull-quote {
   margin: 12px 0;
   padding: 15px 20px;
   border-left: 3px solid var(--burgundy);
@@ -390,16 +378,19 @@ section.lead-article {
   margin-bottom: 6px;
 }
 
-.experience-title {
+.entry-title {
   font-family: var(--font-headers);
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--text-color);
   line-height: 1.25;
+  color: var(--text-color);
 }
 
-.experience-time,
-.education-time {
+.education-item .entry-title {
+  margin-bottom: 2px;
+}
+
+.entry-period {
   font-family: var(--font-serif);
   font-size: 0.65rem;
   font-weight: 600;
@@ -407,15 +398,6 @@ section.lead-article {
   color: var(--burgundy);
   display: block;
   margin: 2px 0 6px 0;
-}
-
-.education-place {
-  font-family: var(--font-headers);
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 1.25;
-  margin-bottom: 2px;
-  color: var(--text-color);
 }
 
 .education-item a {
@@ -434,23 +416,18 @@ section.lead-article {
   vertical-align: -2px;
 }
 
-.footer-copy {
-  color: currentColor;
-  vertical-align: -2px;
-}
-
 .education-item a:hover {
   text-decoration: underline;
 }
 
 /* LATERAL COLUMN */
-.sidebar-article {
+.sidebar {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
 
-.sidebar-title {
+.panel-title {
   font-family: var(--font-headers);
   font-size: 1.1rem;
   text-transform: uppercase;
@@ -459,14 +436,14 @@ section.lead-article {
   margin-bottom: 10px;
 }
 
-.burgundy-line {
+.panel-rule {
   height: 2px;
   background-color: var(--burgundy);
   width: 40px;
   margin: 0 auto 15px auto;
 }
 
-.article-list .date {
+.article-list .post-date {
   font-family: var(--font-serif);
   font-size: 0.75rem;
   color: var(--burgundy);
@@ -518,7 +495,7 @@ section.lead-article {
 }
 
 /* FOOTER */
-.newspaper-footer {
+.site-footer {
   text-align: center;
   font-size: 0.8rem;
   opacity: 0.8;
@@ -526,7 +503,7 @@ section.lead-article {
   padding-bottom: 0;
 }
 
-.newspaper-footer p {
+.site-footer p {
   margin-top: 0;
   padding-bottom: 0;
 }
@@ -549,27 +526,27 @@ section.lead-article {
 
 /* MOBILE */
 @media (max-width: 768px) {
-  .main-title {
+  .site-title {
     font-size: 2.5rem;
   }
 
-  .newspaper-body {
+  .site-main {
     grid-template-columns: 1fr;
   }
 
-  .main-column {
+  .content-column {
     border-right: none;
     padding-right: 0;
     border-bottom: 1px solid var(--light-border);
     padding-bottom: 25px;
   }
 
-  .header-top-bar {
+  .dateline {
     font-size: 0.62rem;
     letter-spacing: 1px;
   }
 
-  .header-controls {
+  .floating-controls {
     top: 15px;
     right: 15px;
   }

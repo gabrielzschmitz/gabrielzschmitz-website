@@ -31,11 +31,11 @@
 {% endblock mathjax %}
 
 {% block content %}
-  <article class="page">
-    <header class="page-header">
+  <article class="article">
+    <header class="article-header">
       <h1 {% if page.title == "About" %}data-en="About" data-pt="Sobre"{% endif %}>{{ page.title }}</h1>
       {% if page.date or page.extra.language %}
-      <div class="page-meta">
+      <div class="article-meta">
         {% if page.date %}
         <time class="post-date" datetime="{{ page.date | date(format='%Y-%m-%d') }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
         {% endif %}
@@ -48,7 +48,7 @@
     </header>
 
     {% set hero = page.extra.hero %}
-    <div class="page-content">
+    <div class="article-body">
     {% if hero %}
       {% set hero_url = page.permalink ~ hero %}
       <p>
@@ -66,7 +66,7 @@
 
     {% if page.taxonomies %}
       {% for name, terms in page.taxonomies %}
-        <div class="page-taxonomies">
+        <div class="article-taxonomies">
           <span class="taxonomy-name">{{ name }}:</span>
           {% for term in terms %}
             <a class="taxonomy-term" href="{{ get_taxonomy_url(kind=name, name=term) | safe }}">{{ term }}</a>
@@ -76,7 +76,7 @@
     {% endif %}
 
     {% if page.earlier or page.later %}
-    <nav class="page-nav">
+    <nav class="article-nav">
       {% if page.earlier %}<a class="nav-prev" href="{{ page.earlier.permalink | safe }}">← {{ page.earlier.title }}</a>{% endif %}
       {% if page.later %}<a class="nav-next" href="{{ page.later.permalink | safe }}">{{ page.later.title }} →</a>{% endif %}
     </nav>

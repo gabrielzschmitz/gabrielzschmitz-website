@@ -2,12 +2,12 @@
  * Logic to cycle website text language.
  */
 document.addEventListener("DOMContentLoaded", () => {
-  const languageCycle = document.getElementById("LanguageCycle");
+  const languageCycle = document.getElementById("language-toggle");
   const elements = document.querySelectorAll("[data-en]");
   let isEnglish = (localStorage.getItem("newspaper-lang") || "en") !== "pt";
 
   function updateCVLinks() {
-    const cvLinks = document.querySelectorAll("[data-cv]");
+    const cvLinks = document.querySelectorAll("[data-resume]");
     cvLinks.forEach(link => {
       link.href = isEnglish ? "./assets/resume/resume.pdf" : "./assets/resume/curriculo.pdf";
     });
@@ -23,11 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function setFlag() {
-    const flag = document.getElementById("lang-flag");
+    const flag = document.getElementById("language-flag");
     if (flag) flag.outerHTML = isEnglish ? FLAG_BR : FLAG_US;
   }
 
-  const FLAG_US = '<svg class="flag-icon" id="lang-flag" viewBox="0 0 30 20" width="27" height="18" aria-hidden="true">' +
+  const FLAG_US = '<svg class="flag-icon" id="language-flag" viewBox="0 0 30 20" width="27" height="18" aria-hidden="true">' +
     '<rect width="30" height="20" fill="#fff"></rect>' +
     '<g fill="#b22234">' +
     '<rect y="0" width="30" height="1.54"/><rect y="3.08" width="30" height="1.54"/>' +
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     '<circle cx="2.85" cy="9.45" r="0.55"/><circle cx="5.35" cy="9.45" r="0.55"/><circle cx="7.85" cy="9.45" r="0.55"/><circle cx="10.35" cy="9.45" r="0.55"/>' +
     '</g></svg>';
 
-  const FLAG_BR = '<svg class="flag-icon" id="lang-flag" viewBox="0 0 30 20" width="27" height="18" aria-hidden="true">' +
+  const FLAG_BR = '<svg class="flag-icon" id="language-flag" viewBox="0 0 30 20" width="27" height="18" aria-hidden="true">' +
     '<rect width="30" height="20" fill="#009c3b"></rect>' +
     '<polygon points="15,1 29,10 15,19 1,10" fill="#ffdf00"></polygon>' +
     '<circle cx="15" cy="10" r="6.5" fill="#002776"></circle>' +
@@ -69,9 +69,9 @@ document.addEventListener("DOMContentLoaded", () => {
     applyLanguage();
 
     /* Rebind easter-egg toggles (innerHTML swap destroys the spans) */
-    const mcBtn = document.getElementById("MinecraftToggle");
+    const mcBtn = document.getElementById("cube-toggle");
     if (mcBtn) mcBtn.addEventListener("click", toggleMinecraft);
-    const cryptoBtn = document.getElementById("CryptoToggle");
+    const cryptoBtn = document.getElementById("matrix-toggle");
     if (cryptoBtn) cryptoBtn.addEventListener("click", toggleMatrixEffect);
 
     /* Re-apply theme-colored sword cursor to recreated toggle spans */
