@@ -658,6 +658,46 @@ a:hover {
   color: var(--burgundy-hover);
 }
 
+/* Inline float figure: image takes roughly half the content width and the
+ * following text wraps alongside it, continuing at full width below. */
+.page-content .float-figure {
+  float: left;
+  width: 47%;
+  max-width: 430px;
+  margin: 0 1.5rem 1rem 0;
+  border: 3px double var(--border-color);
+  background-color: var(--paper-texture-subtle);
+  padding: 14px;
+  text-align: center;
+}
+
+.page-content .float-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border: 1px solid var(--light-border);
+}
+
+.page-content .float-figure em {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  color: var(--text-subtle);
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .page-content .float-figure {
+    float: none;
+    width: 100%;
+    margin: 0 auto 1rem;
+  }
+}
+
 .illustration-border {
   border: 1px double var(--border-color);
   padding: 20px 10px;
