@@ -25,9 +25,14 @@ body {
 }
 
 .seal-key {
+  color: var(--burgundy);
   font-family: var(--font-key);
   font-style: normal;
   font-weight: normal;
+}
+
+.seal-key:hover {
+  color: var(--burgundy-hover);
 }
 
 /* THEME / CONTROL TOGGLES */
