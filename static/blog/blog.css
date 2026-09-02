@@ -599,6 +599,110 @@ a:hover {
   color: var(--burgundy);
 }
 
+/* POEM PANEL: title + author header, then numbered verses */
+.poem {
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.25rem auto;
+  background-color: var(--paper-texture-subtle);
+  border-top: 3px double var(--border-color);
+  border-bottom: 3px double var(--border-color);
+  padding: 8px;
+  text-align: left;
+}
+
+.poem-head {
+  text-align: center;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--light-border);
+}
+
+.poem-head::before {
+  content: "𓂃🖊";
+  display: block;
+  font-family: var(--font-key);
+  color: var(--burgundy);
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.poem-title {
+  display: block;
+  font-family: var(--font-headers);
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  color: var(--burgundy);
+}
+
+.poem-author {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  letter-spacing: 0.5px;
+  color: var(--text-subtle);
+}
+
+.poem-lines {
+  counter-reset: line;
+}
+
+.poem-line {
+  position: relative;
+  display: block;
+  counter-increment: line;
+  padding-left: 25px;
+  min-height: 1.7em;
+  font-style: italic;
+}
+
+.poem-line::before {
+  content: counter(line);
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 15px;
+  text-align: right;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  font-style: normal;
+  color: var(--text-subtle);
+  opacity: 0.7;
+}
+
+/* POEM QUOTE: cite verses with numbers, starting at the given line.
+ * Use <blockquote class="poem-quote" style="--start: 4">...</blockquote> */
+.poem-quote {
+  counter-reset: line calc(var(--start, 1) - 1);
+}
+
+.page-content blockquote.poem-quote {
+  padding: 8px;
+}
+
+.poem-quote .poem-line {
+  padding-left: 25px;
+}
+
+.poem-quote .poem-line::before {
+  width: 15px;
+  font-size: 0.68rem;
+}
+
+@media (max-width: 520px) {
+  .poem-line {
+    padding-left: 34px;
+  }
+
+  .poem-line::before {
+    width: 24px;
+  }
+}
+
 .page-content .MathJax {
   font-size: 1em;
 }

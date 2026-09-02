@@ -108,26 +108,36 @@ ao centro das discussões sobre a poesia brasileira do século XX.
 
 ## Texto
 
-### Poema (Era Um Grande Pássaro)
-
-Augusto Frederico Schmidt, em *Estrela Solitária*, 1940.
-
-> Era um grande pássaro. As asas estavam em cruz, abertas para os céus.<br>
-> A morte, súbita, o teria precipitado nas areias molhadas.<br>
-> Estaria de viagem, em demanda de outros céus mais frios!<br>
-> Era um grande pássaro, que a morte asperamente dominara.<br>
-> Era um grande e escuro pássaro, que o gelado e repentino vento sufocara.<br>
-> Chovia na hora em que o contemplei.<br>
-> Era alguma coisa de trágico,<br>
-> Tão escuro, e tão misterioso, naquele ermo.<br>
-> Era alguma coisa de trágico. As asas, que os azuis queimaram,<br>
-> Pareciam uma cruz aberta no úmido areal.<br>
-> O grande bico aberto guardava um grito perdido e terrível.
+<div class="poem">
+  <div class="poem-head">
+    <span class="poem-title">Poema (Era Um Grande Pássaro)</span>
+    <span class="poem-author">Augusto Frederico Schmidt, em <em>Estrela Solitária</em>, 1940.</span>
+  </div>
+  <div class="poem-lines">
+    <span class="poem-line">Era um grande pássaro. As asas estavam em cruz,
+    abertas para os céus.</span>
+    <span class="poem-line">A morte, súbita, o teria precipitado nas areias
+    molhadas.</span>
+    <span class="poem-line">Estaria de viagem, em demanda de outros céus mais
+    frios!</span>
+    <span class="poem-line">Era um grande pássaro, que a morte asperamente
+    dominara.</span>
+    <span class="poem-line">Era um grande e escuro pássaro, que o gelado e
+    repentino vento sufocara.</span>
+    <span class="poem-line">Chovia na hora em que o contemplei.</span>
+    <span class="poem-line">Era alguma coisa de trágico,</span>
+    <span class="poem-line">Tão escuro, e tão misterioso, naquele ermo.</span>
+    <span class="poem-line">Era alguma coisa de trágico. As asas, que os azuis
+    queimaram,</span>
+    <span class="poem-line">Pareciam uma cruz aberta no úmido areal.</span>
+    <span class="poem-line">O grande bico aberto guardava um grito perdido e
+    terrível.</span>
+  </div>
+</div>
 
 <img src="estrela-solitaria-p39.png" alt="Primeira publicação do poema em
 Estrela Solitária" width="450">
-_Primeira publicação do poema, em _Estrela Solitária_ [[3,
-p.~39]](#referencias)._
+_Primeira publicação do poema, em _Estrela Solitária_ [[3, p.~39]](#referencias)._
 
 ---
 
@@ -141,7 +151,7 @@ o eu lírico parece reconstruir mentalmente a história daquele pássaro, supond
 seu destino e a viagem que talvez realizasse. Entretanto, o poema rompe
 abruptamente essa expectativa:
 
-> Chovia na hora em que o contemplei
+<blockquote class="poem-quote" style="--start: 6"><span class="poem-line">Chovia na hora em que o contemplei</span></blockquote>
 
 Esse verso abandona o campo da conjectura e traz o observador de volta ao
 instante presente, como se ele interrompesse sua imaginação para retornar à
@@ -156,21 +166,23 @@ Schmidt emprega um forte paralelismo gradativo ao longo do poema, acrescentando
 a cada verso um novo elemento que amplia ou redefine a imagem anterior. Isso
 pode ser observado, por exemplo, nas seguintes passagens:
 
-> **Era um grande pássaro**, que a morte asperamente dominara.<br>
-> **Era um grande e escuro pássaro**, que o gelado e repentino vento sufocara.
+<blockquote class="poem-quote" style="--start: 4">
+  <span class="poem-line"><strong>Era um grande pássaro</strong>, que a morte asperamente dominara.</span>
+  <span class="poem-line"><strong>Era um grande e escuro pássaro</strong>, que o gelado e repentino vento sufocara.</span>
+</blockquote>
 
 e
 
-> **Era alguma coisa de trágico**,
+<blockquote class="poem-quote" style="--start: 7"><span class="poem-line"><strong>Era alguma coisa de trágico</strong>,</span></blockquote>
 
-> **Era alguma coisa de trágico**. As asas, que os azuis queimaram,
+<blockquote class="poem-quote" style="--start: 9"><span class="poem-line"><strong>Era alguma coisa de trágico</strong>. As asas, que os azuis queimaram,</span></blockquote>
 
 Em vez de repetir a mesma ideia, cada novo verso intensifica o clima de
 tragédia e conduz o leitor a reinterpretar as imagens já apresentadas.
 
 Essa construção é muito mais rica do que qualquer formulação direta. O verso
 
-> Chovia na hora em que o contemplei
+<blockquote class="poem-quote" style="--start: 6"><span class="poem-line">Chovia na hora em que o contemplei</span></blockquote>
 
 produz uma forte inversão de expectativa. O efeito não decorre do emprego de um
 vocabulário erudito, mas da cena que o poeta cuidadosamente constrói no
