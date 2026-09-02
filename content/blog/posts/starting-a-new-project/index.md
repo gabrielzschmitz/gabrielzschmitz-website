@@ -10,6 +10,7 @@ tags = ["Mathematics", "Golang", "HTMX", "PostgreSQL", "Open Source",
 
 [extra]
 author = ["gabrielzschmitz"]
+language = "English"
 hero = "header.svg"
 hero_caption = "Header image by <a href=\"https://gabrielzschmitz.xyz\">gabrielzschmitz</a>, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons 4.0 Attribution license</a>."
 +++

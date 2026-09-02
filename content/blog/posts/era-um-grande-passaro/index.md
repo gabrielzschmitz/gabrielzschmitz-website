@@ -10,6 +10,7 @@ tags = ["Literatura", "Poesia", "Augusto Frederico Schmidt",
 
 [extra]
 author = ["gabrielzschmitz"]
+language = "Português"
 hero = "header.svg"
 hero_caption = " Imagem do cabeçalho por <a href=\"https://gabrielzschmitz.xyz\">gabrielzschmitz</a>, licenciada sob a <a href=\"https://creativecommons.org/licenses/by/4.0/\">licença Creative Commons 4.0 Atribuição</a>."
 +++

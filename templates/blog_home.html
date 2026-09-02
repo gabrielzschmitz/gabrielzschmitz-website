@@ -28,6 +28,10 @@
                 <span class="bullet">•</span>
                 <span class="category">{{ page.taxonomies.tags | first }}</span>
               {% endif %}
+              {% if page.extra.language %}
+                <span class="bullet">•</span>
+                <span class="post-lang">{{ page.extra.language }}</span>
+              {% endif %}
             </div>
             <h3 class="card-title"><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h3>
             {% if page.description %}
@@ -63,6 +67,10 @@
               {% if page.taxonomies.tags %}
                 <span class="bullet">•</span>
                 <span class="category">{{ page.taxonomies.tags | first }}</span>
+              {% endif %}
+              {% if page.extra.language %}
+                <span class="bullet">•</span>
+                <span class="post-lang">{{ page.extra.language }}</span>
               {% endif %}
             </div>
             <h3 class="card-title"><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h3>
