@@ -1,5 +1,5 @@
 +++
-title = "Era um Grande Pássaro"
+title = "Comentário: Era um Grande Pássaro"
 description = "Um comentário sobre o poema \"Era um Grande Pássaro\", de Augusto Frederico Schmidt — Projeto Formação Literária, sessão Comentários de Poemas."
 date = 2026-07-30
 aliases = ["era-um-grande-passaro"]
