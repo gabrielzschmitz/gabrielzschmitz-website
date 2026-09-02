@@ -124,7 +124,7 @@ body {
 }
 
 .article-header h1,
-.site-main > h1 {
+.site-main>h1 {
   font-family: var(--font-accent);
   font-weight: 600;
   font-size: 2.2rem;
@@ -176,7 +176,7 @@ body {
 }
 
 .post-date {
-  display: block;
+  display: inline-block;
   color: var(--burgundy);
   font-family: var(--font-serif);
   font-size: 0.75rem;
@@ -267,7 +267,7 @@ body {
 }
 
 .taxonomy-count,
-.taxonomy-list a + .taxonomy-count {
+.taxonomy-list a+.taxonomy-count {
   color: var(--text-subtle);
   font-size: 0.85rem;
 }
@@ -312,4 +312,3 @@ body {
 .site-footer a:hover {
   color: var(--burgundy);
 }
-
