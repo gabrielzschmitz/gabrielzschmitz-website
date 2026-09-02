@@ -68,13 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setFlag();
     applyLanguage();
 
-    /* Rebind easter-egg toggles (innerHTML swap destroys the spans) */
-    const mcBtn = document.getElementById("cube-toggle");
-    if (mcBtn) mcBtn.addEventListener("click", toggleMinecraft);
-    const cryptoBtn = document.getElementById("matrix-toggle");
-    if (cryptoBtn) cryptoBtn.addEventListener("click", toggleMatrixEffect);
-
-    /* Re-apply theme-colored sword cursor to recreated toggle spans */
+    /* Re-apply theme-colored sword cursor to recreated elements */
     applySwordCursor();
   });
 });

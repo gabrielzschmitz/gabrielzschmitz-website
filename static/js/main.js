@@ -17,8 +17,7 @@ function applySwordCursor() {
   const pen = swordCursor();
   const selectors = [
     'a', 'a:link', 'a:visited', 'a:hover', 'a:active', 'a:focus',
-    'button', '[data-resume]', '[data-en]', '#theme-toggle', '#language-toggle',
-    '#matrix-toggle', '#cube-toggle'
+    'button', '[data-resume]', '[data-en]', '#theme-toggle', '#language-toggle'
   ].join(',');
   const matches = document.querySelectorAll(selectors);
   matches.forEach(el => {
@@ -176,17 +175,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* --- cube-toggle --- */
-  const cubeButton = document.getElementById('cube-toggle');
-  if (cubeButton) {
-    cubeButton.addEventListener('click', toggleMinecraft);
-  }
-
-  /* --- matrix-toggle --- */
-  const matrixButton = document.getElementById('matrix-toggle');
-  if (matrixButton) {
-    matrixButton.addEventListener('click', toggleMatrixEffect);
-  }
+  /* --- cube-toggle / matrix-toggle (delegated so the inline spans keep
+       working after the language innerHTML swap in lang.js) --- */
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest && e.target.closest('#cube-toggle, #matrix-toggle');
+    if (!trigger) return;
+    if (trigger.id === 'cube-toggle') {
+      toggleMinecraft();
+    } else {
+      toggleMatrixEffect();
+    }
+  });
 });
 
 /**

@@ -12,7 +12,7 @@ html {
 
 body {
   line-height: 1.8;
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%230a0a0a' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, auto;
+  cursor: url("../assets/cursor/dagger-9e1426.png") 2 2, auto;
 }
 
 a,
@@ -21,14 +21,8 @@ a:visited,
 a:hover,
 a:active,
 a:focus,
-button,
-[data-resume],
-[data-en],
-#theme-toggle,
-#language-toggle,
-#matrix-toggle,
-#cube-toggle {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%230a0a0a' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, pointer;
+button {
+  cursor: url("../assets/cursor/dagger-9e1426.png") 2 2, pointer;
 }
 
 body.dark-mode,
@@ -39,7 +33,7 @@ body.dark-mode a:hover,
 body.dark-mode a:active,
 body.dark-mode a:focus,
 body.dark-mode button {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%23e6dfcc' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, pointer;
+  cursor: url("../assets/cursor/dagger-b32438.png") 2 2, pointer;
 }
 
 p,
@@ -60,7 +54,6 @@ p {
 /* QUIRKY STYLES */
 #cube-toggle {
   color: var(--text-subtle);
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%230a0a0a' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, pointer;
   text-decoration: none;
   transition: color 0.3s;
   display: inline-block;
@@ -72,7 +65,6 @@ p {
 
 #matrix-toggle {
   color: var(--text-subtle);
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%230a0a0a' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, pointer;
   text-decoration: none;
   transition: color 0.3s;
   display: inline-block;
@@ -84,7 +76,6 @@ p {
 
 .built-link {
   color: var(--text-subtle);
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%230a0a0a' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, pointer;
   text-decoration: none;
   transition: color 0.3s;
   display: inline-block;
@@ -92,11 +83,6 @@ p {
 
 .built-link:hover {
   color: var(--burgundy-hover);
-}
-
-body.dark-mode #matrix-toggle,
-body.dark-mode #cube-toggle {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%23e6dfcc' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, pointer;
 }
 
 /* HEADER */
