@@ -44,10 +44,10 @@ BIB_REFPEC_MINI="mini"
 
 # Custom refspecs shipped with this repo and copied into BibInject's refspec/
 # dir on every run (even a cached clone):
-#   research — clean APA-flavoured citations for the research page
+#   research — DOI, Title, Where, Pages for the research page
 #   mini     — compact date • DOI / title for the portfolio sidebar
-REFPEC_RESEARCH_SRC="./refspec/research.html"
-REFPEC_MINI_SRC="./refspec/mini.html"
+REFPEC_RESEARCH_SRC="./static/refspec/research.html"
+REFPEC_MINI_SRC="./static/refspec/mini.html"
 
 RESEARCH_HTML="./public/research/index.html"
 PORTFOLIO_HTML="./public/index.html"
