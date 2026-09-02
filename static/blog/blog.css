@@ -162,12 +162,7 @@ a:hover {
 /* Tint the language flag toward the site's text color */
 .mode-seal .flag-icon,
 #LanguageCycle .flag-icon {
-  filter: sepia(1) saturate(0.6) brightness(0.45) contrast(1.6);
-}
-
-body.dark-mode .mode-seal .flag-icon,
-body.dark-mode #LanguageCycle .flag-icon {
-  filter: sepia(1) saturate(0.6) brightness(1.0) contrast(1.6);
+  filter: sepia(1) saturate(0.5) brightness(0.9) contrast(1.5);
 }
 
 /* SITE HEADER / NAV */
