@@ -31,11 +31,8 @@
   <script defer src="/_vercel/insights/script.js"></script>
 
 
-  <!-- FONTS -->
-  <link rel="preload" href="/fonts/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="/fonts/fonts.css">
-  </noscript>
+  <!-- FONTS (font-display: optional; fonts.css loads blocking at parse so fonts fetch early and are ready before first paint -- no swap shift, no unused preloads) -->
+  <link rel="stylesheet" href="/fonts/fonts.css">
 
   <!-- STYLES -->
   <link rel="stylesheet" href="./assets/css/main.css">
