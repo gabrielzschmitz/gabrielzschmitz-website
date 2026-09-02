@@ -1,0 +1,50 @@
+/* SHARED DESIGN TOKENS — palette, dark mode, font stacks, and layout
+ * constants for both the portfolio and the blog. Unifies the token sets
+ * previously duplicated in main.css/portfolio.css and blog.css (the blog's
+ * `--bg` variable became the shared `--bg-color`). */
+
+:root {
+  /* LIGHT MODE */
+  --bg-color: #f9f6ee;
+  --text-color: #0a0a0a;
+  --text-subtle: #33302c;
+  --badge-text: #e6dfcc;
+  --burgundy: #7a0e1c;
+  --burgundy-hover: #9e1426;
+  --border-color: #1a1816;
+  --light-border: #d2c8b6;
+  --paper-texture-subtle: rgba(0, 0, 0, 0.03);
+  --blank: rgba(0, 0, 0, 0);
+  --code-bg: rgba(0, 0, 0, 0.04);
+}
+
+/* DARK MODE */
+html.dark-mode,
+body.dark-mode {
+  --bg-color: #0d0d0d;
+  --text-color: #e6dfcc;
+  --text-subtle: #b5ad9e;
+  --badge-text: #e6dfcc;
+  --burgundy: #8f1726;
+  --burgundy-hover: #b32438;
+  --border-color: #e6dfcc;
+  --light-border: #2a2824;
+  --paper-texture-subtle: rgba(255, 255, 255, 0.02);
+  --code-bg: rgba(255, 255, 255, 0.06);
+}
+
+/* FONTS */
+:root {
+  --font-headers: 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'Lora', Georgia, serif;
+  --font-accent: 'Eczar', serif;
+  --font-mono: 'Courier Prime', monospace;
+  --font-symbol: 'Noto Sans Symbols', 'Lora', serif;
+  --font-hiero: 'Noto Sans Egyptian Hieroglyphs', 'Lora', serif;
+  --font-key: 'Noto Sans Symbols 2', 'Lora', serif;
+}
+
+/* LAYOUT */
+:root {
+  --max-width: 46rem;
+}

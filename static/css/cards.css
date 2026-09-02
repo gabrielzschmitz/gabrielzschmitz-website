@@ -1,0 +1,167 @@
+/* WRITINGS CATALOG — category pills, the featured ULTIMUS FOLIO row, and the
+ * card grid used on the blog home. */
+
+.category-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 5px 12px;
+  font-family: var(--font-headers);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pill-btn:hover,
+.pill-btn.active {
+  background-color: var(--burgundy);
+  color: #ffffff;
+  border-color: var(--burgundy);
+}
+
+.featured-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Only the ULTIMUS FOLIO card matching the active language is shown */
+.featured-slot .card-featured {
+  display: none;
+}
+
+.featured-slot .card-featured[data-lang="all"] {
+  display: flex;
+}
+
+.writings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.grid-card {
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  background-color: var(--paper-texture-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grid-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.grid-card .card-inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-featured {
+  grid-column: span 1;
+  background-color: transparent;
+  border: 2px solid var(--border-color);
+}
+
+.card-badge {
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  background: var(--burgundy);
+  color: #fff;
+  font-family: var(--font-headers);
+  font-size: 0.6rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  letter-spacing: 1px;
+}
+
+.card-meta {
+  font-family: var(--font-serif);
+  font-size: 0.7rem;
+  color: var(--burgundy);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.card-meta .bullet {
+  margin: 0 4px;
+  color: var(--text-subtle);
+}
+
+.card-title {
+  margin-bottom: 10px;
+}
+
+.card-featured .card-title {
+  font-size: 1.6rem;
+}
+
+.card-title a {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.card-title a:hover {
+  color: var(--burgundy);
+}
+
+.card-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  padding-bottom: 0;
+  font-family: var(--font-serif);
+  flex-grow: 1;
+}
+
+.card-read-btn {
+  font-family: var(--font-serif);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--burgundy);
+  text-decoration: none;
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.card-read-btn:hover {
+  text-decoration: underline;
+  color: var(--burgundy-hover);
+}
+
+@media (max-width: 850px) {
+  .writings-grid,
+  .featured-row {
+    grid-template-columns: 1fr;
+  }
+
+  .card-featured {
+    grid-column: span 1;
+  }
+}

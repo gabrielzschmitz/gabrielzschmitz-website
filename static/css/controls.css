@@ -1,0 +1,32 @@
+/* SHARED CONTROLS — the round floating "seals" used for theme, language, and
+ * misc toggles on both the portfolio and the blog. */
+
+.mode-seal {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--blank);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.mode-seal:hover {
+  background-color: var(--burgundy);
+  border-color: var(--burgundy);
+}
+
+/* Tint the language flag toward the site's text color */
+.mode-seal .flag-icon,
+#LanguageCycle .flag-icon {
+  display: block;
+  filter: sepia(1) saturate(0.5) brightness(0.9) contrast(1.5);
+}
+
+.seal-icon {
+  font-family: var(--font-symbol);
+}

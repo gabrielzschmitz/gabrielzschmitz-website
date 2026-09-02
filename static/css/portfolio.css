@@ -1,41 +1,7 @@
-:root {
-  /* LIGHT MODE */
-  --bg-color: #f9f6ee;
-  --text-color: #0a0a0a;
-  --text-subtle: #33302c;
-  --badge-text: #e6dfcc;
-  --burgundy: #7a0e1c;
-  --burgundy-hover: #9e1426;
-  --border-color: #1a1816;
-  --light-border: #d2c8b6;
-  --paper-texture-subtle: rgba(0, 0, 0, 0.03);
-  --blank: rgba(0, 0, 0, 0);
+/* Portfolio page styles. Shared tokens, base, layout, controls, and emblem
+ * components are loaded before this file. */
 
-  /* FONTS */
-  --font-headers: 'Cormorant Garamond', Georgia, serif;
-  --font-serif: 'Lora', Georgia, serif;
-  --font-accent: 'Eczar', serif;
-  --font-mono: 'Courier Prime', monospace;
-  --font-symbol: 'Noto Sans Symbols', 'Lora', serif;
-  --font-hiero: 'Noto Sans Egyptian Hieroglyphs', 'Lora', serif;
-}
-
-/* DARK MODE */
-body.dark-mode {
-  --bg-color: #0d0d0d;
-  --text-color: #e6dfcc;
-  --text-subtle: #b5ad9e;
-  --badge-text: #e6dfcc;
-  --burgundy: #8f1726;
-  --burgundy-hover: #b32438;
-  --border-color: #e6dfcc;
-  --light-border: #2a2824;
-  --paper-texture-subtle: rgba(255, 255, 255, 0.02);
-}
-
-/* BASE STYLES */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -45,20 +11,8 @@ html {
 }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: var(--font-serif);
-  font-size: 17px;
-  font-weight: 500;
   line-height: 1.8;
-  letter-spacing: 0.2px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.4s ease, color 0.4s ease;
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%230a0a0a' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, auto;
-  display: flex;
-  padding: 10px 10px;
-  justify-content: center;
 }
 
 a,
@@ -103,11 +57,6 @@ p {
   padding-bottom: 12px;
 }
 
-a {
-  color: var(--burgundy);
-  transition: color 0.2s ease;
-}
-
 /* QUIRKY STYLES */
 #MinecraftToggle {
   color: var(--text-subtle);
@@ -145,23 +94,9 @@ a {
   color: var(--burgundy-hover);
 }
 
-
 body.dark-mode #CryptoToggle,
 body.dark-mode #MinecraftToggle {
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><g transform='rotate(90 20 20)'><text x='20' y='20' font-size='28' font-family='Lora, Georgia, serif' fill='%23e6dfcc' text-anchor='middle' dominant-baseline='central'>🗡</text></g></svg>") 2 2, pointer;
-}
-
-/* MAIN CONTENT */
-.newspaper-wrapper {
-  max-width: 960px;
-  width: 100%;
-  border: 2px solid var(--border-color);
-  padding: 35px 40px;
-  background-color: var(--bg-color);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  position: relative;
-  z-index: 1;
-  transition: border-color 0.4s ease;
 }
 
 /* HEADER */
@@ -291,37 +226,8 @@ body.dark-mode #MinecraftToggle {
   z-index: 20;
 }
 
-.mode-seal {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1px solid var(--border-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  background-color: var(--blank);
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
 .mode-seal:hover {
-  background-color: var(--burgundy);
   color: var(--text-color);
-  border-color: var(--burgundy);
-}
-
-.mode-seal .flag-icon {
-  display: block;
-}
-
-/* Tint the language flag toward the site's text color */
-.mode-seal .flag-icon {
-  filter: sepia(1) saturate(0.5) brightness(0.9) contrast(1.5);
-}
-
-.seal-icon {
-  font-family: var(--font-symbol);
 }
 
 .header-meta {
@@ -400,19 +306,6 @@ section.lead-article {
   font-style: italic;
   opacity: 0.85;
   margin-bottom: 0;
-}
-
-/* FIRST LETTER LARGER */
-.drop-cap-p::first-letter {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 600;
-  float: left;
-  font-size: 3.5rem;
-  line-height: 0.8;
-  padding-top: 4px;
-  padding-right: 10px;
-  padding-bottom: 2px;
-  color: var(--burgundy);
 }
 
 .burgundy-quote {
@@ -549,11 +442,6 @@ section.lead-article {
   gap: 25px;
 }
 
-.sidebar-box {
-  border: 1px solid var(--border-color);
-  padding: 20px;
-}
-
 .sidebar-title {
   font-family: var(--font-headers);
   font-size: 1.1rem;
@@ -601,63 +489,6 @@ section.lead-article {
   height: 18px;
   color: var(--burgundy);
   flex-shrink: 0;
-}
-
-/* EMBLEM RÉSUMÉ */
-.lamb-illustration-box {
-  text-align: center;
-  background-color: var(--paper-texture-subtle);
-}
-
-.illustration-border {
-  border: 1px double var(--border-color);
-  padding: 20px 10px;
-}
-
-.lamb-symbol {
-  font-family: var(--font-symbol);
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-  color: var(--burgundy);
-}
-
-.lamb-symbol .lamb-hiero {
-  font-family: var(--font-hiero);
-}
-
-.illustration-caption {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: 2px;
-}
-
-.latin-sub {
-  color: var(--text-subtle);
-  font-style: italic;
-  opacity: 0.8;
-  margin-top: 4px;
-}
-
-.seal-link {
-  display: block;
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.seal-link:hover {
-  transform: translateY(-2px);
-}
-
-.seal-link .illustration-caption {
-  color: var(--text-color);
-  transition: color 0.2s ease;
-}
-
-.seal-link:hover .illustration-caption,
-.seal-link:hover .lamb-symbol {
-  color: var(--burgundy-hover);
 }
 
 .view-all-btn {
@@ -710,10 +541,6 @@ section.lead-article {
 
 /* MOBILE */
 @media (max-width: 768px) {
-  .newspaper-wrapper {
-    padding: 20px;
-  }
-
   .main-title {
     font-size: 2.5rem;
   }

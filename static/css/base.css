@@ -1,0 +1,28 @@
+/* SHARED BASE / ELEMENT STYLES — box-sizing, body defaults, and link styles
+ * common to the portfolio and the blog. Site-specific body deltas (e.g.
+ * line-height, custom cursors) live in the page stylesheet that loads last. */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+a {
+  color: var(--burgundy);
+  transition: color 0.2s ease;
+}

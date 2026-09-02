@@ -1,0 +1,280 @@
+/* ARTICLE PROSE — typography for rendered blog content (posts, poems, math)
+ * plus the shared drop-cap used on the portfolio lead and blog home cards. */
+
+/* Shared drop cap: first letter in burgundy, used on the portfolio lead text
+ * and the blog home cards ("<span class='drop-cap-p'>…"). */
+.drop-cap-p::first-letter {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  float: left;
+  font-size: 3.5rem;
+  line-height: 0.8;
+  padding-top: 4px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+  color: var(--burgundy);
+}
+
+.page-content {
+  font-family: var(--font-serif);
+}
+
+.page-content p {
+  padding-bottom: 12px;
+}
+
+.page-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Post header image + caption, styled as a box like the lamb illustration */
+.page-content p:has(img):has(em) {
+  text-align: center;
+  border: 3px double var(--border-color);
+  background-color: var(--paper-texture-subtle);
+  padding: 18px;
+  margin: 0 0 20px;
+}
+
+.page-content p:has(img):has(em) img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 12px;
+  border: 1px solid var(--light-border);
+}
+
+.page-content p:has(img):has(em) em {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  color: var(--text-subtle);
+  line-height: 1.5;
+}
+
+.page-content p:has(img):has(em) a {
+  color: var(--burgundy);
+}
+
+.page-content p:has(img):has(em) a:hover {
+  color: var(--burgundy-hover);
+}
+
+.page-content pre {
+  background: var(--paper-texture-subtle);
+  border: 1px solid var(--light-border);
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+}
+
+.page-content code {
+  font-family: var(--font-mono);
+  background: var(--code-bg);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.page-content pre code {
+  background: none;
+  padding: 0;
+}
+
+.page-content table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.page-content th,
+.page-content td {
+  border: 1px solid var(--light-border);
+  padding: 0.4rem 0.75rem;
+}
+
+.page-content blockquote {
+  margin: 12px 0;
+  padding: 10px 16px;
+  border-left: 3px solid var(--burgundy);
+  color: var(--text-color);
+  background-color: var(--paper-texture-subtle);
+  font-style: italic;
+}
+
+/* Drop cap: first letter in burgundy, as on the blog home cards. Use
+ * <span class="drop-cap">A</span>s brumas... — the rest of the paragraph
+ * keeps rendering as markdown. */
+.page-content .drop-cap {
+  float: left;
+  font-family: var(--font-headers);
+  font-weight: 600;
+  font-size: 3.5rem;
+  line-height: 0.8;
+  padding-top: 4px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+  color: var(--burgundy);
+}
+
+/* POEM PANEL: title + author header, then numbered verses */
+.poem {
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.25rem auto;
+  background-color: var(--paper-texture-subtle);
+  border-top: 3px double var(--border-color);
+  border-bottom: 3px double var(--border-color);
+  padding: 8px;
+  text-align: left;
+}
+
+.poem-head {
+  text-align: center;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--light-border);
+}
+
+.poem-head::before {
+  content: "𓂃🖊";
+  display: block;
+  font-family: var(--font-key);
+  color: var(--burgundy);
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.poem-title {
+  display: block;
+  font-family: var(--font-headers);
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  color: var(--burgundy);
+}
+
+.poem-author {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  letter-spacing: 0.5px;
+  color: var(--text-subtle);
+}
+
+.poem-lines {
+  counter-reset: line;
+}
+
+.poem-line {
+  position: relative;
+  display: block;
+  counter-increment: line;
+  padding-left: 25px;
+  min-height: 1.7em;
+  font-style: italic;
+}
+
+.poem-line::before {
+  content: counter(line);
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 15px;
+  text-align: right;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  font-style: normal;
+  color: var(--text-subtle);
+  opacity: 0.7;
+}
+
+/* POEM QUOTE: cite verses with numbers, starting at the given line.
+ * Use <blockquote class="poem-quote" style="--start: 4">...</blockquote> */
+.poem-quote {
+  counter-reset: line calc(var(--start, 1) - 1);
+}
+
+.page-content blockquote.poem-quote {
+  padding: 8px;
+}
+
+.poem-quote .poem-line {
+  padding-left: 25px;
+}
+
+.poem-quote .poem-line::before {
+  width: 15px;
+  font-size: 0.68rem;
+}
+
+@media (max-width: 520px) {
+  .poem-line {
+    padding-left: 34px;
+  }
+
+  .poem-line::before {
+    width: 24px;
+  }
+}
+
+.page-content .MathJax {
+  font-size: 1em;
+}
+
+.page-content mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.page-content hr {
+  border: none;
+  border-top: 1px dashed var(--light-border);
+  margin: 1.5rem 0;
+}
+
+/* Inline float figure: image takes roughly half the content width and the
+ * following text wraps alongside it, continuing at full width below. */
+.page-content .float-figure {
+  float: left;
+  width: 47%;
+  max-width: 430px;
+  margin: 0 1.5rem 1rem 0;
+  border: 3px double var(--border-color);
+  background-color: var(--paper-texture-subtle);
+  padding: 14px;
+  text-align: center;
+}
+
+.page-content .float-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border: 1px solid var(--light-border);
+}
+
+.page-content .float-figure em {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  color: var(--text-subtle);
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .page-content .float-figure {
+    float: none;
+    width: 100%;
+    margin: 0 auto 1rem;
+  }
+}

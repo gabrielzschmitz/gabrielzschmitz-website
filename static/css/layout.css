@@ -1,0 +1,27 @@
+/* SHARED LAYOUT — the newspaper frame both the portfolio and the blog hang
+ * their content in. The blog restyles the wrapper padding with a local
+ * `--wrapper-padding` override in blog.css. */
+
+.newspaper-wrapper {
+  max-width: 960px;
+  width: 100%;
+  border: 2px solid var(--border-color);
+  padding: var(--wrapper-padding, 35px 40px);
+  background-color: var(--bg-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 1;
+  transition: border-color 0.4s ease;
+}
+
+.sidebar-box {
+  border: 1px solid var(--border-color);
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .newspaper-wrapper {
+    padding: 20px;
+  }
+
+  }
