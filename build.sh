@@ -165,7 +165,7 @@ inject_all() {
 # ============================================================
 
 run_build() {
-  echo -e "${BOLD}${CYAN}=== Zola build ==========================${RESET}"
+  echo -e "${BOLD}${CYAN}=== Zola build =========================${RESET}"
   "$ZOLA_BIN" build
 
   echo
