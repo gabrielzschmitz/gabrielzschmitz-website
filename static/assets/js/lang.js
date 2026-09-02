@@ -4,7 +4,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const languageCycle = document.getElementById("LanguageCycle");
   const elements = document.querySelectorAll("[data-en]");
-  let isEnglish = true;
+  let isEnglish = (localStorage.getItem("newspaper-lang") || "en") !== "pt";
 
   function updateCVLinks() {
     const cvLinks = document.querySelectorAll("[data-cv]");
@@ -13,7 +13,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  updateCVLinks();
+  function applyLanguage() {
+    updateCVLinks();
+    elements.forEach(el => {
+      const temp = el.innerHTML;
+      el.innerHTML = el.getAttribute(isEnglish ? "data-en" : "data-pt");
+      el.setAttribute(isEnglish ? "data-pt" : "data-en", temp);
+    });
+  }
+
+  function setFlag() {
+    const flag = document.getElementById("lang-flag");
+    if (flag) flag.outerHTML = isEnglish ? FLAG_BR : FLAG_US;
+  }
 
   const FLAG_US = '<svg class="flag-icon" id="lang-flag" viewBox="0 0 30 20" width="27" height="18" aria-hidden="true">' +
     '<rect width="30" height="20" fill="#fff"></rect>' +
@@ -42,18 +54,19 @@ document.addEventListener("DOMContentLoaded", () => {
     '<circle cx="14.5" cy="14.5" r="0.6" fill="#fff"></circle>' +
     '</svg>';
 
-  languageCycle.addEventListener("click", () => {
-    const flag = document.getElementById("lang-flag");
-    if (flag) flag.outerHTML = isEnglish ? FLAG_US : FLAG_BR;
-
-    elements.forEach(el => {
-      const temp = el.innerHTML;
-      el.innerHTML = el.getAttribute(isEnglish ? "data-pt" : "data-en");
-      el.setAttribute(isEnglish ? "data-en" : "data-pt", temp);
-    });
-
-    isEnglish = !isEnglish;
+  setFlag();
+  if (!isEnglish) {
+    applyLanguage();
+  } else {
     updateCVLinks();
+  }
+
+  languageCycle.addEventListener("click", () => {
+    isEnglish = !isEnglish;
+    localStorage.setItem("newspaper-lang", isEnglish ? "en" : "pt");
+
+    setFlag();
+    applyLanguage();
 
     /* Rebind easter-egg toggles (innerHTML swap destroys the spans) */
     const mcBtn = document.getElementById("MinecraftToggle");

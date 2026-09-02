@@ -3,7 +3,7 @@
 {% block title %}{{ taxonomy.name }} · {{ config.title }}{% endblock title %}
 
 {% block content %}
-  <h1>{{ taxonomy.name }}</h1>
+  <h1 data-en="Tags" data-pt="Categorias">Tags</h1>
   <ul class="taxonomy-list">
     {% for term in terms %}
       <li class="taxonomy-item">
