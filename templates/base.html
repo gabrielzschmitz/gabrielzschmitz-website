@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}">
-    <link rel="icon" href="{{ get_url(path='blog/favicon.ico') }}" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ get_url(path='blog/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ get_url(path='blog/favicon-16x16.png') }}">
-    <link rel="stylesheet" href="{{ get_url(path='blog/blog.css') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ get_url(path='assets/images/GZS.svg') }}">
+    <link rel="icon" type="image/x-icon" href="{{ get_url(path='assets/images/GZS.ico') }}">
+    <link rel="stylesheet" href="{{ get_url(path='css/blog.css') }}">
     {% if config.generate_feeds %}
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='blog/rss.xml', trailing_slash=false) }}">
     {% endif %}

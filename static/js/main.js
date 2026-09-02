@@ -122,7 +122,7 @@ function loadCubeCss() {
   cubeCssLoaded = true;
   const link = document.createElement('link');
   link.rel = 'stylesheet';
-  link.href = './assets/css/cube.css';
+  link.href = './css/cube.css';
   document.head.appendChild(link);
 }
 
