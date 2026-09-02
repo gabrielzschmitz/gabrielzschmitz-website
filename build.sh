@@ -3,14 +3,14 @@
 set -euo pipefail
 
 # ============================================================
-# TRACTATUS — build script
-#   Builds the Zola site and injects research references from
-#   static/assets/research/ref.bib using BibInject.
+# gabrielzschmitz.xyz build script
 #
-#   Usage:
-#     ./build.sh             Full production build (zola build + BibInject)
-#     ./build.sh --serve     Watch-mode build (like `zola serve`, re-runs
-#                            BibInject on every rebuild)
+# Builds the Zola site and injects research references from
+# static/assets/research/ref.bib using BibInject.
+#
+# Usage:
+#   ./build.sh            Build the site for production.
+#   ./build.sh --serve    Build, serve, and watch for changes.
 # ============================================================
 
 # ============================================================
@@ -20,13 +20,11 @@ set -euo pipefail
 RESET="\033[0m"
 BOLD="\033[1m"
 DIM="\033[2m"
-WHITE="\033[97m"
-GREEN="\033[38;5;78m"
-CYAN="\033[38;5;81m"
-YELLOW="\033[38;5;220m"
-RED="\033[38;5;196m"
-AMBER="\033[38;5;214m"
-PARCH="\033[38;5;223m"
+WHITE="\033[37m"
+GREEN="\033[32m"
+CYAN="\033[36m"
+YELLOW="\033[33m"
+RED="\033[31m"
 
 # ============================================================
 # Configuration
@@ -36,8 +34,9 @@ ZOLA_VERSION="v0.23.4"
 ZOLA_URL="https://github.com/getzola/zola/releases/download/${ZOLA_VERSION}/zola-${ZOLA_VERSION}-x86_64-unknown-linux-musl.tar.gz"
 ZOLA_BIN="${ZOLA_BIN:-zola}"
 
-BIB_REPO="https://github.com/gabrielzschmitz/BibInject.git"
-BIB_DIR="${BIB_DIR:-/tmp/BibInject}"
+BIB_VERSION="v2.1.0"
+BIB_URL="https://github.com/gabrielzschmitz/BibInject/archive/refs/tags/${BIB_VERSION}.tar.gz"
+BIB_DIR="${BIB_DIR:-/tmp/BibInject-${BIB_VERSION}}"
 BIB_SOURCE="./static/assets/research/ref.bib"
 BIB_REFPEC="apa"
 BIB_REFPEC_MINI="mini"
@@ -56,12 +55,11 @@ PORTFOLIO_HTML="./public/index.html"
 
 print_banner() {
   local mode="$1"
-  echo
-  echo -e "${BOLD}${PARCH}"
-  echo "╔════════════════════════════════════════╗"
-  echo "║               TRACTATUS                ║"
-  echo "║       Zola + BibInject builder         ║"
-  echo "╚════════════════════════════════════════╝"
+  echo -e "${BOLD}${RED}"
+  echo "========================================"
+  echo "           gabrielzschmitz.xyz"
+  echo "        Zola + BibInject builder"
+  echo "========================================"
   echo -e "${RESET}"
   if [[ "$mode" == "serve" ]]; then
     echo -e "${CYAN}${BOLD}Mode:${RESET} watch (auto rebuild + BibInject, served locally)"
@@ -75,10 +73,10 @@ print_banner() {
 # Helpers
 # ============================================================
 
-log_ok()  { echo -e "  ${GREEN}✔${RESET} $1"; }
-log_warn(){ echo -e "  ${YELLOW}⚠${RESET} $1"; }
-log_err() { echo -e "  ${RED}✘${RESET} $1"; }
-log_info(){ echo -e "  ${CYAN}›${RESET} $1"; }
+log_ok()   { echo -e "  ${GREEN}[OK]${RESET} $1"; }
+log_warn() { echo -e "  ${YELLOW}[WARN]${RESET} $1"; }
+log_err()  { echo -e "  ${RED}[ERROR]${RESET} $1"; }
+log_info() { echo -e "  ${CYAN}[INFO]${RESET} $1"; }
 
 ensure_zola() {
   if [[ "$ZOLA_BIN" == "zola" ]] && command -v zola >/dev/null 2>&1; then
@@ -101,19 +99,32 @@ ensure_zola() {
 
 ensure_bibinject() {
   if [[ -f "$BIB_DIR/bibinject.sh" ]] && [[ -d "$BIB_DIR/.venv" ]]; then
-    log_ok "BibInject ready at $BIB_DIR"
+    log_ok "BibInject ${BIB_VERSION} ready at $BIB_DIR"
   else
-    log_info "Preparing BibInject..."
+    log_info "Preparing BibInject ${BIB_VERSION}..."
+
     rm -rf "$BIB_DIR"
-    git clone --depth 1 "$BIB_REPO" "$BIB_DIR" >/dev/null 2>&1
+
+    local tmp_dir
+    tmp_dir="$(mktemp -d)"
+
+    curl -sL "$BIB_URL" | tar xz -C "$tmp_dir"
+
+    local extracted_dir
+    extracted_dir="$(find "$tmp_dir" -mindepth 1 -maxdepth 1 -type d | head -n 1)"
+
+    mv "$extracted_dir" "$BIB_DIR"
+    rm -rf "$tmp_dir"
+
     (
       cd "$BIB_DIR"
       ./setup.sh >/dev/null 2>&1
     )
-    log_ok "BibInject set up at $BIB_DIR"
+
+    log_ok "BibInject ${BIB_VERSION} set up at $BIB_DIR"
   fi
-  # Overlay this repo's custom compact refspec so `mini` is always available
-  # (even on a cached clone).
+
+  # Overlay this repo's custom compact refspec so `mini` is always available.
   if [[ -f "$REFPEC_MINI_SRC" ]]; then
     cp "$REFPEC_MINI_SRC" "$BIB_DIR/refspec/${BIB_REFPEC_MINI}.html"
   fi
@@ -125,6 +136,7 @@ run_bibinject() {
   local target="$2"
   local refspec="${3:-$BIB_REFPEC}"
   log_info "Injecting refs → ${target} (into ${html}) [${refspec}]..."
+  
   (
     cd "$BIB_DIR"
     ./.venv/bin/python -m src.app \
@@ -134,16 +146,17 @@ run_bibinject() {
       --target-id "$target" \
       --order desc \
       "$OLDPWD/$html" >/dev/null 2>&1
-    )
-    log_ok "Injected ${target}"
+  )
+
+  log_ok "Injected ${target}"
 }
 
 inject_all() {
-  echo -e "${BOLD}${CYAN}━━━ BibInject - research page ━━━━━━━━━━━━${RESET}"
+  echo -e "${BOLD}${CYAN}=== BibInject - research page ==========${RESET}"
   run_bibinject "$RESEARCH_HTML" "references" "$BIB_REFPEC"
 
   echo
-  echo -e "${BOLD}${CYAN}━━━ BibInject - portfolio sidebar ━━━━━━━━${RESET}"
+  echo -e "${BOLD}${CYAN}=== BibInject - portfolio sidebar ======${RESET}"
   run_bibinject "$PORTFOLIO_HTML" "references-sidebar" "$BIB_REFPEC_MINI"
 }
 
@@ -152,7 +165,7 @@ inject_all() {
 # ============================================================
 
 run_build() {
-  echo -e "${BOLD}${CYAN}━━━ Zola build ━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}"
+  echo -e "${BOLD}${CYAN}=== Zola build ==========================${RESET}"
   "$ZOLA_BIN" build
 
   echo
@@ -169,7 +182,7 @@ run_build() {
 # Fingerprint of all source files Zola depends on, so the watch loop can
 # detect changes without extra tooling (inotifywatchers etc.).
 sources_fingerprint() {
-    find ./content ./static ./templates ./sass -type f -printf '%p %T@ %s\n' \
+    find ./content ./static ./templates -type f -printf '%p %T@ %s\n' \
         2>/dev/null | sort | md5sum | awk '{print $1}'
 }
 
@@ -198,9 +211,9 @@ run_serve() {
         echo
         echo -e "${GREEN}${BOLD}Serving http://127.0.0.1:${port}/${RESET}"
     else
-        # No python3 — fall back to zola serve (BibInject output won't be
+        # No python3 - fall back to zola serve (BibInject output won't be
         # reflected in the browser, but the build pipeline still runs).
-        log_warn "python3 http.server not found — using zola serve (no BibInject in browser)."
+        log_warn "python3 http.server not found - using zola serve (no BibInject in browser)."
         "$ZOLA_BIN" serve --port "$port" &
         serve_pid=$!
         sleep 2
@@ -213,7 +226,7 @@ run_serve() {
     local last_fp="$(sources_fingerprint)"
 
     echo
-    echo -e "${BOLD}${GREEN}Watching for changes in content/, static/, templates/, sass/…${RESET} (Ctrl+C to stop)"
+    echo -e "${BOLD}${GREEN}Watching for changes in content/, static/, templates/…${RESET} (Ctrl+C to stop)"
     echo
 
     while true; do
@@ -222,10 +235,10 @@ run_serve() {
         if [[ "$fp" != "$last_fp" ]]; then
             last_fp="$fp"
             echo
-            echo -e "${AMBER}${BOLD}┃ Change detected — rebuilding + reinjecting${RESET}"
+            echo -e "${YELLOW}${BOLD}Change detected - rebuilding + reinjecting${RESET}"
             "$ZOLA_BIN" build
             inject_all
-            echo -e "${GREEN}✓ Rebuild complete.${RESET}"
+            echo -e "${GREEN}Rebuild complete.${RESET}"
             echo
         fi
 
@@ -241,15 +254,21 @@ run_serve() {
 # ============================================================
 
 MODE="build"
+
 for arg in "$@"; do
   case "$arg" in
-    --serve) MODE="serve" ;;
+    --serve)
+      MODE="serve"
+      ;;
     --help|-h)
       echo "Usage: $0 [--serve]"
       echo "  --serve   watch-mode build (auto rebuild + BibInject, served locally)"
       exit 0
       ;;
-    *) log_err "Unknown argument: $arg"; exit 1 ;;
+    *)
+      log_err "Unknown argument: $arg"
+      exit 1
+      ;;
   esac
 done
 
