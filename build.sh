@@ -39,14 +39,12 @@ ZOLA_BIN="${ZOLA_BIN:-zola}"
 BIB_REPO="https://github.com/gabrielzschmitz/BibInject.git"
 BIB_DIR="${BIB_DIR:-/tmp/BibInject}"
 BIB_SOURCE="./static/assets/research/ref.bib"
-BIB_REFPEC="research"
+BIB_REFPEC="apa"
 BIB_REFPEC_MINI="mini"
 
-# Custom refspecs shipped with this repo and copied into BibInject's refspec/
-# dir on every run (even a cached clone):
-#   research — DOI, Title, Where, Pages for the research page
-#   mini     — compact date • DOI / title for the portfolio sidebar
-REFPEC_RESEARCH_SRC="./static/refspec/research.html"
+# Custom compact refspec shipped with this repo and copied into BibInject's
+# refspec/ dir on every run (even a cached clone), for the portfolio sidebar.
+# The research page uses BibInject's built-in `apa` refspec.
 REFPEC_MINI_SRC="./static/refspec/mini.html"
 
 RESEARCH_HTML="./public/research/index.html"
@@ -114,11 +112,8 @@ ensure_bibinject() {
     )
     log_ok "BibInject set up at $BIB_DIR"
   fi
-  # Overlay this repo's custom refspecs so `research` and `mini` are always
-  # available (even on a cached clone).
-  if [[ -f "$REFPEC_RESEARCH_SRC" ]]; then
-    cp "$REFPEC_RESEARCH_SRC" "$BIB_DIR/refspec/${BIB_REFPEC}.html"
-  fi
+  # Overlay this repo's custom compact refspec so `mini` is always available
+  # (even on a cached clone).
   if [[ -f "$REFPEC_MINI_SRC" ]]; then
     cp "$REFPEC_MINI_SRC" "$BIB_DIR/refspec/${BIB_REFPEC_MINI}.html"
   fi
