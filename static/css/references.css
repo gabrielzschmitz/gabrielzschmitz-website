@@ -144,29 +144,29 @@
 }
 
 /* BIBTEX copy button — emitted by BibInject v2.2.0 alongside the DOI link
- * (`.bibtex-btn` + hidden `.bibtex-entry` span holding the raw entry). */
+ * (`.bibtex-btn` + hidden `.bibtex-entry` span holding the raw entry). Styled
+ * to match the adjacent `.doi-link`. */
 .reference-list .bibtex-btn {
-  display: inline-flex;
-  align-items: center;
+  display: inline;
   margin-left: 8px;
-  padding: 0 8px;
-  vertical-align: middle;
+  padding: 0;
+  vertical-align: baseline;
   font-family: var(--font-serif);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 1px;
   color: var(--burgundy);
   background: transparent;
-  border: 1px solid var(--burgundy);
-  border-radius: 3px;
+  border: none;
   cursor: pointer;
-  transition: color 0.15s ease, background-color 0.15s ease;
+  text-decoration: none;
+  transition: color 0.15s ease;
 }
 
 .reference-list .bibtex-btn:hover,
 .reference-list .bibtex-btn:focus {
-  color: var(--light-text, #fff);
-  background: var(--burgundy);
+  text-decoration: underline;
+  color: var(--burgundy-hover);
   outline: none;
 }
 
