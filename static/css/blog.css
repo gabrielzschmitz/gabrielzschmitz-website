@@ -343,4 +343,9 @@ body {
   .nav-links a {
     margin: 0 0.75rem;
   }
+
+  .site-title {
+    text-align: center;
+    width: 100%;
+  }
 }
