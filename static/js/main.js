@@ -13,17 +13,75 @@ function swordCursor() {
   return `url("${png}") 2 2, pointer`;
 }
 
-function applySwordCursor() {
-  const pen = swordCursor();
+function applySwordCursorWith(pen) {
   const selectors = [
     'a', 'a:link', 'a:visited', 'a:hover', 'a:active', 'a:focus',
     'button', '[data-resume]', '[data-en]', '#theme-toggle', '#language-toggle'
   ].join(',');
-  const matches = document.querySelectorAll(selectors);
-  matches.forEach(el => {
+  document.querySelectorAll(selectors).forEach(el => {
     el.style.cursor = pen;
   });
   document.body.style.cursor = pen;
+}
+
+function applySwordCursor(deg = 0) {
+  if (deg === 0) {
+    applySwordCursorWith(swordCursor());
+  } else {
+    rotatedCursor(deg).then(pen => applySwordCursorWith(pen));
+  }
+}
+
+/* click "press" rotation in degrees (applied while the mouse is down) */
+const CURSOR_CLICK_DEG = -18;
+const cursorRotationCache = new Map();
+
+let cursorImagePromise = null;
+function cursorImage() {
+  if (!cursorImagePromise) {
+    cursorImagePromise = new Promise(resolve => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = () => resolve(null);
+      img.src = swordCursor().match(/url\("([^"]+)"\)/)[1];
+    });
+  }
+  return cursorImagePromise;
+}
+
+function cursorShorthand(url) {
+  return `url("${url}") 2 2, pointer`;
+}
+
+/* Rotate the base sword image around its centre by `deg` and resolve to a
+   data URL suitable for the `cursor` shorthand. Cached per degree. */
+function rotatedCursor(deg) {
+  if (cursorRotationCache.has(deg)) {
+    return Promise.resolve(cursorShorthand(cursorRotationCache.get(deg)));
+  }
+  return cursorImage().then(img => {
+    if (!img) return swordCursor();
+    const size = img.naturalWidth || 28;
+    const out = Math.ceil(size * Math.SQRT2) + 2;
+    const canvas = document.createElement('canvas');
+    canvas.width = canvas.height = out;
+    const ctx = canvas.getContext('2d');
+    ctx.translate(out / 2, out / 2);
+    ctx.rotate((deg * Math.PI) / 180);
+    ctx.drawImage(img, -size / 2, -size / 2);
+    const url = canvas.toDataURL('image/png');
+    cursorRotationCache.set(deg, url);
+    return cursorShorthand(url);
+  });
+}
+
+function initCursorClickRotation() {
+  document.addEventListener('mousedown', () => {
+    applySwordCursor(CURSOR_CLICK_DEG);
+  });
+  document.addEventListener('mouseup', () => {
+    applySwordCursor(0);
+  });
 }
 
 function applyTheme(isDark) {
@@ -149,6 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
     || localStorage.getItem('theme')
     || 'light';
   applyTheme(saved === 'dark');
+  initCursorClickRotation();
 
   if (modeSeal) {
     modeSeal.addEventListener('click', () => {
