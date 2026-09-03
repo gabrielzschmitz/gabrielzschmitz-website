@@ -333,7 +333,7 @@ body {
 /* MOBILE */
 @media (max-width: 805px) {
   .nav-links {
-    border-top: 1px dashed var(--light-border);
+    border-top: 1px solid var(--border-color);
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
