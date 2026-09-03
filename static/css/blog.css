@@ -212,6 +212,18 @@ body {
   padding: 1px 0px;
 }
 
+/* Global per-post view counter (KV-backed), beside the language label. */
+.post-views {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--light-border);
+  padding: 1px 0px;
+}
+
 .post-link {
   font-family: var(--font-headers);
   font-size: 1.35rem;

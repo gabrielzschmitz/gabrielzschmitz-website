@@ -1,0 +1,12 @@
+{
+  "name": "gabrielzschmitz-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "./build.sh"
+  },
+  "dependencies": {
+    "@upstash/redis": "^1.38.0"
+  }
+}

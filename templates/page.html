@@ -43,6 +43,10 @@
         <span class="bullet">•</span>
         <span class="post-lang">{{ page.extra.language }}</span>
         {% endif %}
+        {% if page.extra.language %}
+        <span class="bullet">•</span>
+        <span class="post-views" data-view-slug="{{ page.slug }}"></span>
+        {% endif %}
       </div>
       {% endif %}
     </header>
