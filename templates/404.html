@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-mode">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="404 &mdash; this page could not be found on gabrielzschmitz's website.">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/images/GZS.svg" />
+  <link rel="icon" type="image/x-icon" href="/assets/images/GZS.ico" />
+  <title>404 &mdash; Not Found &nbsp;|&nbsp; Gabriel dos Santos Schmitz</title>
+
+  <!-- VERCEL ANALYTICS -->
+  <script>
+    window.va = window.va || function () {(window.vaq = window.vaq || []).push(arguments);};
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <!-- FONTS -->
+  <link rel="stylesheet" href="/fonts/fonts.css">
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/portfolio.css">
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-serif);
+    }
+
+    .construction {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      min-height: 100vh;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .construction-gif {
+      line-height: 0;
+      background-color: var(--paper-texture-subtle);
+      border: 3px double var(--border-color);
+      padding: 8px;
+    }
+
+    .construction-gif img {
+      width: min(260px, 55vh);
+      height: min(260px, 55vh);
+    }
+
+    .construction-blinker {
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: 4px;
+      color: var(--burgundy);
+      margin: 0;
+    }
+
+    .construction-blinker span {
+      display: inline-block;
+      font-weight: 1000;
+      font-size: 2.05rem;
+      animation: uc-blink 1s steps(1) infinite;
+    }
+
+    @keyframes uc-blink {
+
+      0%,
+      49% {
+        opacity: 1;
+      }
+
+      50%,
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .construction-back {
+      font-family: var(--font-accent);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      color: var(--burgundy);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .construction-back:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body class="dark-mode">
+
+  <main class="construction">
+    <div class="construction-gif">
+      <img src="/assets/images/construction-guy-jackhammer.gif" alt="Construction worker using a jackhammer">
+    </div>
+
+    <p class="construction-blinker"><span>&#9888;</span> ERROR 404 &mdash; NOT FOUND <span>&#9888;</span></p>
+
+    <a class="construction-back" href="/">&#9664; RETURN TO WEBSITE</a>
+  </main>
+
+  <!-- VERCEL SPEED INSIGHTS -->
+  <script>
+    window.si = window.si || function () {(window.siq = window.siq || []).push(arguments);};
+  </script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+
+</html>
