@@ -39,7 +39,7 @@
   gap: 0 8px;
 }
 
-.references-sidebar p:last-child {
+.references-sidebar p:last-of-type {
   border-bottom: none;
   margin-bottom: 0;
   padding-bottom: 0;
