@@ -143,20 +143,16 @@
   color: var(--burgundy-hover);
 }
 
-/* BIBTEX copy button — emitted by BibInject v2.2.0 alongside the DOI link
- * (`.bibtex-btn` + hidden `.bibtex-entry` span holding the raw entry). Styled
- * to match the adjacent `.doi-link`. */
 .reference-list .bibtex-btn {
   display: inline;
-  margin-left: 8px;
-  padding: 0;
-  vertical-align: baseline;
   font-family: var(--font-serif);
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 1px;
   color: var(--burgundy);
   background: transparent;
+  padding: 0;
+  margin: 0;
   border: none;
   cursor: pointer;
   text-decoration: none;
@@ -167,6 +163,10 @@
 .reference-list .bibtex-btn:focus {
   text-decoration: underline;
   color: var(--burgundy-hover);
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
   outline: none;
 }
 
