@@ -318,32 +318,10 @@ body {
   color: var(--burgundy);
 }
 
-/* MOBILE — stack the top nav like the main site: center and wrap links */
+/* MOBILE */
 @media (max-width: 768px) {
-  .site-header {
-    margin-bottom: 8px;
-  }
-
-  .site-nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .site-title {
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-    line-height: 1.4;
-  }
-
   .nav-links {
     flex-wrap: wrap;
     justify-content: center;
-  }
-
-  .nav-links a {
-    margin: 0 0.6rem;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
   }
 }
