@@ -3,3 +3,5 @@ public/
 # Node.js
 node_modules/
 package-lock.json
+.vercel
+.env*
