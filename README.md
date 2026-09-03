@@ -7,21 +7,22 @@
 <a href="https://github.com/gabrielzschmitz/gabrielzschmitz-website"><img src="https://img.shields.io/github/stars/gabrielzschmitz/gabrielzschmitz-website?style=social" alt="Give me a Star"></a>
 
 This repository contains the full source code for my personal website. It is
-built as a **single [Zola](https://www.getzola.org/) site** that serves both
-the handcrafted **portfolio main page** at `/` and the **blog** at `/blog`,
-where all long-form writing and technical posts live.
+built as a single [Zola](https://www.getzola.org/) site with
+[BibInject](https://github.com/gabrielzschmitz/BibInject) for bibliography
+injection, serving both the handcrafted _portfolio main page_ at `/` and the
+_blog_ at `/blog`, where all long-form writing posts live.
 
 ## Overview
 
 
-#### Main Page (`/`)
+### Main Page (`/`)
 
 <p align="center">
     <img align="center" width="640px" src="./static/assets/images/website-demo.png" alt="Website Demonstration">
 </p>
 
 
-#### Blog (`/blog`)
+### Blog (`/blog`)
 
 <p align="center">
     <img align="center" width="640px" src="./static/assets/images/blog-demo.png" alt="Blog Demonstration">
@@ -35,47 +36,70 @@ references are injected at build time by
 
 ### Requirements
 
-- **Zola** — auto-downloaded on first build (or provide `zola` on `PATH`).
-- **Python 3** with `venv` support — used by BibInject to create its virtual
-  environment. On Debian/Ubuntu you may need
-  `sudo apt install python3-venv`.
+- **Zola**: used to build the documentation site.
+- **Python 3 with `venv`**: used by
+  [BibInject](https://github.com/gabrielzschmitz/BibInject) to manage its
+  virtual environment.
 
-### Building for production
+<details>
+<summary>Install dependencies</summary>
+
+#### Arch Linux
+
+```bash
+sudo pacman -S python zola
+```
+
+#### Ubuntu / Debian
+
+```bash
+sudo apt update
+sudo apt install python3 python3-venv zola
+```
+
+> On older Ubuntu/Debian releases, `zola` may not be available in the default
+> repositories. In that case, install Zola separately from its official
+> releases.
+
+#### Alpine Linux
+
+```bash
+sudo apk add python3 py3-virtualenv zola
+```
+
+#### macOS
+
+Using [Homebrew](https://brew.sh/):
+
+```bash
+brew install python zola
+```
+
+</details>
+
+### Production
 
 ```sh
 ./build.sh
 ```
 
-This runs `zola build` and then calls BibInject to fill the two reference
-targets:
+Builds the site with Zola and injects the research references. Output:
+`./public`.
 
-- the **research index** (`/research`) — built-in `apa` refspec;
-- the portfolio sidebar **Index of Research** panel (`/`) — custom
-  `mini` refspec (overlaid from `static/refspec/mini.html`).
-
-The generated site is written to `./public`.
-
-### Development (watch mode)
+### Development
 
 ```sh
 ./build.sh --serve
 ```
 
-Rebuilds and re-injects on every change and serves the result locally
-(default port `1111`).
+Watches for changes, rebuilds automatically, and serves locally on port `1111`.
 
 ### BibInject
 
-BibInject is fetched from its GitHub release tarball (pinned version in
-`build.sh`) into a cache dir (default `/tmp/BibInject-<version>`). Each run
-copies the repo's `static/refspec/mini.html` over the cached `mini` refspec so
-the sidebar layout stays in sync. If your environment cannot create the venv
-(e.g. `python3-venv` missing), point `BIB_DIR` at a ready clone, for
-example:
-
-```sh
-BIB_DIR=/tmp/BibInject ./build.sh
-```
+[BibInject](https://github.com/gabrielzschmitz/BibInject) is downloaded from
+its pinned GitHub release into a cache directory . Each build updates its
+`mini` refspec with the repo's `static/refspec/mini.html` to keep the sidebar
+layout in sync.
 
 ## License
 
