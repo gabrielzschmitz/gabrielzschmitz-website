@@ -35,7 +35,9 @@
       .then(function (data) {
         var views = data && data.views;
         if (typeof views !== "number") return;
-        el.textContent = views.toLocaleString() + " reads";
+        var pt = (localStorage.getItem("newspaper-lang") || "en") === "pt";
+        el.textContent =
+          views.toLocaleString() + (pt ? " LEITORES" : " READS");
       })
       .catch(function () {
         /* silently hide on failure */
