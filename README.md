@@ -9,8 +9,9 @@
 This repository contains the full source code for my personal website. It is
 built as a single [Zola](https://www.getzola.org/) site with
 [BibInject](https://github.com/gabrielzschmitz/BibInject) for bibliography
-injection, serving both the handcrafted _portfolio main page_ at `/` and the
-_blog_ at `/blog`, where all long-form writing posts live.
+injection, serving both the handcrafted _portfolio main page_ at `/`, the
+_blog_ at `/blog`, where all long-form writing posts live, and the _research
+page_ at `/research`, where publications are rendered using BibInject.
 
 ## Overview
 
@@ -18,14 +19,20 @@ _blog_ at `/blog`, where all long-form writing posts live.
 ### Main Page (`/`)
 
 <p align="center">
-    <img align="center" width="640px" src="./static/assets/images/website-demo.png" alt="Website Demonstration">
+  <img align="center" width="640px" src="./static/assets/images/website-demo.png" alt="Website Demonstration">
 </p>
 
 
 ### Blog (`/blog`)
 
 <p align="center">
-    <img align="center" width="640px" src="./static/assets/images/blog-demo.png" alt="Blog Demonstration">
+  <img align="center" width="640px" src="./static/assets/images/blog-demo.png" alt="Blog Demonstration">
+</p>
+
+### Research Page (`/research`)
+
+<p align="center">
+  <img align="center" width="640px" src="./static/assets/images/research-demo.png" alt="Research Page Demonstration">
 </p>
 
 ## Build
