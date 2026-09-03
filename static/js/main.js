@@ -33,7 +33,7 @@ function applySwordCursor(deg = 0) {
 }
 
 /* click "press" rotation in degrees (applied while the mouse is down) */
-const CURSOR_CLICK_DEG = -18;
+const CURSOR_CLICK_DEG = -5;
 const cursorRotationCache = new Map();
 
 let cursorImagePromise = null;
