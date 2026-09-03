@@ -34,7 +34,7 @@ ZOLA_VERSION="v0.23.4"
 ZOLA_URL="https://github.com/getzola/zola/releases/download/${ZOLA_VERSION}/zola-${ZOLA_VERSION}-x86_64-unknown-linux-musl.tar.gz"
 ZOLA_BIN="${ZOLA_BIN:-zola}"
 
-BIB_VERSION="v2.2.0"
+BIB_VERSION="v2.2.2"
 BIB_URL="https://github.com/gabrielzschmitz/BibInject/archive/refs/tags/${BIB_VERSION}.tar.gz"
 BIB_DIR="${BIB_DIR:-/tmp/BibInject-${BIB_VERSION}}"
 BIB_SOURCE="./static/assets/research/ref.bib"
