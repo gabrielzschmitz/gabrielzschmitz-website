@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}">
-    <link rel="icon" type="image/svg+xml" href="{{ get_url(path='assets/images/GZS.svg') }}">
-    <link rel="icon" type="image/x-icon" href="{{ get_url(path='assets/images/GZS.ico') }}">
-    <link rel="stylesheet" href="{{ get_url(path='css/tokens.css') }}">
-    <link rel="stylesheet" href="{{ get_url(path='css/base.css') }}">
-    <link rel="stylesheet" href="{{ get_url(path='css/layout.css') }}">
-    <link rel="stylesheet" href="{{ get_url(path='css/controls.css') }}">
-    <link rel="stylesheet" href="{{ get_url(path='css/emblem.css') }}">
-    <link rel="stylesheet" href="{{ get_url(path='css/cards.css') }}">
-    <link rel="stylesheet" href="{{ get_url(path='css/prose.css') }}">
-    <link rel="stylesheet" href="{{ get_url(path='css/archive-banner.css') }}">
-    <link rel="stylesheet" href="{{ get_url(path='css/seal-box.css') }}">
-    <link rel="stylesheet" href="{{ get_url(path='css/references.css') }}">
-    <link rel="stylesheet" href="{{ get_url(path='css/blog.css') }}">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/GZS.svg">
+    <link rel="icon" type="image/x-icon" href="/assets/images/GZS.ico">
+    <link rel="stylesheet" href="/css/tokens.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/controls.css">
+    <link rel="stylesheet" href="/css/emblem.css">
+    <link rel="stylesheet" href="/css/cards.css">
+    <link rel="stylesheet" href="/css/prose.css">
+    <link rel="stylesheet" href="/css/archive-banner.css">
+    <link rel="stylesheet" href="/css/seal-box.css">
+    <link rel="stylesheet" href="/css/references.css">
+    <link rel="stylesheet" href="/css/blog.css">
     {% if config.generate_feeds %}
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='blog/rss.xml', trailing_slash=false) }}">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/rss.xml">
     {% endif %}
 
     <!-- FONTS (loaded async so they never block initial render; glyphs preloaded where needed) -->
-    <link rel="preload" href="{{ get_url(path='fonts/fonts.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="{{ get_url(path='fonts/fonts.css') }}"></noscript>
+    <link rel="preload" href="/fonts/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/fonts/fonts.css"></noscript>
 
     <!-- VERCEL ANALYTICS -->
     <script>
@@ -73,17 +73,17 @@
     <div class="site-frame">
       <header class="site-header">
         <nav class="site-nav">
-          <a class="site-title" href="{{ get_url(path='/blog/') }}">Archivum <span class="seal-key">🗝︎</span></a>
+          <a class="site-title" href="/blog/">Archivum <span class="seal-key">🗝︎</span></a>
           <span class="nav-links">
             <a href="/" data-en="Home" data-pt="Início">Home</a>
             <span class="nav-sep">♦</span>
-            <a href="{{ get_url(path='/blog/') }}" data-en="Blog" data-pt="Blog">Blog</a>
+            <a href="/blog/" data-en="Blog" data-pt="Blog">Blog</a>
             <span class="nav-sep">♦</span>
-            <a href="{{ get_url(path='/research/') }}" data-en="Research" data-pt="Pesquisa">Research</a>
+            <a href="/research/" data-en="Research" data-pt="Pesquisa">Research</a>
             <span class="nav-sep">♦</span>
-            <a href="{{ get_url(path='/blog/about/') }}" data-en="About" data-pt="Sobre">About</a>
+            <a href="/blog/about/" data-en="About" data-pt="Sobre">About</a>
             <span class="nav-sep">♦</span>
-            <a href="{{ get_url(path='/tags/') }}" data-en="Tags" data-pt="Categorias">Tags</a>
+            <a href="/tags/" data-en="Tags" data-pt="Categorias">Tags</a>
           </span>
         </nav>
       </header>
@@ -94,8 +94,7 @@
 
       <footer class="site-footer">
         <p>
-        © <span id="roman-year"></span> — <a href="{{
-          get_url(path='blog/rss.xml', trailing_slash=false) }}">Scriptorium de
+        © <span id="roman-year"></span> — <a href="/blog/rss.xml">Scriptorium de
           Gabriel.</a>
         </p>
       </footer>
