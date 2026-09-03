@@ -319,9 +319,11 @@ body {
 }
 
 /* MOBILE */
-@media (max-width: 768px) {
+@media (max-width: 805px) {
   .nav-links {
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
+    gap: 0.1rem 0.75rem;
   }
 }
