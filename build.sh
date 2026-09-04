@@ -166,6 +166,8 @@ inject_all() {
 
 run_build() {
   echo -e "${BOLD}${CYAN}=== Zola build =========================${RESET}"
+  ensure_zola
+  ensure_bibinject
   "$ZOLA_BIN" build
 
   echo
@@ -273,8 +275,6 @@ for arg in "$@"; do
 done
 
 print_banner "$MODE"
-ensure_zola
-ensure_bibinject
 
 if [[ "$MODE" == "serve" ]]; then
   run_serve
