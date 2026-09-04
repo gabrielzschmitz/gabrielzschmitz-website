@@ -215,12 +215,98 @@ p.drop-cap::first-letter {
   font-size: 0.68rem;
 }
 
+/* BIBLE QUOTE: numbered verses with a reference line. Use:
+ * <blockquote class="bible-quote" style="--start: 1">
+ *   <span class="bible-verse">…verse text…</span>
+ *   <span class="bible-ref">
+ *     <span class="bible-passage">Gênesis 1:1–2</span>, …, na tradução de Pe.
+ *     Antônio Pereira de Figueiredo <a href="#referencias">[4]</a>.
+ *   </span>
+ * </blockquote> */
+.bible-quote {
+  counter-reset: verse calc(var(--start, 1) - 1);
+}
+
+/* Centered quote, sized to the widest line (like the poem panel). */
+.article-body blockquote.bible-quote {
+  width: fit-content;
+  max-width: 100%;
+  margin: 12px auto;
+  padding: 8px 16px;
+  text-align: left;
+}
+
+/* Three nails above the quote, centered, burgundy (middle one bigger).
+ * Rendered in markup as the first child of the quote:
+ * <span class="bible-nails">🕇 <span>♱</span> 🕇</span> */
+.bible-quote .bible-nails {
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  font-family: var(--font-serif);
+  line-height: 1;
+  color: var(--burgundy);
+}
+
+.bible-quote .bible-nails span {
+  font-size: 1.7em;
+  display: inline-block;
+}
+
+.bible-quote .bible-verse {
+  position: relative;
+  display: block;
+  counter-increment: verse;
+  padding-left: 25px;
+  min-height: 1.7em;
+}
+
+.bible-quote .bible-verse::before {
+  content: counter(verse);
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 15px;
+  text-align: right;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 0.68rem;
+  letter-spacing: 1px;
+  font-style: normal;
+  color: var(--text-subtle);
+  opacity: 0.7;
+}
+
+.bible-quote .bible-ref {
+  display: block;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--light-border);
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  letter-spacing: 0.5px;
+  color: var(--text-subtle);
+}
+
+.bible-quote .bible-ref .bible-passage {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--burgundy);
+}
+
 @media (max-width: 520px) {
-  .poem-line {
+
+  .poem-line,
+  .bible-quote .bible-verse {
     padding-left: 34px;
   }
 
-  .poem-line::before {
+  .poem-line::before,
+  .bible-quote .bible-verse::before {
     width: 24px;
   }
 }
