@@ -109,15 +109,69 @@
         return `url("${png}") 2 2, pointer`;
       }
 
-      function applySwordCursor() {
-        const pen = swordCursor();
-        ['a', 'button', '#theme-toggle', '#back-to-top'].forEach(sel => {
-          document.querySelectorAll(sel).forEach(el => {
+      function applySwordCursorWithPen(pen) {
+        ['a', 'button', '#theme-toggle', '#back-to-top'].forEach(function (sel) {
+          document.querySelectorAll(sel).forEach(function (el) {
             el.style.cursor = pen;
           });
         });
         document.body.style.cursor = pen;
       }
+
+      var cursorClickDeg = -5;
+      var cursorRotationCache = {};
+      var cursorImgPromise = null;
+
+      function cursorImage() {
+        if (!cursorImgPromise) {
+          cursorImgPromise = new Promise(function (resolve) {
+            var img = new Image();
+            img.onload = function () { resolve(img); };
+            img.onerror = function () { resolve(null); };
+            img.src = swordCursor().match(/url\("([^"]+)"\)/)[1];
+          });
+        }
+        return cursorImgPromise;
+      }
+
+      function cursorShorthand(url) {
+        return 'url("' + url + '") 2 2, pointer';
+      }
+
+      function rotatedCursor(deg) {
+        if (cursorRotationCache[deg]) {
+          return Promise.resolve(cursorShorthand(cursorRotationCache[deg]));
+        }
+        return cursorImage().then(function (img) {
+          if (!img) return swordCursor();
+          var size = img.naturalWidth || 28;
+          var out = Math.ceil(size * Math.SQRT2) + 2;
+          var canvas = document.createElement('canvas');
+          canvas.width = canvas.height = out;
+          var ctx = canvas.getContext('2d');
+          ctx.translate(out / 2, out / 2);
+          ctx.rotate((deg * Math.PI) / 180);
+          ctx.drawImage(img, -size / 2, -size / 2);
+          var url = canvas.toDataURL('image/png');
+          cursorRotationCache[deg] = url;
+          return cursorShorthand(url);
+        });
+      }
+
+      function applySwordCursor(deg) {
+        if (!deg) {
+          applySwordCursorWithPen(swordCursor());
+        } else {
+          rotatedCursor(deg).then(applySwordCursorWithPen);
+        }
+      }
+
+      document.addEventListener('mousedown', function () {
+        applySwordCursor(cursorClickDeg);
+      });
+      document.addEventListener('mouseup', function () {
+        applySwordCursor(0);
+      });
     </script>
     <script>
       (function () {
