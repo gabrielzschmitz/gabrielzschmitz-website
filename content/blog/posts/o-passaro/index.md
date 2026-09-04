@@ -30,7 +30,7 @@ com todo o material-fonte do estudo, está disponível em
 
 <div class="float-figure">
 <img src="Augusto-Frederico-Schmidt.jpg" alt="Retrato de Augusto Frederico
-Schmidt" width="450" height="570">
+Schmidt" width="450">
 <em>Augusto Frederico Schmidt (1906–1965).</em>
 </div>
 
@@ -110,7 +110,7 @@ que será o principal eixo da análise a seguir.
 </div>
 
 <img src="poesia-completa-p501.png" alt="Outra publicação do poema em Poesia
-Completa" width="450" height="689">
+Completa" width="450">
 _Outra publicação do poema, em _Poesia Completa_ [[3, p.~501]](#referencias)._
 
 ---
@@ -128,7 +128,7 @@ consultada está disponível gratuitamente em sua edição digital
 como referência nesta análise:
 
 <img src="Biblia-Familiar.png" alt="Exemplar físico da Bíblia utilizada como
-referência" width="450" height="602">
+referência" width="450">
 _Exemplar físico utilizado como referência._
 
 O poema constrói uma sequência de imagens que permite essa aproximação: a
