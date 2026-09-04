@@ -54,7 +54,7 @@
     {% set hero = page.extra.hero %}
     <div class="article-body">
     {% if hero %}
-      {% set hero_url = page.permalink ~ hero %}
+      {% set hero_url = hero %}
       <p>
         <img
           src="{{ hero_url | safe }}"
