@@ -224,7 +224,7 @@ Enter quantum computing.
 
 <p style="display: grid; place-items: center">
   <img
-  src="computador-quantico.png"
+  src="/blog/posts/cryptography-and-the-quantum-problem/computador-quantico.png"
   alt="Quantum Computer" height="500">
   <em>
   <a href="https://research.ibm.com/interactive/system-one/" target="_blank">

@@ -29,7 +29,7 @@ com todo o material-fonte do estudo, está disponível em
 ## Sobre o Autor
 
 <div class="float-figure">
-<img src="Augusto-Frederico-Schmidt.jpg" alt="Retrato de Augusto Frederico
+<img src="/blog/posts/o-passaro/Augusto-Frederico-Schmidt.jpg" alt="Retrato de Augusto Frederico
 Schmidt" width="450">
 <em>Augusto Frederico Schmidt (1906–1965).</em>
 </div>
@@ -109,7 +109,7 @@ que será o principal eixo da análise a seguir.
   </div>
 </div>
 
-<img src="poesia-completa-p501.png" alt="Outra publicação do poema em Poesia
+<img src="/blog/posts/o-passaro/poesia-completa-p501.png" alt="Outra publicação do poema em Poesia
 Completa" width="450">
 _Outra publicação do poema, em _Poesia Completa_ [[3, p.~501]](#referencias)._
 
@@ -127,7 +127,7 @@ consultada está disponível gratuitamente em sua edição digital
 [[5]](#referencias). A seguinte imagem apresenta o exemplar físico utilizado
 como referência nesta análise:
 
-<img src="Biblia-Familiar.png" alt="Exemplar físico da Bíblia utilizada como
+<img src="/blog/posts/o-passaro/Biblia-Familiar.png" alt="Exemplar físico da Bíblia utilizada como
 referência" width="450">
 _Exemplar físico utilizado como referência._
 

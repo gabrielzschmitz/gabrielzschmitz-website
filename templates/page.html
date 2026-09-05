@@ -57,7 +57,7 @@
       {% set hero_url = hero %}
       <p>
         <img
-          src="{{ hero_url | safe }}"
+          src="{{ page.path | safe }}{{ hero_url | safe }}"
           alt="{{ page.title }}"
           width="{{ page.extra.hero_width | default(value='832') }}"
           height="{{ page.extra.hero_height | default(value='448') }}"

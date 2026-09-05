@@ -28,7 +28,7 @@ LaTeX, com todo o material-fonte do estudo, está disponível em
 ## Sobre o Autor
 
 <div class="float-figure">
-<img src="Augusto-Frederico-Schmidt.jpg" alt="Retrato de Augusto Frederico
+<img src="/blog/posts/era-um-grande-passaro/Augusto-Frederico-Schmidt.jpg" alt="Retrato de Augusto Frederico
 Schmidt" width="450">
 <em>Augusto Frederico Schmidt (1906–1965).</em>
 </div>
@@ -136,7 +136,7 @@ ao centro das discussões sobre a poesia brasileira do século XX.
   </div>
 </div>
 
-<img src="estrela-solitaria-p39.png" alt="Primeira publicação do poema em
+<img src="/blog/posts/era-um-grande-passaro/estrela-solitaria-p39.png" alt="Primeira publicação do poema em
 Estrela Solitária" width="450">
 _Primeira publicação do poema, em _Estrela Solitária_ [[3, p.~39]](#referencias)._
 
