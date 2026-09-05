@@ -50,7 +50,7 @@
           {% set p = featured_pt %}
         {% endif %}
         {% if p %}
-          <article class="post-card post-card-featured" data-language="{{ key }}" data-url="{{ p.permalink | safe }}">
+          <article class="post-card post-card-featured" data-language="{{ key }}" data-url="{{ p.path | safe }}">
             <div class="post-card-badge">ULTIMUS FOLIO</div>
             <div class="post-card-inner">
               <div class="post-card-meta">
@@ -64,14 +64,14 @@
                   <span class="post-lang">{{ p.extra.language }}</span>
                 {% endif %}
               </div>
-              <h3 class="post-card-title"><a href="{{ p.permalink | safe }}">{{ p.title }}</a></h3>
+              <h3 class="post-card-title"><a href="{{ p.path | safe }}">{{ p.title }}</a></h3>
               {% if p.description %}
                 <p class="post-card-text drop-cap">{{ p.description }}</p>
               {% endif %}
               {% if p.extra.language == "Português" %}
-              <a href="{{ p.permalink | safe }}" class="post-card-link">ABRIR MANUSCRITO ┼</a>
+              <a href="{{ p.path | safe }}" class="post-card-link">ABRIR MANUSCRITO ┼</a>
               {% else %}
-              <a href="{{ p.permalink | safe }}" class="post-card-link">OPEN MANUSCRIPT ┼</a>
+              <a href="{{ p.path | safe }}" class="post-card-link">OPEN MANUSCRIPT ┼</a>
               {% endif %}
             </div>
           </article>
@@ -95,7 +95,7 @@
   <!-- WRITINGS GRID -->
   <main class="writings-grid">
     {% for page in posts.pages %}
-      <article class="post-card" data-language="{{ page.extra.language | default(value='') }}" data-url="{{ page.permalink | safe }}">
+      <article class="post-card" data-language="{{ page.extra.language | default(value='') }}" data-url="{{ page.path | safe }}">
         <div class="post-card-inner">
           <div class="post-card-meta">
             <span class="post-date">{{ page.date | date(format="%d.%m.%Y") }}</span>
@@ -108,14 +108,14 @@
               <span class="post-lang">{{ page.extra.language }}</span>
             {% endif %}
           </div>
-          <h3 class="post-card-title"><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h3>
+          <h3 class="post-card-title"><a href="{{ page.path | safe }}">{{ page.title }}</a></h3>
           {% if page.description %}
             <p class="post-card-text">{{ page.description }}</p>
           {% endif %}
           {% if page.extra.language == "Português" %}
-          <a href="{{ page.permalink | safe }}" class="post-card-link">LER ┼</a>
+          <a href="{{ page.path | safe }}" class="post-card-link">LER ┼</a>
           {% else %}
-          <a href="{{ page.permalink | safe }}" class="post-card-link">READ ┼</a>
+          <a href="{{ page.path | safe }}" class="post-card-link">READ ┼</a>
           {% endif %}
         </div>
       </article>

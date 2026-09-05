@@ -81,8 +81,8 @@
 
     {% if page.earlier or page.later %}
     <nav class="article-nav">
-      {% if page.earlier %}<a class="nav-prev" href="{{ page.earlier.permalink | safe }}">← {{ page.earlier.title }}</a>{% endif %}
-      {% if page.later %}<a class="nav-next" href="{{ page.later.permalink | safe }}">{{ page.later.title }} →</a>{% endif %}
+      {% if page.earlier %}<a class="nav-prev" href="{{ page.earlier.path | safe }}">← {{ page.earlier.title }}</a>{% endif %}
+      {% if page.later %}<a class="nav-next" href="{{ page.later.path | safe }}">{{ page.later.title }} →</a>{% endif %}
     </nav>
     {% endif %}
   </article>
