@@ -199,7 +199,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (Number.isInteger(savedIdx) && savedIdx >= 0 && savedIdx < tracks.length) {
         current = savedIdx;
       } else {
-        const defaultIdx = tracks.findIndex(t => t.src.endsWith(list.default || ''));
+        const defaultIdx = tracks.findIndex(t =>
+          decodeURIComponent(t.src.split('/').pop()) === (list.default || '')
+        );
         current = defaultIdx >= 0 ? defaultIdx : 0;
       }
       const savedTime = parseFloat(localStorage.getItem(LS_TIME));
