@@ -17,6 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
     musicToggle.addEventListener('click', () => {
       setPlayerVisible(musicFloating.hasAttribute('hidden'));
     });
+
+    musicToggle.addEventListener('mouseenter', () => {
+      setPlayerVisible(true);
+    });
+
+    musicFloating.addEventListener('mouseleave', () => {
+      setPlayerVisible(false);
+    });
   }
 
   const player = document.getElementById('music-player');
