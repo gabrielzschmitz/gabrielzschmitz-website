@@ -252,6 +252,101 @@ run_serve() {
 }
 
 # ============================================================
+# Screenshots (--screenshots)
+# ============================================================
+
+SHOT_DIR="${SHOT_DIR:-./static/assets/images}"
+
+# First Chromium-based browser found on PATH.
+chromium_binary() {
+    local bin
+    for bin in chromium-browser chromium google-chrome google-chrome-stable; do
+        if command -v "$bin" >/dev/null 2>&1; then
+            echo "$bin"
+            return 0
+        fi
+    done
+    return 1
+}
+
+# $1 = URL path, $2 = output file. Captures headlessly at --window-size.
+screenshot_page() {
+    local path="$1"
+    local out="$2"
+    local size="${SHOT_SIZE:-2254x1980}"
+    local scale="${SHOT_SCALE:-2}"
+    local width="${size%x*}"
+    local height="${size#*x}"
+    # Render at size/scale CSS pixels with a device scale factor of `scale`,
+    # so the PNG stays ~`size` px wide while the page content is zoomed.
+    local shot_w=$((width / scale))
+    local shot_h=$((height / scale))
+    local url="http://127.0.0.1:${PORT:-1111}${path}"
+
+    mkdir -p "$(dirname "$out")"
+
+    log_info "Shooting ${path} → $(dirname "$out")/$(basename "$out")"
+    "$CHROMIUM" --headless=new --hide-scrollbars \
+        "--force-device-scale-factor=${scale}" \
+        "--window-size=${shot_w},${shot_h}" --virtual-time-budget=3000 \
+        "--screenshot=${out}" "$url" >/dev/null 2>&1
+
+    if [[ ! -s "$out" ]]; then
+        log_err "Screenshot failed for ${path} (${out} is empty or missing)"
+        return 1
+    fi
+    log_ok "${path} → ${out}"
+}
+
+run_screenshots() {
+    ensure_zola
+    ensure_bibinject
+    run_build
+
+    CHROMIUM="$(chromium_binary)" || {
+        log_err "No Chromium-based browser found. Install chromium, chromium-browser,\n  google-chrome, or google-chrome-stable, then rerun."
+        exit 1
+    }
+    log_ok "Using \"${CHROMIUM}\" for screenshots"
+
+    local port="${PORT:-1111}"
+    if ! http_server_available; then
+        log_err "python3 with http.server is required to serve the build for screenshots."
+        exit 1
+    fi
+
+    # Default page → output mapping (README demo images).
+    local shots="${SHOT_PAGES:-/=website-demo.png /blog=blog-demo.png /research=research-demo.png}"
+
+    ( cd ./public && exec python3 -m http.server "$port" >/dev/null 2>&1 ) &
+    local serve_pid=$!
+    trap 'log_warn "Stopping server (pid $serve_pid)..."; kill "$serve_pid" 2>/dev/null || true; exit 1' INT TERM
+    sleep 2
+
+    echo
+    echo -e "${GREEN}${BOLD}Serving http://127.0.0.1:${port}/${RESET}"
+
+    local rc=0
+    local entry path out
+    for entry in $shots; do
+        path="${entry%%=*}"
+        out="${entry#*=}"
+        if [[ "$out" != /* ]]; then
+            out="${SHOT_DIR}/${out}"
+        fi
+        screenshot_page "$path" "$out" || rc=1
+    done
+
+    kill "$serve_pid" 2>/dev/null || true
+    trap - INT TERM
+
+    if [[ "$rc" == 0 ]]; then
+        log_ok "Screenshots saved under ${SHOT_DIR}"
+    fi
+    return "$rc"
+}
+
+# ============================================================
 # Main
 # ============================================================
 
@@ -259,12 +354,17 @@ MODE="build"
 
 for arg in "$@"; do
   case "$arg" in
-    --serve)
+    --serve|-s)
       MODE="serve"
       ;;
+    --screenshots|--shot)
+      MODE="screenshots"
+      ;;
     --help|-h)
-      echo "Usage: $0 [--serve]"
-      echo "  --serve   watch-mode build (auto rebuild + BibInject, served locally)"
+      echo "Usage: $0 [MODE]"
+      echo "  --serve, -s        watch-mode build (auto rebuild + BibInject, served locally)"
+      echo "  --screenshots      build, serve locally, and screenshot the README demo pages"
+      echo "                     (env: SHOT_SIZE=1503x1320, SHOT_SCALE=2, SHOT_PAGES=..., PORT=1111)"
       exit 0
       ;;
     *)
@@ -276,8 +376,14 @@ done
 
 print_banner "$MODE"
 
-if [[ "$MODE" == "serve" ]]; then
-  run_serve
-else
-  run_build
-fi
+case "$MODE" in
+  serve)
+    run_serve
+    ;;
+  screenshots)
+    run_screenshots
+    ;;
+  *)
+    run_build
+    ;;
+esac
