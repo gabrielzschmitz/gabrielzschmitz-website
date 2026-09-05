@@ -98,6 +98,15 @@
   white-space: nowrap;
 }
 
+.player-artist {
+  font-size: 0.68rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  opacity: 0.85;
+  margin-bottom: 4px;
+}
+
 .player-time {
   font-size: 0.7rem;
   letter-spacing: 0.5px;
@@ -319,6 +328,31 @@
 .player-plist li:hover {
   background-color: var(--paper-texture-subtle);
   color: var(--burgundy);
+}
+
+.player-plist li span {
+  color: var(--text-subtle);
+  font-size: 0.72rem;
+}
+
+.player-credit {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--light-border);
+  font-size: 0.62rem;
+  line-height: 1.4;
+  letter-spacing: 0.3px;
+  color: var(--text-subtle);
+  opacity: 0.85;
+}
+
+.player-credit a {
+  color: var(--burgundy);
+  text-decoration: underline;
+}
+
+.player-credit a:hover {
+  color: var(--burgundy-hover);
 }
 
 @media (max-width: 805px) {

@@ -174,14 +174,27 @@ import sys
 import urllib.parse
 
 src, out = sys.argv[1], sys.argv[2]
+
+credits = {}
+credits_path = os.path.join(src, "credits.json")
+if os.path.exists(credits_path):
+    with open(credits_path, encoding="utf-8") as f:
+        credits = json.load(f)
+
 tracks = []
 for name in sorted(os.listdir(src)):
-    if name.lower().endswith(".mp3"):
-        title = os.path.splitext(name)[0]
-        tracks.append({
-            "title": title,
-            "src": "/assets/music/" + urllib.parse.quote(name),
-        })
+    if not name.lower().endswith(".mp3"):
+        continue
+    title = os.path.splitext(name)[0]
+    track = {
+        "title": title,
+        "src": "/assets/music/" + urllib.parse.quote(name),
+    }
+    meta = credits.get(name, {})
+    for key in ("artist", "album", "year", "source", "copyright", "license"):
+        if meta.get(key):
+            track[key] = meta[key]
+    tracks.append(track)
 with open(out, "w", encoding="utf-8") as f:
     json.dump(tracks, f, ensure_ascii=False, indent=2)
 PY

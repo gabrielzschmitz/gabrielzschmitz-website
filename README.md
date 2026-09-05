@@ -110,7 +110,20 @@ layout in sync.
 
 ## License
 
-This project is licensed under the MIT License, but the images are licensed
-under the Creative Commons Attribution 4.0 License. See the [LICENSE](LICENSE)
-file
-for details.
+This project is licensed under the MIT License. The images included in this
+project are licensed under the Creative Commons Attribution 4.0 License. See
+the [LICENSE](LICENSE) file for details.
+
+#### Music
+
+The music tracks included under [`static/assets/music`](static/assets/music)
+are **not** owned by this project and are not covered by the project's MIT
+License. They are reproduced solely for streaming purposes with attribution to
+their respective artists and rights holders.
+
+For full credits, licensing information, and the takedown notice, see
+[`ATTRIBUTION.md`](static/assets/music/ATTRIBUTION.md).
+
+If you hold the rights to any track included in this project and would like it
+removed, please contact
+**[gabrielzschmitz@protonmail.com](mailto:gabrielzschmitz@protonmail.com)**.

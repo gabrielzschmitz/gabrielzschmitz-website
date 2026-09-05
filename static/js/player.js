@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const audio = document.getElementById('player-audio');
   const titleEl = document.getElementById('player-title');
+  const artistEl = document.getElementById('player-artist');
+  const creditEl = document.getElementById('player-credit');
   const timeEl = document.getElementById('player-time');
   const progressEl = document.getElementById('player-progress');
   const progressBar = document.getElementById('player-progress-bar');
@@ -63,12 +65,32 @@ document.addEventListener('DOMContentLoaded', () => {
     tracks.forEach((track, i) => {
       const li = document.createElement('li');
       li.textContent = `${i + 1}. ${track.title}`;
+      if (track.artist) {
+        const span = document.createElement('span');
+        span.textContent = ` · ${track.artist}`;
+        li.appendChild(span);
+      }
       li.addEventListener('click', () => {
         current = i;
         play();
       });
       plistEl.appendChild(li);
     });
+  }
+
+  function setTrackInfo() {
+    const isPt = (localStorage.getItem('newspaper-lang') || 'en') === 'pt';
+    const track = tracks[current] || {};
+    titleEl.textContent = track.title || '—';
+    if (artistEl) artistEl.textContent = track.artist ? (isPt ? `por ${track.artist}` : `by ${track.artist}`) : '';
+    const artist = track.artist || '';
+    if (creditEl) {
+      const link = '<a href="https://github.com/gabrielzschmitz/gabrielzschmitz-website/tree/main/static/assets/music/ATTRIBUTION.md">' +
+        (isPt ? 'atribuição' : 'attribution') + '</a>';
+      creditEl.innerHTML = isPt
+        ? `Música por ${artist} — reproduzida com ${link}.`
+        : `Song by ${artist} — reproduced with ${link}.`;
+    }
   }
 
   function setPlayIcon(playing) {
@@ -92,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function play() {
     if (!tracks.length) return;
     audio.src = tracks[current].src;
-    titleEl.textContent = tracks[current].title;
+    setTrackInfo();
     localStorage.setItem(LS_CURRENT, String(current));
     audio.play().catch(() => {});
   }
@@ -175,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       audio.src = tracks[current].src;
-      titleEl.textContent = tracks[current].title;
+      setTrackInfo();
 
       resumeArmed = localStorage.getItem(LS_PLAYING) === '1';
       if (resumeArmed) {
@@ -292,9 +314,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('languagechange', (e) => {
     setPlistLabel();
+    setTrackInfo();
   });
 
   setPlistLabel();
+  setTrackInfo();
 
   audio.addEventListener('timeupdate', () => {
     updateTime();
