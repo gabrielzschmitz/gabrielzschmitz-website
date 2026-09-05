@@ -16,7 +16,7 @@ function swordCursor() {
 function applySwordCursorWith(pen) {
   const selectors = [
     'a', 'a:link', 'a:visited', 'a:hover', 'a:active', 'a:focus',
-    'button', '[data-resume]', '[data-en]', '#theme-toggle', '#language-toggle'
+    'button', '[data-resume]', '[data-en]', '#theme-toggle', '#language-toggle', '#music-toggle'
   ].join(',');
   document.querySelectorAll(selectors).forEach(el => {
     el.style.cursor = pen;

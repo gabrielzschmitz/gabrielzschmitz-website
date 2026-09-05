@@ -161,6 +161,34 @@ inject_all() {
 }
 
 # ============================================================
+# Music playlist (static/assets/music/*.mp3 -> public playlist.json)
+# ============================================================
+
+generate_music_playlist() {
+  local src="./static/assets/music"
+  local out="./public/assets/music/playlist.json"
+  python3 - "$src" "$out" <<'PY'
+import json
+import os
+import sys
+import urllib.parse
+
+src, out = sys.argv[1], sys.argv[2]
+tracks = []
+for name in sorted(os.listdir(src)):
+    if name.lower().endswith(".mp3"):
+        title = os.path.splitext(name)[0]
+        tracks.append({
+            "title": title,
+            "src": "assets/music/" + urllib.parse.quote(name),
+        })
+with open(out, "w", encoding="utf-8") as f:
+    json.dump(tracks, f, ensure_ascii=False, indent=2)
+PY
+  log_ok "Playlist → ${out} ($(python3 -c "import json;print(len(json.load(open('$out'))))") tracks)"
+}
+
+# ============================================================
 # Build (single pass)
 # ============================================================
 
@@ -172,6 +200,7 @@ run_build() {
 
   echo
   inject_all
+  generate_music_playlist
 
   echo
   log_ok "Build complete (output in ./public)"
@@ -203,6 +232,7 @@ run_serve() {
     log_warn "startup build…"
     "$ZOLA_BIN" build
     inject_all
+    generate_music_playlist
 
     local port="${PORT:-1111}"
     local serve_pid=""
@@ -240,6 +270,7 @@ run_serve() {
             echo -e "${YELLOW}${BOLD}Change detected - rebuilding + reinjecting${RESET}"
             "$ZOLA_BIN" build
             inject_all
+            generate_music_playlist
             echo -e "${GREEN}Rebuild complete.${RESET}"
             echo
         fi

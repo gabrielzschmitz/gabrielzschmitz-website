@@ -97,8 +97,11 @@
       </div>
     </header>
 
-    <!-- FLOATING ICONS: THEME + LANGUAGE -->
+    <!-- FLOATING ICONS: THEME + LANGUAGE + MUSIC -->
     <div class="floating-controls">
+      <div class="seal-button" id="music-toggle" title="Music">
+        <span class="seal-icon">♪</span>
+      </div>
       <div class="seal-button" id="theme-toggle" title="Change theme">
         <span class="seal-icon">✦</span>
       </div>
@@ -116,6 +119,85 @@
         </svg>
       </div>
     </div>
+
+    <!-- FLOATING MUSIC PLAYER (revealed by music-toggle) -->
+    <aside class="music-floating" id="music-floating" aria-label="Music player" hidden>
+      <div class="music-player" id="music-player">
+        <div class="kicker">MELOS</div>
+        <h3 class="panel-title" data-en="Music" data-pt="Música">Music</h3>
+        <div class="panel-rule"></div>
+
+        <audio id="player-audio" preload="metadata"></audio>
+
+        <div class="player-track-info">
+          <div class="player-now" data-en="Now playing" data-pt="Tocando agora">Now playing</div>
+          <div class="player-title" id="player-title">—</div>
+          <div class="player-time" id="player-time">0:00 / 0:00</div>
+        </div>
+
+        <div class="player-progress" id="player-progress">
+          <div class="player-progress-bar" id="player-progress-bar"></div>
+        </div>
+
+        <div class="player-controls">
+          <button type="button" class="player-btn" id="player-shuffle" title="Shuffle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="m18 14 4 4-4 4" />
+              <path d="m18 2 4 4-4 4" />
+              <path d="M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22" />
+              <path d="M2 6h1.972a4 4 0 0 1 3.6 2.2" />
+              <path d="M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45" />
+            </svg>
+          </button>
+          <button type="button" class="player-btn" id="player-prev" title="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M19 20 9 12l10-8v16Z" />
+              <path d="M5 4.5v15" />
+            </svg>
+          </button>
+          <button type="button" class="player-btn player-btn-toggle" id="player-toggle" title="Play">
+            <svg class="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 4.5 19 12 7 19.5v-15Z" />
+            </svg>
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round" hidden>
+              <path d="M8.5 4.5v15" />
+              <path d="M15.5 4.5v15" />
+            </svg>
+          </button>
+          <button type="button" class="player-btn" id="player-next" title="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M5 4 15 12 5 20V4Z" />
+              <path d="M19 4.5v15" />
+            </svg>
+          </button>
+          <button type="button" class="player-btn" id="player-repeat" title="Repeat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="m17 2 4 4-4 4" />
+              <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+              <path d="m7 22-4-4 4-4" />
+              <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="player-volume">
+          <span class="player-volume-icon" id="player-volume-label">100%</span>
+          <div class="player-volume-track" id="player-volume-track">
+            <input type="range" id="player-volume" min="0" max="100" value="100" aria-label="Volume">
+            <span class="player-volume-ball" id="player-volume-ball">◉</span>
+          </div>
+        </div>
+
+        <button type="button" class="player-plist-btn" id="player-plist-btn">Track list ▾</button>
+        <ul class="player-plist" id="player-plist" hidden></ul>
+      </div>
+    </aside>
 
     <div class="section-divider">
       <span>🕇 ┼ 🕇</span>
@@ -558,6 +640,7 @@
   <script defer src="./js/main.js"></script>
   <script defer src="./js/lang.js"></script>
   <script defer src="./js/roman.js"></script>
+  <script defer src="./js/player.js"></script>
 
   <script>
     window.si = window.si || function () {

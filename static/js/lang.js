@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setFlag();
     applyLanguage();
+    document.dispatchEvent(new CustomEvent("languagechange", { detail: { isEnglish } }));
 
     /* Re-apply theme-colored sword cursor to recreated elements */
     applySwordCursor();

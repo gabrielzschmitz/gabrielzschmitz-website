@@ -268,6 +268,300 @@ p {
   margin: 0 auto 15px auto;
 }
 
+/* FLOATING MUSIC PLAYER */
+.music-floating {
+  position: fixed;
+  top: 25px;
+  right: calc(25px + 38px + 10px);
+  z-index: 19;
+  width: 280px;
+  max-width: calc(100vw - 140px);
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  padding: 14px 16px 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.music-floating[hidden] {
+  display: none;
+}
+
+
+#music-toggle {
+  font-size: 1.5rem;
+}
+
+#music-toggle .seal-icon {
+  transform: translateY(-3px);
+}
+
+#music-toggle.active {
+  color: var(--badge-text);
+  background-color: var(--burgundy);
+  border-color: var(--burgundy);
+}
+
+.music-player {
+  font-family: var(--font-serif);
+  text-align: center;
+}
+
+.music-player .kicker {
+  display: block;
+  width: fit-content;
+  margin-left: 0;
+  margin-right: auto;
+  margin-bottom: 8px;
+}
+
+.player-track-info {
+  margin-bottom: 8px;
+}
+
+.player-now {
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  opacity: 0.8;
+  margin-bottom: 3px;
+}
+
+.player-title {
+  font-family: var(--font-headers);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--burgundy);
+  min-height: 1.3em;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.player-time {
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  color: var(--text-subtle);
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+/* seek bar */
+.player-progress {
+  height: 4px;
+  background-color: var(--light-border);
+  border-radius: 2px;
+  cursor: url("../assets/cursor/dagger-9e1426.png") 2 2, auto;
+  margin: 10px 0 12px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.player-progress-bar {
+  height: 100%;
+  width: 0;
+  background-color: var(--burgundy);
+  transition: width 0.2s linear;
+}
+
+/* transport button row */
+.player-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.player-btn {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--light-border);
+  background-color: var(--blank);
+  color: var(--text-subtle);
+  line-height: 1;
+  border-radius: 2px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.player-btn svg {
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+
+.player-btn svg[hidden],
+.player-btn-toggle svg[hidden] {
+  display: none;
+}
+
+.player-btn:hover {
+  opacity: 1;
+  color: var(--burgundy-hover);
+  border-color: var(--burgundy-hover);
+}
+
+.player-btn.active {
+  color: var(--burgundy);
+  border-color: var(--burgundy);
+  opacity: 1;
+}
+
+.player-btn-toggle {
+  width: 32px;
+  height: 32px;
+  margin: 0 3px;
+  opacity: 1;
+}
+
+.player-btn-toggle:hover {
+  background-color: var(--paper-texture-subtle);
+  color: var(--burgundy-hover);
+}
+
+.player-btn-toggle svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* volume */
+.player-volume {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.player-volume-icon {
+  font-size: 0.68rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  opacity: 0.9;
+  flex: 0 0 auto;
+}
+
+.player-volume-track {
+  position: relative;
+  flex: 1;
+  height: 16px;
+  display: flex;
+  align-items: center;
+}
+
+#player-volume {
+  position: relative;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  border-radius: 2px;
+  outline: none;
+  cursor: url("../assets/cursor/dagger-9e1426.png") 2 2, auto;
+  background: linear-gradient(to right,
+      var(--burgundy-hover) 0%,
+      var(--burgundy-hover) var(--vol, 100%),
+      var(--light-border) var(--vol, 100%),
+      var(--light-border) 100%);
+}
+
+#player-volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1px;
+  height: 16px;
+  background: transparent;
+  border: none;
+  cursor: url("../assets/cursor/dagger-9e1426.png") 2 2, auto;
+}
+
+#player-volume::-moz-range-thumb {
+  width: 1px;
+  height: 16px;
+  background: transparent;
+  border: none;
+  cursor: url("../assets/cursor/dagger-9e1426.png") 2 2, auto;
+}
+
+#player-volume::-webkit-slider-runnable-track {
+  background: transparent;
+  border: none;
+}
+
+#player-volume::-moz-range-track {
+  background: transparent;
+  border: none;
+}
+
+#player-volume-ball {
+  position: absolute;
+  top: 50%;
+  left: var(--vol, 100%);
+  transform: translate(-50%, -67%);
+  font-family: var(--font-symbol);
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--burgundy);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* track list */
+.player-plist-btn {
+  width: 100%;
+  border: 1px dashed var(--border-color);
+  background-color: var(--blank);
+  color: var(--text-subtle);
+  font-family: var(--font-serif);
+  font-size: 0.68rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.player-plist-btn:hover {
+  color: var(--burgundy);
+  border-color: var(--burgundy);
+}
+
+.player-plist {
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: 0;
+  text-align: left;
+  border: 1px solid var(--light-border);
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.player-plist li {
+  padding: 5px 10px;
+  font-size: 0.78rem;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  border-bottom: 1px dashed var(--light-border);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.player-plist li:last-child {
+  border-bottom: none;
+}
+
+.player-plist li:hover {
+  background-color: var(--paper-texture-subtle);
+  color: var(--burgundy);
+}
+
 /* FOOTER */
 .site-footer {
   text-align: center;
@@ -323,5 +617,11 @@ p {
   .floating-controls {
     top: 15px;
     right: 15px;
+  }
+
+  .music-floating {
+    top: 15px;
+    right: calc(15px + 38px + 10px);
+    max-width: calc(100vw - 15px - 38px - 10px);
   }
 }
