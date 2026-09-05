@@ -181,6 +181,7 @@ if os.path.exists(credits_path):
     with open(credits_path, encoding="utf-8") as f:
         credits = json.load(f)
 
+default_name = credits.get("default")
 tracks = []
 for name in sorted(os.listdir(src)):
     if not name.lower().endswith(".mp3"):
@@ -196,7 +197,7 @@ for name in sorted(os.listdir(src)):
             track[key] = meta[key]
     tracks.append(track)
 with open(out, "w", encoding="utf-8") as f:
-    json.dump(tracks, f, ensure_ascii=False, indent=2)
+    json.dump({"default": default_name, "tracks": tracks}, f, ensure_ascii=False, indent=2)
 PY
   log_ok "Playlist → ${out} ($(python3 -c "import json;print(len(json.load(open('$out'))))") tracks)"
 }

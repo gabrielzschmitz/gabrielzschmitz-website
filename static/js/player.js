@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('/assets/music/playlist.json')
     .then(r => r.json())
     .then(list => {
-      tracks = list;
+      tracks = list.tracks || list;
       renderPlist();
 
       const skey = localStorage.getItem('newspaper-music-shuffle') === '1';
@@ -198,6 +198,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const savedIdx = parseInt(localStorage.getItem(LS_CURRENT), 10);
       if (Number.isInteger(savedIdx) && savedIdx >= 0 && savedIdx < tracks.length) {
         current = savedIdx;
+      } else {
+        const defaultIdx = tracks.findIndex(t => t.src.endsWith(list.default || ''));
+        current = defaultIdx >= 0 ? defaultIdx : 0;
       }
       const savedTime = parseFloat(localStorage.getItem(LS_TIME));
       if (Number.isFinite(savedTime) && savedTime > 0) {
