@@ -35,30 +35,8 @@ body {
   color: var(--burgundy-hover);
 }
 
-/* THEME / CONTROL TOGGLES */
-.floating-controls {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  z-index: 20;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-#theme-toggle,
-#back-to-top {
-  display: flex;
-}
-
-#language-toggle {
-  display: flex;
-}
-
-#back-to-top[hidden] {
-  display: none !important;
-}
-
+/* THEME / CONTROL TOGGLES — positioning lives in floating-controls.css and
+ * the music panel in player.css; only blog-specific tweaks stay here. */
 .seal-button:hover {
   color: var(--badge-text);
 }

@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener(type, resumePlayback, { once: false, passive: true });
   });
 
-  fetch('./assets/music/playlist.json')
+  fetch('/assets/music/playlist.json')
     .then(r => r.json())
     .then(list => {
       tracks = list;

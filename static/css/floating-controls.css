@@ -1,0 +1,36 @@
+/* FLOATING CONTROLS — the fixed control column (theme, language, music) and
+ * the back-to-top seal. Shared across the portfolio and the blog so every
+ * page behaves the same. */
+
+.floating-controls {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 20;
+}
+
+#back-to-top[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 805px) {
+  .floating-controls {
+    top: 15px;
+    right: 15px;
+  }
+
+  #back-to-top {
+    bottom: 15px;
+    right: 15px;
+  }
+}

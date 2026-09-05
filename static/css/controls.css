@@ -36,7 +36,9 @@
 #language-toggle,
 #language-toggle .seal-button,
 #theme-toggle,
-#theme-toggle .seal-icon {
+#theme-toggle .seal-icon,
+#music-toggle,
+#music-toggle .seal-icon {
   -webkit-user-select: none;
   user-select: none;
 }

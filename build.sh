@@ -180,7 +180,7 @@ for name in sorted(os.listdir(src)):
         title = os.path.splitext(name)[0]
         tracks.append({
             "title": title,
-            "src": "assets/music/" + urllib.parse.quote(name),
+            "src": "/assets/music/" + urllib.parse.quote(name),
         })
 with open(out, "w", encoding="utf-8") as f:
     json.dump(tracks, f, ensure_ascii=False, indent=2)
