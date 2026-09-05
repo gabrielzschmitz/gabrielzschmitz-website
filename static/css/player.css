@@ -41,16 +41,30 @@
 
 #music-toggle {
   font-size: 1.5rem;
+  background-color: var(--blank);
+  color: var(--text-subtle);
 }
 
 #music-toggle .seal-icon {
   transform: translateY(-3px);
 }
 
+#music-toggle:hover {
+  background-color: var(--burgundy-hover);
+  border-color: var(--burgundy-hover);
+  color: var(--text-color);
+}
+
 #music-toggle.active {
   color: var(--badge-text);
   background-color: var(--burgundy);
   border-color: var(--burgundy);
+}
+
+#music-toggle.active:hover {
+  background-color: var(--burgundy-hover);
+  border-color: var(--burgundy-hover);
+  color: var(--text-color);
 }
 
 .music-player {
@@ -171,7 +185,8 @@
 
 .player-btn:hover {
   opacity: 1;
-  color: var(--burgundy-hover);
+  background-color: var(--blank);
+  color: var(--text-color);
   border-color: var(--burgundy-hover);
 }
 
@@ -179,6 +194,12 @@
   color: var(--burgundy);
   border-color: var(--burgundy);
   opacity: 1;
+}
+
+.player-btn.active:hover {
+  background-color: var(--burgundy-hover);
+  color: var(--text-color);
+  border-color: var(--burgundy-hover);
 }
 
 .player-btn-toggle {
@@ -189,8 +210,8 @@
 }
 
 .player-btn-toggle:hover {
-  background-color: var(--paper-texture-subtle);
-  color: var(--burgundy-hover);
+  background-color: var(--burgundy-hover);
+  color: var(--text-color);
 }
 
 .player-btn-toggle svg {
