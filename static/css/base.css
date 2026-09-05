@@ -6,6 +6,12 @@
   box-sizing: border-box;
 }
 
+::selection,
+::-moz-selection {
+  background-color: var(--burgundy);
+  color: var(--badge-text);
+}
+
 body {
   margin: 0;
   padding: 10px 10px;
