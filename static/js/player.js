@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const volumeTrack = document.getElementById('player-volume-track');
   const plistBtn = document.getElementById('player-plist-btn');
   const plistEl = document.getElementById('player-plist');
+  const autoplayNote = document.getElementById('player-autoplay');
 
   let tracks = [];
   let current = 0;
@@ -124,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     audio.src = tracks[current].src;
     setTrackInfo();
     localStorage.setItem(LS_CURRENT, String(current));
-    audio.play().catch(() => {});
+    audio.play().catch((err) => { if (isAutoplayError(err)) renderAutoplayBlocked(); });
   }
 
   function persistTime() {
@@ -169,17 +170,59 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   let resumeArmed = true;
+  let autoplayBlocked = false;
+
+  function isAutoplayError(err) {
+    return !!err && (err.name === 'NotAllowedError' || err.name === 'AbortError');
+  }
+
+  function autoplayGuidanceHtml() {
+    const isPt = (localStorage.getItem('newspaper-lang') || 'en') === 'pt';
+    const ua = navigator.userAgent;
+    let steps;
+    if (/Firefox\//.test(ua) && !/Seamonkey\//.test(ua)) {
+      steps = isPt
+        ? 'Menu Firefox → Configurações → Privacidade e segurança → Reprodução automática → Padrão: Permitir áudio e vídeo.'
+        : 'Firefox menu → Settings → Privacy & Security → Autoplay → Default: Allow audio and video.';
+    } else if (/Chrome\//.test(ua) || /Chromium\//.test(ua) || /Edge\//.test(ua)) {
+      steps = isPt
+        ? 'Configurações do site → Som → Reprodução automática → Permitir.'
+        : 'Site settings → Sound → Autoplay → Allow.';
+    } else {
+      steps = isPt
+        ? 'Configurações → Sites → Reprodução automática → Permitir tudo para este site.'
+        : 'Settings → Websites → Auto-Play → Allow All Auto-Play for this site.';
+    }
+    const heading = isPt
+      ? 'Reprodução automática bloqueada. Para permitir:'
+      : 'Autoplay is blocked. To allow it:';
+    return '<span class="player-autoplay-head">' + heading + '</span>' +
+      '<span class="player-autoplay-steps">' + steps + '</span>';
+  }
+
+  function renderAutoplayBlocked() {
+    if (!autoplayNote) return;
+    autoplayBlocked = true;
+    autoplayNote.removeAttribute('data-en');
+    autoplayNote.removeAttribute('data-pt');
+    autoplayNote.classList.add('guide');
+    autoplayNote.innerHTML = autoplayGuidanceHtml();
+    autoplayNote.removeAttribute('hidden');
+  }
 
   function resumePlayback() {
     if (!resumeArmed) return;
     if (!audio.src || !tracks.length) return;
     audio.play()
       .then(() => { resumeArmed = false; })
-      .catch(() => {});
+      .catch((err) => { if (isAutoplayError(err)) renderAutoplayBlocked(); });
   }
 
   ['pointerdown', 'keydown', 'touchstart'].forEach(type => {
-    document.addEventListener(type, resumePlayback, { once: false, passive: true });
+    document.addEventListener(type, (e) => {
+      if (autoplayNote && e.target && e.target.closest && e.target.closest('#player-autoplay')) return;
+      resumePlayback();
+    }, { once: false, passive: true });
   });
 
   fetch('/assets/music/playlist.json')
@@ -227,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!audio.src) {
         play();
       } else {
-        audio.play();
+        audio.play().catch((err) => { if (isAutoplayError(err)) renderAutoplayBlocked(); });
       }
     } else {
       audio.pause();
@@ -328,6 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('languagechange', (e) => {
     setPlistLabel();
     setTrackInfo();
+    if (autoplayBlocked) renderAutoplayBlocked();
   });
 
   setPlistLabel();
@@ -358,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.removeItem(LS_TIME);
     if (repeat) {
       audio.currentTime = 0;
-      audio.play();
+      audio.play().catch((err) => { if (isAutoplayError(err)) renderAutoplayBlocked(); });
     } else {
       pickNext();
       play();

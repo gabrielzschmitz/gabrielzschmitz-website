@@ -376,6 +376,34 @@
   color: var(--burgundy-hover);
 }
 
+.player-autoplay-note {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--light-border);
+  font-size: 0.62rem;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+  color: var(--text-subtle);
+  opacity: 0.92;
+}
+
+.player-autoplay-note[hidden] {
+  display: none;
+}
+
+.player-autoplay-head {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--burgundy);
+  margin-bottom: 3px;
+}
+
+.player-autoplay-steps {
+  display: block;
+  line-height: 1.45;
+}
+
 @media (max-width: 805px) {
   .music-floating {
     top: 15px;
