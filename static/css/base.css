@@ -6,6 +6,15 @@
   box-sizing: border-box;
 }
 
+/* Clip horizontal overflow at the root so stray wide content can never expand
+ * the mobile layout viewport and shove fixed elements (floating controls)
+ * off-screen. `clip` supersedes `hidden` on modern browsers. */
+html,
+body {
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
 ::selection,
 ::-moz-selection {
   background-color: var(--burgundy);

@@ -246,7 +246,7 @@ p.drop-cap::first-letter {
   justify-content: center;
   gap: 6px;
   margin-bottom: 6px;
-  font-family: var(--font-serif);
+  font-family: var(--font-symbol);
   line-height: 1;
   color: var(--burgundy);
 }
@@ -319,6 +319,9 @@ p.drop-cap::first-letter {
   display: block;
   margin: 1rem 0;
   text-align: center;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .article-body hr {
