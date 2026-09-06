@@ -21,6 +21,13 @@ p.drop-cap::first-letter {
   font-family: var(--font-serif);
 }
 
+/* Long unbroken URLs (e.g. reference links) must wrap instead of widening
+ * the layout; `anywhere` allows breaking inside the hostname when needed. */
+.article-body a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .article-body p {
   padding-bottom: 12px;
 }
