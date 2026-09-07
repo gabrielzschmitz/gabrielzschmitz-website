@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Art · {{ config.title }}{% endblock title %}
+
+{% block description %}{{ config.description }}{% endblock description %}
+
+{% block content %}
+  <!-- ART GALLERY BANNER -->
+  <section class="archive-intro-banner">
+    <div class="archive-intro-body">
+      <span class="archive-code">PINACOTHECA — <span id="roman-year"></span></span>
+      <h2 data-en="Art Gallery" data-pt="Galeria de Arte">Art Gallery</h2>
+      <p data-en="Works ordered by chronology. Select a piece to open its record."
+        data-pt="Obras ordenadas por cronologia. Selecione uma obra para abrir seu registro.">Works ordered by chronology. Select a piece to open its
+      record.</p>
+    </div>
+  </section>
+
+  <!-- MASONRY OF ARTWORKS -->
+  <main class="art-masonry">
+    {% for page in section.pages %}
+      <figure class="art-figure{% if page.extra.wide %} art-figure--wide{% endif %}">
+        <a class="art-link" href="{{ page.path | safe }}">
+          <img class="art-img" src="{{ page.extra.image | safe }}" alt="{{ page.title }}">
+        </a>
+        <figcaption class="art-caption">
+          <span data-en="{{ page.extra.name_en }}" data-pt="{{ page.extra.name_pt }}">{{ page.title }}</span>
+        </figcaption>
+      </figure>
+    {% else %}
+      <p class="art-empty" data-en="No works in the gallery yet."
+        data-pt="Ainda não há obras na galeria.">No works in the gallery yet.</p>
+    {% endfor %}
+  </main>
+
+  <script src="/js/art.js" defer></script>
+{% endblock content %}

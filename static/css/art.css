@@ -1,0 +1,271 @@
+/* ART — mosaic gallery (/art/) and individual artwork records (/art/<slug>/).
+ * Loaded by base.html after the shared prose/component styles. */
+
+/* ------------------------------------------------------------------ *
+ * Gallery mosaic                                                      *
+ * ------------------------------------------------------------------ *
+ * A magazine-style grid laid out by static/js/art.js: the container is a
+ * CSS grid (columns/rows sized inline) and each artwork occupies one or
+ * more cells according to its aspect ratio, back-filled densely so no
+ * neat column or row lines read. Images fill their cell edge to edge (no
+ * letterbox gaps inside the frame); the frame is a few pixels. */
+
+.art-masonry {
+  box-sizing: border-box;
+}
+
+/* Hide the gallery until the script has sized its grid cells, so captions
+ * never render floating before their panels are placed. */
+.art-masonry:not(.art-masonry--ready) {
+  visibility: hidden;
+}
+
+.art-figure {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+/* Artworks flagged `wide` in the JSON span the whole grid as a band. */
+.art-figure--wide {
+  margin: 0;
+}
+
+.art-link {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.art-img {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 3px double var(--border-color);
+  background: var(--paper-texture-subtle);
+  transition: border-color 0.2s ease;
+}
+
+.art-link:hover .art-img {
+  border-color: var(--burgundy);
+}
+
+.art-caption {
+  flex: 0 0 auto;
+  padding: 5px 6px 1px;
+  font-family: var(--font-serif);
+  font-size: 0.68rem;
+  letter-spacing: 1px;
+  color: var(--text-subtle);
+  text-align: center;
+}
+
+.art-figure--wide .art-caption {
+  font-size: 0.8rem;
+}
+
+.art-empty {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--text-subtle);
+}
+
+/* ------------------------------------------------------------------ *
+ * Artwork record                                                      *
+ * ------------------------------------------------------------------ */
+
+.artwork-back {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: var(--burgundy);
+  border: 2px solid var(--burgundy);
+  color: var(--badge-text);
+  padding: 2px 8px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.artwork-back:hover {
+  color: var(--text-color);
+  background-color: var(--burgundy-hover);
+  border: 2px solid var(--text-color);
+}
+
+.artwork-figure {
+  margin: 0;
+  text-align: center;
+}
+
+.artwork-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border: 3px double var(--border-color);
+  background: var(--paper-texture-subtle);
+}
+
+.artwork-header h1 {
+  font-family: var(--font-accent);
+  font-weight: 600;
+  font-size: 2.2rem;
+  color: var(--burgundy);
+  line-height: 1.2;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  margin: 12px 0 12px;
+}
+
+.artwork-description {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  white-space: pre-line;
+}
+
+.artwork-meta {
+  margin: 1.5rem 0 0;
+  border-top: 1px dashed var(--light-border);
+}
+
+.artwork-meta-row {
+  display: flex;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--light-border);
+}
+
+.artwork-meta dt {
+  flex: 0 0 9rem;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--burgundy);
+}
+
+.artwork-meta dd {
+  margin: 0;
+  font-family: var(--font-serif);
+  color: var(--text-color);
+  overflow-wrap: anywhere;
+}
+
+/* Prev/next artwork navigation — bordered panels anchored to each side, in
+ * the editorial style of the site (paper background, faint frame, uppercase
+ * micro-label, serif title, chevron arrows); the earliest/latest artwork
+ * disables the corresponding arrow instead of wrapping around. */
+.artwork-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--light-border);
+}
+
+.art-nav-prev,
+.art-nav-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 50%;
+  padding: 2px 10px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-family: var(--font-serif);
+  border: 1px solid var(--light-border);
+  background: var(--paper-texture-subtle);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.art-nav-next {
+  margin-left: auto;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.art-nav-prev:hover,
+.art-nav-next:hover {
+  color: var(--burgundy);
+  border-color: var(--burgundy);
+}
+
+.art-nav-arrow {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+}
+
+.art-nav-arrow svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s ease;
+}
+
+.art-nav-prev:hover .art-nav-arrow svg {
+  transform: translateX(-2px);
+}
+
+.art-nav-next:hover .art-nav-arrow svg {
+  transform: translateX(2px);
+}
+
+.art-nav-body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.art-nav-label {
+  font-weight: 600;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  margin-bottom: 2px;
+}
+
+.art-nav-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: inherit;
+}
+
+.art-nav-prev.is-disabled,
+.art-nav-next.is-disabled {
+  color: var(--light-border);
+  border-color: var(--light-border);
+  cursor: default;
+  pointer-events: none;
+}
+
+.art-nav-prev.is-disabled .art-nav-label,
+.art-nav-next.is-disabled .art-nav-label {
+  color: var(--light-border);
+}
+
+@media (max-width: 805px) {
+
+  .art-nav-prev,
+  .art-nav-next {
+    max-width: 48%;
+  }
+}
