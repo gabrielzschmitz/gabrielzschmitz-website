@@ -1,5 +1,9 @@
 public/
 
+# Generated at build time by scripts/generate_art.py from
+# static/assets/art/art.json (content/art/_index.md is committed).
+content/art/*/
+
 # Node.js
 node_modules/
 package-lock.json

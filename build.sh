@@ -161,6 +161,15 @@ inject_all() {
 }
 
 # ============================================================
+# Art gallery (static/assets/art/art.json -> content/art/<key>/index.md)
+# ============================================================
+
+generate_art_pages() {
+  python3 ./scripts/generate_art.py
+  log_ok "Art metadata → content/art/"
+}
+
+# ============================================================
 # Music playlist (static/assets/music/*.mp3 -> public playlist.json)
 # ============================================================
 
@@ -207,10 +216,16 @@ PY
 # ============================================================
 
 run_build() {
+  echo -e "${BOLD}${CYAN}=== Art pages ==========================${RESET}"
+  generate_art_pages
+
+  echo
   echo -e "${BOLD}${CYAN}=== Zola build =========================${RESET}"
   ensure_zola
   ensure_bibinject
+  log_warn "Starting Zola build…"
   "$ZOLA_BIN" build
+  log_ok "Zola build complete"
 
   echo
   inject_all
@@ -243,8 +258,13 @@ run_serve() {
     # so BibInject could never process it. Instead we run our own watch loop that
     # rebuilds to ./public (baking in BibInject) and serve ./public statically.
 
-    log_warn "startup build…"
+    log_warn "Startup build…"
+    generate_art_pages
+    log_warn "Starting Zola build…"
     "$ZOLA_BIN" build
+    log_ok "Zola build complete"
+    echo
+
     inject_all
     generate_music_playlist
 
@@ -282,6 +302,7 @@ run_serve() {
             last_fp="$fp"
             echo
             echo -e "${YELLOW}${BOLD}Change detected - rebuilding + reinjecting${RESET}"
+            generate_art_pages
             "$ZOLA_BIN" build
             inject_all
             generate_music_playlist
