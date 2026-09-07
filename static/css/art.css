@@ -130,7 +130,7 @@
 }
 
 .artwork-intro {
-  border-bottom: 1px dashed var(--light-border);
+  border-bottom: 3px double var(--border-color);
 }
 
 .artwork-meta {
