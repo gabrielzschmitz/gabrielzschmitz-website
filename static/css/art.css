@@ -133,6 +133,15 @@
   border-bottom: 3px double var(--border-color);
 }
 
+.artwork-history {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  white-space: pre-line;
+  margin: 0 0 1.5rem;
+}
+
 .artwork-meta {
   margin: 1.5rem 0 0;
   border-top: 1px dashed var(--light-border);

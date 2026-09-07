@@ -27,6 +27,11 @@
       <h1 data-en="{{ page.extra.name_en }}" data-pt="{{ page.extra.name_pt }}">{{ page.title }}</h1>
     </header>
 
+    {% if page.extra.history_en %}
+    <p class="artwork-history" data-no-roman
+      data-en="{{ page.extra.history_en }}" data-pt="{{ page.extra.history_pt }}">{{ page.extra.history_en }}</p>
+    {% endif %}
+
     <dl class="artwork-meta">
       {% if page.extra.dimensions %}
       <div class="artwork-meta-row">

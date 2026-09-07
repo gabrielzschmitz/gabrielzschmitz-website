@@ -103,6 +103,8 @@ def render_page(entry: dict, defaults: dict, index: int) -> tuple[str, str]:
     dimensions = str(entry.get("dimensions") or entry.get("size") or defaults.get("dimensions") or defaults.get("size") or "")
     technique_en = str(entry.get("technique_en") or entry.get("technique") or "")
     technique_pt = str(entry.get("technique_pt") or technique_en)
+    history_en = str(entry.get("history_en") or "")
+    history_pt = str(entry.get("history_pt") or history_en)
     date = str(entry.get("date") or entry.get("year") or "")
     date_en = str(entry.get("date_en") or date)
     date_pt = str(entry.get("date_pt") or date_en)
@@ -141,6 +143,8 @@ def render_page(entry: dict, defaults: dict, index: int) -> tuple[str, str]:
         "dimensions = %s" % toml_string(dimensions),
         "technique_en = %s" % toml_string(technique_en),
         "technique_pt = %s" % toml_string(technique_pt),
+        "history_en = %s" % toml_string(history_en),
+        "history_pt = %s" % toml_string(history_pt),
         "date_en = %s" % toml_string(date_en),
         "date_pt = %s" % toml_string(date_pt),
         "roman_year = %s" % toml_string(roman_year),
