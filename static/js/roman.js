@@ -58,8 +58,15 @@
 
   function isSkippable(node) {
     var tag = node.nodeName;
-    return tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT' ||
-      tag === 'TEXTAREA' || tag === 'INPUT';
+    if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT' ||
+      tag === 'TEXTAREA' || tag === 'INPUT') return true;
+    var el = node.nodeType === 1 ? node : node.parentNode;
+    while (el && el !== doc) {
+      if (el.nodeType === 1 && el.hasAttribute &&
+          el.hasAttribute('data-no-roman')) return true;
+      el = el.parentNode;
+    }
+    return false;
   }
 
   function insideOwnSpan(node) {
