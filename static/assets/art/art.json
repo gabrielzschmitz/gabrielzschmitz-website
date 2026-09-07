@@ -12,12 +12,12 @@
       "image": "Psiquê.jpeg",
       "date_en": "3 March 2024",
       "date_pt": "3 de Março de 2024",
-      "medium_en": "Canvas",
-      "medium_pt": "Tela",
       "technique_en": "Oil painting",
       "technique_pt": "Pintura a óleo",
       "dimensions": "40 × 50 cm",
-      "weight": 1
+      "weight": 1,
+      "support_en": "Canvas",
+      "support_pt": "Tela"
     },
     {
       "key": "8paths",
@@ -28,29 +28,29 @@
       "image": "8paths.svg",
       "date_en": "12 October 2023",
       "date_pt": "12 de Outubro de 2023",
-      "medium_en": "Inkscape",
-      "medium_pt": "Inkscape",
       "technique_en": "Vector drawing",
       "technique_pt": "Desenho vetorial",
       "dimensions": "2053 × 722 px",
       "wide": true,
-      "weight": 2
+      "weight": 2,
+      "support_en": "Inkscape",
+      "support_pt": "Inkscape"
     },
     {
       "key": "petalandiris",
       "name_en": "Pétala & Íris",
       "name_pt": "Pétala & Íris",
-      "description_en": "Digital drawing.",
-      "description_pt": "Desenho digital.",
+      "description_en": "Vector drawing made in Inkscape.",
+      "description_pt": "Desenho vetorial feito no Inkscape.",
       "image": "petalandiris.svg",
       "date_en": "27 November 2022",
       "date_pt": "27 de Novembro de 2022",
-      "medium_en": "Inkscape",
-      "medium_pt": "Inkscape",
       "technique_en": "Vector drawing",
       "technique_pt": "Desenho vetorial",
       "dimensions": "1080 × 1080 px",
-      "weight": 3
+      "weight": 3,
+      "support_en": "Inkscape",
+      "support_pt": "Inkscape"
     },
     {
       "key": "daydream",
@@ -61,12 +61,12 @@
       "image": "daydream.svg",
       "date_en": "1 May 2022",
       "date_pt": "1 de Maio de 2022",
-      "medium_en": "Inkscape",
-      "medium_pt": "Inkscape",
       "technique_en": "Vector drawing",
       "technique_pt": "Desenho vetorial",
       "dimensions": "1440 × 1800 px",
-      "weight": 4
+      "weight": 4,
+      "support_en": "Inkscape",
+      "support_pt": "Inkscape"
     },
     {
       "key": "feather",
@@ -77,12 +77,12 @@
       "image": "feather.svg",
       "date_en": "16 November 2021",
       "date_pt": "16 de Novembro de 2021",
-      "medium_en": "Inkscape",
-      "medium_pt": "Inkscape",
       "technique_en": "Vector drawing",
       "technique_pt": "Desenho vetorial",
       "dimensions": "1080 × 1080 px",
-      "weight": 5
+      "weight": 5,
+      "support_en": "Inkscape",
+      "support_pt": "Inkscape"
     },
     {
       "key": "inmemoriam",
@@ -93,12 +93,12 @@
       "image": "inmemoriam.png",
       "date_en": "29 May 2021",
       "date_pt": "29 de Maio de 2021",
-      "medium_en": "Adobe Illustrator CC 2015",
-      "medium_pt": "Adobe Illustrator CC 2015",
       "technique_en": "Vector drawing",
       "technique_pt": "Desenho vetorial",
       "dimensions": "1080 × 1080 px",
-      "weight": 6
+      "weight": 6,
+      "support_en": "Adobe Illustrator CC 2015",
+      "support_pt": "Adobe Illustrator CC 2015"
     },
     {
       "key": "survivorgenesis",
@@ -109,12 +109,12 @@
       "image": "survivorgenesis.png",
       "date_en": "28 April 2020",
       "date_pt": "28 de Abril de 2020",
-      "medium_en": "Adobe Photoshop CC 2015",
-      "medium_pt": "Adobe Photoshop CC 2015",
       "technique_en": "Digital drawing",
       "technique_pt": "Desenho digital",
       "dimensions": "1500 × 1125 px",
-      "weight": 7
+      "weight": 7,
+      "support_en": "Adobe Photoshop CC 2015",
+      "support_pt": "Adobe Photoshop CC 2015"
     },
     {
       "key": "solitude",
@@ -125,12 +125,12 @@
       "image": "solitude.png",
       "date_en": "10 April 2020",
       "date_pt": "10 de Abril de 2020",
-      "medium_en": "Adobe Illustrator CC 2015",
-      "medium_pt": "Adobe Illustrator CC 2015",
       "technique_en": "Vector drawing",
       "technique_pt": "Desenho vetorial",
       "dimensions": "1080 × 1080 px",
-      "weight": 8
+      "weight": 8,
+      "support_en": "Adobe Illustrator CC 2015",
+      "support_pt": "Adobe Illustrator CC 2015"
     },
     {
       "key": "xxxtentacion",
@@ -141,12 +141,12 @@
       "image": "xxxtentacion.png",
       "date_en": "16 February 2020",
       "date_pt": "16 de Fevereiro de 2020",
-      "medium_en": "Adobe Illustrator CC 2015",
-      "medium_pt": "Adobe Illustrator CC 2015",
       "technique_en": "Vector drawing",
       "technique_pt": "Desenho vetorial",
       "dimensions": "1080 × 1080 px",
-      "weight": 9
+      "weight": 9,
+      "support_en": "Adobe Illustrator CC 2015",
+      "support_pt": "Adobe Illustrator CC 2015"
     },
     {
       "key": "cocoon",
@@ -157,12 +157,12 @@
       "image": "cocoon.png",
       "date_en": "9 February 2020",
       "date_pt": "9 de Fevereiro de 2020",
-      "medium_en": "Adobe Illustrator CC 2015",
-      "medium_pt": "Adobe Illustrator CC 2015",
       "technique_en": "Vector drawing",
       "technique_pt": "Desenho vetorial",
       "dimensions": "1080 × 1350 px",
-      "weight": 10
+      "weight": 10,
+      "support_en": "Adobe Illustrator CC 2015",
+      "support_pt": "Adobe Illustrator CC 2015"
     },
     {
       "key": "theplague",
@@ -173,12 +173,12 @@
       "image": "theplague.png",
       "date_en": "14 April 2019",
       "date_pt": "14 de Abril de 2019",
-      "medium_en": "Adobe Photoshop CC 2015",
-      "medium_pt": "Adobe Photoshop CC 2015",
       "technique_en": "Digital drawing",
       "technique_pt": "Desenho digital",
       "dimensions": "900 × 1440 px",
-      "weight": 11
+      "weight": 11,
+      "support_en": "Adobe Photoshop CC 2015",
+      "support_pt": "Adobe Photoshop CC 2015"
     },
     {
       "key": "0xpinguim",
@@ -189,12 +189,12 @@
       "image": "0xpinguim.png",
       "date_en": "17 March 2019",
       "date_pt": "17 de Março de 2019",
-      "medium_en": "Adobe Illustrator CC 2015",
-      "medium_pt": "Adobe Illustrator CC 2015",
       "technique_en": "Vector drawing",
       "technique_pt": "Desenho vetorial",
       "dimensions": "1440 × 900 px",
-      "weight": 12
+      "weight": 12,
+      "support_en": "Adobe Illustrator CC 2015",
+      "support_pt": "Adobe Illustrator CC 2015"
     },
     {
       "key": "sunafternoonandtoddynho",
@@ -205,12 +205,12 @@
       "image": "sunafternoonandtoddynho.png",
       "date_en": "29 January 2019",
       "date_pt": "29 de Janeiro de 2019",
-      "medium_en": "Adobe Illustrator CC 2015",
-      "medium_pt": "Adobe Illustrator CC 2015",
       "technique_en": "Vector drawing",
       "technique_pt": "Desenho vetorial",
       "dimensions": "3840 × 2160 px",
-      "weight": 13
+      "weight": 13,
+      "support_en": "Adobe Illustrator CC 2015",
+      "support_pt": "Adobe Illustrator CC 2015"
     },
     {
       "key": "fastandcute",
@@ -221,12 +221,12 @@
       "image": "fastandcute.png",
       "date_en": "14 December 2018",
       "date_pt": "14 de Dezembro de 2018",
-      "medium_en": "Adobe Illustrator CC 2015",
-      "medium_pt": "Adobe Illustrator CC 2015",
       "technique_en": "Vector drawing",
       "technique_pt": "Desenho vetorial",
       "dimensions": "1000 × 1000 px",
-      "weight": 14
+      "weight": 14,
+      "support_en": "Adobe Illustrator CC 2015",
+      "support_pt": "Adobe Illustrator CC 2015"
     },
     {
       "key": "miniature",
@@ -237,11 +237,11 @@
       "image": "miniature.png",
       "date_en": "13 December 2018",
       "date_pt": "13 de Dezembro de 2018",
-      "medium_en": "Adobe Illustrator CC 2015",
-      "medium_pt": "Adobe Illustrator CC 2015",
       "technique_en": "Vector drawing",
       "dimensions": "1000 × 1000 px",
-      "weight": 15
+      "weight": 15,
+      "support_en": "Adobe Illustrator CC 2015",
+      "support_pt": "Adobe Illustrator CC 2015"
     },
     {
       "key": "viridian010",
@@ -252,11 +252,11 @@
       "image": "viridian010.png",
       "date_en": "13 December 2018",
       "date_pt": "13 de Dezembro de 2018",
-      "medium_en": "Adobe Illustrator CC 2015",
-      "medium_pt": "Adobe Illustrator CC 2015",
       "technique_en": "Vector drawing",
       "dimensions": "1000 × 1000 px",
-      "weight": 16
+      "weight": 16,
+      "support_en": "Adobe Illustrator CC 2015",
+      "support_pt": "Adobe Illustrator CC 2015"
     }
   ]
 }

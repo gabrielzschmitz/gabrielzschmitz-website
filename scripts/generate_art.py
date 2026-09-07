@@ -106,9 +106,9 @@ def render_page(entry: dict, defaults: dict, index: int) -> tuple[str, str]:
     date = str(entry.get("date") or entry.get("year") or "")
     date_en = str(entry.get("date_en") or date)
     date_pt = str(entry.get("date_pt") or date_en)
-    medium = str(entry.get("medium") or "")
-    medium_en = str(entry.get("medium_en") or medium)
-    medium_pt = str(entry.get("medium_pt") or medium_en)
+    support = str(entry.get("support") or entry.get("support") or "")
+    support_en = str(entry.get("support_en") or entry.get("support_en") or support)
+    support_pt = str(entry.get("support_pt") or entry.get("support_pt") or support_en)
     license = str(entry.get("license") or defaults.get("license") or "")
     weight = int(entry.get("weight", index + 1))
     draft = "true" if entry.get("draft") else "false"
@@ -144,8 +144,8 @@ def render_page(entry: dict, defaults: dict, index: int) -> tuple[str, str]:
         "date_en = %s" % toml_string(date_en),
         "date_pt = %s" % toml_string(date_pt),
         "roman_year = %s" % toml_string(roman_year),
-        "medium_en = %s" % toml_string(medium_en),
-        "medium_pt = %s" % toml_string(medium_pt),
+        "support_en = %s" % toml_string(support_en),
+        "support_pt = %s" % toml_string(support_pt),
         "license = %s" % toml_string(license),
         "+++",
     ]
