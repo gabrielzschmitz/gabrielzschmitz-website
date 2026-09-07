@@ -5,12 +5,16 @@
 {% block description %}{% if page.description %}{{ page.description }}{% else %}{{ config.description }}{% endif %}{% endblock description %}
 
 {% block content %}
-  <span class="archive-code">PICTURA — {% if page.extra.roman_year %}<span>{{ page.extra.roman_year }}</span>{% else %}<span id="roman-year"></span>{% endif %}</span>
-
-  <br>
-  <a class="artwork-back" href="/art/">
-    <span data-en="Back to gallery" data-pt="Voltar à galeria">Back to gallery</span>
-  </a>
+  <section class="archive-intro-banner artwork-intro">
+    <div class="archive-intro-body">
+      <span class="archive-code">PICTURA — {% if page.extra.roman_year %}<span>{{ page.extra.roman_year }}</span>{% else %}<span id="roman-year"></span>{% endif %}</span>
+      <p class="artwork-intro-desc" data-no-roman
+        data-en="{{ page.extra.description_en }}" data-pt="{{ page.extra.description_pt }}">{{ page.extra.description_en }}</p>
+    </div>
+    <a class="artwork-back" href="/art/">
+      <span data-en="Back to gallery" data-pt="Voltar à galeria">Back to gallery</span>
+    </a>
+  </section>
 
   <article class="artwork">
     <figure class="artwork-figure">
@@ -21,9 +25,6 @@
     <header class="artwork-header">
       <h1 data-en="{{ page.extra.name_en }}" data-pt="{{ page.extra.name_pt }}">{{ page.title }}</h1>
     </header>
-
-    <div class="artwork-description" data-no-roman
-      data-en="{{ page.extra.description_en }}" data-pt="{{ page.extra.description_pt }}">{{ page.extra.description_en }}</div>
 
     <dl class="artwork-meta">
       {% if page.extra.dimensions %}
