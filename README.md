@@ -9,9 +9,10 @@
 This repository contains the full source code for my personal website. It is
 built as a single [Zola](https://www.getzola.org/) site with
 [BibInject](https://github.com/gabrielzschmitz/BibInject) for bibliography
-injection, serving both the handcrafted _portfolio main page_ at `/`, the
-_blog_ at `/blog`, where all long-form writing posts live, and the _research
-page_ at `/research`, where publications are rendered using BibInject.
+injection, serving the handcrafted _portfolio main page_ at `/`, the
+_blog_ at `/blog`, where all long-form writing posts live, the _research
+page_ at `/research`, where publications are rendered using BibInject, and
+the _art gallery_ at `/art`.
 
 ## Overview
 
@@ -33,6 +34,12 @@ page_ at `/research`, where publications are rendered using BibInject.
 
 <p align="center">
   <img align="center" width="640px" src="./static/assets/images/research-demo.png" alt="Research Page Demonstration">
+</p>
+
+### Art Gallery (`/art`)
+
+<p align="center">
+  <img align="center" width="640px" src="./static/assets/images/art-demo.png" alt="Art Gallery Demonstration">
 </p>
 
 ## Build
@@ -100,6 +107,25 @@ Builds the site with Zola and injects the research references. Output:
 ```
 
 Watches for changes, rebuilds automatically, and serves locally on port `1111`.
+
+### Screenshots
+
+```sh
+./build.sh --screenshots
+```
+
+Builds the site, serves it locally, and captures the README demo images (the
+`/`, `/blog`, `/research`, and `/art` pages) into
+`./static/assets/images/*-demo.png`. Requires a Chromium-based browser and
+Python 3 with `http.server`.
+
+Tunable via environment variables:
+
+- `SHOT_SIZE` — output PNG size (default `2254x1980`)
+- `SHOT_SCALE` — device scale factor (default `2`)
+- `SHOT_PAGES` — space-separated `path=output.png` map to override which pages
+  are captured
+- `PORT` — local port to serve the build on (default `1111`)
 
 ### BibInject
 
