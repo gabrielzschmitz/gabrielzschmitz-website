@@ -9,9 +9,17 @@ only rewritten when their content actually changes, so the build.sh watch loop
 converges instead of looping. Pages whose entry was removed from the JSON are
 pruned.
 
+The gallery is ordered by each page's `weight`, ascending. `weight` is derived
+from the artwork's position in the `"art"` array: the first entry gets weight
+`1` and each later entry increments by one, so the last entry always carries
+the highest weight. You never set weights by hand.
+
 Workflow to publish a new artwork:
   1. Drop the image file(s) into static/assets/art/<key>/.
-  2. Add one entry to the `"art"` array in static/assets/art/art.json.
+  2. Add one entry to the `"art"` array in static/assets/art/art.json. The
+     array is ordered newest-first, so a newly created (newer) piece goes at
+     the top and is automatically displayed first with weight `1`; no other
+     entries need editing.
   3. Run ./build.sh.
 """
 
@@ -95,8 +103,7 @@ def toml_string(value) -> str:
 def render_page(entry: dict, defaults: dict, index: int) -> tuple[str, str]:
     """Return (output relative path, file contents) for one artwork."""
     key = slugify(str(entry["key"]))
-    name_en = str(entry.get("name_en") or entry.get("name") or key)
-    name_pt = str(entry.get("name_pt") or name_en)
+    name = str(entry.get("name") or key)
     desc_en = str(entry.get("description_en") or "")
     desc_pt = str(entry.get("description_pt") or desc_en)
     image = str(entry.get("image") or "")
@@ -112,7 +119,7 @@ def render_page(entry: dict, defaults: dict, index: int) -> tuple[str, str]:
     support_en = str(entry.get("support_en") or entry.get("support_en") or support)
     support_pt = str(entry.get("support_pt") or entry.get("support_pt") or support_en)
     license = str(entry.get("license") or defaults.get("license") or "")
-    weight = int(entry.get("weight", index + 1))
+    weight = index + 1
     draft = "true" if entry.get("draft") else "false"
 
     wide = entry.get("wide") or False
@@ -125,7 +132,7 @@ def render_page(entry: dict, defaults: dict, index: int) -> tuple[str, str]:
     body = [
         "+++",
         GENERATED,
-        "title = %s" % toml_string(name_en),
+        "title = %s" % toml_string(name),
         "description = %s" % toml_string(desc_en),
         "weight = %d" % weight,
         "draft = %s" % draft,
@@ -136,8 +143,7 @@ def render_page(entry: dict, defaults: dict, index: int) -> tuple[str, str]:
     if wide:
         body.append("wide = true")
     body += [
-        "name_en = %s" % toml_string(name_en),
-        "name_pt = %s" % toml_string(name_pt),
+        "name = %s" % toml_string(name),
         "description_en = %s" % toml_string(desc_en),
         "description_pt = %s" % toml_string(desc_pt),
         "dimensions = %s" % toml_string(dimensions),

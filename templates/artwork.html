@@ -24,7 +24,7 @@
     </figure>
 
     <header class="artwork-header">
-      <h1 data-en="{{ page.extra.name_en }}" data-pt="{{ page.extra.name_pt }}">{{ page.title }}</h1>
+      <h1>{{ page.title }}</h1>
     </header>
 
     {% if page.extra.history_en %}
@@ -75,8 +75,7 @@
       </span>
       <span class="art-nav-body">
         <span class="art-nav-label" data-en="Previous" data-pt="Anterior">Previous</span>
-        <span class="art-nav-title" data-en="{{ page.lower.extra.name_en }}"
-          data-pt="{{ page.lower.extra.name_pt }}">{{ page.lower.title }}</span>
+        <span class="art-nav-title">{{ page.lower.title }}</span>
       </span>
     </a>
     {% else %}
@@ -95,8 +94,7 @@
     <a class="art-nav-next" href="{{ page.higher.path | safe }}" title="{{ page.higher.title }}">
       <span class="art-nav-body">
         <span class="art-nav-label" data-en="Next" data-pt="Próxima">Next</span>
-        <span class="art-nav-title" data-en="{{ page.higher.extra.name_en }}"
-          data-pt="{{ page.higher.extra.name_pt }}">{{ page.higher.title }}</span>
+        <span class="art-nav-title">{{ page.higher.title }}</span>
       </span>
       <span class="art-nav-arrow" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
