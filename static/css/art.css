@@ -56,16 +56,24 @@
 
 .art-caption {
   flex: 0 0 auto;
-  padding: 5px 6px 1px;
+  align-self: center;
+  margin: 8px;
   font-family: var(--font-serif);
-  font-size: 0.68rem;
-  letter-spacing: 1px;
-  color: var(--text-subtle);
-  text-align: center;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: var(--burgundy-hover);
+  color: var(--badge-text);
+  padding: 2px 8px;
+}
+
+.art-caption span {
+  display: inline-block;
 }
 
 .art-figure--wide .art-caption {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
 .art-empty {
