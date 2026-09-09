@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     || 'light';
   applyTheme(saved === 'dark');
 
-  const modeSeal = document.getElementById('theme-toggle');
-  if (!modeSeal) return;
-  modeSeal.addEventListener('click', () => {
+  const modeCtrl = document.getElementById('theme-toggle');
+  if (!modeCtrl) return;
+  modeCtrl.addEventListener('click', () => {
     applyTheme(!document.body.classList.contains('dark-mode'));
   });
 });

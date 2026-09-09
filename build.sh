@@ -321,7 +321,7 @@ run_serve() {
 # Screenshots (--screenshots)
 # ============================================================
 
-SHOT_DIR="${SHOT_DIR:-./static/assets/images}"
+SHOT_DIR="${SHOT_DIR:-./static/assets/images/screenshots}"
 
 # First Chromium-based browser found on PATH.
 chromium_binary() {
@@ -430,7 +430,7 @@ for arg in "$@"; do
       echo "Usage: $0 [MODE]"
       echo "  --serve, -s        watch-mode build (auto rebuild + BibInject, served locally)"
       echo "  --screenshots      build, serve locally, and screenshot the README demo pages"
-      echo "                     shots: /=website-demo.png /blog=blog-demo.png /research=research-demo.png /art=art-demo.png"
+      echo "                     shots: /=screenshots/website-demo.png /blog=screenshots/blog-demo.png /research=screenshots/research-demo.png /art=screenshots/art-demo.png"
       echo "                     (env: SHOT_SIZE=1503x1320, SHOT_SCALE=2, SHOT_PAGES=..., PORT=1111)"
       exit 0
       ;;

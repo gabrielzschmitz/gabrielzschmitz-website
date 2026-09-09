@@ -3,11 +3,11 @@
  * and the disable-JS teapot joke. Every hook is guarded so this file can also
  * load on blog pages (which have no #matrix-canvas / .cube-stage).
  */
-let is_effect_on = false;
-let animation_frame_id;
-let canvas, canvas_context;
+let isEffectOn = false;
+let animationFrameId;
+let canvas, canvasCtx;
 let columns, drops;
-const font_size = 16;
+const fontSize = 16;
 
 const MATRIX_CONFIG = {
   speed: 2.5,       // rows advanced per frame (higher = faster)
@@ -15,7 +15,7 @@ const MATRIX_CONFIG = {
   resetChance: 0.99 // chance to reset a column once it passes the bottom
 };
 
-function SetupCanvas() {
+function setupCanvas() {
   if (!canvas) return;
   const dpr = window.devicePixelRatio || 1;
   const fullHeight = Math.max(
@@ -26,54 +26,54 @@ function SetupCanvas() {
   canvas.height = fullHeight * dpr;
   canvas.style.width = `${window.innerWidth}px`;
   canvas.style.height = `${fullHeight}px`;
-  canvas_context = canvas.getContext('2d');
-  canvas_context.scale(dpr, dpr);
-  canvas_context.font = `${font_size}px monospace`;
-  canvas_context.textBaseline = 'top';
-  columns = Math.floor(window.innerWidth / font_size);
+  canvasCtx = canvas.getContext('2d');
+  canvasCtx.scale(dpr, dpr);
+  canvasCtx.font = `${fontSize}px monospace`;
+  canvasCtx.textBaseline = 'top';
+  columns = Math.floor(window.innerWidth / fontSize);
   drops = new Array(columns).fill(0);
 }
 
-function DrawMatrix() {
-  if (!is_effect_on) return;
+function drawMatrix() {
+  if (!isEffectOn) return;
 
   const bg = getCSSVar('--bg-color');
   const fg = getCSSVar('--text-subtle');
 
-  canvas_context.fillStyle = bg;
-  canvas_context.fillRect(0, 0, canvas.width, canvas.height);
-  canvas_context.fillStyle = fg;
-  canvas_context.font = `${font_size}px monospace`;
+  canvasCtx.fillStyle = bg;
+  canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+  canvasCtx.fillStyle = fg;
+  canvasCtx.font = `${fontSize}px monospace`;
 
   for (let i = 0; i < drops.length; i++) {
     /* draw a vertical trail of glyphs per column for a denser rain */
     for (let k = 0; k < MATRIX_CONFIG.trail; k++) {
       const text = String.fromCharCode(0x30A0 + Math.random() * 96);
-      canvas_context.fillText(
+      canvasCtx.fillText(
         text,
-        i * font_size,
-        (drops[i] - k) * font_size
+        i * fontSize,
+        (drops[i] - k) * fontSize
       );
     }
-    if (drops[i] * font_size > canvas.height && Math.random() > MATRIX_CONFIG.resetChance) {
+    if (drops[i] * fontSize > canvas.height && Math.random() > MATRIX_CONFIG.resetChance) {
       drops[i] = 0;
     }
     drops[i] += MATRIX_CONFIG.speed;
   }
 
-  animation_frame_id = requestAnimationFrame(DrawMatrix);
+  animationFrameId = requestAnimationFrame(drawMatrix);
 }
 
 function toggleMatrixEffect() {
   if (!canvas) return;
-  is_effect_on = !is_effect_on;
+  isEffectOn = !isEffectOn;
 
-  if (is_effect_on) {
-    SetupCanvas();
-    DrawMatrix();
+  if (isEffectOn) {
+    setupCanvas();
+    drawMatrix();
   } else {
-    cancelAnimationFrame(animation_frame_id);
-    canvas_context.clearRect(0, 0, canvas.width, canvas.height);
+    cancelAnimationFrame(animationFrameId);
+    canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
   }
 }
 
@@ -144,8 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('resize', () => {
-  if (is_effect_on) {
-    SetupCanvas();
+  if (isEffectOn) {
+    setupCanvas();
   }
 });
 

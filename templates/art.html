@@ -5,8 +5,9 @@
 {% block description %}{{ config.description }}{% endblock description %}
 
 {% block content %}
+  {% set banner_code = config.extra.latin.pinacotheca ~ ' — <span id="roman-year"></span>' %}
   <!-- ART GALLERY BANNER -->
-  {{ <gsz.archive_banner code='PINACOTHECA — <span id="roman-year"></span>' title_en="Art Gallery" title_pt="Galeria de Arte" desc_en="Works ordered by chronology. Select a piece to open its record." desc_pt="Obras ordenadas por cronologia. Selecione uma obra para abrir seu registro." /> }}
+  {{ <gsz.archive_banner code={banner_code} title_en="Art Gallery" title_pt="Galeria de Arte" desc_en="Works ordered by chronology. Select a piece to open its record." desc_pt="Obras ordenadas por cronologia. Selecione uma obra para abrir seu registro." /> }}
 
   <!-- MASONRY OF ARTWORKS -->
   <main class="art-masonry">

@@ -1,5 +1,5 @@
 /**
- * "Back to top" floating seal (blog/post pages only). Shown after scrolling
+ * "Back to top" floating control (blog/post pages only). Shown after scrolling
  * past a threshold; clicking smooth-scrolls to the top of the page.
  */
 document.addEventListener('DOMContentLoaded', () => {

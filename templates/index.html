@@ -45,9 +45,9 @@
       <div class="header-emblems">
         <div class="header-emblem-rule"></div>
         <div class="header-seal">
-          <span class="seal-ornament">&#x269C;&#xFE0E;</span>
-          <span class="seal-monogram">𓇣</span>
-          <span class="seal-ornament">&#x269C;&#xFE0E;</span>
+          <span class="masthead-ornament">&#x269C;&#xFE0E;</span>
+          <span class="masthead-monogram">𓇣</span>
+          <span class="masthead-ornament">&#x269C;&#xFE0E;</span>
         </div>
         <div class="header-emblem-rule"></div>
       </div>
@@ -88,7 +88,7 @@
 
         <!-- ABOUT -->
         <section class="page-section" id="about">
-          {{ <gsz.section_header kicker="MANIFESTATIO" title_en="About" title_pt="Sobre" sub_en="A short declaration about who I am and what I do." sub_pt="Uma breve declaração sobre quem sou e o que faço." /> }}
+          {{ <gsz.section_header kicker={config.extra.latin.manifestatio} title_en="About" title_pt="Sobre" sub_en="A short declaration about who I am and what I do." sub_pt="Uma breve declaração sobre quem sou e o que faço." /> }}
 
           <p class="drop-cap"
             data-en="I've been coding since I was 14, starting with <span id='cube-toggle'>Minecraft</span> mods in Java, which eventually led me down the rabbit hole of low-level programming with C and tinkering with simple NCurses apps."
@@ -134,7 +134,7 @@
 
         <!-- PROJECTS -->
         <section class="page-section" id="projects">
-          {{ <gsz.section_header kicker="OPUS" title_en="Projects" title_pt="Projetos" sub_en="A collection of things shaped by code, curiosity, and craft." sub_pt="Uma coleção de coisas moldadas por código, curiosidade e ofício." /> }}
+          {{ <gsz.section_header kicker={config.extra.latin.opus} title_en="Projects" title_pt="Projetos" sub_en="A collection of things shaped by code, curiosity, and craft." sub_pt="Uma coleção de coisas moldadas por código, curiosidade e ofício." /> }}
 
           <p data-en="Below are some of the projects I've <a class='built-link' href='./under-construction.html'>built</a> over my 4+ years of coding experience. This selection highlights work in software engineering, systems programming, and cryptography."
             data-pt="Abaixo estão alguns dos projetos que <a class='built-link' href='./under-construction.html'>construí</a> ao longo de mais de 4 anos de experiência em programação. Esta seleção destaca trabalhos em engenharia de software, programação de sistemas e criptografia.">
@@ -212,7 +212,7 @@
 
         <!-- EXPERIENCE -->
         <section class="page-section" id="experience">
-          {{ <gsz.section_header kicker="CURRICULUM" title_en="Experience" title_pt="Experiência" sub_en="A timeline of activities in research and software development." sub_pt="Uma linha do tempo de atuações em pesquisa e desenvolvimento de software." /> }}
+          {{ <gsz.section_header kicker={config.extra.latin.curriculum} title_en="Experience" title_pt="Experiência" sub_en="A timeline of activities in research and software development." sub_pt="Uma linha do tempo de atuações em pesquisa e desenvolvimento de software." /> }}
 
           <p data-en="Throughout my journey in software development and research, I've had the opportunity to work on diverse projects, from academic research to professional SaaS development. Below is a timeline of my professional and research experiences, highlighting contributions in distributed systems, applied cryptography, and backend engineering."
             data-pt="Ao longo da minha jornada em desenvolvimento de software e pesquisa, tive a oportunidade de trabalhar em diversos projetos, desde pesquisa acadêmica até desenvolvimento profissional de SaaS. Abaixo está uma linha do tempo das minhas experiências profissionais e de pesquisa, destacando contribuições em sistemas distribuídos, criptografia aplicada e engenharia de backend.">
@@ -278,7 +278,7 @@
 
         <!-- EDUCATION -->
         <section class="page-section" id="education">
-          {{ <gsz.section_header kicker="STUDIA" title_en="Education" title_pt="Formação" sub_en="Formal degrees and specialized courses in computer science." sub_pt="Diplomas formais e cursos especializados em ciência da computação." /> }}
+          {{ <gsz.section_header kicker={config.extra.latin.studia} title_en="Education" title_pt="Formação" sub_en="Formal degrees and specialized courses in computer science." sub_pt="Diplomas formais e cursos especializados em ciência da computação." /> }}
 
           <p data-en="Here are some of the academic programs and certifications I have completed throughout my studies. This selection showcases key milestones in my education, covering both formal degrees and specialized courses in computer science."
             data-pt="Aqui estão alguns dos programas acadêmicos e certificações que concluí ao longo dos meus estudos. Esta seleção destaca marcos importantes da minha formação, abrangendo tanto diplomas formais quanto cursos especializados em ciência da computação.">
@@ -359,7 +359,7 @@
         <!-- POSTS INDEX -->
         {% set posts = get_section(path="blog/posts/_index.md") %}
         <div class="panel index-box">
-          {{ <gsz.panel_header kicker="ARCHIVUM" title_en="Index of writings" title_pt="Índice de escritos" /> }}
+          {{ <gsz.panel_header kicker={config.extra.latin.archivum} title_en="Index of writings" title_pt="Índice de escritos" /> }}
           <ul class="article-list">
             {% for page in posts.pages %}
             {% if loop.index <= 3 %} <li>
@@ -375,7 +375,7 @@
 
         <!-- RESEARCH INDEX -->
         <div class="panel index-box">
-          {{ <gsz.panel_header kicker="TRACTATUS" title_en="Index of Research" title_pt="Índice de Pesquisa" /> }}
+          {{ <gsz.panel_header kicker={config.extra.latin.tractatus} title_en="Index of Research" title_pt="Índice de Pesquisa" /> }}
           <div class="article-list references-sidebar" id="references-sidebar">
             <p class="post-desc">Loading references…</p>
           </div>
@@ -385,10 +385,10 @@
 
         <!-- CONTACT -->
         <div class="panel">
-          {{ <gsz.panel_header kicker="CONTACTUS" title_en="Connect" title_pt="Contato" /> }}
+          {{ <gsz.panel_header kicker={config.extra.latin.contactus} title_en="Connect" title_pt="Contato" /> }}
           <ul class="article-list social-list">
             <li>
-              <img class="social-icon" width="18" height="18" src="./assets/images/GZS.svg" alt="gabrielzschmitz blog">
+              <img class="social-icon" width="18" height="18" src="./assets/images/icons/GZS.svg" alt="gabrielzschmitz blog">
               <a href="/blog" class="article-link">Blog</a>
             </li>
             <li>
@@ -423,8 +423,8 @@
           <a href="./assets/resume/resume.pdf" data-resume target="_blank" rel="noopener" class="seal-link">
             <div class="seal-frame">
               <div class="seal-glyph">⚔ <span class="seal-hiero">𓇣</span> ⚔</div>
-              <p class="seal-label">CURRICULUM VITAE</p>
-              <p class="seal-motto">«Festina lente»</p>
+              <p class="seal-label">{{ config.extra.latin.curriculum_vitae }}</p>
+              <p class="seal-motto">{{ config.extra.latin.festina_lente }}</p>
             </div>
           </a>
         </div>

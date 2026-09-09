@@ -26,8 +26,8 @@
   <body>
     {% include "partials/floating_controls.html" %}
     {% if page and "posts" in page.components %}
-    <div class="seal-button" id="back-to-top" title="Back to top" hidden>
-      <span class="seal-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2L4.5 6.5h2.5v7h2v-7h2.5L8 2z" fill="currentColor"/></svg></span>
+    <div class="ctrl-button" id="back-to-top" title="Back to top" hidden>
+      <span class="ctrl-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2L4.5 6.5h2.5v7h2v-7h2.5L8 2z" fill="currentColor"/></svg></span>
     </div>
     {% endif %}
     <div class="site-frame">
@@ -56,8 +56,7 @@
 
       <footer class="site-footer">
         <p>
-        © <span id="roman-year"></span> — <a href="/blog/rss.xml">Scriptorium de
-          Gabriel.</a>
+        © <span id="roman-year"></span> — <a href="/blog/rss.xml">{{ config.extra.latin.scriptorium }}</a>
         </p>
       </footer>
     </div>

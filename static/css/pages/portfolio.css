@@ -145,14 +145,14 @@ p {
   color: var(--burgundy);
 }
 
-.seal-monogram {
+.masthead-monogram {
   font-family: var(--font-hiero);
   font-size: 2rem;
   letter-spacing: 3px;
   line-height: 1;
 }
 
-.seal-ornament {
+.masthead-ornament {
   font-family: var(--font-serif);
   font-size: 1rem;
   opacity: 0.8;
@@ -193,7 +193,7 @@ p {
 
 /* FLOATING ICONS: THEME + LANGUAGE — positioning lives in
  * floating-controls.css (shared with the blog); keep the hover color here. */
-.seal-button:hover {
+.ctrl-button:hover {
   color: var(--text-color);
 }
 

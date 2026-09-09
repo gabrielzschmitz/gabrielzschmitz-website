@@ -6,7 +6,7 @@
   {% set posts = get_section(path="blog/posts/_index.md") %}
 
   <!-- ARCHIVE INTRO BANNER -->
-  {% <gsz.archive_banner code="CODEX — MMXXVI" title_en="Manuscript Catalog" title_pt="Catálogo de Manuscritos" desc_en="Texts ordered by chronology, and nature. Select a work to open the folio." desc_pt="Textos ordenados por cronologia e natureza. Selecione uma obra para abrir o fólio."> %}
+  {% <gsz.archive_banner code={config.extra.latin.codex} title_en="Manuscript Catalog" title_pt="Catálogo de Manuscritos" desc_en="Texts ordered by chronology, and nature. Select a work to open the folio." desc_pt="Textos ordenados por cronologia e natureza. Selecione uma obra para abrir o fólio."> %}
     <div class="filter-bar">
       <button class="filter-btn active" data-filter="all" data-en="ALL" data-pt="TODOS">ALL</button>
       <button class="filter-btn" data-filter="English">ENGLISH</button>
@@ -44,7 +44,7 @@
         {% endif %}
         {% if p %}
           <article class="post-card post-card-featured" data-language="{{ key }}" data-url="{{ p.path | safe }}">
-            <div class="post-card-badge">ULTIMUS FOLIO</div>
+            <div class="post-card-badge">{{ config.extra.latin.ultimus_folio }}</div>
             <div class="post-card-inner">
               <div class="post-card-meta">
                 <span class="post-date">{{ p.date | date(format="%d.%m.%Y") }}</span>
@@ -78,7 +78,7 @@
           data-resume target="_blank" rel="noopener" class="seal-link">
         <div class="seal-frame">
           <div class="seal-glyph">⚔ <span class="seal-hiero">𓃔</span> ⚔</div>
-          <p class="seal-label">AGNUS DEI</p>
+          <p class="seal-label">{{ config.extra.latin.agnus_dei }}</p>
           <p class="seal-motto">«Qui tollis peccata mundi»</p>
         </div>
       </a>

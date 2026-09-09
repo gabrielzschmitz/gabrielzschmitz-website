@@ -1,7 +1,7 @@
-/* SHARED CONTROLS — the round floating "seals" used for theme, language, and
+/* SHARED CONTROLS — the round floating buttons used for theme, language, and
  * misc toggles on both the portfolio and the blog. */
 
-.seal-button {
+.ctrl-button {
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -15,30 +15,30 @@
   transition: all 0.3s ease;
 }
 
-.seal-button:hover {
+.ctrl-button:hover {
   background-color: var(--burgundy);
   border-color: var(--burgundy);
 }
 
 /* Tint the language flag toward the site's text color */
-.seal-button .flag-icon,
+.ctrl-button .flag-icon,
 #language-toggle .flag-icon {
   display: block;
   filter: sepia(1) saturate(0.5) brightness(0.9) contrast(1.5);
 }
 
-.seal-icon {
+.ctrl-icon {
   font-family: var(--font-symbol);
 }
 
 #back-to-top,
-#back-to-top .seal-button,
+#back-to-top .ctrl-button,
 #language-toggle,
-#language-toggle .seal-button,
+#language-toggle .ctrl-button,
 #theme-toggle,
-#theme-toggle .seal-icon,
+#theme-toggle .ctrl-icon,
 #music-toggle,
-#music-toggle .seal-icon {
+#music-toggle .ctrl-icon {
   -webkit-user-select: none;
   user-select: none;
 }

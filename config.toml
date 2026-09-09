@@ -31,3 +31,26 @@ dark_theme = "github-dark"
 [extra]
 # Author info surfaced in the templates.
 author = "gabrielzschmitz"
+
+[extra.latin]
+# Site-wide Latin vocabulary, kept in one place so the templates never
+# hard-code the motif words.
+manifestatio = "MANIFESTATIO"
+opus = "OPUS"
+curriculum = "CURRICULUM"
+studia = "STUDIA"
+archivum = "ARCHIVUM"
+tractatus = "TRACTATUS"
+contactus = "CONTACTUS"
+melos = "MELOS"
+ultimus_folio = "ULTIMUS FOLIO"
+agnus_dei = "AGNUS DEI"
+curriculum_vitae = "CURRICULUM VITAE"
+festina_lente = "«Festina lente»"
+scriptorium = "Scriptorium de Gabriel."
+
+# Catalogue banner codes — the romanized latin prefixes of each archive page.
+codex = "CODEX — MMXXVI"
+inquisitio = "INQUISITIONIS"
+pinacotheca = "PINACOTHECA"
+pictura = "PICTURA — "

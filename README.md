@@ -20,26 +20,26 @@ the _art gallery_ at `/art`.
 ### Main Page (`/`)
 
 <p align="center">
-  <img align="center" width="640px" src="./static/assets/images/website-demo.png" alt="Website Demonstration">
+  <img align="center" width="640px" src="./static/assets/images/screenshots/website-demo.png" alt="Website Demonstration">
 </p>
 
 
 ### Blog (`/blog`)
 
 <p align="center">
-  <img align="center" width="640px" src="./static/assets/images/blog-demo.png" alt="Blog Demonstration">
+  <img align="center" width="640px" src="./static/assets/images/screenshots/blog-demo.png" alt="Blog Demonstration">
 </p>
 
 ### Research Page (`/research`)
 
 <p align="center">
-  <img align="center" width="640px" src="./static/assets/images/research-demo.png" alt="Research Page Demonstration">
+  <img align="center" width="640px" src="./static/assets/images/screenshots/research-demo.png" alt="Research Page Demonstration">
 </p>
 
 ### Art Gallery (`/art`)
 
 <p align="center">
-  <img align="center" width="640px" src="./static/assets/images/art-demo.png" alt="Art Gallery Demonstration">
+  <img align="center" width="640px" src="./static/assets/images/screenshots/art-demo.png" alt="Art Gallery Demonstration">
 </p>
 
 ## Build
@@ -116,7 +116,7 @@ Watches for changes, rebuilds automatically, and serves locally on port `1111`.
 
 Builds the site, serves it locally, and captures the README demo images (the
 `/`, `/blog`, `/research`, and `/art` pages) into
-`./static/assets/images/*-demo.png`. Requires a Chromium-based browser and
+`./static/assets/images/screenshots/*-demo.png`. Requires a Chromium-based browser and
 Python 3 with `http.server`.
 
 Tunable via environment variables:

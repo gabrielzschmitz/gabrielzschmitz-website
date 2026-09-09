@@ -45,7 +45,7 @@
   color: var(--text-subtle);
 }
 
-#music-toggle .seal-icon {
+#music-toggle .ctrl-icon {
   transform: translateY(-3px);
 }
 

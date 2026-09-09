@@ -6,9 +6,10 @@
 
 {% block content %}
   {% set section = get_section(path="research/_index.md") %}
+  {% set banner_code = config.extra.latin.inquisitio ~ ' — <span id="roman-year"></span>' %}
 
   <!-- RESEARCH INTRO BANNER -->
-  {{ <gsz.archive_banner code='INQUISITIONIS — <span id="roman-year"></span>' title_en="Index of Research" title_pt="Índice de Pesquisa" desc_en="Research, papers, and publications ordered by chronology and nature. Select a reference to open the record." desc_pt="Pesquisas, artigos e publicações ordenados por cronologia e natureza. Selecione uma referência para abrir o registro." /> }}
+  {{ <gsz.archive_banner code={banner_code} title_en="Index of Research" title_pt="Índice de Pesquisa" desc_en="Research, papers, and publications ordered by chronology and nature. Select a reference to open the record." desc_pt="Pesquisas, artigos e publicações ordenados por cronologia e natureza. Selecione uma referência para abrir o registro." /> }}
 
   <!-- BIBINJECT TARGET: filled at build time by BibInject from static/assets/research/ref.bib -->
   <div class="reference-list" id="references">

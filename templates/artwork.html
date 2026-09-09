@@ -6,9 +6,9 @@
 
 {% block content %}
   {% if page.extra.roman_year %}
-    {% set pictura_code = 'PICTURA — <span>' ~ page.extra.roman_year ~ '</span>' %}
+    {% set pictura_code = config.extra.latin.pictura ~ '<span>' ~ page.extra.roman_year ~ '</span>' %}
   {% else %}
-    {% set pictura_code = 'PICTURA — <span id="roman-year"></span>' %}
+    {% set pictura_code = config.extra.latin.pictura ~ '<span id="roman-year"></span>' %}
   {% endif %}
   {% <gsz.archive_banner code={pictura_code} title_en="Artwork" title_pt="Obra" desc_en={page.extra.description_en} desc_pt={page.extra.description_pt} extra_class="artwork-intro" no_roman_desc={true}> %}
     <a class="artwork-back" href="/art/">

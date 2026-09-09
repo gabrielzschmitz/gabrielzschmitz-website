@@ -37,7 +37,7 @@ body {
 
 /* THEME / CONTROL TOGGLES — positioning lives in floating-controls.css and
  * the music panel in player.css; only blog-specific tweaks stay here. */
-.seal-button:hover {
+.ctrl-button:hover {
   color: var(--badge-text);
 }
 
