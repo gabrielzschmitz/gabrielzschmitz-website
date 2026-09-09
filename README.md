@@ -1,6 +1,6 @@
 # Personal Website
 
-<img align="right" width="166px" src="./static/assets/resume/logo.svg" alt="gabrielzschmitz Logo">
+<img align="right" width="166px" src="./static/resume/logo.svg" alt="gabrielzschmitz Logo">
 
 <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="License"></a>
 <a href="https://www.buymeacoffee.com/gabrielzschmitz" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 20px !important;width: 87px;" ></a>
@@ -20,26 +20,26 @@ the _art gallery_ at `/art`.
 ### Main Page (`/`)
 
 <p align="center">
-  <img align="center" width="640px" src="./static/assets/images/screenshots/website-demo.png" alt="Website Demonstration">
+  <img align="center" width="640px" src="./static/images/screenshots/website-demo.png" alt="Website Demonstration">
 </p>
 
 
 ### Blog (`/blog`)
 
 <p align="center">
-  <img align="center" width="640px" src="./static/assets/images/screenshots/blog-demo.png" alt="Blog Demonstration">
+  <img align="center" width="640px" src="./static/images/screenshots/blog-demo.png" alt="Blog Demonstration">
 </p>
 
 ### Research Page (`/research`)
 
 <p align="center">
-  <img align="center" width="640px" src="./static/assets/images/screenshots/research-demo.png" alt="Research Page Demonstration">
+  <img align="center" width="640px" src="./static/images/screenshots/research-demo.png" alt="Research Page Demonstration">
 </p>
 
 ### Art Gallery (`/art`)
 
 <p align="center">
-  <img align="center" width="640px" src="./static/assets/images/screenshots/art-demo.png" alt="Art Gallery Demonstration">
+  <img align="center" width="640px" src="./static/images/screenshots/art-demo.png" alt="Art Gallery Demonstration">
 </p>
 
 ## Project Structure
@@ -75,31 +75,33 @@ the _art gallery_ at `/art`.
 │   ├── tags/             # Taxonomy list and single templates
 │   └── partials/         # Reusable blocks (head, analytics, theme, controls, player)
 ├── static/
+│   ├── art/               # Artwork images, one dir per piece (mirrors /art/<slug>/)
+│   ├── certificates/      # PDF certificates
 │   ├── css/
-│   │   ├── core/         # tokens, base, layout, controls, emblem, player, references
-│   │   ├── pages/        # one stylesheet per page type
-│   │   └── effects/      # cube.css (Minecraft effect)
-│   ├── js/               # Behaviour modules (lang, theme, player, roman, effects, ...)
-│   ├── fonts/            # Self-hosted woff2 + fonts.css
-│   ├── assets/
-│   │   ├── art/          # Artwork files + art.json
-│   │   ├── images/       # icons/ (logos, favicon) and screenshots/
-│   │   ├── music/        # Streamed tracks + credits.json/ATTRIBUTION.md
-│   │   ├── research/     # ref.bib (BibInject source)
-│   │   ├── resume/       # LaTeX source + PDF résumé and logo
-│   │   ├── cursor/       # Cursor images
-│   │   └── certificates/ # PDF certificates
+│   │   ├── core/          # tokens, base, layout, controls, emblem, player, references
+│   │   ├── pages/         # one stylesheet per page type
+│   │   └── effects/       # cube.css (Minecraft effect)
+│   ├── cursor/            # Cursor images
+│   ├── fonts/             # Self-hosted woff2 + fonts.css
+│   ├── images/            # icons/ (logos, favicon) and screenshots/
+│   ├── js/                # Behaviour modules (lang, theme, player, roman, effects, ...)
+│   ├── music/             # Streamed tracks (playlist emitted to public/ by build.sh)
+│   ├── research/          # ref.bib (BibInject source)
+│   ├── resume/            # LaTeX source + PDF résumé and logo
 │   ├── robots.txt
 │   └── under-construction.html
 └── scripts/
-    ├── generate_art.py   # Builds content/art/ pages from static/assets/art/art.json
-    └── refspec/mini.html # BibInject sidebar layout refspec
+    ├── art.json           # Art gallery registry (source of truth for generate_art.py)
+    ├── generate_art.py    # Builds content/art/ pages from scripts/art.json
+    ├── credits.json       # Music track credits (consumed by build.sh playlist task)
+    ├── ATTRIBUTION.md     # Track attribution, licensing, takedown notice
+    └── refspec/mini.html  # BibInject sidebar layout refspec
 ```
 
 Generated at build time:
 
-- `content/art/*/` — created by `scripts/generate_art.py` from `static/assets/art/art.json` (gitignored).
-- `public/` — site output (gitignored); references from `static/assets/research/ref.bib` and the music playlist are injected into it by `build.sh`.
+- `content/art/*/` — created by `scripts/generate_art.py` from `scripts/art.json` (gitignored).
+- `public/` — site output (gitignored); references from `static/research/ref.bib` and the music playlist are injected into it by `build.sh`.
 
 </details>
 
@@ -177,7 +179,7 @@ Watches for changes, rebuilds automatically, and serves locally on port `1111`.
 
 Builds the site, serves it locally, and captures the README demo images (the
 `/`, `/blog`, `/research`, and `/art` pages) into
-`./static/assets/images/screenshots/*-demo.png`. Requires a Chromium-based browser and
+`./static/images/screenshots/*-demo.png`. Requires a Chromium-based browser and
 Python 3 with `http.server`.
 
 Tunable via environment variables:
@@ -203,13 +205,13 @@ the [LICENSE](LICENSE) file for details.
 
 ### Music
 
-The music tracks included under [`static/assets/music`](static/assets/music)
+The music tracks included under [`static/music`](static/music)
 are **not** owned by this project and are not covered by the project's MIT
 License. They are reproduced solely for streaming purposes with attribution to
 their respective artists and rights holders.
 
 For full credits, licensing information, and the takedown notice, see
-[`ATTRIBUTION.md`](static/assets/music/ATTRIBUTION.md).
+[`ATTRIBUTION.md`](scripts/ATTRIBUTION.md).
 
 If you hold the rights to any track included in this project and would like it
 removed, please contact

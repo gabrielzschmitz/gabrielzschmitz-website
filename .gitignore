@@ -1,8 +1,11 @@
 public/
 
 # Generated at build time by scripts/generate_art.py from
-# static/assets/art/art.json (content/art/_index.md is committed).
+# scripts/art.json (content/art/_index.md is committed).
 content/art/*/
+
+# LaTeX build artifacts for the résumé sources (static/resume).
+static/resume/.aux/
 
 # Node.js
 node_modules/

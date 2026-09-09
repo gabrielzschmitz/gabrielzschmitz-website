@@ -6,7 +6,7 @@ set -euo pipefail
 # gabrielzschmitz.xyz build script
 #
 # Builds the Zola site and injects research references from
-# static/assets/research/ref.bib using BibInject.
+# static/research/ref.bib using BibInject.
 #
 # Usage:
 #   ./build.sh            Build the site for production.
@@ -37,7 +37,7 @@ ZOLA_BIN="${ZOLA_BIN:-zola}"
 BIB_VERSION="v2.2.2"
 BIB_URL="https://github.com/gabrielzschmitz/BibInject/archive/refs/tags/${BIB_VERSION}.tar.gz"
 BIB_DIR="${BIB_DIR:-/tmp/BibInject-${BIB_VERSION}}"
-BIB_SOURCE="./static/assets/research/ref.bib"
+BIB_SOURCE="./static/research/ref.bib"
 BIB_REFPEC="apa"
 BIB_REFPEC_MINI="mini"
 
@@ -161,7 +161,7 @@ inject_all() {
 }
 
 # ============================================================
-# Art gallery (static/assets/art/art.json -> content/art/<key>/index.md)
+# Art gallery (static/art/images + scripts/art.json -> content/art/<key>/index.md)
 # ============================================================
 
 generate_art_pages() {
@@ -170,24 +170,24 @@ generate_art_pages() {
 }
 
 # ============================================================
-# Music playlist (static/assets/music/*.mp3 -> public playlist.json)
+# Music playlist (static/music/*.mp3 -> public/music/playlist.json)
 # ============================================================
 
 generate_music_playlist() {
-  local src="./static/assets/music"
-  local out="./public/assets/music/playlist.json"
-  python3 - "$src" "$out" <<'PY'
+  local src="./static/music"
+  local out="./public/music/playlist.json"
+  local meta="./scripts/credits.json"
+  python3 - "$src" "$out" "$meta" <<'PY'
 import json
 import os
 import sys
 import urllib.parse
 
-src, out = sys.argv[1], sys.argv[2]
+src, out, meta = sys.argv[1], sys.argv[2], sys.argv[3]
 
 credits = {}
-credits_path = os.path.join(src, "credits.json")
-if os.path.exists(credits_path):
-    with open(credits_path, encoding="utf-8") as f:
+if os.path.exists(meta):
+    with open(meta, encoding="utf-8") as f:
         credits = json.load(f)
 
 default_name = credits.get("default")
@@ -198,7 +198,7 @@ for name in sorted(os.listdir(src)):
     title = os.path.splitext(name)[0]
     track = {
         "title": title,
-        "src": "/assets/music/" + urllib.parse.quote(name),
+        "src": "/music/" + urllib.parse.quote(name),
     }
     meta = credits.get(name, {})
     for key in ("artist", "album", "year", "source", "copyright", "license"):
@@ -321,7 +321,7 @@ run_serve() {
 # Screenshots (--screenshots)
 # ============================================================
 
-SHOT_DIR="${SHOT_DIR:-./static/assets/images/screenshots}"
+SHOT_DIR="${SHOT_DIR:-./static/images/screenshots}"
 
 # First Chromium-based browser found on PATH.
 chromium_binary() {
