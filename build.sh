@@ -56,10 +56,25 @@ PORTFOLIO_HTML="./public/portfolio/index.html"
 print_banner() {
   local mode="$1"
   echo -e "${BOLD}${RED}"
-  echo "========================================"
-  echo "           gabrielzschmitz.xyz"
+  echo "       +-----------------------+"
+  echo "       |    █▓▒░               |"
+  echo "       |   █░                  |"
+  echo "       |   █░ ▓█               |"
+  echo "       |    █▓▒░               |"
+  echo "       |         █▓▒░          |"
+  echo "       |           ▓           |"
+  echo "       |          ▒            |"
+  echo "       |         █▓▒░          |"
+  echo "       |             █▓▒       |"
+  echo "       |            █▒         |"
+  echo "       |              ▒░       |"
+  echo "       |            █▓▒        |"
+  echo "       +-----------------------+"
+  echo ""
+  echo "======================================="
+  echo "          gabrielzschmitz.xyz"
   echo "        Zola + BibInject builder"
-  echo "========================================"
+  echo "======================================="
   echo -e "${RESET}"
   if [[ "$mode" == "serve" ]]; then
     echo -e "${CYAN}${BOLD}Mode:${RESET} watch (auto rebuild + BibInject, served locally)"
@@ -152,11 +167,11 @@ run_bibinject() {
 }
 
 inject_all() {
-  echo -e "${BOLD}${CYAN}=== BibInject - research page ==========${RESET}"
+  echo -e "${BOLD}${CYAN}=== BibInject - research page =========${RESET}"
   run_bibinject "$RESEARCH_HTML" "references" "$BIB_REFPEC"
 
   echo
-  echo -e "${BOLD}${CYAN}=== BibInject - portfolio sidebar ======${RESET}"
+  echo -e "${BOLD}${CYAN}=== BibInject - portfolio sidebar =====${RESET}"
   run_bibinject "$PORTFOLIO_HTML" "references-sidebar" "$BIB_REFPEC_MINI"
 }
 
@@ -216,11 +231,11 @@ PY
 # ============================================================
 
 run_build() {
-  echo -e "${BOLD}${CYAN}=== Art pages ==========================${RESET}"
+  echo -e "${BOLD}${CYAN}=== Art pages =========================${RESET}"
   generate_art_pages
 
   echo
-  echo -e "${BOLD}${CYAN}=== Zola build =========================${RESET}"
+  echo -e "${BOLD}${CYAN}=== Zola build ========================${RESET}"
   ensure_zola
   ensure_bibinject
   log_warn "Starting Zola build…"
