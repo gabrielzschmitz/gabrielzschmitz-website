@@ -1,6 +1,6 @@
 # Personal Website
 
-<img align="right" width="166px" src="./static/assets/images/logo.svg" alt="gabrielzschmitz Logo">
+<img align="right" width="166px" src="./static/assets/resume/logo.svg" alt="gabrielzschmitz Logo">
 
 <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="License"></a>
 <a href="https://www.buymeacoffee.com/gabrielzschmitz" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 20px !important;width: 87px;" ></a>
@@ -131,7 +131,7 @@ Tunable via environment variables:
 
 [BibInject](https://github.com/gabrielzschmitz/BibInject) is downloaded from
 its pinned GitHub release into a cache directory . Each build updates its
-`mini` refspec with the repo's `static/refspec/mini.html` to keep the sidebar
+`mini` refspec with the repo's `scripts/refspec/mini.html` to keep the sidebar
 layout in sync.
 
 ## License
