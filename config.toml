@@ -1,5 +1,6 @@
 # Zola configuration for gabrielzschmitz.xyz
-# One site builds both the portfolio (site root) and the blog (under /blog/).
+# One site builds the home page (site root), the portfolio (under /portfolio/),
+# and the blog (under /blog/).
 
 base_url = "https://www.gabrielzschmitz.xyz/"
 title = "gabrielzschmitz"
@@ -39,6 +40,7 @@ manifestatio = "MANIFESTATIO"
 opus = "OPUS"
 curriculum = "CURRICULUM"
 studia = "STUDIA"
+exploratio = "EXPLORATIO"
 archivum = "ARCHIVUM"
 tractatus = "TRACTATUS"
 contactus = "CONTACTUS"

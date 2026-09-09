@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include "partials/head_meta.html" %}
+  <meta name="description" content="gabrielzschmitz's personal website: a short declaration about who I am and what I do, with links to my portfolio, blog, research, and art.">
+
+  <title>gabrielzschmitz</title>
+
+  {% include "partials/theme_init.html" %}
+  {% include "partials/head_analytics.html" %}
+
+
+  <!-- FONTS (font-display: optional; fonts.css loads blocking at parse so fonts fetch early and are ready before first paint -- no swap shift, no unused preloads) -->
+  <link rel="stylesheet" href="/fonts/fonts.css">
+
+  <!-- STYLES -->
+  {% include "partials/styles_core.html" %}
+  <link rel="stylesheet" href="/css/pages/portfolio.css">
+  <link rel="stylesheet" href="/css/pages/portfolio-article.css">
+  <link rel="stylesheet" href="/css/pages/article-list.css">
+</head>
+
+<body>
+
+  <div class="site-frame">
+
+    <!-- PERIODIC HEADER -->
+    <header class="site-header">
+      <div class="dateline">
+        <span>VOL. I — N.º 01</span>
+        <span>ANNO DOMINI <span data-roman-year>MMXXVI</span></span>
+      </div>
+
+      <h1 class="site-title">gabrielzschmitz</h1>
+
+      <p class="tagline" data-en="&quot;crafting systems where speed meets elegance...&quot;"
+        data-pt="&quot;criando sistemas onde velocidade encontra elegância...&quot;">
+        &quot;crafting systems where speed meets elegance...&quot;
+      </p>
+
+      <!-- EMBLEM -->
+      <div class="header-emblems">
+        <div class="header-emblem-rule"></div>
+        <div class="header-seal">
+          <span class="masthead-ornament">&#x269C;&#xFE0E;</span>
+          <span class="masthead-monogram">𓇣</span>
+          <span class="masthead-ornament">&#x269C;&#xFE0E;</span>
+        </div>
+        <div class="header-emblem-rule"></div>
+      </div>
+
+      <!-- MAIN NAVEGATION -->
+      <nav class="site-nav">
+        <a href="#about" data-en="About" data-pt="Sobre">About</a>
+        <span class="nav-sep">♦</span>
+        <a href="/portfolio/" data-en="Portfolio" data-pt="Portfólio">Portfolio</a>
+        <span class="nav-sep">♦</span>
+        <a href="/blog/" data-en="Blog" data-pt="Blog">Blog</a>
+        <span class="nav-sep">♦</span>
+        <a href="/art/" data-en="Art" data-pt="Arte">Art</a>
+        <span class="nav-sep">♦</span>
+        <a href="/research/" data-en="Research" data-pt="Pesquisa">Research</a>
+      </nav>
+
+      <div class="header-meta">
+        <span class="meta-item">SECTIO: PERSONA</span>
+        <span class="header-meta-secondary">EDITIO SPECIALIS</span>
+      </div>
+    </header>
+
+    {% include "partials/floating_controls.html" %}
+    {% include "partials/music_player.html" %}
+
+    {{ <gsz.section_divider /> }}
+
+    <!-- MAIN CONTENT -->
+    <main class="site-main">
+
+      <!-- MAIN COLUMN -->
+      <div class="content-column">
+
+        <!-- ABOUT -->
+        <section class="page-section" id="about">
+          {{ <gsz.section_header kicker={config.extra.latin.manifestatio} title_en="About" title_pt="Sobre" sub_en="A short declaration about who I am and what I do." sub_pt="Uma breve declaração sobre quem sou e o que faço." /> }}
+
+          <p class="drop-cap"
+            data-en="I've been coding since I was 14, starting with <span id='cube-toggle'>Minecraft</span> mods in Java, which eventually led me down the rabbit hole of low-level programming with C and tinkering with simple NCurses apps."
+            data-pt="Programo desde os 14 anos, começando com mods de <span id='cube-toggle'>Minecraft</span> em Java, o que eventualmente me levou ao mundo da programação de baixo nível com C e a experimentar aplicativos simples em NCurses.">
+            I've been coding since I was 14, starting with <span id='cube-toggle'>Minecraft</span> mods in Java,
+            which eventually led me down the
+            rabbit hole of low-level programming with C and tinkering with simple NCurses apps.</p>
+
+          <p data-en="Studying computer engineering at UTFPR deepened my love for programming, and now I'm comfortable with C, C++, Python, Go, Rust, Java, and JavaScript, along with tools like LaTeX, PostgreSQL, Redis, OpenCV, NumPy, and Docker."
+            data-pt="Cursar engenharia de computação na UTFPR aprofundou meu amor pela programação, e agora estou confortável com C, C++, Python, Go, Rust, Java e JavaScript, além de ferramentas como LaTeX, PostgreSQL, Redis, OpenCV, NumPy e Docker.">
+            Studying computer engineering at UTFPR deepened my love for programming, and now I'm comfortable with C,
+            C++, Python, Go, Rust, Java, and JavaScript, along with tools like LaTeX, PostgreSQL, Redis, OpenCV, NumPy,
+            and Docker.</p>
+
+          <blockquote class="pull-quote"
+            data-en="«Pray as though everything depended on God.<br>Work as though everything depended on you.»<span class='quote-source'>— Saint Ignatius of Loyola</span>"
+            data-pt="«Reze como se tudo dependesse de Deus.<br>Trabalhe como se tudo dependesse de você.»<span class='quote-source'>— Santo Inácio de Loyola</span>">
+            «Pray as though
+            everything depended on God.<br>Work as though everything depended on you.»<span class="quote-source">— Saint
+              Ignatius of Loyola</span></blockquote>
+
+          <p data-en="I enjoy the discipline of low-level programming and <span
+             id='matrix-toggle'>cryptography</span>, where careful reasoning,
+           attention to detail, and a deep understanding of the underlying
+           systems matter. I see good work as a form of stewardship: a
+           responsibility to use the abilities I have been given with care,
+           humility, and purpose." data-pt="Gosto da disciplina da programação de baixo nível e da
+            <span id='matrix-toggle'>criptografia</span>, áreas em que o
+            raciocínio cuidadoso, a atenção aos detalhes e uma compreensão
+            profunda dos sistemas subjacentes são essenciais. Vejo o bom
+            trabalho como uma forma de doação: uma responsabilidade de usar com
+            cuidado, humildade e propósito as capacidades que me foram dadas.">
+            I enjoy the discipline of low-level programming and <span id='matrix-toggle'>cryptography</span>, where
+            careful reasoning,
+            attention to detail, and a deep understanding of the underlying
+            systems matter. I see good work as a form of stewardship: a
+            responsibility to use the abilities I have been given with care,
+            humility, and purpose.
+          </p>
+        </section>
+
+        {{ <gsz.section_divider /> }}
+
+        <!-- EXPLORE -->
+        <section class="page-section" id="explore">
+          {{ <gsz.section_header kicker={config.extra.latin.exploratio} title_en="Elsewhere on this site" title_pt="Navegue pelo site" sub_en="Where the work, the writing, and the research live." sub_pt="Onde moram o trabalho, os escritos e a pesquisa." /> }}
+
+          <ul class="article-list projects-list">
+            <li class="project-item">
+              <h3 class="project-name">
+                <a href="/portfolio/" data-en="Portfolio" data-pt="Portfólio">Portfolio</a>
+              </h3>
+              <div class="project-meta">{{ config.extra.latin.opus }}</div>
+              <p class="project-desc"
+                data-en="Projects, professional experience, and education in software engineering and research."
+                data-pt="Projetos, experiência profissional e formação em engenharia de software e pesquisa.">
+                Projects, professional experience, and education in software engineering and research.</p>
+            </li>
+            <li class="project-item">
+              <h3 class="project-name">
+                <a href="/blog/" data-en="Blog" data-pt="Blog">Blog</a>
+              </h3>
+              <div class="project-meta">{{ config.extra.latin.archivum }}</div>
+              <p class="project-desc"
+                data-en="Long-form writing on code, systems, cryptography, and studies."
+                data-pt="Textos longos sobre código, sistemas, criptografia e estudos.">
+                Long-form writing on code, systems, cryptography, and studies.</p>
+            </li>
+            <li class="project-item">
+              <h3 class="project-name">
+                <a href="/research/" data-en="Research" data-pt="Pesquisa">Research</a>
+              </h3>
+              <div class="project-meta">{{ config.extra.latin.inquisitio }}</div>
+              <p class="project-desc"
+                data-en="Publications and references from academic research, mostly post-quantum cryptography."
+                data-pt="Publicações e referências da pesquisa acadêmica, sobretudo em criptografia pós-quântica.">
+                Publications and references from academic research, mostly post-quantum cryptography.</p>
+            </li>
+            <li class="project-item">
+              <h3 class="project-name">
+                <a href="/art/" data-en="Art" data-pt="Arte">Art</a>
+              </h3>
+              <div class="project-meta">{{ config.extra.latin.pinacotheca }}</div>
+              <p class="project-desc"
+                data-en="A gallery of drawings and artworks, each with its own page."
+                data-pt="Uma galeria de desenhos e obras de arte, cada um com sua própria página.">
+                A gallery of drawings and artworks, each with its own page.</p>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- LATERAL COLUMN -->
+      <aside class="sidebar">
+
+        <!-- POSTS INDEX -->
+        {% set posts = get_section(path="blog/posts/_index.md") %}
+        <div class="panel index-box">
+          {{ <gsz.panel_header kicker={config.extra.latin.archivum} title_en="Index of writings" title_pt="Índice de escritos" /> }}
+          <ul class="article-list">
+            {% for page in posts.pages %}
+            {% if loop.index <= 3 %} <li>
+              <span class="post-date">{{ page.date | date(format="%Y") }}</span>
+              <a href="{{ page.path | safe }}" class="article-link">{{ page.title }}</a>
+              </li>
+              {% endif %}
+              {% endfor %}
+          </ul>
+          <a href="/blog/" class="view-all-btn" data-en="SEE THE FULL CATALOGUE →"
+            data-pt="VEJA O CATÁLOGO COMPLETO →">SEE THE FULL CATALOGUE →</a>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="panel">
+          {{ <gsz.panel_header kicker={config.extra.latin.contactus} title_en="Connect" title_pt="Contato" /> }}
+          <ul class="article-list social-list">
+            <li>
+              <img class="social-icon" width="18" height="18" src="./images/icons/GZS.svg" alt="gabrielzschmitz blog">
+              <a href="/blog" class="article-link">Blog</a>
+            </li>
+            <li>
+              <svg class="social-icon" viewBox="0 0 496 512" width="18" height="18" aria-hidden="true">
+                <path fill="currentColor"
+                  d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 1.9zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8z" />
+              </svg>
+              <a href="https://github.com/gabrielzschmitz" target="_blank" rel="noopener"
+                class="article-link">GitHub</a>
+            </li>
+            <li>
+              <svg class="social-icon" viewBox="0 0 448 512" width="18" height="18" aria-hidden="true">
+                <path fill="currentColor"
+                  d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8 0 24.1 24.1 0 53.8 0s53.8 24.1 53.8 53.8c0 29.7-24.1 54.3-53.8 54.3zM448 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
+              </svg>
+              <a href="https://www.linkedin.com/in/gabrielzschmitz" target="_blank" rel="noopener"
+                class="article-link">LinkedIn</a>
+            </li>
+            <li>
+              <svg class="social-icon" viewBox="0 0 512 512" width="18" height="18" aria-hidden="true">
+                <path fill="currentColor"
+                  d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
+              </svg>
+              <a href="mailto:gabrielzschmitz@protonmail.com" target="_blank" rel="noopener"
+                class="article-link">E-mail</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- EMBLEM RÉSUMÉ -->
+        <div class="panel seal-box">
+          <a href="./resume/resume.pdf" data-resume target="_blank" rel="noopener" class="seal-link">
+            <div class="seal-frame">
+              <div class="seal-glyph">⚔ <span class="seal-hiero">𓇣</span> ⚔</div>
+              <p class="seal-label">{{ config.extra.latin.curriculum_vitae }}</p>
+              <p class="seal-motto">{{ config.extra.latin.festina_lente }}</p>
+            </div>
+          </a>
+        </div>
+
+      </aside>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-divider">♦ ♦ ♦</div>
+      <p data-en="Printed digitally somewhere on the web." data-pt="Impresso digitalmente em algum lugar da web.">
+        Printed digitally somewhere on the web.
+      </p>
+
+      <p class="copyright"
+        data-en="<a style='color: inherit; text-decoration: none;' href='https://www.instagram.com/gabriel_santos_schmitz/'>©</a> <span data-roman-year>MMXXVI</span> - Gabriel dos Santos Schmitz - All Rights Reserved"
+        data-pt="<a style='color: inherit; text-decoration: none;' href='https://www.instagram.com/gabriel_santos_schmitz/'>©</a> <span data-roman-year>MMXXVI</span> - Gabriel dos Santos Schmitz - Todos os direitos reservados">
+        <a style="color: inherit; text-decoration: none;" href="https://www.instagram.com/gabriel_santos_schmitz/">©</a>
+        <span data-roman-year>MMXXVI</span> - Gabriel dos Santos Schmitz - All Rights Reserved
+      </p>
+    </footer>
+
+  </div>
+
+  <canvas id="matrix-canvas"></canvas>
+
+  <div class="cube-stage">
+    <div class="cube">
+      <div class="cube-face cube-face--left"></div>
+      <div class="cube-face cube-face--right"></div>
+      <div class="cube-face cube-face--top"></div>
+      <div class="cube-face cube-face--bottom"></div>
+      <div class="cube-face cube-face--front"></div>
+      <div class="cube-face cube-face--back"></div>
+    </div>
+  </div>
+
+  {% include "partials/footer_scripts.html" %}
+  {% include "partials/body_analytics.html" %}
+</body>
+
+</html>

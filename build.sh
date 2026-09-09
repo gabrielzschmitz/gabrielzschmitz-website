@@ -47,7 +47,7 @@ BIB_REFPEC_MINI="mini"
 REFPEC_MINI_SRC="./static/research/refspec/mini.html"
 
 RESEARCH_HTML="./public/research/index.html"
-PORTFOLIO_HTML="./public/index.html"
+PORTFOLIO_HTML="./public/portfolio/index.html"
 
 # ============================================================
 # Banner
@@ -382,7 +382,7 @@ run_screenshots() {
     fi
 
     # Default page → output mapping (README demo images).
-    local shots="${SHOT_PAGES:-/=website-demo.png /blog=blog-demo.png /research=research-demo.png /art=art-demo.png}"
+    local shots="${SHOT_PAGES:-/=website-demo.png /blog=blog-demo.png /research=research-demo.png /art=art-demo.png /portfolio=portfolio-demo.png}"
 
     ( cd ./public && exec python3 -m http.server "$port" >/dev/null 2>&1 ) &
     local serve_pid=$!

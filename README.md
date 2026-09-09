@@ -9,8 +9,9 @@
 This repository contains the full source code for my personal website. It is
 built as a single [Zola](https://www.getzola.org/) site with
 [BibInject](https://github.com/gabrielzschmitz/BibInject) for bibliography
-injection, serving the handcrafted _portfolio main page_ at `/`, the
-_blog_ at `/blog`, where all long-form writing posts live, the _research
+injection, serving an _about page_ at `/`, the
+_portfolio_ at `/portfolio`, where projects, experience, and education live,
+the _blog_ at `/blog`, where all long-form writing posts live, the _research
 page_ at `/research`, where publications are rendered using BibInject, and
 the _art gallery_ at `/art`.
 
@@ -21,6 +22,13 @@ the _art gallery_ at `/art`.
 
 <p align="center">
   <img align="center" width="640px" src="./static/images/screenshots/website-demo.png" alt="Website Demonstration">
+</p>
+
+
+### Portfolio (`/portfolio`)
+
+<p align="center">
+  <img align="center" width="640px" src="./static/images/screenshots/portfolio-demo.png" alt="Portfolio Demonstration">
 </p>
 
 
@@ -56,12 +64,14 @@ the _art gallery_ at `/art`.
 ├── api/
 │   └── views/[slug].js   # Vercel serverless function: Upstash Redis view counter
 ├── content/
-│   ├── _index.md         # Site root; template = index.html
+│   ├── _index.md         # Site root; template = home.html
+│   ├── portfolio/        # Portfolio section; template = portfolio.html
 │   ├── blog/             # Blog posts, each a folder with index.md + media
 │   ├── research/         # Research section; template = research.html
 │   └── art/              # Art section; _index.md committed, pages generated
 ├── templates/
-│   ├── index.html        # Portfolio main page (/)
+│   ├── home.html         # About home page (/)
+│   ├── portfolio.html    # Portfolio work page (/portfolio)
 │   ├── base.html         # Blog layout (header, footer, shared partials)
 │   ├── blog_home.html    # /blog catalogue (featured, grid, language filter)
 │   ├── research.html     # /research page (BibInject target)
@@ -176,7 +186,7 @@ Watches for changes, rebuilds automatically, and serves locally on port `1111`.
 ```
 
 Builds the site, serves it locally, and captures the README demo images (the
-`/`, `/blog`, `/research`, and `/art` pages) into
+`/`, `/portfolio`, `/blog`, `/research`, and `/art` pages) into
 `./static/images/screenshots/*-demo.png`. Requires a Chromium-based browser and
 Python 3 with `http.server`.
 

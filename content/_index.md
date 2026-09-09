@@ -1,4 +1,4 @@
 +++
 title = "gabrielzschmitz"
-template = "index.html"
+template = "home.html"
 +++

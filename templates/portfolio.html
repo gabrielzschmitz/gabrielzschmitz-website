@@ -3,11 +3,9 @@
 
 <head>
   {% include "partials/head_meta.html" %}
-  <meta name="description" content="gabrielzschmitz's personal website
-                showcasing projects, experience, and research in computer
-                science, programming languages, and post-quantum cryptography.">
+  <meta name="description" content="gabrielzschmitz's portfolio: projects, professional experience, education, and research in computer science, programming languages, and post-quantum cryptography.">
 
-  <title>gabrielzschmitz</title>
+  <title>Portfolio · gabrielzschmitz</title>
 
   {% include "partials/theme_init.html" %}
   {% include "partials/head_analytics.html" %}
@@ -54,7 +52,7 @@
 
       <!-- MAIN NAVEGATION -->
       <nav class="site-nav">
-        <a href="#about" data-en="About" data-pt="Sobre">About</a>
+        <a href="/" data-en="Home" data-pt="Início">Home</a>
         <span class="nav-sep">♦</span>
         <a href="#projects" data-en="Projects" data-pt="Projetos">Projects</a>
         <span class="nav-sep">♦</span>
@@ -70,7 +68,7 @@
       </nav>
 
       <div class="header-meta">
-        <span class="meta-item">SECTIO: PRAESENTATIONE</span>
+        <span class="meta-item">SECTIO: OPERA</span>
         <span class="header-meta-secondary">EDITIO SPECIALIS</span>
       </div>
     </header>
@@ -85,52 +83,6 @@
 
       <!-- MAIN COLUMN -->
       <div class="content-column">
-
-        <!-- ABOUT -->
-        <section class="page-section" id="about">
-          {{ <gsz.section_header kicker={config.extra.latin.manifestatio} title_en="About" title_pt="Sobre" sub_en="A short declaration about who I am and what I do." sub_pt="Uma breve declaração sobre quem sou e o que faço." /> }}
-
-          <p class="drop-cap"
-            data-en="I've been coding since I was 14, starting with <span id='cube-toggle'>Minecraft</span> mods in Java, which eventually led me down the rabbit hole of low-level programming with C and tinkering with simple NCurses apps."
-            data-pt="Programo desde os 14 anos, começando com mods de <span id='cube-toggle'>Minecraft</span> em Java, o que eventualmente me levou ao mundo da programação de baixo nível com C e a experimentar aplicativos simples em NCurses.">
-            I've been coding since I was 14, starting with <span id='cube-toggle'>Minecraft</span> mods in Java,
-            which eventually led me down the
-            rabbit hole of low-level programming with C and tinkering with simple NCurses apps.</p>
-
-          <p data-en="Studying computer engineering at UTFPR deepened my love for programming, and now I'm comfortable with C, C++, Python, Go, Rust, Java, and JavaScript, along with tools like LaTeX, PostgreSQL, Redis, OpenCV, NumPy, and Docker."
-            data-pt="Cursar engenharia de computação na UTFPR aprofundou meu amor pela programação, e agora estou confortável com C, C++, Python, Go, Rust, Java e JavaScript, além de ferramentas como LaTeX, PostgreSQL, Redis, OpenCV, NumPy e Docker.">
-            Studying computer engineering at UTFPR deepened my love for programming, and now I'm comfortable with C,
-            C++, Python, Go, Rust, Java, and JavaScript, along with tools like LaTeX, PostgreSQL, Redis, OpenCV, NumPy,
-            and Docker.</p>
-
-          <blockquote class="pull-quote"
-            data-en="«Pray as though everything depended on God.<br>Work as though everything depended on you.»<span class='quote-source'>— Saint Ignatius of Loyola</span>"
-            data-pt="«Reze como se tudo dependesse de Deus.<br>Trabalhe como se tudo dependesse de você.»<span class='quote-source'>— Santo Inácio de Loyola</span>">
-            «Pray as though
-            everything depended on God.<br>Work as though everything depended on you.»<span class="quote-source">— Saint
-              Ignatius of Loyola</span></blockquote>
-
-          <p data-en="I enjoy the discipline of low-level programming and <span
-             id='matrix-toggle'>cryptography</span>, where careful reasoning,
-           attention to detail, and a deep understanding of the underlying
-           systems matter. I see good work as a form of stewardship: a
-           responsibility to use the abilities I have been given with care,
-           humility, and purpose." data-pt="Gosto da disciplina da programação de baixo nível e da
-            <span id='matrix-toggle'>criptografia</span>, áreas em que o
-            raciocínio cuidadoso, a atenção aos detalhes e uma compreensão
-            profunda dos sistemas subjacentes são essenciais. Vejo o bom
-            trabalho como uma forma de doação: uma responsabilidade de usar com
-            cuidado, humildade e propósito as capacidades que me foram dadas.">
-            I enjoy the discipline of low-level programming and <span id='matrix-toggle'>cryptography</span>, where
-            careful reasoning,
-            attention to detail, and a deep understanding of the underlying
-            systems matter. I see good work as a form of stewardship: a
-            responsibility to use the abilities I have been given with care,
-            humility, and purpose.
-          </p>
-        </section>
-
-        {{ <gsz.section_divider /> }}
 
         <!-- PROJECTS -->
         <section class="page-section" id="projects">
