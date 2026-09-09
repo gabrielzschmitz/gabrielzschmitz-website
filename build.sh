@@ -44,7 +44,7 @@ BIB_REFPEC_MINI="mini"
 # Custom compact refspec shipped with this repo and copied into BibInject's
 # refspec/ dir on every run (even a cached clone), for the portfolio sidebar.
 # The research page uses BibInject's built-in `apa` refspec.
-REFPEC_MINI_SRC="./static/refspec/mini.html"
+REFPEC_MINI_SRC="./scripts/refspec/mini.html"
 
 RESEARCH_HTML="./public/research/index.html"
 PORTFOLIO_HTML="./public/index.html"
