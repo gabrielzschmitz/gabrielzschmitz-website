@@ -4,9 +4,10 @@
 
 {% block content %}
   {% set posts = get_section(path="blog/posts/_index.md") %}
+  {% set banner_code = config.extra.latin.codex ~ '<span id="roman-year"></span>' %}
 
   <!-- ARCHIVE INTRO BANNER -->
-  {% <gsz.archive_banner code={config.extra.latin.codex} title_en="Manuscript Catalog" title_pt="Catálogo de Manuscritos" desc_en="Texts ordered by chronology, and nature. Select a work to open the folio." desc_pt="Textos ordenados por cronologia e natureza. Selecione uma obra para abrir o fólio."> %}
+  {% <gsz.archive_banner code={banner_code} title_en="Manuscript Catalog" title_pt="Catálogo de Manuscritos" desc_en="Texts ordered by chronology, and nature. Select a work to open the folio." desc_pt="Textos ordenados por cronologia e natureza. Selecione uma obra para abrir o fólio."> %}
     <div class="filter-bar">
       <button class="filter-btn active" data-filter="all" data-en="ALL" data-pt="TODOS">ALL</button>
       <button class="filter-btn" data-filter="English">ENGLISH</button>
