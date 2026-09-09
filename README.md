@@ -42,6 +42,67 @@ the _art gallery_ at `/art`.
   <img align="center" width="640px" src="./static/assets/images/screenshots/art-demo.png" alt="Art Gallery Demonstration">
 </p>
 
+## Project Structure
+
+<details>
+<summary>Project Structure</summary>
+
+```text
+.
+├── config.toml              # Zola configuration; [extra.latin] keeps site-wide Latin labels
+├── build.sh                 # Pipeline: art pages → Zola → BibInject
+├── vercel.json              # Vercel install/build commands; output = ./public
+├── package.json             # @upstash/redis (view counter client)
+├── api/
+│   └── views/[slug].js      # Vercel serverless function: Upstash Redis view counter
+├── content/
+│   ├── _index.md            # Site root; template = index.html
+│   ├── blog/                # Blog posts, each a folder with index.md + media
+│   ├── research/            # Research section; template = research.html
+│   └── art/                 # Art section; _index.md committed, pages generated
+├── templates/
+│   ├── index.html           # Portfolio main page (/)
+│   ├── base.html            # Blog layout (header, footer, shared partials)
+│   ├── blog_home.html       # /blog catalogue (featured, grid, language filter)
+│   ├── research.html        # /research page (BibInject target)
+│   ├── art.html             # /art gallery
+│   ├── artwork.html         # Single artwork page
+│   ├── page.html            # Post/page layout
+│   ├── section.html         # Generic section layout
+│   ├── 404.html             # 404 page
+│   ├── components.html      # Global gsz.* Tera v2 components
+│   ├── rss.xml              # Feed template
+│   ├── tags/                # Taxonomy list and single templates
+│   └── partials/            # Reusable blocks (head, analytics, theme, controls, player)
+├── static/
+│   ├── css/
+│   │   ├── core/            # tokens, base, layout, controls, emblem, player, references
+│   │   ├── pages/           # one stylesheet per page type
+│   │   └── effects/         # cube.css (Minecraft effect)
+│   ├── js/                  # Behaviour modules (lang, theme, player, roman, effects, ...)
+│   ├── fonts/               # Self-hosted woff2 + fonts.css
+│   ├── assets/
+│   │   ├── art/             # Artwork files + art.json
+│   │   ├── images/          # icons/ (logos, favicon) and screenshots/
+│   │   ├── music/           # Streamed tracks + credits.json/ATTRIBUTION.md
+│   │   ├── research/        # ref.bib (BibInject source)
+│   │   ├── resume/          # LaTeX source + PDF résumé and logo
+│   │   ├── cursor/          # Cursor images
+│   │   └── certificates/    # PDF certificates
+│   ├── robots.txt
+│   └── under-construction.html
+└── scripts/
+    ├── generate_art.py      # Builds content/art/ pages from static/assets/art/art.json
+    └── refspec/mini.html    # BibInject sidebar layout refspec
+```
+
+Generated at build time:
+
+- `content/art/*/` — created by `scripts/generate_art.py` from `static/assets/art/art.json` (gitignored).
+- `public/` — site output (gitignored); references from `static/assets/research/ref.bib` and the music playlist are injected into it by `build.sh`.
+
+</details>
+
 ## Build
 
 The site is built with **[Zola](https://www.getzola.org/)** and research
@@ -140,7 +201,7 @@ This project is licensed under the MIT License. The images included in this
 project are licensed under the Creative Commons Attribution 4.0 License. See
 the [LICENSE](LICENSE) file for details.
 
-#### Music
+### Music
 
 The music tracks included under [`static/assets/music`](static/assets/music)
 are **not** owned by this project and are not covered by the project's MIT
