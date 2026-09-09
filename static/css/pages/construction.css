@@ -1,0 +1,80 @@
+/* CONSTRUCTION — shared by the 404 page and the static under-construction
+ * page. Both are standalone (no base.html), so the styles live here instead
+ * of being duplicated inline. */
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-serif);
+}
+
+.construction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 100vh;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.construction-gif {
+  line-height: 0;
+  background-color: var(--paper-texture-subtle);
+  border: 3px double var(--border-color);
+  padding: 8px;
+}
+
+.construction-gif img {
+  width: min(260px, 55vh);
+  height: min(260px, 55vh);
+}
+
+.construction-blinker {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 4px;
+  color: var(--burgundy);
+  margin: 0;
+}
+
+.construction-blinker span {
+  display: inline-block;
+  font-weight: 1000;
+  font-size: 2.05rem;
+  animation: uc-blink 1s steps(1) infinite;
+}
+
+@keyframes uc-blink {
+
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.construction-back {
+  font-family: var(--font-accent);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--burgundy);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.construction-back:hover {
+  text-decoration: underline;
+}
