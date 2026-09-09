@@ -49,51 +49,51 @@ the _art gallery_ at `/art`.
 
 ```text
 .
-├── config.toml              # Zola configuration; [extra.latin] keeps site-wide Latin labels
-├── build.sh                 # Pipeline: art pages → Zola → BibInject
-├── vercel.json              # Vercel install/build commands; output = ./public
-├── package.json             # @upstash/redis (view counter client)
+├── config.toml           # Zola configuration; [extra.latin] keeps site-wide Latin labels
+├── build.sh              # Pipeline: art pages → Zola → BibInject
+├── vercel.json           # Vercel install/build commands; output = ./public
+├── package.json          # @upstash/redis (view counter client)
 ├── api/
-│   └── views/[slug].js      # Vercel serverless function: Upstash Redis view counter
+│   └── views/[slug].js   # Vercel serverless function: Upstash Redis view counter
 ├── content/
-│   ├── _index.md            # Site root; template = index.html
-│   ├── blog/                # Blog posts, each a folder with index.md + media
-│   ├── research/            # Research section; template = research.html
-│   └── art/                 # Art section; _index.md committed, pages generated
+│   ├── _index.md         # Site root; template = index.html
+│   ├── blog/             # Blog posts, each a folder with index.md + media
+│   ├── research/         # Research section; template = research.html
+│   └── art/              # Art section; _index.md committed, pages generated
 ├── templates/
-│   ├── index.html           # Portfolio main page (/)
-│   ├── base.html            # Blog layout (header, footer, shared partials)
-│   ├── blog_home.html       # /blog catalogue (featured, grid, language filter)
-│   ├── research.html        # /research page (BibInject target)
-│   ├── art.html             # /art gallery
-│   ├── artwork.html         # Single artwork page
-│   ├── page.html            # Post/page layout
-│   ├── section.html         # Generic section layout
-│   ├── 404.html             # 404 page
-│   ├── components.html      # Global gsz.* Tera v2 components
-│   ├── rss.xml              # Feed template
-│   ├── tags/                # Taxonomy list and single templates
-│   └── partials/            # Reusable blocks (head, analytics, theme, controls, player)
+│   ├── index.html        # Portfolio main page (/)
+│   ├── base.html         # Blog layout (header, footer, shared partials)
+│   ├── blog_home.html    # /blog catalogue (featured, grid, language filter)
+│   ├── research.html     # /research page (BibInject target)
+│   ├── art.html          # /art gallery
+│   ├── artwork.html      # Single artwork page
+│   ├── page.html         # Post/page layout
+│   ├── section.html      # Generic section layout
+│   ├── 404.html          # 404 page
+│   ├── components.html   # Global gsz.* Tera v2 components
+│   ├── rss.xml           # Feed template
+│   ├── tags/             # Taxonomy list and single templates
+│   └── partials/         # Reusable blocks (head, analytics, theme, controls, player)
 ├── static/
 │   ├── css/
-│   │   ├── core/            # tokens, base, layout, controls, emblem, player, references
-│   │   ├── pages/           # one stylesheet per page type
-│   │   └── effects/         # cube.css (Minecraft effect)
-│   ├── js/                  # Behaviour modules (lang, theme, player, roman, effects, ...)
-│   ├── fonts/               # Self-hosted woff2 + fonts.css
+│   │   ├── core/         # tokens, base, layout, controls, emblem, player, references
+│   │   ├── pages/        # one stylesheet per page type
+│   │   └── effects/      # cube.css (Minecraft effect)
+│   ├── js/               # Behaviour modules (lang, theme, player, roman, effects, ...)
+│   ├── fonts/            # Self-hosted woff2 + fonts.css
 │   ├── assets/
-│   │   ├── art/             # Artwork files + art.json
-│   │   ├── images/          # icons/ (logos, favicon) and screenshots/
-│   │   ├── music/           # Streamed tracks + credits.json/ATTRIBUTION.md
-│   │   ├── research/        # ref.bib (BibInject source)
-│   │   ├── resume/          # LaTeX source + PDF résumé and logo
-│   │   ├── cursor/          # Cursor images
-│   │   └── certificates/    # PDF certificates
+│   │   ├── art/          # Artwork files + art.json
+│   │   ├── images/       # icons/ (logos, favicon) and screenshots/
+│   │   ├── music/        # Streamed tracks + credits.json/ATTRIBUTION.md
+│   │   ├── research/     # ref.bib (BibInject source)
+│   │   ├── resume/       # LaTeX source + PDF résumé and logo
+│   │   ├── cursor/       # Cursor images
+│   │   └── certificates/ # PDF certificates
 │   ├── robots.txt
 │   └── under-construction.html
 └── scripts/
-    ├── generate_art.py      # Builds content/art/ pages from static/assets/art/art.json
-    └── refspec/mini.html    # BibInject sidebar layout refspec
+    ├── generate_art.py   # Builds content/art/ pages from static/assets/art/art.json
+    └── refspec/mini.html # BibInject sidebar layout refspec
 ```
 
 Generated at build time:
