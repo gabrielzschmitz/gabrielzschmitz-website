@@ -47,3 +47,12 @@
     gap: 15px;
   }
 }
+
+/* Artwork-record variant (back link sits inline in the banner). */
+.artwork-intro {
+  border-bottom: 3px double var(--border-color);
+}
+
+.archive-intro-banner .artwork-back {
+  margin-bottom: 0;
+}

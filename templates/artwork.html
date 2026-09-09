@@ -5,17 +5,16 @@
 {% block description %}{% if page.description %}{{ page.description }}{% else %}{{ config.description }}{% endif %}{% endblock description %}
 
 {% block content %}
-  <section class="archive-intro-banner artwork-intro">
-    <div class="archive-intro-body">
-      <span class="archive-code">PICTURA — {% if page.extra.roman_year %}<span>{{ page.extra.roman_year }}</span>{% else %}<span id="roman-year"></span>{% endif %}</span>
-      <h2 data-en="Artwork" data-pt="Obra">Artwork</h2>
-      <p class="artwork-intro-desc" data-no-roman
-        data-en="{{ page.extra.description_en }}" data-pt="{{ page.extra.description_pt }}">{{ page.extra.description_en }}</p>
-    </div>
+  {% if page.extra.roman_year %}
+    {% set pictura_code = 'PICTURA — <span>' ~ page.extra.roman_year ~ '</span>' %}
+  {% else %}
+    {% set pictura_code = 'PICTURA — <span id="roman-year"></span>' %}
+  {% endif %}
+  {% <gsz.archive_banner code={pictura_code} title_en="Artwork" title_pt="Obra" desc_en={page.extra.description_en} desc_pt={page.extra.description_pt} extra_class="artwork-intro" no_roman_desc={true}> %}
     <a class="artwork-back" href="/art/">
       <span data-en="Back to gallery" data-pt="Voltar à galeria">Back to gallery</span>
     </a>
-  </section>
+  {% </gsz.archive_banner> %}
 
   <article class="artwork">
     <figure class="artwork-figure">
@@ -69,10 +68,7 @@
   <nav class="artwork-nav" aria-label="Artwork navigation">
     {% if page.lower %}
     <a class="art-nav-prev" href="{{ page.lower.path | safe }}" title="{{ page.lower.title }}">
-      <span class="art-nav-arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-          stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6" /></svg>
-      </span>
+      {{ <gsz.art_nav_arrow direction="prev" /> }}
       <span class="art-nav-body">
         <span class="art-nav-label" data-en="Previous" data-pt="Anterior">Previous</span>
         <span class="art-nav-title">{{ page.lower.title }}</span>
@@ -80,10 +76,7 @@
     </a>
     {% else %}
     <span class="art-nav-prev is-disabled" aria-disabled="true">
-      <span class="art-nav-arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-          stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6" /></svg>
-      </span>
+      {{ <gsz.art_nav_arrow direction="prev" /> }}
       <span class="art-nav-body">
         <span class="art-nav-label" data-en="Previous" data-pt="Anterior">Previous</span>
         <span class="art-nav-title" data-en="No previous" data-pt="Sem anterior">No previous</span>
@@ -96,10 +89,7 @@
         <span class="art-nav-label" data-en="Next" data-pt="Próxima">Next</span>
         <span class="art-nav-title">{{ page.higher.title }}</span>
       </span>
-      <span class="art-nav-arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-          stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-      </span>
+      {{ <gsz.art_nav_arrow direction="next" /> }}
     </a>
     {% else %}
     <span class="art-nav-next is-disabled" aria-disabled="true">
@@ -107,10 +97,7 @@
         <span class="art-nav-label" data-en="Next" data-pt="Próxima">Next</span>
         <span class="art-nav-title" data-en="No next" data-pt="Sem próxima">No next</span>
       </span>
-      <span class="art-nav-arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-          stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-      </span>
+      {{ <gsz.art_nav_arrow direction="next" /> }}
     </span>
     {% endif %}
   </nav>

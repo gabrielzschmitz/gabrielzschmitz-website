@@ -133,14 +133,6 @@
   margin: 12px 0 12px;
 }
 
-.archive-intro-banner .artwork-back {
-  margin-bottom: 0;
-}
-
-.artwork-intro {
-  border-bottom: 3px double var(--border-color);
-}
-
 .artwork-history {
   font-family: var(--font-serif);
   font-size: 1rem;

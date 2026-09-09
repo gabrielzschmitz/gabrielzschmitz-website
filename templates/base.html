@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ lang | default(value="en") }}">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include "partials/head_meta.html" %}
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}">
-    <link rel="icon" type="image/svg+xml" href="/assets/images/GZS-BG.svg">
-    <link rel="icon" type="image/x-icon" href="/assets/images/GZS-BG.ico">
     {% include "partials/styles_core.html" %}
     <link rel="stylesheet" href="/css/pages/cards.css">
     <link rel="stylesheet" href="/css/pages/prose.css">

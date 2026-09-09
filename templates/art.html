@@ -6,15 +6,7 @@
 
 {% block content %}
   <!-- ART GALLERY BANNER -->
-  <section class="archive-intro-banner">
-    <div class="archive-intro-body">
-      <span class="archive-code">PINACOTHECA — <span id="roman-year"></span></span>
-      <h2 data-en="Art Gallery" data-pt="Galeria de Arte">Art Gallery</h2>
-      <p data-en="Works ordered by chronology. Select a piece to open its record."
-        data-pt="Obras ordenadas por cronologia. Selecione uma obra para abrir seu registro.">Works ordered by chronology. Select a piece to open its
-      record.</p>
-    </div>
-  </section>
+  {{ <gsz.archive_banner code='PINACOTHECA — <span id="roman-year"></span>' title_en="Art Gallery" title_pt="Galeria de Arte" desc_en="Works ordered by chronology. Select a piece to open its record." desc_pt="Obras ordenadas por cronologia. Selecione uma obra para abrir seu registro." /> }}
 
   <!-- MASONRY OF ARTWORKS -->
   <main class="art-masonry">
