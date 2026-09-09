@@ -12,41 +12,18 @@
   <link rel="icon" type="image/x-icon" href="./assets/images/GZS-BG.ico" />
   <title>gabrielzschmitz</title>
 
-  <!-- THEME (applied before first paint so the flag filter matches the saved theme) -->
-  <script>
-    (function () {
-      var theme = localStorage.getItem('newspaper-theme')
-        || localStorage.getItem('theme')
-        || 'light';
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark-mode');
-        if (document.body) document.body.classList.add('dark-mode');
-      }
-    })();
-  </script>
-
-  <!-- VERCEL ANALYTICS -->
-  <script>
-    window.va = window.va || function () {(window.vaq = window.vaq || []).push(arguments);};
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
+  {% include "partials/theme_init.html" %}
+  {% include "partials/head_analytics.html" %}
 
 
   <!-- FONTS (font-display: optional; fonts.css loads blocking at parse so fonts fetch early and are ready before first paint -- no swap shift, no unused preloads) -->
   <link rel="stylesheet" href="/fonts/fonts.css">
 
   <!-- STYLES -->
-  <link rel="stylesheet" href="./css/tokens.css">
-  <link rel="stylesheet" href="./css/base.css">
-  <link rel="stylesheet" href="./css/layout.css">
-  <link rel="stylesheet" href="./css/controls.css">
-  <link rel="stylesheet" href="./css/floating-controls.css">
-  <link rel="stylesheet" href="./css/emblem.css">
-  <link rel="stylesheet" href="./css/article.css">
-  <link rel="stylesheet" href="./css/article-list.css">
-  <link rel="stylesheet" href="./css/references.css">
-  <link rel="stylesheet" href="./css/portfolio.css">
-  <link rel="stylesheet" href="./css/player.css">
+  {% include "partials/styles_core.html" %}
+  <link rel="stylesheet" href="/css/pages/portfolio.css">
+  <link rel="stylesheet" href="/css/pages/portfolio-article.css">
+  <link rel="stylesheet" href="/css/pages/article-list.css">
 </head>
 
 <body>
@@ -101,112 +78,8 @@
       </div>
     </header>
 
-    <!-- FLOATING ICONS: THEME + LANGUAGE + MUSIC -->
-    <div class="floating-controls">
-      <div class="seal-button" id="music-toggle" title="Music">
-        <span class="seal-icon">♪</span>
-      </div>
-      <div class="seal-button" id="theme-toggle" title="Change theme">
-        <span class="seal-icon">✦</span>
-      </div>
-      <div class="seal-button" id="language-toggle" title="Switch language">
-        <svg class="flag-icon" id="language-flag" viewBox="0 0 30 20" width="27" height="18" aria-hidden="true">
-          <rect width="30" height="20" fill="#009c3b"></rect>
-          <polygon points="15,1 29,10 15,19 1,10" fill="#ffdf00"></polygon>
-          <circle cx="15" cy="10" r="6.5" fill="#002776"></circle>
-          <path d="M8.8 9 Q15 11.6 21.2 9 L21.2 11.6 Q15 14.2 8.8 11.6 Z" fill="#fff"></path>
-          <circle cx="10" cy="7.6" r="0.6" fill="#fff"></circle>
-          <circle cx="20" cy="7.6" r="0.6" fill="#fff"></circle>
-          <circle cx="13" cy="5.9" r="0.6" fill="#fff"></circle>
-          <circle cx="17" cy="13.5" r="0.6" fill="#fff"></circle>
-          <circle cx="14.5" cy="14.5" r="0.6" fill="#fff"></circle>
-        </svg>
-      </div>
-    </div>
-
-    <!-- FLOATING MUSIC PLAYER (revealed by music-toggle) -->
-    <aside class="music-floating" id="music-floating" aria-label="Music player" hidden>
-      <div class="music-player" id="music-player">
-        <div class="kicker">MELOS</div>
-        <h3 class="panel-title" data-en="Music" data-pt="Música">Music</h3>
-        <div class="panel-rule"></div>
-
-        <audio id="player-audio" preload="metadata"></audio>
-
-        <div class="player-track-info">
-          <div class="player-now" data-en="Now playing" data-pt="Tocando agora">Now playing</div>
-          <div class="player-title" id="player-title">—</div>
-          <div class="player-artist" id="player-artist"></div>
-          <div class="player-time" id="player-time">0:00 / 0:00</div>
-        </div>
-
-        <div class="player-progress" id="player-progress">
-          <div class="player-progress-bar" id="player-progress-bar"></div>
-        </div>
-
-        <div class="player-controls">
-          <button type="button" class="player-btn" id="player-shuffle" title="Shuffle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="m18 14 4 4-4 4" />
-              <path d="m18 2 4 4-4 4" />
-              <path d="M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22" />
-              <path d="M2 6h1.972a4 4 0 0 1 3.6 2.2" />
-              <path d="M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45" />
-            </svg>
-          </button>
-          <button type="button" class="player-btn" id="player-prev" title="Previous">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M19 20 9 12l10-8v16Z" />
-              <path d="M5 4.5v15" />
-            </svg>
-          </button>
-          <button type="button" class="player-btn player-btn-toggle" id="player-toggle" title="Play">
-            <svg class="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 4.5 19 12 7 19.5v-15Z" />
-            </svg>
-            <svg class="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round" hidden>
-              <path d="M8.5 4.5v15" />
-              <path d="M15.5 4.5v15" />
-            </svg>
-          </button>
-          <button type="button" class="player-btn" id="player-next" title="Next">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M5 4 15 12 5 20V4Z" />
-              <path d="M19 4.5v15" />
-            </svg>
-          </button>
-          <button type="button" class="player-btn" id="player-repeat" title="Repeat">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="m17 2 4 4-4 4" />
-              <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
-              <path d="m7 22-4-4 4-4" />
-              <path d="M21 13v1a4 4 0 0 1-4 4H3" />
-            </svg>
-          </button>
-        </div>
-
-        <div class="player-volume">
-          <span class="player-volume-icon" id="player-volume-label">100%</span>
-          <div class="player-volume-track" id="player-volume-track">
-            <input type="range" id="player-volume" min="0" max="100" value="100" aria-label="Volume">
-            <span class="player-volume-ball" id="player-volume-ball">◉</span>
-          </div>
-        </div>
-
-        <button type="button" class="player-plist-btn" id="player-plist-btn">Track list ▾</button>
-        <ul class="player-plist" id="player-plist" hidden></ul>
-        <div class="player-credit" id="player-credit"></div>
-        <div class="player-autoplay-note" id="player-autoplay" hidden
-          data-en="Autoplay blocked — click to allow in browser"
-          data-pt="Reprodução automática bloqueada — clique para permitir no navegador">Autoplay blocked — click to allow in browser</div>
-      </div>
-    </aside>
+    {% include "partials/floating_controls.html" %}
+    {% include "partials/music_player.html" %}
 
     <div class="section-divider">
       <span>🕇 ┼ 🕇</span>
@@ -646,17 +519,8 @@
     </div>
   </div>
 
-  <script defer src="./js/main.js"></script>
-  <script defer src="./js/lang.js"></script>
-  <script defer src="./js/roman.js"></script>
-  <script defer src="./js/player.js"></script>
-
-  <script>
-    window.si = window.si || function () {
-      (window.siq = window.siq || []).push(arguments);
-    };
-  </script>
-  <script defer src="/_vercel/speed-insights/script.js"></script>
+  {% include "partials/footer_scripts.html" %}
+  {% include "partials/body_analytics.html" %}
 </body>
 
 </html>
