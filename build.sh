@@ -240,7 +240,7 @@ run_build() {
   echo -e "${BOLD}${CYAN}=== Zola build ========================${RESET}"
   ensure_zola
   ensure_bibinject
-  log_warn "Starting Zola build…"
+  log_info "Starting Zola build…"
   "$ZOLA_BIN" build
   log_ok "Zola build complete"
 
@@ -275,9 +275,9 @@ run_serve() {
     # so BibInject could never process it. Instead we run our own watch loop that
     # rebuilds to ./public (baking in BibInject) and serve ./public statically.
 
-    log_warn "Startup build…"
+    log_info "Startup build…"
     generate_art_pages
-    log_warn "Starting Zola build…"
+    log_info "Starting Zola build…"
     "$ZOLA_BIN" build
     log_ok "Zola build complete"
     echo
