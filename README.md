@@ -81,12 +81,11 @@ the _art gallery_ at `/art`.
 │   │   ├── core/          # tokens, base, layout, controls, emblem, player, references
 │   │   ├── pages/         # one stylesheet per page type
 │   │   └── effects/       # cube.css (Minecraft effect)
-│   ├── cursor/            # Cursor images
 │   ├── fonts/             # Self-hosted woff2 + fonts.css
-│   ├── images/            # icons/ (logos, favicon) and screenshots/
+│   ├── images/            # icons/ (logos, favicon, cursor) and screenshots/
 │   ├── js/                # Behaviour modules (lang, theme, player, roman, effects, ...)
 │   ├── music/             # Streamed tracks (playlist emitted to public/ by build.sh)
-│   ├── research/          # ref.bib (BibInject source)
+│   ├── research/          # ref.bib (BibInject source) + refspec/mini.html (sidebar layout)
 │   ├── resume/            # LaTeX source + PDF résumé and logo
 │   ├── robots.txt
 │   └── under-construction.html
@@ -94,8 +93,7 @@ the _art gallery_ at `/art`.
     ├── art.json           # Art gallery registry (source of truth for generate_art.py)
     ├── generate_art.py    # Builds content/art/ pages from scripts/art.json
     ├── credits.json       # Music track credits (consumed by build.sh playlist task)
-    ├── ATTRIBUTION.md     # Track attribution, licensing, takedown notice
-    └── refspec/mini.html  # BibInject sidebar layout refspec
+    └── ATTRIBUTION.md     # Track attribution, licensing, takedown notice
 ```
 
 Generated at build time:
@@ -194,7 +192,7 @@ Tunable via environment variables:
 
 [BibInject](https://github.com/gabrielzschmitz/BibInject) is downloaded from
 its pinned GitHub release into a cache directory . Each build updates its
-`mini` refspec with the repo's `scripts/refspec/mini.html` to keep the sidebar
+`mini` refspec with the repo's `static/research/refspec/mini.html` to keep the sidebar
 layout in sync.
 
 ## License

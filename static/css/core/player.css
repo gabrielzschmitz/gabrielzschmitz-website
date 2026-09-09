@@ -134,7 +134,7 @@
   height: 4px;
   background-color: var(--light-border);
   border-radius: 2px;
-  cursor: url("../../cursor/dagger-9e1426.png") 2 2, auto;
+  cursor: url("../../images/icons/dagger-9e1426.png") 2 2, auto;
   margin: 10px 0 12px 0;
   overflow: hidden;
   position: relative;
@@ -252,7 +252,7 @@
   height: 3px;
   border-radius: 2px;
   outline: none;
-  cursor: url("../../cursor/dagger-9e1426.png") 2 2, auto;
+  cursor: url("../../images/icons/dagger-9e1426.png") 2 2, auto;
   background: linear-gradient(to right,
       var(--burgundy-hover) 0%,
       var(--burgundy-hover) var(--vol, 100%),
@@ -267,7 +267,7 @@
   height: 16px;
   background: transparent;
   border: none;
-  cursor: url("../../cursor/dagger-9e1426.png") 2 2, auto;
+  cursor: url("../../images/icons/dagger-9e1426.png") 2 2, auto;
 }
 
 #player-volume::-moz-range-thumb {
@@ -275,7 +275,7 @@
   height: 16px;
   background: transparent;
   border: none;
-  cursor: url("../../cursor/dagger-9e1426.png") 2 2, auto;
+  cursor: url("../../images/icons/dagger-9e1426.png") 2 2, auto;
 }
 
 #player-volume::-webkit-slider-runnable-track {
