@@ -71,7 +71,6 @@ print_banner() {
   echo -e "       ${BOLD}${BLACK}${BG_RED}|                ${RESET}${BOLD}${WHITE}${BG_RED}▒░${RESET}${BOLD}${BLACK}${BG_RED}     |${RESET}"
   echo -e "       ${BOLD}${BLACK}${BG_RED}|              ${RESET}${BOLD}${WHITE}${BG_RED}█▓▒${RESET}${BOLD}${BLACK}${BG_RED}      |${RESET}"
   echo -e "       ${BOLD}${BLACK}${BG_RED}+-----------------------+${RESET}"
-  echo ""
   echo -e "${BOLD}${RED}"
   echo "======================================="
   echo "          gabrielzschmitz.xyz"
@@ -276,14 +275,17 @@ run_serve() {
     # rebuilds to ./public (baking in BibInject) and serve ./public statically.
 
     log_info "Startup build…"
-    generate_art_pages
-    log_info "Starting Zola build…"
-    "$ZOLA_BIN" build
+    if ! generate_art_pages || ! "$ZOLA_BIN" build; then
+        log_err "Startup build failed - aborting."
+        exit 1
+    fi
     log_ok "Zola build complete"
     echo
 
-    inject_all
-    generate_music_playlist
+    if ! inject_all || ! generate_music_playlist; then
+        log_err "Post-processing failed - aborting."
+        exit 1
+    fi
 
     local port="${PORT:-1111}"
     local serve_pid=""
@@ -304,7 +306,15 @@ run_serve() {
         echo -e "${GREEN}${BOLD}Serving http://127.0.0.1:${port}/${RESET}"
     fi
 
-    trap 'echo; log_warn "Stopping server (pid $serve_pid)..."; kill "$serve_pid" 2>/dev/null || true; exit 0' INT TERM
+    cleanup() {
+        if [[ -n "${serve_pid:-}" ]] && kill -0 "$serve_pid" 2>/dev/null; then
+            log_warn "Stopping server (pid $serve_pid)..."
+            kill "$serve_pid" 2>/dev/null || true
+            wait "$serve_pid" 2>/dev/null || true
+        fi
+    }
+    trap cleanup EXIT
+    trap 'exit 0' INT TERM
 
     local last_fp="$(sources_fingerprint)"
 
@@ -319,10 +329,14 @@ run_serve() {
             last_fp="$fp"
             echo
             echo -e "${YELLOW}${BOLD}Change detected - rebuilding + reinjecting${RESET}"
-            generate_art_pages
-            "$ZOLA_BIN" build
-            inject_all
-            generate_music_playlist
+            if ! generate_art_pages || ! "$ZOLA_BIN" build; then
+                log_err "Rebuild failed - stopping server."
+                exit 1
+            fi
+            if ! inject_all || ! generate_music_playlist; then
+                log_err "Rebuild failed - stopping server."
+                exit 1
+            fi
             echo -e "${GREEN}Rebuild complete.${RESET}"
             echo
         fi
