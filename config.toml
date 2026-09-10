@@ -52,7 +52,7 @@ festina_lente = "«Festina lente»"
 scriptorium = "Scriptorium de Gabriel."
 
 # Catalogue banner codes — the romanized latin prefixes of each archive page.
-codex = "CODEX — "
+codex = "CODEX"
 inquisitio = "INQUISITIONIS"
 pinacotheca = "PINACOTHECA"
 pictura = "PICTURA — "
