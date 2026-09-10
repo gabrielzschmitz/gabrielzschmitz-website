@@ -50,6 +50,7 @@ REFPEC_MINI_SRC="./static/research/refspec/mini.html"
 
 RESEARCH_HTML="./public/research/index.html"
 PORTFOLIO_HTML="./public/portfolio/index.html"
+HOME_HTML="./public/index.html"
 
 # ============================================================
 # Banner
@@ -172,12 +173,16 @@ run_bibinject() {
 }
 
 inject_all() {
-  echo -e "${BOLD}${CYAN}=== BibInject - research page =========${RESET}"
-  run_bibinject "$RESEARCH_HTML" "references" "$BIB_REFPEC"
+  echo -e "${BOLD}${CYAN}=== BibInject - home sidebar ==========${RESET}"
+  run_bibinject "$HOME_HTML" "references-sidebar" "$BIB_REFPEC_MINI"
 
   echo
   echo -e "${BOLD}${CYAN}=== BibInject - portfolio sidebar =====${RESET}"
   run_bibinject "$PORTFOLIO_HTML" "references-sidebar" "$BIB_REFPEC_MINI"
+
+  echo
+  echo -e "${BOLD}${CYAN}=== BibInject - research page =========${RESET}"
+  run_bibinject "$RESEARCH_HTML" "references" "$BIB_REFPEC"
 }
 
 # ============================================================
