@@ -21,6 +21,7 @@
 }
 
 .art-figure {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -54,26 +55,22 @@
   border-color: var(--burgundy);
 }
 
-.art-caption {
-  flex: 0 0 auto;
-  align-self: center;
-  margin: 8px;
-  font-family: var(--font-serif);
+/* Artwork titles are pinned as corner badges on their figure, in the same
+ * editorial style as the ULTIMUS FOLIO badge on the writings catalog. */
+.art-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  background: var(--burgundy);
+  color: #fff;
+  font-family: var(--font-headers);
+  font-size: 1.2rem;
   font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  background-color: var(--burgundy-hover);
-  color: var(--badge-text);
   padding: 2px 8px;
-}
-
-.art-caption span {
-  display: inline-block;
-}
-
-.art-figure--wide .art-caption {
-  font-size: 0.75rem;
+  letter-spacing: 1px;
+  transition: background-color 0.2s ease;
+  pointer-events: none;
 }
 
 .art-empty {

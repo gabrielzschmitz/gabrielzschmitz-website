@@ -16,9 +16,7 @@
         <a class="art-link" href="{{ page.path | safe }}">
           <img class="art-img" src="{{ page.extra.image | safe }}" alt="{{ page.title }}">
         </a>
-        <figcaption class="art-caption">
-          <span>{{ page.title }}</span>
-        </figcaption>
+        <div class="art-badge">{{ page.title }}</div>
       </figure>
     {% else %}
       <p class="art-empty" data-en="No works in the gallery yet."
