@@ -33,7 +33,19 @@
     <div class="site-frame">
       <header class="site-header">
         <nav class="site-nav">
-          <a class="site-title" href="/blog/">Archivum <span class="seal-key">🗝︎</span></a>
+          {% set archive_parts = [] %}
+          {% if page %}{% set archive_parts = page.components %}
+          {% elif section %}{% set archive_parts = section.components %}{% endif %}
+          {% set archive_title = "Archivum" %}
+          {% set seal_key = "🗝︎" %}
+          {% if "art" in archive_parts %}
+            {% set archive_title = "Atelier" %}
+            {% set seal_key = "🖼" %}
+          {% elif "research" in archive_parts and "blog" not in archive_parts %}
+            {% set archive_title = "Vestigium" %}
+            {% set seal_key = "⚗" %}
+          {% endif %}
+          <a class="site-title" href="/blog/">{{ archive_title }}<span class="seal-key">{{ seal_key }}</span></a>
           <span class="nav-links">
             <a href="/" data-en="Home" data-pt="Início">Home</a>
             <span class="nav-sep">♦</span>
