@@ -94,6 +94,10 @@ log_warn() { echo -e "  ${YELLOW}[WARN]${RESET} $1"; }
 log_err()  { echo -e "  ${RED}[ERROR]${RESET} $1"; }
 log_info() { echo -e "  ${CYAN}[INFO]${RESET} $1"; }
 
+# Indent every line of piped output by two spaces so tools like Zola line up
+# with the rest of the build log.
+indent() { sed 's/^/  /'; }
+
 ensure_zola() {
   if [[ "$ZOLA_BIN" == "zola" ]] && command -v zola >/dev/null 2>&1; then
     log_ok "Zola found: $(zola --version)"
@@ -240,7 +244,8 @@ run_build() {
   ensure_zola
   ensure_bibinject
   log_info "Starting Zola build…"
-  "$ZOLA_BIN" build
+  echo ""
+  "$ZOLA_BIN" build 2>&1 | indent
   log_ok "Zola build complete"
 
   echo
@@ -275,7 +280,7 @@ run_serve() {
     # rebuilds to ./public (baking in BibInject) and serve ./public statically.
 
     log_info "Startup build…"
-    if ! generate_art_pages || ! "$ZOLA_BIN" build; then
+    if ! generate_art_pages || ! { echo "" && "$ZOLA_BIN" build 2>&1 | indent; }; then
         log_err "Startup build failed - aborting."
         exit 1
     fi
@@ -329,7 +334,7 @@ run_serve() {
             last_fp="$fp"
             echo
             echo -e "${YELLOW}${BOLD}Change detected - rebuilding + reinjecting${RESET}"
-            if ! generate_art_pages || ! "$ZOLA_BIN" build; then
+            if ! generate_art_pages || ! { echo "" && "$ZOLA_BIN" build 2>&1 | indent; }; then
                 log_err "Rebuild failed - stopping server."
                 exit 1
             fi
