@@ -21,7 +21,7 @@
     },
     {
       "key": "8paths",
-      "image": "8paths.svg",
+      "image": "8paths.png",
       "description_en": "Vector drawing made in Inkscape.",
       "description_pt": "Desenho vetorial feito no Inkscape.",
       "name": "Oito Caminhos para a Honra",
@@ -37,8 +37,24 @@
       "wide": true
     },
     {
+      "key": "hellboy",
+      "image": "hellboy.png",
+      "description_en": "Vector drawing made in Inkscape.",
+      "description_pt": "Desenho vetorial feito no Inkscape.",
+      "name": "Hellboy",
+      "history_en": "A vector study capturing the iconic character created by Mike Mignola. This piece focuses on replicating Mignola's signature high-contrast style, using bold black shadows, stark linework, and muted color blocking.",
+      "history_pt": "Um estudo vetorial capturando o personagem icônico criado por Mike Mignola. Esta obra foca em replicar o estilo de alto contraste característico de Mignola, utilizando sombras pretas marcantes, linhas fortes e blocos de cores sóbrias.",
+      "dimensions": "2153 × 1681 px",
+      "date_en": "12 September 2023",
+      "date_pt": "12 de Setembro de 2023",
+      "technique_en": "Vector drawing",
+      "technique_pt": "Desenho vetorial",
+      "support_en": "Inkscape",
+      "support_pt": "Inkscape"
+    },
+    {
       "key": "petalandiris",
-      "image": "petalandiris.svg",
+      "image": "petalandiris.png",
       "description_en": "Vector drawing made in Inkscape.",
       "description_pt": "Desenho vetorial feito no Inkscape.",
       "name": "Pétala & Íris",
@@ -54,7 +70,7 @@
     },
     {
       "key": "daydream",
-      "image": "daydream.svg",
+      "image": "daydream.png",
       "description_en": "Vector drawing made in Inkscape.",
       "description_pt": "Desenho vetorial feito no Inkscape.",
       "name": "Devaneio",
@@ -70,7 +86,7 @@
     },
     {
       "key": "feather",
-      "image": "feather.svg",
+      "image": "feather.png",
       "description_en": "Vector drawing made in Inkscape.",
       "description_pt": "Desenho vetorial feito no Inkscape.",
       "name": "Pluma",
