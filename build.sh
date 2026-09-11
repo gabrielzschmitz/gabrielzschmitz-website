@@ -269,7 +269,7 @@ for name in sorted(os.listdir(src)):
 with open(out, "w", encoding="utf-8") as f:
     json.dump({"default": default_name, "tracks": tracks}, f, ensure_ascii=False, indent=2)
 PY
-  log_ok "Playlist → ${out} ($(python3 -c "import json;print(len(json.load(open('$out'))))") tracks)"
+  log_ok "Playlist → ${out} ($(python3 -c "import json;print(len(json.load(open('$out'))['tracks']))") tracks)"
 }
 
 # ============================================================
