@@ -1,3 +1,6 @@
 static/art/**/*.psd filter=lfs diff=lfs merge=lfs -text
 static/art/**/*.ai filter=lfs diff=lfs merge=lfs -text
 static/art/**/*.xcf filter=lfs diff=lfs merge=lfs -text
+static/art/**/*.png filter=lfs diff=lfs merge=lfs -text
+static/art/**/*.jpeg filter=lfs diff=lfs merge=lfs -text
+static/art/**/*.jpg filter=lfs diff=lfs merge=lfs -text
