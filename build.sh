@@ -195,6 +195,42 @@ generate_art_pages() {
 }
 
 # ============================================================
+# Art zip archives (static/art/<slug>/ -> public/art/<slug>/<slug>.zip)
+# ============================================================
+
+generate_art_zips() {
+  local src="./static/art"
+  local out="./public/art"
+  python3 - "$src" "$out" <<'PY'
+import os
+import sys
+import zipfile
+
+src, out = sys.argv[1], sys.argv[2]
+count = 0
+for slug in sorted(os.listdir(src)):
+    sdir = os.path.join(src, slug)
+    if not os.path.isdir(sdir):
+        continue
+    files = sorted(f for f in os.listdir(sdir) if not f.lower().endswith(".zip"))
+    if not files:
+        continue
+    odir = os.path.join(out, slug)
+    os.makedirs(odir, exist_ok=True)
+    with zipfile.ZipFile(os.path.join(odir, slug + ".zip"), "w", zipfile.ZIP_DEFLATED) as z:
+        for f in files:
+            z.write(os.path.join(sdir, f), arcname=f)
+    count += 1
+with open(os.path.join(out, ".art-zips-count"), "w") as f:
+    f.write(str(count))
+PY
+  local n
+  n="$(cat ./public/art/.art-zips-count 2>/dev/null || echo 0)"
+  rm -f ./public/art/.art-zips-count
+  log_ok "Art zips → ./public/art/*/*.zip (${n} artworks)"
+}
+
+# ============================================================
 # Music playlist (static/music/*.mp3 -> public/music/playlist.json)
 # ============================================================
 
@@ -256,6 +292,7 @@ run_build() {
   echo
   inject_all
   generate_music_playlist
+  generate_art_zips
 
   echo
   log_ok "Build complete (output in ./public)"
@@ -292,7 +329,7 @@ run_serve() {
     log_ok "Zola build complete"
     echo
 
-    if ! inject_all || ! generate_music_playlist; then
+    if ! inject_all || ! generate_music_playlist || ! generate_art_zips; then
         log_err "Post-processing failed - aborting."
         exit 1
     fi
@@ -343,7 +380,7 @@ run_serve() {
                 log_err "Rebuild failed - stopping server."
                 exit 1
             fi
-            if ! inject_all || ! generate_music_playlist; then
+            if ! inject_all || ! generate_music_playlist || ! generate_art_zips; then
                 log_err "Rebuild failed - stopping server."
                 exit 1
             fi

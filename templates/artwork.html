@@ -11,9 +11,14 @@
     {% set pictura_code = config.extra.latin.pictura ~ '<span id="roman-year"></span>' %}
   {% endif %}
   {% <gsz.archive_banner code={pictura_code} title_en="Artwork" title_pt="Obra" desc_en={page.extra.description_en} desc_pt={page.extra.description_pt} extra_class="artwork-intro" no_roman_desc={true}> %}
-    <a class="artwork-back" href="/art/">
-      <span data-en="Back to gallery" data-pt="Voltar à galeria">Back to gallery</span>
-    </a>
+    <div class="artwork-banner-actions">
+      <a class="artwork-back" href="/art/">
+        <span data-en="Back to gallery" data-pt="Voltar à galeria">Back to gallery</span>
+      </a>
+      <a class="artwork-download" href="/art/{{ page.slug }}/{{ page.slug }}.zip" download>
+        <span data-en="Download files" data-pt="Baixar arquivos">Download files</span>
+      </a>
+    </div>
   {% </gsz.archive_banner> %}
 
   <article class="artwork">

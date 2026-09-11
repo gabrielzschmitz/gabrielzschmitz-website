@@ -105,6 +105,35 @@
   border: 2px solid var(--text-color);
 }
 
+.artwork-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.artwork-download {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: var(--burgundy);
+  border: 2px solid var(--burgundy);
+  color: var(--badge-text);
+  padding: 2px 8px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.artwork-download:hover {
+  color: var(--text-color);
+  background-color: var(--burgundy-hover);
+  border: 2px solid var(--text-color);
+}
+
 .artwork-figure {
   margin: 0;
   text-align: center;
