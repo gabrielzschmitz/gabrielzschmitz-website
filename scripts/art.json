@@ -5,7 +5,7 @@
   "art": [
     {
       "key": "psique",
-      "image": "psique.jpeg",
+      "image": "psique.webp",
       "description_en": "Oil painting on canvas.",
       "description_pt": "Pintura a óleo sobre tela.",
       "name": "Psiquê",
@@ -21,7 +21,7 @@
     },
     {
       "key": "8paths",
-      "image": "8paths.png",
+      "image": "8paths.webp",
       "description_en": "Vector drawing made in Inkscape.",
       "description_pt": "Desenho vetorial feito no Inkscape.",
       "name": "Oito Caminhos para a Honra",
@@ -38,7 +38,7 @@
     },
     {
       "key": "hellboy",
-      "image": "hellboy.png",
+      "image": "hellboy.webp",
       "description_en": "Vector drawing made in Inkscape.",
       "description_pt": "Desenho vetorial feito no Inkscape.",
       "name": "Hellboy",
@@ -54,7 +54,7 @@
     },
     {
       "key": "petalandiris",
-      "image": "petalandiris.png",
+      "image": "petalandiris.webp",
       "description_en": "Vector drawing made in Inkscape.",
       "description_pt": "Desenho vetorial feito no Inkscape.",
       "name": "Pétala & Íris",
@@ -70,7 +70,7 @@
     },
     {
       "key": "daydream",
-      "image": "daydream.png",
+      "image": "daydream.webp",
       "description_en": "Vector drawing made in Inkscape.",
       "description_pt": "Desenho vetorial feito no Inkscape.",
       "name": "Devaneio",
@@ -86,7 +86,7 @@
     },
     {
       "key": "feather",
-      "image": "feather.png",
+      "image": "feather.webp",
       "description_en": "Vector drawing made in Inkscape.",
       "description_pt": "Desenho vetorial feito no Inkscape.",
       "name": "Pluma",
@@ -102,7 +102,7 @@
     },
     {
       "key": "inmemoriam",
-      "image": "inmemoriam.png",
+      "image": "inmemoriam.webp",
       "description_en": "Vector drawing made in Adobe Illustrator CC 2015.",
       "description_pt": "Desenho vetorial feito no Adobe Illustrator CC 2015.",
       "name": "In Memoriam",
@@ -118,7 +118,7 @@
     },
     {
       "key": "survivorgenesis",
-      "image": "survivorgenesis.png",
+      "image": "survivorgenesis.webp",
       "description_en": "Digital drawing made in Adobe Photoshop CC 2015.",
       "description_pt": "Desenho digital feito no Adobe Photoshop CC 2015.",
       "name": "Gênese do Sobrevivente",
@@ -134,7 +134,7 @@
     },
     {
       "key": "solitude",
-      "image": "solitude.png",
+      "image": "solitude.webp",
       "description_en": "Vector drawing made in Adobe Illustrator CC 2015.",
       "description_pt": "Desenho vetorial feito no Adobe Illustrator CC 2015.",
       "name": "Solitude",
@@ -150,7 +150,7 @@
     },
     {
       "key": "xxxtentacion",
-      "image": "xxxtentacion.png",
+      "image": "xxxtentacion.webp",
       "description_en": "Vector drawing made in Adobe Illustrator CC 2015.",
       "description_pt": "Desenho vetorial feito no Adobe Illustrator CC 2015.",
       "name": "XXXTENTACION",
@@ -166,7 +166,7 @@
     },
     {
       "key": "cocoon",
-      "image": "cocoon.png",
+      "image": "cocoon.webp",
       "description_en": "Vector drawing made in Adobe Illustrator CC 2015.",
       "description_pt": "Desenho vetorial feito no Adobe Illustrator CC 2015.",
       "name": "Casulo",
@@ -182,7 +182,7 @@
     },
     {
       "key": "theplague",
-      "image": "theplague.png",
+      "image": "theplague.webp",
       "description_en": "Digital drawing made in Adobe Photoshop CC 2015.",
       "description_pt": "Desenho digital feito no Adobe Photoshop CC 2015.",
       "name": "A Praga",
@@ -198,7 +198,7 @@
     },
     {
       "key": "0xpinguim",
-      "image": "0xpinguim.png",
+      "image": "0xpinguim.webp",
       "description_en": "Vector drawing made in Adobe Illustrator CC 2015.",
       "description_pt": "Desenho vetorial feito no Adobe Illustrator CC 2015.",
       "name": "0xPINGUIM",
@@ -214,7 +214,7 @@
     },
     {
       "key": "sunafternoonandtoddynho",
-      "image": "sunafternoonandtoddynho.png",
+      "image": "sunafternoonandtoddynho.webp",
       "description_en": "Vector drawing made in Adobe Illustrator CC 2015.",
       "description_pt": "Desenho vetorial feito no Adobe Illustrator CC 2015.",
       "name": "Tarde de Sol e Toddynho",
@@ -230,7 +230,7 @@
     },
     {
       "key": "fastandcute",
-      "image": "fastandcute.png",
+      "image": "fastandcute.webp",
       "description_en": "Vector drawing made in Adobe Illustrator CC 2015.",
       "description_pt": "Desenho vetorial feito no Adobe Illustrator CC 2015.",
       "name": "Fast & Cute",
@@ -246,7 +246,7 @@
     },
     {
       "key": "miniature",
-      "image": "miniature.png",
+      "image": "miniature.webp",
       "description_en": "Vector drawing made in Adobe Illustrator CC 2015.",
       "description_pt": "Desenho vetorial feito no Adobe Illustrator CC 2015.",
       "name": "Miniatura",
@@ -262,7 +262,7 @@
     },
     {
       "key": "viridian010",
-      "image": "viridian010.png",
+      "image": "viridian010.webp",
       "description_en": "Vector drawing made in Adobe Illustrator CC 2015.",
       "description_pt": "Desenho vetorial feito no Adobe Illustrator CC 2015.",
       "name": "Viridian #010",
