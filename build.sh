@@ -333,94 +333,94 @@ run_build() {
 # Fingerprint of all source files Zola depends on, so the watch loop can
 # detect changes without extra tooling (inotifywatchers etc.).
 sources_fingerprint() {
-    find ./content ./static ./templates -type f -printf '%p %T@ %s\n' \
-        2>/dev/null | sort | md5sum | awk '{print $1}'
+  find ./content ./static ./templates -type f -printf '%p %T@ %s\n' \
+    2>/dev/null | sort | md5sum | awk '{print $1}'
 }
 
 http_server_available() {
-    command -v python3 >/dev/null 2>&1 && python3 -c "import http.server" >/dev/null 2>&1
+  command -v python3 >/dev/null 2>&1 && python3 -c "import http.server" >/dev/null 2>&1
 }
 
 run_serve() {
-    ensure_zola
-    ensure_bibinject
+  ensure_zola
+  ensure_bibinject
 
-    # zola serve renders in-memory and never writes injected output to ./public,
-    # so BibInject could never process it. Instead we run our own watch loop that
-    # rebuilds to ./public (baking in BibInject) and serve ./public statically.
+  # Zola serve renders in-memory and never writes injected output to ./public,
+  # so BibInject could never process it. Instead we run our own watch loop that
+  # rebuilds to ./public (baking in BibInject) and serve ./public statically.
 
-    log_info "Startup build…"
-    if ! generate_art_pages || ! { echo "" && "$ZOLA_BIN" build 2>&1 | indent; }; then
-        log_err "Startup build failed - aborting."
+  log_info "Startup build…"
+  if ! generate_art_pages || ! { echo "" && "$ZOLA_BIN" build 2>&1 | indent; }; then
+    log_err "Startup build failed - aborting."
+    exit 1
+  fi
+  log_ok "Zola build complete"
+  echo
+
+  if ! inject_all || ! generate_music_playlist || ! generate_art_zips; then
+    log_err "Post-processing failed - aborting."
+    exit 1
+  fi
+
+  local port="${PORT:-1111}"
+  local serve_pid=""
+
+  if http_server_available; then
+    ( cd ./public && exec python3 -m http.server "$port" >/dev/null 2>&1 ) &
+    serve_pid=$!
+    echo
+    echo -e "${GREEN}${BOLD}Serving http://127.0.0.1:${port}/${RESET}"
+  else
+    # No python3 - fall back to zola serve (BibInject output won't be
+    # reflected in the browser, but the build pipeline still runs).
+    log_warn "python3 http.server not found - using zola serve (no BibInject in browser)."
+    "$ZOLA_BIN" serve --port "$port" &
+    serve_pid=$!
+    sleep 2
+    echo
+    echo -e "${GREEN}${BOLD}Serving http://127.0.0.1:${port}/${RESET}"
+  fi
+
+  cleanup() {
+    if [[ -n "${serve_pid:-}" ]] && kill -0 "$serve_pid" 2>/dev/null; then
+      log_warn "Stopping server (pid $serve_pid)..."
+      kill "$serve_pid" 2>/dev/null || true
+      wait "$serve_pid" 2>/dev/null || true
+    fi
+  }
+  trap cleanup EXIT
+  trap 'exit 0' INT TERM
+
+  local last_fp="$(sources_fingerprint)"
+
+  echo
+  echo -e "${BOLD}${GREEN}Watching for changes in content/, static/, templates/…${RESET} (Ctrl+C to stop)"
+  echo
+
+  while true; do
+    sleep 2
+    local fp="$(sources_fingerprint)"
+    if [[ "$fp" != "$last_fp" ]]; then
+      last_fp="$fp"
+      echo
+      echo -e "${YELLOW}${BOLD}Change detected - rebuilding + reinjecting${RESET}"
+      if ! generate_art_pages || ! { echo "" && "$ZOLA_BIN" build 2>&1 | indent; }; then
+        log_err "Rebuild failed - stopping server."
         exit 1
-    fi
-    log_ok "Zola build complete"
-    echo
-
-    if ! inject_all || ! generate_music_playlist || ! generate_art_zips; then
-        log_err "Post-processing failed - aborting."
+      fi
+      if ! inject_all || ! generate_music_playlist || ! generate_art_zips; then
+        log_err "Rebuild failed - stopping server."
         exit 1
+      fi
+      echo -e "${GREEN}Rebuild complete.${RESET}"
+      echo
     fi
 
-    local port="${PORT:-1111}"
-    local serve_pid=""
-
-    if http_server_available; then
-        ( cd ./public && exec python3 -m http.server "$port" >/dev/null 2>&1 ) &
-        serve_pid=$!
-        echo
-        echo -e "${GREEN}${BOLD}Serving http://127.0.0.1:${port}/${RESET}"
-    else
-        # No python3 - fall back to zola serve (BibInject output won't be
-        # reflected in the browser, but the build pipeline still runs).
-        log_warn "python3 http.server not found - using zola serve (no BibInject in browser)."
-        "$ZOLA_BIN" serve --port "$port" &
-        serve_pid=$!
-        sleep 2
-        echo
-        echo -e "${GREEN}${BOLD}Serving http://127.0.0.1:${port}/${RESET}"
+    if ! kill -0 "$serve_pid" 2>/dev/null; then
+      log_err "Server stopped unexpectedly."
+      exit 1
     fi
-
-    cleanup() {
-        if [[ -n "${serve_pid:-}" ]] && kill -0 "$serve_pid" 2>/dev/null; then
-            log_warn "Stopping server (pid $serve_pid)..."
-            kill "$serve_pid" 2>/dev/null || true
-            wait "$serve_pid" 2>/dev/null || true
-        fi
-    }
-    trap cleanup EXIT
-    trap 'exit 0' INT TERM
-
-    local last_fp="$(sources_fingerprint)"
-
-    echo
-    echo -e "${BOLD}${GREEN}Watching for changes in content/, static/, templates/…${RESET} (Ctrl+C to stop)"
-    echo
-
-    while true; do
-        sleep 2
-        local fp="$(sources_fingerprint)"
-        if [[ "$fp" != "$last_fp" ]]; then
-            last_fp="$fp"
-            echo
-            echo -e "${YELLOW}${BOLD}Change detected - rebuilding + reinjecting${RESET}"
-            if ! generate_art_pages || ! { echo "" && "$ZOLA_BIN" build 2>&1 | indent; }; then
-                log_err "Rebuild failed - stopping server."
-                exit 1
-            fi
-            if ! inject_all || ! generate_music_playlist || ! generate_art_zips; then
-                log_err "Rebuild failed - stopping server."
-                exit 1
-            fi
-            echo -e "${GREEN}Rebuild complete.${RESET}"
-            echo
-        fi
-
-        if ! kill -0 "$serve_pid" 2>/dev/null; then
-            log_err "Server stopped unexpectedly."
-            exit 1
-        fi
-    done
+  done
 }
 
 # ============================================================
@@ -431,91 +431,91 @@ SHOT_DIR="${SHOT_DIR:-./static/images/screenshots}"
 
 # First Chromium-based browser found on PATH.
 chromium_binary() {
-    local bin
-    for bin in chromium-browser chromium google-chrome google-chrome-stable; do
-        if command -v "$bin" >/dev/null 2>&1; then
-            echo "$bin"
-            return 0
-        fi
-    done
-    return 1
+  local bin
+  for bin in chromium-browser chromium google-chrome google-chrome-stable; do
+    if command -v "$bin" >/dev/null 2>&1; then
+      echo "$bin"
+      return 0
+    fi
+  done
+  return 1
 }
 
 # $1 = URL path, $2 = output file. Captures headlessly at --window-size.
 screenshot_page() {
-    local path="$1"
-    local out="$2"
-    local size="${SHOT_SIZE:-2254x1980}"
-    local scale="${SHOT_SCALE:-2}"
-    local width="${size%x*}"
-    local height="${size#*x}"
-    # Render at size/scale CSS pixels with a device scale factor of `scale`,
-    # so the PNG stays ~`size` px wide while the page content is zoomed.
-    local shot_w=$((width / scale))
-    local shot_h=$((height / scale))
-    local url="http://127.0.0.1:${PORT:-1111}${path}"
+  local path="$1"
+  local out="$2"
+  local size="${SHOT_SIZE:-2254x1980}"
+  local scale="${SHOT_SCALE:-2}"
+  local width="${size%x*}"
+  local height="${size#*x}"
+  # Render at size/scale CSS pixels with a device scale factor of `scale`,
+  # so the PNG stays ~`size` px wide while the page content is zoomed.
+  local shot_w=$((width / scale))
+  local shot_h=$((height / scale))
+  local url="http://127.0.0.1:${PORT:-1111}${path}"
 
-    mkdir -p "$(dirname "$out")"
+  mkdir -p "$(dirname "$out")"
 
-    log_info "Shooting ${path} → $(dirname "$out")/$(basename "$out")"
-    "$CHROMIUM" --headless=new --hide-scrollbars \
-        "--force-device-scale-factor=${scale}" \
-        "--window-size=${shot_w},${shot_h}" --virtual-time-budget=3000 \
-        "--screenshot=${out}" "$url" >/dev/null 2>&1
+  log_info "Shooting ${path} → $(dirname "$out")/$(basename "$out")"
+  "$CHROMIUM" --headless=new --hide-scrollbars \
+    "--force-device-scale-factor=${scale}" \
+    "--window-size=${shot_w},${shot_h}" --virtual-time-budget=3000 \
+    "--screenshot=${out}" "$url" >/dev/null 2>&1
 
-    if [[ ! -s "$out" ]]; then
-        log_err "Screenshot failed for ${path} (${out} is empty or missing)"
-        return 1
-    fi
-    log_ok "${path} → ${out}"
+  if [[ ! -s "$out" ]]; then
+    log_err "Screenshot failed for ${path} (${out} is empty or missing)"
+    return 1
+  fi
+  log_ok "${path} → ${out}"
 }
 
 run_screenshots() {
-    ensure_zola
-    ensure_bibinject
-    run_build
+  ensure_zola
+  ensure_bibinject
+  run_build
 
-    CHROMIUM="$(chromium_binary)" || {
-        log_err "No Chromium-based browser found. Install chromium, chromium-browser,\n  google-chrome, or google-chrome-stable, then rerun."
-        exit 1
-    }
-    log_ok "Using \"${CHROMIUM}\" for screenshots"
+  CHROMIUM="$(chromium_binary)" || {
+    log_err "No Chromium-based browser found. Install chromium, chromium-browser,\n  google-chrome, or google-chrome-stable, then rerun."
+      exit 1
+  }
+  log_ok "Using \"${CHROMIUM}\" for screenshots"
 
-    local port="${PORT:-1111}"
-    if ! http_server_available; then
-        log_err "python3 with http.server is required to serve the build for screenshots."
-        exit 1
+  local port="${PORT:-1111}"
+  if ! http_server_available; then
+    log_err "python3 with http.server is required to serve the build for screenshots."
+    exit 1
+  fi
+
+  # Default page → output mapping (README demo images).
+  local shots="${SHOT_PAGES:-/=website-demo.png /blog=blog-demo.png /research=research-demo.png /art=art-demo.png /portfolio=portfolio-demo.png}"
+
+  ( cd ./public && exec python3 -m http.server "$port" >/dev/null 2>&1 ) &
+  local serve_pid=$!
+  trap 'log_warn "Stopping server (pid $serve_pid)..."; kill "$serve_pid" 2>/dev/null || true; exit 1' INT TERM
+  sleep 2
+
+  echo
+  echo -e "${GREEN}${BOLD}Serving http://127.0.0.1:${port}/${RESET}"
+
+  local rc=0
+  local entry path out
+  for entry in $shots; do
+    path="${entry%%=*}"
+    out="${entry#*=}"
+    if [[ "$out" != /* ]]; then
+      out="${SHOT_DIR}/${out}"
     fi
+    screenshot_page "$path" "$out" || rc=1
+  done
 
-    # Default page → output mapping (README demo images).
-    local shots="${SHOT_PAGES:-/=website-demo.png /blog=blog-demo.png /research=research-demo.png /art=art-demo.png /portfolio=portfolio-demo.png}"
+  kill "$serve_pid" 2>/dev/null || true
+  trap - INT TERM
 
-    ( cd ./public && exec python3 -m http.server "$port" >/dev/null 2>&1 ) &
-    local serve_pid=$!
-    trap 'log_warn "Stopping server (pid $serve_pid)..."; kill "$serve_pid" 2>/dev/null || true; exit 1' INT TERM
-    sleep 2
-
-    echo
-    echo -e "${GREEN}${BOLD}Serving http://127.0.0.1:${port}/${RESET}"
-
-    local rc=0
-    local entry path out
-    for entry in $shots; do
-        path="${entry%%=*}"
-        out="${entry#*=}"
-        if [[ "$out" != /* ]]; then
-            out="${SHOT_DIR}/${out}"
-        fi
-        screenshot_page "$path" "$out" || rc=1
-    done
-
-    kill "$serve_pid" 2>/dev/null || true
-    trap - INT TERM
-
-    if [[ "$rc" == 0 ]]; then
-        log_ok "Screenshots saved under ${SHOT_DIR}"
-    fi
-    return "$rc"
+  if [[ "$rc" == 0 ]]; then
+    log_ok "Screenshots saved under ${SHOT_DIR}"
+  fi
+  return "$rc"
 }
 
 # ============================================================
