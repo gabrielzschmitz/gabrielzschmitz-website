@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "curl -sL https://github.com/getzola/zola/releases/download/v0.23.4/zola-v0.23.4-x86_64-unknown-linux-musl.tar.gz | tar xz -C /usr/local/bin",
+  "installCommand": "curl -fsSL https://github.com/getzola/zola/releases/download/v0.23.4/zola-v0.23.4-x86_64-unknown-linux-musl.tar.gz -o /tmp/zola.tar.gz && printf 'd99c51302ebbf909a0d83d4319d4d745b56a93dc49c4a69878c0f0dcaa4c8531  /tmp/zola.tar.gz\n' | sha256sum -c - && tar xz -C /usr/local/bin -f /tmp/zola.tar.gz && rm -f /tmp/zola.tar.gz && npm install",
   "buildCommand": "./build.sh",
   "outputDirectory": "public",
   "framework": null,

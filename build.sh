@@ -34,10 +34,15 @@ RED="\033[31m"
 
 ZOLA_VERSION="v0.23.4"
 ZOLA_URL="https://github.com/getzola/zola/releases/download/${ZOLA_VERSION}/zola-${ZOLA_VERSION}-x86_64-unknown-linux-musl.tar.gz"
+# SHA-256 of the pinned archive above (verified on first fetch; Vercel also
+# verifies the same binary via scripts/install-zola.sh in installCommand).
+ZOLA_SHA256="d99c51302ebbf909a0d83d4319d4d745b56a93dc49c4a69878c0f0dcaa4c8531"
 ZOLA_BIN="${ZOLA_BIN:-zola}"
 
 BIB_VERSION="v2.2.2"
 BIB_URL="https://github.com/gabrielzschmitz/BibInject/archive/refs/tags/${BIB_VERSION}.tar.gz"
+# SHA-256 of the pinned tag tarball above.
+BIB_SHA256="3fe23f35da7486fe839898053a678d1669409a3146631095d8d7c31a3807d76c"
 BIB_DIR="${BIB_DIR:-/tmp/BibInject-${BIB_VERSION}}"
 BIB_SOURCE="./static/research/ref.bib"
 BIB_REFPEC="apa"
@@ -99,6 +104,21 @@ log_info() { echo -e "  ${CYAN}[INFO]${RESET} $1"; }
 # with the rest of the build log.
 indent() { sed 's/^/  /'; }
 
+# Verify a downloaded archive against its pinned SHA-256 before extraction.
+# Fail hard so a tampered/rogue release can never run arbitrary code at build.
+verify_sha256() {
+  local archive="$1" expect="$2" name="$3"
+  local got
+  got="$(sha256sum "$archive" 2>/dev/null | awk '{print $1}')"
+  if [[ -z "$got" || "$got" != "$expect" ]]; then
+    log_err "Checksum mismatch for ${name}:"
+    log_err "  expected $expect"
+    log_err "  got      ${got:-<unable to read archive>}"
+    exit 1
+  fi
+  log_ok "${name} checksum verified"
+}
+
 ensure_zola() {
   if [[ "$ZOLA_BIN" == "zola" ]] && command -v zola >/dev/null 2>&1; then
     log_ok "Zola found: $(zola --version)"
@@ -109,9 +129,13 @@ ensure_zola() {
     return
   fi
   log_warn "Zola not found. Downloading ${ZOLA_VERSION}..."
-  local tmp_dir
+  local tmp_dir archive
   tmp_dir="$(mktemp -d)"
-  curl -sL "$ZOLA_URL" | tar xz -C "$tmp_dir"
+  archive="$(mktemp)"
+  curl -fsSL "$ZOLA_URL" -o "$archive"
+  verify_sha256 "$archive" "$ZOLA_SHA256" "Zola ${ZOLA_VERSION}"
+  tar xz -C "$tmp_dir" -f "$archive"
+  rm -f "$archive"
   mv "$tmp_dir/zola" /usr/local/bin/zola
   ZOLA_BIN="zola"
   rm -rf "$tmp_dir"
@@ -126,10 +150,14 @@ ensure_bibinject() {
 
     rm -rf "$BIB_DIR"
 
-    local tmp_dir
+    local tmp_dir archive
     tmp_dir="$(mktemp -d)"
+    archive="$(mktemp)"
 
-    curl -sL "$BIB_URL" | tar xz -C "$tmp_dir"
+    curl -fsSL "$BIB_URL" -o "$archive"
+    verify_sha256 "$archive" "$BIB_SHA256" "BibInject ${BIB_VERSION}"
+    tar xz -C "$tmp_dir" -f "$archive"
+    rm -f "$archive"
 
     local extracted_dir
     extracted_dir="$(find "$tmp_dir" -mindepth 1 -maxdepth 1 -type d | head -n 1)"
