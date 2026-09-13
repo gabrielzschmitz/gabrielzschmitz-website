@@ -146,7 +146,7 @@
   margin: 0 auto;
   border: 3px double var(--border-color);
   background: var(--paper-texture-subtle);
-  cursor: zoom-in;
+  cursor: url("../../images/icons/mag-9e1426.png") 14 14, zoom-in;
 }
 
 .artwork-header h1 {
@@ -335,7 +335,7 @@
   flex: 0 0 100%;
   min-width: 0;
   height: 100%;
-  cursor: zoom-in;
+  cursor: url("../../images/icons/mag-9e1426.png") 14 14, zoom-in;
 }
 
 .artwork-carousel-img {
@@ -492,6 +492,13 @@
   width: auto;
   height: auto;
   object-fit: contain;
+  cursor: url("../../images/icons/mag-9e1426.png") 14 14, zoom-in;
+}
+
+body.dark-mode .artwork-img,
+body.dark-mode .artwork-carousel-slide,
+body.dark-mode .artwork-lightbox-img {
+  cursor: url("../../images/icons/mag-b32438.png") 14 14, zoom-in;
 }
 
 .artwork-lightbox-btn {

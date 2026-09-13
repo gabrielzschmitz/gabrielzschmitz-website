@@ -83,7 +83,85 @@ function initCursorClickRotation() {
   });
 }
 
+/* ---- Magnifying-glass cursor over artworks -------------------------- */
+
+const MAG_LIGHT_B64 = "iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABmJLR0QA/wD/AP+gvaeTAAADBUlEQVRIia2VT2hUVxTGf+e+SYwlKOPMpBADDuaf+AehIrjRYMWKFCmoBBohIWMgK6OCbgShyy5FUZuFM63dSNOFYKuULGq7UWs3WkqH50tIU12oM4rGQWPm3dOFjZU3L3mTjN/ufd8993cu973zhBANx1cvr3di3QqfA5uAZUAJKCBcF/iu/7F7Naw2ShI0csn2HhU5jZKYv1JuiNVMf9HNLwqoILlk53nQwQXUP8eY7syj/E8LBmYT7acQObwA2KxKVvl4oOj+VjXwQqpjtyiLuhMAlIlYrGF978O7pailJpdON4jKVyGZr8oZ6zsbGgtuTMqv46rsBf4KaTtdti+PVNObZFOd+1EdqQiU3v6i+23QH46vXl7nxEaBzYHofmPBTXeDPx/QgPZUuKrfh8EABp+OP7Pi9wDlQNRSWtEWbCIEqGwIsc/PVzTweMwDfqwIxHwUDYSWoOm8ljtRhYj+HrQsrKwGWPHxv1oi9ZFAFRPiTkUDFTdo1lPeHsmDbUFPHPNrJFCF0crN5ORwc/MHcxVlm9bsEtgRsAuTj/I3I4FGuRTir6mbabx88cPWpgpYovMzrA2r+eMLsFFAAcglO35Q+DQkf4VwDZUxEV2qaBcq6+fYawrVnZnivVuRwK+b2lqtNbeBeFSHEbLACA4nMg/d8TmBANlkWxeYa8DSGqEgFNW3ew4+8W4Eo7evdqbg/WIwW0EmawYqCTFm9EJT+77KXgI6m1rX2KAzxwQOAStCtnsJ/A20AnWRbOVMKW6PD3nedChwVsNsqqtPvdiBZaMabcHKMyD/Iu6PDHnedC7VsVWVyO/uP93G+vsyT8b+mRNYjbLJzuugXVUtViZQf1vYeKpajuoBwItY9uZ3JaQxsaGagH1F94EzbbYAP4evkBlFp/9/1lU1AQH6pvLFyULzJyJ8ScWksUaQtyNS4M+a7jCoXLJtj+JcAg2bw88dZW3NJ3xX/QXvCkZ2AoVANIUx3X1F98F7PeGsvkl0rPSFo8BahLuxcvlc79Px2gfKYvQvajIHqa2QCO4AAAAASUVORK5CYII=";
+const MAG_DARK_B64 = "iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABmJLR0QA/wD/AP+gvaeTAAAC+UlEQVRIia2VTUgUYRjHf8/brqhFYUGHMpJ2i+iDoKV0g7IPLPqYigohgw5dOvUFdQmCjh2joLp3iYwIx5LYQx9Eo2mHjEi2UezrEBhUYrq4M0+HMmJ2dHZb/7f5/9/n/T0vM+8zQogyS1JzxiTejHAYSAGzgRFgCOExnt62BroehNVGSYKGvTTdguoVYN7UpepgzDEr6/T9F1BB7ifqr6vI8RLqfwjSvMd1HpYMtBPpy4ieKgE2oRGMbLWyzouigW2Jhp0i/Nc7ARBlMD7z56odvb0jUWvNo7rNlSLcCMk8Fa6KmtWj7qJYPl9Zg8oB4G1woQp1uZHq00U1ZyfrD4G0FmyCHt3rdt0M+pklqTljM+IZlHWB6NOou6iumVZvKqBBpCWkjzthMICmgZfffV9agHwgqq1Mfgg2EQJUVgdNVe/6VEX7+h1XkPsh0dpoINQGzXycV1GFKtpT6MrCYoAFl79avIpIoIopwKHDxQCzQXM8X7ElqlBENxV4ap4WA8wUuKoX7AWp6smK2pPpHSjbAvZQT7/TGQlU39wK8ZdLdfze3cSG+cGgLVm/T/HDal5fBD8KKAB2It2O6O6QfAyhQ5B+Vb8KpBFYNclew0Zo2v2usysS+CC5IeHhdwM1UR1GyAdaxXjn92S7ByYFArQl042CdgBVZUIBvoKxLPe5Ewz/ftp7XeeJqG4EPkwDcB74mbal9QeDQcEdvL1y86yq3NhZ4AQwN2SzUeA9kADiUWQVrsa05twutyMXCpxQTyoV//KtYpuKrlGoFeE7qn2Gua273I5c+7L1G9WPvnd/jtXt+d7B/f3dHycFFiM72fAYaCyKqQzm8TYVjKeSZOQI4Eas8uD3PzNmYifLAlpZ5/N4zG8AHoXlAuMouYlnVV1c3gmBA30vvs6qrdwOconApFEVg/DviHxT1jsMyk42WMAtIGwO/8DIirJP+K8st9MWlSZgKBANC9JsZZ3P03rCCdnL0gvx9QywQqFX/Ng1a+DZdAyU0vULpbYDsUbb/soAAAAASUVORK5CYII=";
+const MAG_SELECTOR = '.artwork-carousel-slide, .artwork-img, .artwork-lightbox-img';
+const MAG_HOTSPOT = '14 14';
+
+function magShorthand(url) {
+  return `url("${url}") ${MAG_HOTSPOT}, zoom-in`;
+}
+
+/* Rotate a PNG data URL around its centre by `deg` and resolve to a new
+   data URL. Used to tilt the artwork magnifying-glass cursor while held. */
+function rotateDataUrlImage(dataUrl, deg) {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => {
+      const size = img.naturalWidth || 28;
+      const out = Math.ceil(size * Math.SQRT2) + 2;
+      const canvas = document.createElement('canvas');
+      canvas.width = canvas.height = out;
+      const ctx = canvas.getContext('2d');
+      ctx.translate(out / 2, out / 2);
+      ctx.rotate((deg * Math.PI) / 180);
+      ctx.drawImage(img, -size / 2, -size / 2);
+      resolve(canvas.toDataURL('image/png'));
+    };
+    img.onerror = () => resolve(null);
+    img.src = dataUrl;
+  });
+}
+
+function magBase64(dark) {
+  return dark ? MAG_DARK_B64 : MAG_LIGHT_B64;
+}
+
+function magClickRotationKey(dark, deg) {
+  const prefix = dark ? MAG_DARK_B64 : MAG_LIGHT_B64;
+  return prefix.slice(0, 12) + ':' + deg;
+}
+
+const magRotationCache = new Map();
+
+/* Apply the click "press" tilt (CURSOR_CLICK_DEG) to the magnifying-glass
+   cursor as a data URL, cached per theme + degree. */
+function rotatedMagCursor(deg, dark) {
+  const key = magClickRotationKey(dark, deg);
+  if (magRotationCache.has(key)) {
+    return Promise.resolve(magShorthand(magRotationCache.get(key)));
+  }
+  return rotateDataUrlImage('data:image/png;base64,' + magBase64(dark), deg).then(url => {
+    if (!url) return magShorthand(magBase64(dark));
+    magRotationCache.set(key, url);
+    return magShorthand(url);
+  });
+}
+
+let magCursorEl = null;
+
+function initMagCursorRotation() {
+  document.addEventListener('mousedown', (e) => {
+    if (!e.target || !e.target.closest || !e.target.closest(MAG_SELECTOR)) return;
+    const dark = document.body.classList.contains('dark-mode');
+    rotatedMagCursor(CURSOR_CLICK_DEG, dark).then(cur => {
+      if (magCursorEl && magCursorEl !== e.target) magCursorEl.style.cursor = '';
+      magCursorEl = e.target;
+      magCursorEl.style.cursor = cur;
+    });
+  });
+  document.addEventListener('mouseup', () => {
+    if (magCursorEl) {
+      magCursorEl.style.cursor = '';
+      magCursorEl = null;
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   applySwordCursor();
   initCursorClickRotation();
+  initMagCursorRotation();
 });
