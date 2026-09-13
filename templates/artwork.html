@@ -22,10 +22,41 @@
   {% </gsz.archive_banner> %}
 
   <article class="artwork">
+    {% if page.extra.images | length > 1 %}
+    <figure class="artwork-carousel" data-carousel>
+      <div class="artwork-carousel-track">
+        {% for image in page.extra.images %}
+        <div class="artwork-carousel-slide">
+          <img class="artwork-carousel-img"
+            src="{{ image | safe }}"
+            alt="{{ page.title }} — {{ loop.index }}/{{ page.extra.images | length }}"
+            {% if loop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy" decoding="async"{% endif %}>
+        </div>
+        {% endfor %}
+      </div>
+      <button class="artwork-carousel-btn is-prev" type="button" data-carousel-prev aria-label="Previous image">
+        {{ <gsz.art_nav_arrow direction="prev" /> }}
+      </button>
+      <button class="artwork-carousel-btn is-next" type="button" data-carousel-next aria-label="Next image">
+        {{ <gsz.art_nav_arrow direction="next" /> }}
+      </button>
+      <div class="artwork-carousel-dots" data-carousel-dots>
+        {% for image in page.extra.images %}
+        <button class="artwork-carousel-dot{% if loop.first %} is-active{% endif %}" type="button"
+          data-carousel-dot="{{ loop.index0 }}"
+          aria-label="Image {{ loop.index }} of {{ page.extra.images | length }}"
+          aria-current="{% if loop.first %}true{% else %}false{% endif %}"></button>
+        {% endfor %}
+      </div>
+      <span class="artwork-carousel-counter" data-carousel-counter data-no-roman>1 / {{ page.extra.images | length }}</span>
+    </figure>
+    {% else %}
     <figure class="artwork-figure">
-      <img class="artwork-img" src="{{ page.extra.image | safe }}" alt="{{ page.title }}">
+      <img class="artwork-img" src="{{ page.extra.images | first | safe }}" alt="{{ page.title }}"
+        loading="eager" fetchpriority="high">
 
     </figure>
+    {% endif %}
 
     <header class="artwork-header">
       <h1>{{ page.title }}</h1>
@@ -106,4 +137,6 @@
     </span>
     {% endif %}
   </nav>
+
+  <script src="/js/artwork-carousel.js" defer></script>
 {% endblock content %}

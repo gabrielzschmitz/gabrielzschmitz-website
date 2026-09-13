@@ -304,3 +304,148 @@
     max-width: 48%;
   }
 }
+
+/* ------------------------------------------------------------------ *
+ * Artwork image carousel                                               *
+ * ------------------------------------------------------------------ *
+ * Shown on artwork pages whose record lists more than one image; a
+ * single-image artwork keeps the plain .artwork-figure above. The
+ * container's aspect ratio is set from the first slide (before its
+ * dimensions are known the grid rows stay stable), slides share one
+ * track translated by 100% per step, arrows/dots/counter are hidden
+ * logically when only one image exists (template omits them). */
+
+.artwork-carousel {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 3px double var(--border-color);
+  background: var(--paper-texture-subtle);
+}
+
+.artwork-carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+
+.artwork-carousel-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  height: 100%;
+}
+
+.artwork-carousel-img {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.artwork-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--light-border);
+  background: var(--paper-texture-subtle);
+  color: var(--text-color);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.artwork-carousel:hover .artwork-carousel-btn,
+.artwork-carousel:focus-within .artwork-carousel-btn,
+.artwork-carousel-btn:focus-visible {
+  opacity: 1;
+}
+
+.artwork-carousel-btn.is-prev {
+  left: 8px;
+}
+
+.artwork-carousel-btn.is-next {
+  right: 8px;
+}
+
+.artwork-carousel-btn:hover,
+.artwork-carousel-btn:focus-visible {
+  border-color: var(--burgundy);
+  color: var(--burgundy);
+}
+
+.artwork-carousel-btn .art-nav-arrow svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.artwork-carousel-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: 8px;
+  padding: 4px 8px;
+  background: var(--paper-texture-subtle);
+  border: 1px solid var(--light-border);
+}
+
+.artwork-carousel-dot {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--light-border);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.artwork-carousel-dot:hover {
+  border-color: var(--burgundy);
+}
+
+.artwork-carousel-dot.is-active {
+  background: var(--burgundy);
+  border-color: var(--burgundy);
+}
+
+.artwork-carousel-counter {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: var(--text-color);
+  background: var(--paper-texture-subtle);
+  border: 1px solid var(--light-border);
+  padding: 2px 8px;
+}
+
+@media (hover: none) {
+  .artwork-carousel-btn {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .artwork-carousel-track {
+    transition: none;
+  }
+}

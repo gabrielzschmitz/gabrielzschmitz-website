@@ -15,11 +15,14 @@ from the artwork's position in the `"art"` array: the first entry gets weight
 the highest weight. You never set weights by hand.
 
 Workflow to publish a new artwork:
-  1. Drop the image file(s) into static/art/<key>/.
-  2. Add one entry to the `"art"` array in scripts/art.json. The
-     array is ordered newest-first, so a newly created (newer) piece goes at
-     the top and is automatically displayed first with weight `1`; no other
-     entries need editing.
+  1. Drop the image file(s) into static/art/<key>/. Prefer .webp.
+  2. Add one entry to the `"art"` array in scripts/art.json with an
+     `"images"` array listing the file name(s) relative to the artwork's
+     folder. The first image is the gallery cover / hero slide; the order of
+     the rest drives the carousel on the artwork page. The array is ordered
+     newest-first, so a newly created (newer) piece goes at the top and is
+     automatically displayed first with weight `1`; no other entries need
+     editing.
   3. Run ./build.sh.
 """
 
@@ -107,6 +110,12 @@ def render_page(entry: dict, defaults: dict, index: int) -> tuple[str, str]:
     desc_en = str(entry.get("description_en") or "")
     desc_pt = str(entry.get("description_pt") or desc_en)
     image = str(entry.get("image") or "")
+    images = entry.get("images")
+    if images is None:
+        images = [image] if image else []
+    elif isinstance(images, str):
+        images = [images]
+    images = [str(im) for im in images if str(im).strip()]
     dimensions = str(entry.get("dimensions") or entry.get("size") or defaults.get("dimensions") or defaults.get("size") or "")
     technique_en = str(entry.get("technique_en") or entry.get("technique") or "")
     technique_pt = str(entry.get("technique_pt") or technique_en)
@@ -127,7 +136,11 @@ def render_page(entry: dict, defaults: dict, index: int) -> tuple[str, str]:
     year_match = re.search(r"\b(\d{4})\b", date_en)
     roman_year = to_roman(int(year_match.group(1))) if year_match else ""
 
-    image_url = "/art/%s/%s" % (urllib.parse.quote(key), urllib.parse.quote(image))
+    image_urls = [
+        "/art/%s/%s" % (urllib.parse.quote(key), urllib.parse.quote(im))
+        for im in images
+    ]
+    image_url = image_urls[0] if image_urls else ""
 
     body = [
         "+++",
@@ -139,6 +152,7 @@ def render_page(entry: dict, defaults: dict, index: int) -> tuple[str, str]:
         "",
         "[extra]",
         "image = %s" % toml_string(image_url),
+        "images = [%s]" % ", ".join(toml_string(url) for url in image_urls),
     ]
     if wide:
         body.append("wide = true")
@@ -226,8 +240,15 @@ def main() -> int:
         seen.add(key)
         rel_path, contents = render_page(entry, defaults, index)
 
-        image_name = str(entry.get("image") or "")
-        if image_name:
+        image_names = entry.get("images")
+        if image_names is None:
+            image_names = [entry["image"]] if entry.get("image") else []
+        elif isinstance(image_names, str):
+            image_names = [image_names]
+        image_names = [str(im) for im in image_names if str(im).strip()]
+        if not image_names:
+            log_warn(f"Artwork `{key}` has no images; page will have no figure.")
+        for image_name in image_names:
             image_file = ART_DIR / key / image_name
             if not image_file.is_file():
                 log_warn(f"Missing image {image_file.relative_to(ROOT)}")

@@ -14,7 +14,7 @@
     {% for page in section.pages %}
       <figure class="art-figure{% if page.extra.wide %} art-figure--wide{% endif %}">
         <a class="art-link" href="{{ page.path | safe }}">
-          <img class="art-img" src="{{ page.extra.image | safe }}" alt="{{ page.title }}">
+          <img class="art-img" src="{{ page.extra.images | first | safe }}" alt="{{ page.title }}">
         </a>
         <div class="art-badge">{{ page.title }}</div>
       </figure>
