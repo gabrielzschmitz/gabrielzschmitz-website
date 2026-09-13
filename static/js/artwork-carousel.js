@@ -209,7 +209,7 @@
     lightboxImg = lightbox.querySelector(".artwork-lightbox-img");
 
     lightbox.addEventListener("click", function (e) {
-      if (e.target === lightbox) closeLightbox();
+      if (e.target === lightbox || e.target === lightboxImg) closeLightbox();
     });
     lightbox.querySelector("[data-lb-close]").addEventListener("click", closeLightbox);
     var prev = lightbox.querySelector("[data-lb-prev]");
