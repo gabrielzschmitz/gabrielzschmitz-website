@@ -146,6 +146,7 @@
   margin: 0 auto;
   border: 3px double var(--border-color);
   background: var(--paper-texture-subtle);
+  cursor: zoom-in;
 }
 
 .artwork-header h1 {
@@ -334,6 +335,7 @@
   flex: 0 0 100%;
   min-width: 0;
   height: 100%;
+  cursor: zoom-in;
 }
 
 .artwork-carousel-img {
@@ -375,6 +377,22 @@
 .artwork-carousel-btn:focus-visible {
   border-color: var(--burgundy);
   color: var(--burgundy);
+}
+
+/* Chevron hover nudge, matching the artwork prev/next navigation panels. */
+.artwork-carousel-btn.is-prev:hover .art-nav-arrow svg {
+  transform: translateX(-2px);
+}
+
+.artwork-carousel-btn.is-next:hover .art-nav-arrow svg {
+  transform: translateX(2px);
+}
+
+/* The `[hidden]` attribute must win over the control's display so arrows
+ * can be removed at either end of the gallery. */
+.artwork-carousel-btn[hidden],
+.artwork-lightbox-btn[hidden] {
+  display: none;
 }
 
 .artwork-carousel-btn .art-nav-arrow svg {
@@ -433,6 +451,107 @@
 
 @media (prefers-reduced-motion: reduce) {
   .artwork-carousel-track {
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Fullscreen lightbox                                                  *
+ * ------------------------------------------------------------------ *
+ * Opened by clicking a carousel slide (see artwork-carousel.js). The
+ * page behind is dimmed and blurred; the image is letterboxed
+ * (object-fit: contain) so it fills the viewport as far as its own
+ * aspect ratio allows without cropping anything. */
+
+.artwork-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 9, 0.8);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.artwork-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.artwork-lightbox-img {
+  display: block;
+  box-sizing: border-box;
+  max-width: calc(100vw - 96px);
+  max-height: calc(100vh - 96px);
+  max-height: calc(100dvh - 96px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.artwork-lightbox-btn {
+  position: absolute;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  background: var(--bg-color);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.artwork-lightbox-btn svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.artwork-lightbox-btn:hover,
+.artwork-lightbox-btn:focus-visible {
+  border-color: var(--burgundy);
+  color: var(--burgundy);
+}
+
+/* Chevron hover nudge, matching the artwork prev/next navigation panels. */
+.artwork-lightbox-btn.is-prev:hover svg {
+  transform: translateX(-2px);
+}
+
+.artwork-lightbox-btn.is-next:hover svg {
+  transform: translateX(2px);
+}
+
+.artwork-lightbox-btn.is-close {
+  top: 12px;
+  right: 12px;
+}
+
+.artwork-lightbox-btn.is-prev {
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+}
+
+.artwork-lightbox-btn.is-next {
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .artwork-lightbox {
     transition: none;
   }
 }
