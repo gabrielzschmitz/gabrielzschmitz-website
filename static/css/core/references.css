@@ -104,70 +104,98 @@
  * ------------------------------------------------------------------ */
 
 .reference-list {
-  margin-bottom: 40px;
-  display: block;
+  counter-reset: ref;
+  margin: 0 0 40px;
   overflow: visible;
 }
 
 .reference-list p {
-  display: block;
-  columns: 1;
-  column-width: auto;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 8px;
+  row-gap: 2px;
+  margin: 0;
+  padding: 0.25rem 0 1rem 2.6rem;
+  border-bottom: 1px dashed var(--light-border);
   font-family: var(--font-serif);
   font-size: 0.95rem;
-  line-height: 1.7;
-  margin: 0 0 1rem;
-  padding: 0 0 1rem;
-  border-bottom: 1px dashed var(--light-border);
+  line-height: 1.75;
   text-align: left;
 }
 
-.reference-list p:last-child {
+.reference-list p:last-of-type {
   border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
+  padding-bottom: 0.25rem;
 }
 
-.reference-list a.doi-link {
-  display: inline;
-  font-family: var(--font-serif);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 1px;
+/* ENTRY NUMBER — mono index set in the gutter, outside the citation. */
+.reference-list p::before {
+  counter-increment: ref;
+  content: counter(ref, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   color: var(--burgundy);
-  text-decoration: none;
 }
 
-.reference-list a.doi-link:hover {
-  text-decoration: underline;
-  color: var(--burgundy-hover);
+/* CITATION — left in its refspec (APA/ABNT) form; only the numbering and
+ * the DOI/BIBTEX actions below are customised. */
+
+/* ACTIONS — DOI + BIBTEX pushed to the end of the entry. BibInject emits
+ * them before the citation text, so flexbox `order` repositions them
+ * without touching the generated markup. */
+.reference-list a.doi-link,
+.reference-list .bibtex-btn {
+  order: 5;
+  margin-left: auto;
+  font-family: var(--font-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--burgundy);
 }
 
 .reference-list .bibtex-btn {
-  display: inline;
-  font-family: var(--font-serif);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: var(--burgundy);
+  order: 6;
+  margin-left: 0;
   background: transparent;
   padding: 0;
-  margin: 0;
   border: none;
   cursor: pointer;
-  text-decoration: none;
   transition: color 0.15s ease;
 }
 
+.reference-list a.doi-link:hover,
+.reference-list a.doi-link:focus,
 .reference-list .bibtex-btn:hover,
 .reference-list .bibtex-btn:focus {
   text-decoration: underline;
   color: var(--burgundy-hover);
-  background: transparent;
-  padding: 0;
+}
+
+/* EMPTY STATE — only visible when the list has not been filled at build
+ * time (a plain `zola build` without BibInject). */
+.reference-list p.reference-empty {
+  display: block;
   margin: 0;
-  border: none;
-  outline: none;
+  padding: 0.25rem 0 1rem;
+  border-bottom: none;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--text-subtle);
+}
+
+.reference-list p.reference-empty::before {
+  content: none;
+  counter-increment: none;
 }
 
 /* The TEX button is only meant for the /research list, not the compact
