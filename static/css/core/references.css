@@ -134,6 +134,7 @@ html[lang="pt"] .reference-list[data-ref-lang="pt"] {
   font-size: 0.95rem;
   line-height: 1.75;
   text-align: left;
+  overflow-wrap: anywhere;
 }
 
 .reference-list p:last-of-type {
