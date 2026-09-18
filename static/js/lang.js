@@ -29,6 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (flag) flag.outerHTML = isEnglish ? FLAG_BR : FLAG_US;
   }
 
+  /* Mirror the language onto <html lang> so CSS can react to it (e.g. the
+   * /research page shows the APA or ABNT reference list). */
+  function applyLangAttr() {
+    document.documentElement.lang = isEnglish ? "en" : "pt";
+  }
+
   const FLAG_US = '<svg class="flag-icon" id="language-flag" viewBox="0 0 30 20" width="27" height="18" aria-hidden="true">' +
     '<rect width="30" height="20" fill="#fff"></rect>' +
     '<g fill="#b22234">' +
@@ -57,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     '</svg>';
 
   setFlag();
+  applyLangAttr();
   if (!isEnglish) {
     applyLanguage();
   } else {
@@ -68,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("newspaper-lang", isEnglish ? "en" : "pt");
 
     setFlag();
+    applyLangAttr();
     applyLanguage();
     document.dispatchEvent(new CustomEvent("languagechange", { detail: { isEnglish } }));
 

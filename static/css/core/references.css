@@ -109,6 +109,21 @@
   overflow: visible;
 }
 
+/* LANGUAGE — show only the list matching the active site language: English
+ * renders APA, Portuguese renders ABNT. English is the default; lang.js mirrors
+ * the toggle onto <html lang> so this works on load and on every switch. */
+.reference-list[data-ref-lang="pt"] {
+  display: none;
+}
+
+html[lang="pt"] .reference-list[data-ref-lang="en"] {
+  display: none;
+}
+
+html[lang="pt"] .reference-list[data-ref-lang="pt"] {
+  display: block;
+}
+
 .reference-list p {
   position: relative;
   display: block;

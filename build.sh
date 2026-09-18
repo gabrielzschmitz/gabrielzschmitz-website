@@ -46,11 +46,13 @@ BIB_SHA256="93e7b0fdc3a0c879e65c2edf81ba34b6dc8fabd9f1aa6230af231b6b9b970748"
 BIB_DIR="${BIB_DIR:-/tmp/BibInject-${BIB_VERSION}}"
 BIB_SOURCE="./static/research/ref.bib"
 BIB_REFPEC="apa"
+BIB_REFPEC_PT="abnt"
 BIB_REFPEC_MINI="mini"
 
 # Custom compact refspec shipped with this repo and copied into BibInject's
 # refspec/ dir on every run (even a cached clone), for the portfolio sidebar.
-# The research page uses BibInject's built-in `apa` refspec.
+# The research page is injected twice: BibInject's built-in `apa` refspec for
+# English and its built-in `abnt` refspec for Portuguese.
 REFPEC_MINI_SRC="./static/research/refspec/mini.html"
 
 RESEARCH_HTML="./public/research/index.html"
@@ -200,6 +202,45 @@ run_bibinject() {
   log_ok "Injected ${target}"
 }
 
+# BibInject appends its BibTeX copy-to-clipboard <script> to every injection.
+# The research page is injected twice (APA + ABNT), so keep only the first copy:
+# its delegated document listener already handles both reference lists.
+dedupe_reference_scripts() {
+  local html="$1"
+  local total
+  total="$(python3 - "$html" <<'PY'
+import re
+import sys
+
+path = sys.argv[1]
+with open(path, encoding="utf-8") as f:
+    html = f.read()
+
+pattern = re.compile(
+    r"<script>\s*\(function \(\) \{\s*function copyText\(.*?</script>",
+    re.DOTALL,
+)
+
+seen = False
+
+
+def keep_first(match):
+    global seen
+    if seen:
+        return ""
+    seen = True
+    return match.group(0)
+
+
+html, total = pattern.subn(keep_first, html)
+with open(path, "w", encoding="utf-8") as f:
+    f.write(html)
+print(total)
+PY
+)"
+  log_info "Kept 1 of ${total} BibTeX script(s)"
+}
+
 inject_all() {
   echo -e "${BOLD}${CYAN}=== BibInject - home sidebar ==========${RESET}"
   run_bibinject "$HOME_HTML" "references-sidebar" "$BIB_REFPEC_MINI"
@@ -209,8 +250,13 @@ inject_all() {
   run_bibinject "$PORTFOLIO_HTML" "references-sidebar" "$BIB_REFPEC_MINI"
 
   echo
-  echo -e "${BOLD}${CYAN}=== BibInject - research page =========${RESET}"
-  run_bibinject "$RESEARCH_HTML" "references" "$BIB_REFPEC"
+  echo -e "${BOLD}${CYAN}=== BibInject - research (apa / en) ===${RESET}"
+  run_bibinject "$RESEARCH_HTML" "references-en" "$BIB_REFPEC"
+
+  echo
+  echo -e "${BOLD}${CYAN}=== BibInject - research (abnt / pt) ==${RESET}"
+  run_bibinject "$RESEARCH_HTML" "references-pt" "$BIB_REFPEC_PT"
+  dedupe_reference_scripts "$RESEARCH_HTML"
 }
 
 # ============================================================

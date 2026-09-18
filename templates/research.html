@@ -11,8 +11,14 @@
   <!-- RESEARCH INTRO BANNER -->
   {{ <gsz.archive_banner code={banner_code} title_en="Index of Research" title_pt="Índice de Pesquisa" desc_en="Research, papers, and publications ordered by chronology. Select a reference to open the record." desc_pt="Pesquisas, artigos e publicações ordenados por cronologia. Selecione uma referência para abrir o registro." /> }}
 
-  <!-- BIBINJECT TARGET: filled at build time by BibInject from static/research/ref.bib -->
-  <div class="reference-list" id="references">
-    <p class="reference-empty" data-en="Bibliography under construction…" data-pt="Bibliografia em construção…">Bibliography under construction…</p>
+  <!-- BIBINJECT TARGETS: filled at build time by BibInject from
+       static/research/ref.bib. English uses BibInject's APA refspec and
+       Portuguese uses ABNT; references.css shows only the list matching the
+       active site language. -->
+  <div class="reference-list" id="references-en" data-ref-lang="en" lang="en">
+    <p class="reference-empty">Bibliography under construction…</p>
+  </div>
+  <div class="reference-list" id="references-pt" data-ref-lang="pt" lang="pt">
+    <p class="reference-empty">Bibliografia em construção…</p>
   </div>
 {% endblock content %}
