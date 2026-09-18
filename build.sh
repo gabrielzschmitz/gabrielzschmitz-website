@@ -39,10 +39,10 @@ ZOLA_URL="https://github.com/getzola/zola/releases/download/${ZOLA_VERSION}/zola
 ZOLA_SHA256="d99c51302ebbf909a0d83d4319d4d745b56a93dc49c4a69878c0f0dcaa4c8531"
 ZOLA_BIN="${ZOLA_BIN:-zola}"
 
-BIB_VERSION="v2.2.2"
+BIB_VERSION="v2.3.0"
 BIB_URL="https://github.com/gabrielzschmitz/BibInject/archive/refs/tags/${BIB_VERSION}.tar.gz"
 # SHA-256 of the pinned tag tarball above.
-BIB_SHA256="3fe23f35da7486fe839898053a678d1669409a3146631095d8d7c31a3807d76c"
+BIB_SHA256="93e7b0fdc3a0c879e65c2edf81ba34b6dc8fabd9f1aa6230af231b6b9b970748"
 BIB_DIR="${BIB_DIR:-/tmp/BibInject-${BIB_VERSION}}"
 BIB_SOURCE="./static/research/ref.bib"
 BIB_REFPEC="apa"
