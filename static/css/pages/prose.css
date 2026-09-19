@@ -93,6 +93,17 @@ p.drop-cap::first-letter {
   padding: 0;
 }
 
+/* MathJax display equations must stay inside the article frame. MathJax v4
+ * flags oversized equations with overflow="overflow", but its own stylesheet
+ * only handles "scroll"/"truncate", so the wide ones keep their inline
+ * min-width and overflow the page. Clamp them like <pre> and scroll instead. */
+.article-body mjx-container[display="true"] {
+  max-width: 100%;
+  min-width: 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 .article-body table {
   border-collapse: collapse;
   margin: 1rem 0;
