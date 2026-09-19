@@ -23,11 +23,12 @@ taxonomies = [
 smart_punctuation = true
 
 # Language-aware syntax highlighting, colors emitted inline (no extra CSS
-# file).
+# file). Supported themes and languages at:
+# https://github.com/getzola/giallo?tab=readme-ov-file#built-in
 [markdown.highlighting]
 style = "inline"
-light_theme = "github-light"
-dark_theme = "github-dark"
+light_theme = "gruvbox-light-hard"
+dark_theme = "gruvbox-dark-hard"
 
 [extra]
 # Author info surfaced in the templates.
