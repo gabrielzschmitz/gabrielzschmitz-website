@@ -520,9 +520,9 @@ gradientes e Laplacianos.
 
 <img src="/blog/posts/simulacao-de-fluidos-sph-usando-ecs/kernel_funcs.png"
 alt="Os kernels Wρ, Ws e Wν, com h = 1." width="650">
-<em>Figura 5. Os kernels $W_{\rho}$, $W_{s}$ e $W_{\nu}$, com $h = 1$. As linhas
+*Figura 5. Os kernels $W_{\rho}$, $W_{s}$ e $W_{\nu}$, com $h = 1$. As linhas
 espessas representam os kernels, as finas seus gradientes e as tracejadas o
-Laplaciano, escalado em 0,1×.<em>
+Laplaciano, escalado em 0,1×.*
 
 #### 2.1.3 Cálculo da densidade
 
