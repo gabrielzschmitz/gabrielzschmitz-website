@@ -72,12 +72,21 @@ p.drop-cap::first-letter {
 }
 
 .article-body pre {
-  background: var(--paper-texture-subtle);
   border: 1px solid var(--light-border);
   padding: 1rem;
   overflow-x: auto;
   border-radius: 4px;
   font-family: var(--font-mono);
+  /* Zola inlines a gruvbox background; override it with a solid tone from the
+   * site palette (theme-aware token) and pin color-scheme to the active site
+   * theme so the syntax colors follow the toggle and not the OS. */
+  background-color: var(--code-block-bg) !important;
+  color-scheme: light !important;
+}
+
+html.dark-mode .article-body pre,
+body.dark-mode .article-body pre {
+  color-scheme: dark !important;
 }
 
 .article-body code {

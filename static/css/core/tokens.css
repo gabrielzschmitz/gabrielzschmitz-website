@@ -16,6 +16,7 @@
   --paper-texture-subtle: rgba(0, 0, 0, 0.03);
   --blank: rgba(0, 0, 0, 0);
   --code-bg: rgba(0, 0, 0, 0.04);
+  --code-block-bg: #f1eee7;
 }
 
 /* DARK MODE */
@@ -31,6 +32,7 @@ body.dark-mode {
   --light-border: #2a2824;
   --paper-texture-subtle: rgba(255, 255, 255, 0.02);
   --code-bg: rgba(255, 255, 255, 0.06);
+  --code-block-bg: #121212;
 }
 
 /* FONTS */
