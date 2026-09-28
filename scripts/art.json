@@ -4,6 +4,22 @@
   },
   "art": [
     {
+      "key": "paganini",
+      "images": ["paganini.webp", "paganini-shadows.webp", "paganini-b&w.webp"],
+      "description_en": "Vector drawing made in Inkscape.",
+      "description_pt": "Desenho vetorial feito no Inkscape.",
+      "name": "Paganini",
+      "history_en": "A piece begun on February 4, 2026, and only completed on September 28 of the same year. Niccolò Paganini, the renowned Italian violinist associated with the legend of a pact with the Devil, became a symbol of virtuosity pushed to the limits of the supernatural. Here, the octopus evokes this demonic imagery: spreading across the violinist's head and concealing his eyes, it represents an external force that overwhelms his perception and seizes his will, transforming him into an instrument of a strange intelligence beyond his own control.",
+      "history_pt": "Peça iniciada em 4 de fevereiro de 2026 e concluída somente em 28 de setembro do mesmo ano. Niccolò Paganini, célebre violinista italiano associado à lenda do pacto com o Diabo, tornou-se símbolo do virtuosismo levado aos limites do sobrenatural. Aqui, o polvo retoma esse imaginário demoníaco: estendendo-se sobre a cabeça do violinista e ocultando-lhe os olhos, representa uma força exterior que domina sua percepção e se apodera de sua vontade, transformando-o em instrumento de uma inteligência estranha, alheia ao seu controle.",
+      "dimensions": "3375 × 1900 px",
+      "date_en": "28 September 2026",
+      "date_pt": "28 de Setembro de 2026",
+      "technique_en": "Vector drawing",
+      "technique_pt": "Desenho vetorial",
+      "support_en": "Inkscape",
+      "support_pt": "Inkscape"
+    },
+    {
       "key": "psique",
       "images": ["psique.webp", "psique2.webp", "psique-digital.webp"],
       "description_en": "Oil painting on canvas.",
